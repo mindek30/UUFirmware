@@ -1,0 +1,486 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"EKM_CMD.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.EKM_CMD_RXPeek,"ax",%progbits
+  18              		.align	1
+  19              		.global	EKM_CMD_RXPeek
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	EKM_CMD_RXPeek:
+  27              	.LVL0:
+  28              	.LFB3:
+  29              		.file 1 "../02_OS/EKM_CMD/EKM_CMD.c"
+   1:../02_OS/EKM_CMD/EKM_CMD.c **** /*
+   2:../02_OS/EKM_CMD/EKM_CMD.c ****  * EKM_OS.c
+   3:../02_OS/EKM_CMD/EKM_CMD.c ****  *
+   4:../02_OS/EKM_CMD/EKM_CMD.c ****  *  Created on: Jan 14, 2020
+   5:../02_OS/EKM_CMD/EKM_CMD.c ****  *      Author: Eakawit
+   6:../02_OS/EKM_CMD/EKM_CMD.c ****  *      Email: mindek30@gmail.com
+   7:../02_OS/EKM_CMD/EKM_CMD.c ****  * 
+   8:../02_OS/EKM_CMD/EKM_CMD.c ****  * 
+   9:../02_OS/EKM_CMD/EKM_CMD.c ****  *  Update on: Aug 15, 2021
+  10:../02_OS/EKM_CMD/EKM_CMD.c ****  *      Update :
+  11:../02_OS/EKM_CMD/EKM_CMD.c ****  *          1. int EKM_CMD_LineProcess(char *pcCmdLine, EKM_CMD_tCmdLineEntry *psCmdEntry, const ch
+  12:../02_OS/EKM_CMD/EKM_CMD.c ****  *             Add varsplit for split of Parameters
+  13:../02_OS/EKM_CMD/EKM_CMD.c ****  *          2. if (*pcChar == varsplit) // spilt
+  14:../02_OS/EKM_CMD/EKM_CMD.c ****  *             change from (*pcChar == ' ') to (*pcChar == varsplit) 
+  15:../02_OS/EKM_CMD/EKM_CMD.c ****  *      Remove :
+  16:../02_OS/EKM_CMD/EKM_CMD.c ****  *          1. void EKM_OS_CMD_Registor(EKM_CMD_tCmdLineEntry * EKM_OS_CMD);
+  17:../02_OS/EKM_CMD/EKM_CMD.c ****  *             This function is unnecessary for registor Command function.
+  18:../02_OS/EKM_CMD/EKM_CMD.c ****  *          2. EKM_CMD_tCmdLineEntry *EKM_OS_CMD_Link = ((void *)0);
+  19:../02_OS/EKM_CMD/EKM_CMD.c ****  *             This var is unnecessary same (1.)
+  20:../02_OS/EKM_CMD/EKM_CMD.c ****  */
+  21:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  22:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  23:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  24:../02_OS/EKM_CMD/EKM_CMD.c **** * INCLUDE
+  25:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  26:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  27:../02_OS/EKM_CMD/EKM_CMD.c **** #include <stdio.h>
+  28:../02_OS/EKM_CMD/EKM_CMD.c **** #include <stdarg.h>
+  29:../02_OS/EKM_CMD/EKM_CMD.c **** #include <stdint.h>
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 2
+
+
+  30:../02_OS/EKM_CMD/EKM_CMD.c **** #include <stdbool.h>
+  31:../02_OS/EKM_CMD/EKM_CMD.c **** #include <string.h>
+  32:../02_OS/EKM_CMD/EKM_CMD.c **** #include "EKM_CMD.h"
+  33:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  34:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  35:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  36:../02_OS/EKM_CMD/EKM_CMD.c **** * DEFINE
+  37:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  38:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  39:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  40:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  41:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  42:../02_OS/EKM_CMD/EKM_CMD.c **** * GOBAL VARIABLE
+  43:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  44:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  45:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  46:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  47:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  48:../02_OS/EKM_CMD/EKM_CMD.c **** * PRIVATE VARIABLE
+  49:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  50:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  51:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  52:../02_OS/EKM_CMD/EKM_CMD.c **** /////////////////////////////////// CMD SESSION //////////////////////////////////
+  53:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  54:../02_OS/EKM_CMD/EKM_CMD.c **** EKM_CMD_tCmdLineEntry *EKM_OS_CMD_Link = ((void *)0);
+  55:../02_OS/EKM_CMD/EKM_CMD.c **** static char *EKM_CMDg_ppcArgv[EKM_CMD_LINE_MAX_ARGS + 1];
+  56:../02_OS/EKM_CMD/EKM_CMD.c **** int EKM_CMD_LineProcess(char *pcCmdLine, EKM_CMD_tCmdLineEntry *psCmdEntry, char varspilt);
+  57:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  58:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  59:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  60:../02_OS/EKM_CMD/EKM_CMD.c **** * Function: EKM_OS_Tunnel_RXPeek
+  61:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  62:../02_OS/EKM_CMD/EKM_CMD.c **** * Parameters:      -
+  63:../02_OS/EKM_CMD/EKM_CMD.c **** * Returned value:  -
+  64:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  65:../02_OS/EKM_CMD/EKM_CMD.c **** * Description:
+  66:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  67:../02_OS/EKM_CMD/EKM_CMD.c **** * Calling:
+  68:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  69:../02_OS/EKM_CMD/EKM_CMD.c **** int EKM_CMD_RXPeek(unsigned char *g_pcUARTRxBuffer, unsigned char ucChar, int size)
+  70:../02_OS/EKM_CMD/EKM_CMD.c **** {
+  30              		.loc 1 70 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 70 1 is_stmt 0 view .LVU1
+  35 0000 0346     		mov	r3, r0
+  71:../02_OS/EKM_CMD/EKM_CMD.c ****     for (int iCount = 0; iCount < size; iCount++)
+  36              		.loc 1 71 5 is_stmt 1 view .LVU2
+  37              	.LBB2:
+  38              		.loc 1 71 10 view .LVU3
+  39              	.LVL1:
+  40              		.loc 1 71 14 is_stmt 0 view .LVU4
+  41 0002 0020     		movs	r0, #0
+  42              	.LVL2:
+  43              		.loc 1 71 26 is_stmt 1 view .LVU5
+  44              		.loc 1 71 5 is_stmt 0 view .LVU6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 3
+
+
+  45 0004 9042     		cmp	r0, r2
+  46 0006 11DA     		bge	.L11
+  47              	.LBE2:
+  70:../02_OS/EKM_CMD/EKM_CMD.c ****     for (int iCount = 0; iCount < size; iCount++)
+  48              		.loc 1 70 1 view .LVU7
+  49 0008 00B5     		push	{lr}
+  50              	.LCFI0:
+  51              		.cfi_def_cfa_offset 4
+  52              		.cfi_offset 14, -4
+  53              	.L5:
+  54              	.LBB3:
+  72:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+  73:../02_OS/EKM_CMD/EKM_CMD.c ****         if (g_pcUARTRxBuffer[iCount] == ucChar)
+  55              		.loc 1 73 9 is_stmt 1 view .LVU8
+  56              		.loc 1 73 29 is_stmt 0 view .LVU9
+  57 000a 03EB000E 		add	lr, r3, r0
+  58 000e 13F800C0 		ldrb	ip, [r3, r0]	@ zero_extendqisi2
+  59              		.loc 1 73 12 view .LVU10
+  60 0012 8C45     		cmp	ip, r1
+  61 0014 05D0     		beq	.L12
+  71:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+  62              		.loc 1 71 41 is_stmt 1 discriminator 2 view .LVU11
+  71:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+  63              		.loc 1 71 47 is_stmt 0 discriminator 2 view .LVU12
+  64 0016 0130     		adds	r0, r0, #1
+  65              	.LVL3:
+  71:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+  66              		.loc 1 71 26 is_stmt 1 discriminator 2 view .LVU13
+  71:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+  67              		.loc 1 71 5 is_stmt 0 discriminator 2 view .LVU14
+  68 0018 9042     		cmp	r0, r2
+  69 001a F6DB     		blt	.L5
+  70              	.LBE3:
+  74:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+  75:../02_OS/EKM_CMD/EKM_CMD.c ****             g_pcUARTRxBuffer[iCount] = 0;
+  76:../02_OS/EKM_CMD/EKM_CMD.c ****             return (iCount);
+  77:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+  78:../02_OS/EKM_CMD/EKM_CMD.c ****     }
+  79:../02_OS/EKM_CMD/EKM_CMD.c ****     return (-1);
+  71              		.loc 1 79 12 view .LVU15
+  72 001c 4FF0FF30 		mov	r0, #-1
+  73              	.LVL4:
+  74              		.loc 1 79 12 view .LVU16
+  75 0020 02E0     		b	.L1
+  76              	.LVL5:
+  77              	.L12:
+  78              	.LBB4:
+  75:../02_OS/EKM_CMD/EKM_CMD.c ****             return (iCount);
+  79              		.loc 1 75 13 is_stmt 1 view .LVU17
+  75:../02_OS/EKM_CMD/EKM_CMD.c ****             return (iCount);
+  80              		.loc 1 75 38 is_stmt 0 view .LVU18
+  81 0022 0023     		movs	r3, #0
+  82              	.LVL6:
+  75:../02_OS/EKM_CMD/EKM_CMD.c ****             return (iCount);
+  83              		.loc 1 75 38 view .LVU19
+  84 0024 8EF80030 		strb	r3, [lr]
+  76:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 4
+
+
+  85              		.loc 1 76 13 is_stmt 1 view .LVU20
+  86              	.LVL7:
+  87              	.L1:
+  76:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+  88              		.loc 1 76 13 is_stmt 0 view .LVU21
+  89              	.LBE4:
+  80:../02_OS/EKM_CMD/EKM_CMD.c **** }
+  90              		.loc 1 80 1 view .LVU22
+  91 0028 5DF804FB 		ldr	pc, [sp], #4
+  92              	.LVL8:
+  93              	.L11:
+  94              	.LCFI1:
+  95              		.cfi_def_cfa_offset 0
+  96              		.cfi_restore 14
+  79:../02_OS/EKM_CMD/EKM_CMD.c **** }
+  97              		.loc 1 79 12 view .LVU23
+  98 002c 4FF0FF30 		mov	r0, #-1
+  99              	.LVL9:
+ 100              		.loc 1 80 1 view .LVU24
+ 101 0030 7047     		bx	lr
+ 102              		.cfi_endproc
+ 103              	.LFE3:
+ 105              		.section	.text.EKM_CMD_LineProcess,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	EKM_CMD_LineProcess
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 111              		.fpu fpv4-sp-d16
+ 113              	EKM_CMD_LineProcess:
+ 114              	.LVL10:
+ 115              	.LFB4:
+  81:../02_OS/EKM_CMD/EKM_CMD.c **** 
+  82:../02_OS/EKM_CMD/EKM_CMD.c **** /*******************************************************************************
+  83:../02_OS/EKM_CMD/EKM_CMD.c **** * Function: EKM_CMD_LineProcess
+  84:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  85:../02_OS/EKM_CMD/EKM_CMD.c **** * Parameters:      - (char) pcCmdLine = string of command
+  86:../02_OS/EKM_CMD/EKM_CMD.c **** *                  - (EKM_CMD_tCmdLineEntry) psCmdEntry = pointer of struct for function command
+  87:../02_OS/EKM_CMD/EKM_CMD.c **** *                  - (char) varsplit = char for character split of Parameters 
+  88:../02_OS/EKM_CMD/EKM_CMD.c **** * Returned value:  int
+  89:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  90:../02_OS/EKM_CMD/EKM_CMD.c **** * Description: Update 15/08/2021 00:44 add varsplit to change every command type
+  91:../02_OS/EKM_CMD/EKM_CMD.c **** *
+  92:../02_OS/EKM_CMD/EKM_CMD.c **** * Calling:
+  93:../02_OS/EKM_CMD/EKM_CMD.c **** ******************************************************************************/
+  94:../02_OS/EKM_CMD/EKM_CMD.c **** int EKM_CMD_LineProcess(char *pcCmdLine, EKM_CMD_tCmdLineEntry *psCmdEntry, const char varsplit)
+  95:../02_OS/EKM_CMD/EKM_CMD.c **** {
+ 116              		.loc 1 95 1 is_stmt 1 view -0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		.loc 1 95 1 is_stmt 0 view .LVU26
+ 121 0000 70B5     		push	{r4, r5, r6, lr}
+ 122              	.LCFI2:
+ 123              		.cfi_def_cfa_offset 16
+ 124              		.cfi_offset 4, -16
+ 125              		.cfi_offset 5, -12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 5
+
+
+ 126              		.cfi_offset 6, -8
+ 127              		.cfi_offset 14, -4
+ 128 0002 0C46     		mov	r4, r1
+  96:../02_OS/EKM_CMD/EKM_CMD.c ****     char *pcChar;
+ 129              		.loc 1 96 5 is_stmt 1 view .LVU27
+  97:../02_OS/EKM_CMD/EKM_CMD.c ****     uint_fast8_t ui8Argc;
+ 130              		.loc 1 97 5 view .LVU28
+  98:../02_OS/EKM_CMD/EKM_CMD.c ****     bool bFindArg = true;
+ 131              		.loc 1 98 5 view .LVU29
+ 132              	.LVL11:
+  99:../02_OS/EKM_CMD/EKM_CMD.c ****     ui8Argc = 0;
+ 133              		.loc 1 99 5 view .LVU30
+ 100:../02_OS/EKM_CMD/EKM_CMD.c ****     pcChar = pcCmdLine;
+ 134              		.loc 1 100 5 view .LVU31
+ 101:../02_OS/EKM_CMD/EKM_CMD.c ****     while (*pcChar)
+ 135              		.loc 1 101 5 view .LVU32
+  98:../02_OS/EKM_CMD/EKM_CMD.c ****     ui8Argc = 0;
+ 136              		.loc 1 98 10 is_stmt 0 view .LVU33
+ 137 0004 0121     		movs	r1, #1
+ 138              	.LVL12:
+  99:../02_OS/EKM_CMD/EKM_CMD.c ****     pcChar = pcCmdLine;
+ 139              		.loc 1 99 13 view .LVU34
+ 140 0006 0026     		movs	r6, #0
+ 141              		.loc 1 101 11 view .LVU35
+ 142 0008 03E0     		b	.L14
+ 143              	.LVL13:
+ 144              	.L25:
+ 102:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+ 103:../02_OS/EKM_CMD/EKM_CMD.c ****         if (*pcChar == varsplit) // spilt 
+ 104:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 105:../02_OS/EKM_CMD/EKM_CMD.c ****             
+ 106:../02_OS/EKM_CMD/EKM_CMD.c ****             *pcChar = 0;
+ 145              		.loc 1 106 13 is_stmt 1 view .LVU36
+ 146              		.loc 1 106 21 is_stmt 0 view .LVU37
+ 147 000a 0023     		movs	r3, #0
+ 148 000c 0370     		strb	r3, [r0]
+ 107:../02_OS/EKM_CMD/EKM_CMD.c ****             bFindArg = true;
+ 149              		.loc 1 107 13 is_stmt 1 view .LVU38
+ 150              	.LVL14:
+ 151              		.loc 1 107 22 is_stmt 0 view .LVU39
+ 152 000e 0121     		movs	r1, #1
+ 153              	.LVL15:
+ 154              	.L16:
+ 108:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ 109:../02_OS/EKM_CMD/EKM_CMD.c ****         else
+ 110:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 111:../02_OS/EKM_CMD/EKM_CMD.c ****             if (bFindArg)
+ 112:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 113:../02_OS/EKM_CMD/EKM_CMD.c ****                 if (ui8Argc < EKM_CMD_LINE_MAX_ARGS)
+ 114:../02_OS/EKM_CMD/EKM_CMD.c ****                 {
+ 115:../02_OS/EKM_CMD/EKM_CMD.c ****                     EKM_CMDg_ppcArgv[ui8Argc] = pcChar;
+ 116:../02_OS/EKM_CMD/EKM_CMD.c ****                     ui8Argc++;
+ 117:../02_OS/EKM_CMD/EKM_CMD.c ****                     bFindArg = false;
+ 118:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 119:../02_OS/EKM_CMD/EKM_CMD.c ****                 else
+ 120:../02_OS/EKM_CMD/EKM_CMD.c ****                 {
+ 121:../02_OS/EKM_CMD/EKM_CMD.c ****                     return (EKM_CMD_LINE_TOO_MANY_ARGS);
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 6
+
+
+ 122:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 123:../02_OS/EKM_CMD/EKM_CMD.c ****             }
+ 124:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ 125:../02_OS/EKM_CMD/EKM_CMD.c ****         pcChar++;
+ 155              		.loc 1 125 9 is_stmt 1 view .LVU40
+ 156              		.loc 1 125 15 is_stmt 0 view .LVU41
+ 157 0010 0130     		adds	r0, r0, #1
+ 158              	.LVL16:
+ 159              	.L14:
+ 101:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+ 160              		.loc 1 101 11 is_stmt 1 view .LVU42
+ 101:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+ 161              		.loc 1 101 12 is_stmt 0 view .LVU43
+ 162 0012 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 101:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+ 163              		.loc 1 101 11 view .LVU44
+ 164 0014 5BB1     		cbz	r3, .L24
+ 103:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 165              		.loc 1 103 9 is_stmt 1 view .LVU45
+ 103:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 166              		.loc 1 103 12 is_stmt 0 view .LVU46
+ 167 0016 9342     		cmp	r3, r2
+ 168 0018 F7D0     		beq	.L25
+ 111:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 169              		.loc 1 111 13 is_stmt 1 view .LVU47
+ 111:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 170              		.loc 1 111 16 is_stmt 0 view .LVU48
+ 171 001a 0029     		cmp	r1, #0
+ 172 001c F8D0     		beq	.L16
+ 113:../02_OS/EKM_CMD/EKM_CMD.c ****                 {
+ 173              		.loc 1 113 17 is_stmt 1 view .LVU49
+ 113:../02_OS/EKM_CMD/EKM_CMD.c ****                 {
+ 174              		.loc 1 113 20 is_stmt 0 view .LVU50
+ 175 001e 072E     		cmp	r6, #7
+ 176 0020 1DD8     		bhi	.L22
+ 115:../02_OS/EKM_CMD/EKM_CMD.c ****                     ui8Argc++;
+ 177              		.loc 1 115 21 is_stmt 1 view .LVU51
+ 115:../02_OS/EKM_CMD/EKM_CMD.c ****                     ui8Argc++;
+ 178              		.loc 1 115 47 is_stmt 0 view .LVU52
+ 179 0022 104B     		ldr	r3, .L27
+ 180 0024 43F82600 		str	r0, [r3, r6, lsl #2]
+ 116:../02_OS/EKM_CMD/EKM_CMD.c ****                     bFindArg = false;
+ 181              		.loc 1 116 21 is_stmt 1 view .LVU53
+ 116:../02_OS/EKM_CMD/EKM_CMD.c ****                     bFindArg = false;
+ 182              		.loc 1 116 28 is_stmt 0 view .LVU54
+ 183 0028 0136     		adds	r6, r6, #1
+ 184              	.LVL17:
+ 117:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 185              		.loc 1 117 21 is_stmt 1 view .LVU55
+ 117:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 186              		.loc 1 117 30 is_stmt 0 view .LVU56
+ 187 002a 0021     		movs	r1, #0
+ 188 002c F0E7     		b	.L16
+ 189              	.LVL18:
+ 190              	.L24:
+ 126:../02_OS/EKM_CMD/EKM_CMD.c ****     }
+ 127:../02_OS/EKM_CMD/EKM_CMD.c **** 
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 7
+
+
+ 128:../02_OS/EKM_CMD/EKM_CMD.c ****     if (ui8Argc)
+ 191              		.loc 1 128 5 is_stmt 1 view .LVU57
+ 192              		.loc 1 128 8 is_stmt 0 view .LVU58
+ 193 002e 1EB9     		cbnz	r6, .L19
+ 129:../02_OS/EKM_CMD/EKM_CMD.c ****     {
+ 130:../02_OS/EKM_CMD/EKM_CMD.c ****         while (psCmdEntry != ((void *)0))
+ 131:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 132:../02_OS/EKM_CMD/EKM_CMD.c ****             if (!strcmp(EKM_CMDg_ppcArgv[0], psCmdEntry->EKM_CMD_pcCmd) && (psCmdEntry->EKM_CMD_pcC
+ 133:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 134:../02_OS/EKM_CMD/EKM_CMD.c ****                 return (psCmdEntry->EKM_CMD_pfnCmd(ui8Argc, EKM_CMDg_ppcArgv));
+ 135:../02_OS/EKM_CMD/EKM_CMD.c ****             }
+ 136:../02_OS/EKM_CMD/EKM_CMD.c ****             psCmdEntry = psCmdEntry->next;
+ 137:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ 138:../02_OS/EKM_CMD/EKM_CMD.c ****     }
+ 139:../02_OS/EKM_CMD/EKM_CMD.c ****     return (EKM_CMD_LINE_BAD_CMD);
+ 194              		.loc 1 139 12 view .LVU59
+ 195 0030 4FF0FF30 		mov	r0, #-1
+ 196              	.LVL19:
+ 197              		.loc 1 139 12 view .LVU60
+ 198 0034 12E0     		b	.L13
+ 199              	.LVL20:
+ 200              	.L20:
+ 136:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ 201              		.loc 1 136 13 is_stmt 1 view .LVU61
+ 136:../02_OS/EKM_CMD/EKM_CMD.c ****         }
+ 202              		.loc 1 136 24 is_stmt 0 view .LVU62
+ 203 0036 E468     		ldr	r4, [r4, #12]
+ 204              	.LVL21:
+ 205              	.L19:
+ 130:../02_OS/EKM_CMD/EKM_CMD.c ****         {
+ 206              		.loc 1 130 15 is_stmt 1 view .LVU63
+ 207 0038 74B1     		cbz	r4, .L26
+ 132:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 208              		.loc 1 132 13 view .LVU64
+ 132:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 209              		.loc 1 132 18 is_stmt 0 view .LVU65
+ 210 003a 2568     		ldr	r5, [r4]
+ 211 003c 2946     		mov	r1, r5
+ 212 003e 094B     		ldr	r3, .L27
+ 213 0040 1868     		ldr	r0, [r3]
+ 214 0042 FFF7FEFF 		bl	strcmp
+ 215              	.LVL22:
+ 132:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 216              		.loc 1 132 16 view .LVU66
+ 217 0046 0028     		cmp	r0, #0
+ 218 0048 F5D1     		bne	.L20
+ 132:../02_OS/EKM_CMD/EKM_CMD.c ****             {
+ 219              		.loc 1 132 73 discriminator 1 view .LVU67
+ 220 004a 002D     		cmp	r5, #0
+ 221 004c F3D0     		beq	.L20
+ 134:../02_OS/EKM_CMD/EKM_CMD.c ****             }
+ 222              		.loc 1 134 17 is_stmt 1 view .LVU68
+ 134:../02_OS/EKM_CMD/EKM_CMD.c ****             }
+ 223              		.loc 1 134 35 is_stmt 0 view .LVU69
+ 224 004e 6368     		ldr	r3, [r4, #4]
+ 134:../02_OS/EKM_CMD/EKM_CMD.c ****             }
+ 225              		.loc 1 134 25 view .LVU70
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 8
+
+
+ 226 0050 0449     		ldr	r1, .L27
+ 227 0052 3046     		mov	r0, r6
+ 228 0054 9847     		blx	r3
+ 229              	.LVL23:
+ 230 0056 01E0     		b	.L13
+ 231              	.L26:
+ 232              		.loc 1 139 12 view .LVU71
+ 233 0058 4FF0FF30 		mov	r0, #-1
+ 234              	.L13:
+ 140:../02_OS/EKM_CMD/EKM_CMD.c **** }
+ 235              		.loc 1 140 1 view .LVU72
+ 236 005c 70BD     		pop	{r4, r5, r6, pc}
+ 237              	.LVL24:
+ 238              	.L22:
+ 121:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 239              		.loc 1 121 28 view .LVU73
+ 240 005e 6FF00100 		mvn	r0, #1
+ 241              	.LVL25:
+ 121:../02_OS/EKM_CMD/EKM_CMD.c ****                 }
+ 242              		.loc 1 121 28 view .LVU74
+ 243 0062 FBE7     		b	.L13
+ 244              	.L28:
+ 245              		.align	2
+ 246              	.L27:
+ 247 0064 00000000 		.word	.LANCHOR0
+ 248              		.cfi_endproc
+ 249              	.LFE4:
+ 251              		.global	EKM_OS_CMD_Link
+ 252              		.section	.bss.EKM_CMDg_ppcArgv,"aw",%nobits
+ 253              		.align	2
+ 254              		.set	.LANCHOR0,. + 0
+ 257              	EKM_CMDg_ppcArgv:
+ 258 0000 00000000 		.space	36
+ 258      00000000 
+ 258      00000000 
+ 258      00000000 
+ 258      00000000 
+ 259              		.section	.bss.EKM_OS_CMD_Link,"aw",%nobits
+ 260              		.align	2
+ 263              	EKM_OS_CMD_Link:
+ 264 0000 00000000 		.space	4
+ 265              		.text
+ 266              	.Letext0:
+ 267              		.file 2 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\stdint.h"
+ 268              		.file 3 "../02_OS/EKM_CMD/EKM_CMD.h"
+ 269              		.file 4 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\string.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 EKM_CMD.c
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:18     .text.EKM_CMD_RXPeek:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:26     .text.EKM_CMD_RXPeek:00000000 EKM_CMD_RXPeek
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:106    .text.EKM_CMD_LineProcess:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:113    .text.EKM_CMD_LineProcess:00000000 EKM_CMD_LineProcess
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:247    .text.EKM_CMD_LineProcess:00000064 $d
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:263    .bss.EKM_OS_CMD_Link:00000000 EKM_OS_CMD_Link
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:253    .bss.EKM_CMDg_ppcArgv:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:257    .bss.EKM_CMDg_ppcArgv:00000000 EKM_CMDg_ppcArgv
+C:\Users\minde\AppData\Local\Temp\cc4CGsrl.s:260    .bss.EKM_OS_CMD_Link:00000000 $d
+
+UNDEFINED SYMBOLS
+strcmp

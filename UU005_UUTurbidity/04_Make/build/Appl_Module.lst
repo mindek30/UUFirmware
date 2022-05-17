@@ -1,0 +1,940 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"Appl_Module.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.APPL_Module_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	APPL_Module_Init
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	APPL_Module_Init:
+  27              	.LFB291:
+  28              		.file 1 "../01_Appl/APPL_Module/Appl_Module.c"
+   1:../01_Appl/APPL_Module/Appl_Module.c **** /*
+   2:../01_Appl/APPL_Module/Appl_Module.c ****  * Appl_Module.c
+   3:../01_Appl/APPL_Module/Appl_Module.c ****  *
+   4:../01_Appl/APPL_Module/Appl_Module.c ****  *  Created on: July 1, 2021
+   5:../01_Appl/APPL_Module/Appl_Module.c ****  *      Author: Eakawit
+   6:../01_Appl/APPL_Module/Appl_Module.c ****  *      Email: mindek30@gmail.com
+   7:../01_Appl/APPL_Module/Appl_Module.c ****  *
+   8:../01_Appl/APPL_Module/Appl_Module.c ****  */
+   9:../01_Appl/APPL_Module/Appl_Module.c **** 
+  10:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  11:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  12:../01_Appl/APPL_Module/Appl_Module.c ****  * INCLUDE
+  13:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  14:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  15:../01_Appl/APPL_Module/Appl_Module.c **** #include "main.h"
+  16:../01_Appl/APPL_Module/Appl_Module.c **** 
+  17:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  18:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  19:../01_Appl/APPL_Module/Appl_Module.c ****  * DEFINE
+  20:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  21:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  22:../01_Appl/APPL_Module/Appl_Module.c **** #define APPL_Module_BUFFER_SIZE 255
+  23:../01_Appl/APPL_Module/Appl_Module.c **** 
+  24:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  25:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  26:../01_Appl/APPL_Module/Appl_Module.c ****  * GOBAL VARIABLE
+  27:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  28:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  29:../01_Appl/APPL_Module/Appl_Module.c **** EKM_MODBUS_t APPL_Module_MODBUS_RX;
+  30:../01_Appl/APPL_Module/Appl_Module.c **** uint8_t APPL_Module_RX_Buf_d[APPL_Module_BUFFER_SIZE];
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 2
+
+
+  31:../01_Appl/APPL_Module/Appl_Module.c **** uint8_t APPL_Module_EN_INTERVAL = 0;
+  32:../01_Appl/APPL_Module/Appl_Module.c **** uint8_t APPL_Module_MODBUS_Send_Semaphome = 0;
+  33:../01_Appl/APPL_Module/Appl_Module.c **** 
+  34:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_Init(void);
+  35:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_MODBUS_print(EKM_MODBUS_t *tmp);
+  36:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_LineProcess(void);
+  37:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_CMD_MODBUS_print(EKM_MODBUS_t *tmp);
+  38:../01_Appl/APPL_Module/Appl_Module.c **** 
+  39:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  40:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  41:../01_Appl/APPL_Module/Appl_Module.c ****  * PRIVATE VARIABLE
+  42:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  43:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  44:../01_Appl/APPL_Module/Appl_Module.c **** 
+  45:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  46:../01_Appl/APPL_Module/Appl_Module.c ****  * Function: APPL_Module_Init
+  47:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  48:../01_Appl/APPL_Module/Appl_Module.c ****  * Parameters:      -
+  49:../01_Appl/APPL_Module/Appl_Module.c ****  * Returned value:  -
+  50:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  51:../01_Appl/APPL_Module/Appl_Module.c ****  * Description:
+  52:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  53:../01_Appl/APPL_Module/Appl_Module.c ****  * Calling:
+  54:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  55:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_Init(void)
+  56:../01_Appl/APPL_Module/Appl_Module.c **** {
+  29              		.loc 1 56 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  57:../01_Appl/APPL_Module/Appl_Module.c ****   HAL_GPIO_WritePin(USART2_DE_GPIO_Port, USART2_DE_Pin, GPIO_PIN_RESET);
+  38              		.loc 1 57 3 view .LVU1
+  39 0002 0022     		movs	r2, #0
+  40 0004 0221     		movs	r1, #2
+  41 0006 4FF09040 		mov	r0, #1207959552
+  42 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  43              	.LVL0:
+  58:../01_Appl/APPL_Module/Appl_Module.c ****   EKM_MODBUS_Setup(&APPL_Module_MODBUS_RX, APPL_Module_RX_Buf_d, APPL_Module_BUFFER_SIZE);
+  44              		.loc 1 58 3 view .LVU2
+  45 000e 054C     		ldr	r4, .L3
+  46 0010 FF22     		movs	r2, #255
+  47 0012 0549     		ldr	r1, .L3+4
+  48 0014 2046     		mov	r0, r4
+  49 0016 FFF7FEFF 		bl	EKM_MODBUS_Setup
+  50              	.LVL1:
+  59:../01_Appl/APPL_Module/Appl_Module.c ****   EKM_MODBUS_DataClear(&APPL_Module_MODBUS_RX);
+  51              		.loc 1 59 3 view .LVU3
+  52 001a 2046     		mov	r0, r4
+  53 001c FFF7FEFF 		bl	EKM_MODBUS_DataClear
+  54              	.LVL2:
+  60:../01_Appl/APPL_Module/Appl_Module.c **** }
+  55              		.loc 1 60 1 is_stmt 0 view .LVU4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 3
+
+
+  56 0020 10BD     		pop	{r4, pc}
+  57              	.L4:
+  58 0022 00BF     		.align	2
+  59              	.L3:
+  60 0024 00000000 		.word	.LANCHOR1
+  61 0028 00000000 		.word	.LANCHOR0
+  62              		.cfi_endproc
+  63              	.LFE291:
+  65              		.section	.rodata.APPL_Module_MODBUS_print.str1.4,"aMS",%progbits,1
+  66              		.align	2
+  67              	.LC0:
+  68 0000 25303278 		.ascii	"%02x \000"
+  68      2000
+  69 0006 0000     		.align	2
+  70              	.LC1:
+  71 0008 25303478 		.ascii	"%04x\015\012\000"
+  71      0D0A00
+  72              		.section	.text.APPL_Module_MODBUS_print,"ax",%progbits
+  73              		.align	1
+  74              		.global	APPL_Module_MODBUS_print
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  78              		.fpu fpv4-sp-d16
+  80              	APPL_Module_MODBUS_print:
+  81              	.LVL3:
+  82              	.LFB292:
+  61:../01_Appl/APPL_Module/Appl_Module.c **** 
+  62:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  63:../01_Appl/APPL_Module/Appl_Module.c ****  * Function: APPL_Module_MODBUS_print
+  64:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  65:../01_Appl/APPL_Module/Appl_Module.c ****  * Parameters:      -
+  66:../01_Appl/APPL_Module/Appl_Module.c ****  * Returned value:  -
+  67:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  68:../01_Appl/APPL_Module/Appl_Module.c ****  * Description:
+  69:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  70:../01_Appl/APPL_Module/Appl_Module.c ****  * Calling:
+  71:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+  72:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_MODBUS_print(EKM_MODBUS_t *tmp)
+  73:../01_Appl/APPL_Module/Appl_Module.c **** {
+  83              		.loc 1 73 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 256
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		.loc 1 73 1 is_stmt 0 view .LVU6
+  88 0000 30B5     		push	{r4, r5, lr}
+  89              	.LCFI1:
+  90              		.cfi_def_cfa_offset 12
+  91              		.cfi_offset 4, -12
+  92              		.cfi_offset 5, -8
+  93              		.cfi_offset 14, -4
+  94 0002 C1B0     		sub	sp, sp, #260
+  95              	.LCFI2:
+  96              		.cfi_def_cfa_offset 272
+  97 0004 0546     		mov	r5, r0
+  74:../01_Appl/APPL_Module/Appl_Module.c ****   int i;
+  98              		.loc 1 74 3 is_stmt 1 view .LVU7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 4
+
+
+  75:../01_Appl/APPL_Module/Appl_Module.c ****   uint8_t Ftemp[255];
+  99              		.loc 1 75 3 view .LVU8
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 100              		.loc 1 76 3 view .LVU9
+ 101              	.LVL4:
+ 102              		.loc 1 76 10 is_stmt 0 view .LVU10
+ 103 0006 0024     		movs	r4, #0
+ 104              		.loc 1 76 3 view .LVU11
+ 105 0008 07E0     		b	.L6
+ 106              	.LVL5:
+ 107              	.L7:
+  77:../01_Appl/APPL_Module/Appl_Module.c ****   {
+  78:../01_Appl/APPL_Module/Appl_Module.c ****     Ftemp[i] = tmp->MODdata[i];
+ 108              		.loc 1 78 5 is_stmt 1 discriminator 3 view .LVU12
+ 109              		.loc 1 78 19 is_stmt 0 discriminator 3 view .LVU13
+ 110 000a 6B68     		ldr	r3, [r5, #4]
+ 111              		.loc 1 78 28 discriminator 3 view .LVU14
+ 112 000c 195D     		ldrb	r1, [r3, r4]	@ zero_extendqisi2
+ 113              		.loc 1 78 14 discriminator 3 view .LVU15
+ 114 000e 0DF80410 		strb	r1, [sp, r4]
+  79:../01_Appl/APPL_Module/Appl_Module.c ****     APPL_CMD_printf("%02x ", Ftemp[i]);
+ 115              		.loc 1 79 5 is_stmt 1 discriminator 3 view .LVU16
+ 116 0012 1D48     		ldr	r0, .L11
+ 117 0014 FFF7FEFF 		bl	APPL_CMD_printf
+ 118              	.LVL6:
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 119              		.loc 1 76 29 discriminator 3 view .LVU17
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 120              		.loc 1 76 30 is_stmt 0 discriminator 3 view .LVU18
+ 121 0018 0134     		adds	r4, r4, #1
+ 122              	.LVL7:
+ 123              	.L6:
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 124              		.loc 1 76 15 is_stmt 1 discriminator 1 view .LVU19
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 125              		.loc 1 76 22 is_stmt 0 discriminator 1 view .LVU20
+ 126 001a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  76:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len; i++)
+ 127              		.loc 1 76 3 discriminator 1 view .LVU21
+ 128 001c A342     		cmp	r3, r4
+ 129 001e F4DC     		bgt	.L7
+  80:../01_Appl/APPL_Module/Appl_Module.c ****   }
+  81:../01_Appl/APPL_Module/Appl_Module.c ****   APPL_CMD_printf("%04x\r\n", tmp->crc);
+ 130              		.loc 1 81 3 is_stmt 1 view .LVU22
+ 131 0020 2989     		ldrh	r1, [r5, #8]
+ 132 0022 1A48     		ldr	r0, .L11+4
+ 133 0024 FFF7FEFF 		bl	APPL_CMD_printf
+ 134              	.LVL8:
+  82:../01_Appl/APPL_Module/Appl_Module.c ****   Ftemp[i++] = tmp->HCRC;
+ 135              		.loc 1 82 3 view .LVU23
+ 136              		.loc 1 82 10 is_stmt 0 view .LVU24
+ 137 0028 631C     		adds	r3, r4, #1
+ 138              	.LVL9:
+ 139              		.loc 1 82 19 view .LVU25
+ 140 002a 2A7A     		ldrb	r2, [r5, #8]	@ zero_extendqisi2
+ 141              		.loc 1 82 14 view .LVU26
+ 142 002c 0DF80420 		strb	r2, [sp, r4]
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 5
+
+
+  83:../01_Appl/APPL_Module/Appl_Module.c ****   Ftemp[i] = tmp->LCRC;
+ 143              		.loc 1 83 3 is_stmt 1 view .LVU27
+ 144              		.loc 1 83 17 is_stmt 0 view .LVU28
+ 145 0030 6A7A     		ldrb	r2, [r5, #9]	@ zero_extendqisi2
+ 146              		.loc 1 83 12 view .LVU29
+ 147 0032 0DF80320 		strb	r2, [sp, r3]
+  84:../01_Appl/APPL_Module/Appl_Module.c ****   APPL_Module_MODBUS_Send_Semaphome = 1;
+ 148              		.loc 1 84 3 is_stmt 1 view .LVU30
+ 149              		.loc 1 84 37 is_stmt 0 view .LVU31
+ 150 0036 0124     		movs	r4, #1
+ 151 0038 154B     		ldr	r3, .L11+8
+ 152              	.LVL10:
+ 153              		.loc 1 84 37 view .LVU32
+ 154 003a 1C70     		strb	r4, [r3]
+  85:../01_Appl/APPL_Module/Appl_Module.c ****   HAL_GPIO_WritePin(USART2_DE_GPIO_Port, USART2_DE_Pin, GPIO_PIN_SET);
+ 155              		.loc 1 85 3 is_stmt 1 view .LVU33
+ 156 003c 2246     		mov	r2, r4
+ 157 003e 0221     		movs	r1, #2
+ 158 0040 4FF09040 		mov	r0, #1207959552
+ 159 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 160              	.LVL11:
+  86:../01_Appl/APPL_Module/Appl_Module.c ****   HAL_Delay(1);
+ 161              		.loc 1 86 3 view .LVU34
+ 162 0048 2046     		mov	r0, r4
+ 163 004a FFF7FEFF 		bl	HAL_Delay
+ 164              	.LVL12:
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 165              		.loc 1 87 3 view .LVU35
+ 166              		.loc 1 87 10 is_stmt 0 view .LVU36
+ 167 004e 0024     		movs	r4, #0
+ 168              		.loc 1 87 3 view .LVU37
+ 169 0050 0AE0     		b	.L8
+ 170              	.LVL13:
+ 171              	.L9:
+  88:../01_Appl/APPL_Module/Appl_Module.c ****   {
+  89:../01_Appl/APPL_Module/Appl_Module.c ****     HAL_UART_Transmit(&huart2, &Ftemp[i], 1, 100);
+ 172              		.loc 1 89 5 is_stmt 1 discriminator 3 view .LVU38
+ 173 0052 6423     		movs	r3, #100
+ 174 0054 0122     		movs	r2, #1
+ 175 0056 0DEB0401 		add	r1, sp, r4
+ 176 005a 0E48     		ldr	r0, .L11+12
+ 177 005c FFF7FEFF 		bl	HAL_UART_Transmit
+ 178              	.LVL14:
+  90:../01_Appl/APPL_Module/Appl_Module.c ****     HAL_Delay(1);
+ 179              		.loc 1 90 5 discriminator 3 view .LVU39
+ 180 0060 0120     		movs	r0, #1
+ 181 0062 FFF7FEFF 		bl	HAL_Delay
+ 182              	.LVL15:
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 183              		.loc 1 87 33 discriminator 3 view .LVU40
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 184              		.loc 1 87 34 is_stmt 0 discriminator 3 view .LVU41
+ 185 0066 0134     		adds	r4, r4, #1
+ 186              	.LVL16:
+ 187              	.L8:
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 188              		.loc 1 87 15 is_stmt 1 discriminator 1 view .LVU42
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 6
+
+
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 189              		.loc 1 87 22 is_stmt 0 discriminator 1 view .LVU43
+ 190 0068 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 191              		.loc 1 87 17 discriminator 1 view .LVU44
+ 192 006a 0133     		adds	r3, r3, #1
+  87:../01_Appl/APPL_Module/Appl_Module.c ****   for (i = 0; i < tmp->len + 2; i++)
+ 193              		.loc 1 87 3 discriminator 1 view .LVU45
+ 194 006c A342     		cmp	r3, r4
+ 195 006e F0DA     		bge	.L9
+  91:../01_Appl/APPL_Module/Appl_Module.c ****   }
+  92:../01_Appl/APPL_Module/Appl_Module.c ****   HAL_GPIO_WritePin(USART2_DE_GPIO_Port, USART2_DE_Pin, GPIO_PIN_RESET);
+ 196              		.loc 1 92 3 is_stmt 1 view .LVU46
+ 197 0070 0022     		movs	r2, #0
+ 198 0072 0221     		movs	r1, #2
+ 199 0074 4FF09040 		mov	r0, #1207959552
+ 200 0078 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 201              	.LVL17:
+  93:../01_Appl/APPL_Module/Appl_Module.c ****   APPL_Module_MODBUS_Send_Semaphome = 0;
+ 202              		.loc 1 93 3 view .LVU47
+ 203              		.loc 1 93 37 is_stmt 0 view .LVU48
+ 204 007c 044B     		ldr	r3, .L11+8
+ 205 007e 0022     		movs	r2, #0
+ 206 0080 1A70     		strb	r2, [r3]
+  94:../01_Appl/APPL_Module/Appl_Module.c **** }
+ 207              		.loc 1 94 1 view .LVU49
+ 208 0082 41B0     		add	sp, sp, #260
+ 209              	.LCFI3:
+ 210              		.cfi_def_cfa_offset 12
+ 211              		@ sp needed
+ 212 0084 30BD     		pop	{r4, r5, pc}
+ 213              	.LVL18:
+ 214              	.L12:
+ 215              		.loc 1 94 1 view .LVU50
+ 216 0086 00BF     		.align	2
+ 217              	.L11:
+ 218 0088 00000000 		.word	.LC0
+ 219 008c 08000000 		.word	.LC1
+ 220 0090 00000000 		.word	.LANCHOR2
+ 221 0094 00000000 		.word	huart2
+ 222              		.cfi_endproc
+ 223              	.LFE292:
+ 225              		.section	.rodata.APPL_Module_CMD_MODBUS_print.str1.4,"aMS",%progbits,1
+ 226              		.align	2
+ 227              	.LC2:
+ 228 0000 4D6F6475 		.ascii	"Module %d : \000"
+ 228      6C652025 
+ 228      64203A20 
+ 228      00
+ 229              		.section	.text.APPL_Module_CMD_MODBUS_print,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	APPL_Module_CMD_MODBUS_print
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu fpv4-sp-d16
+ 237              	APPL_Module_CMD_MODBUS_print:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 7
+
+
+ 238              	.LVL19:
+ 239              	.LFB293:
+  95:../01_Appl/APPL_Module/Appl_Module.c **** 
+  96:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+  97:../01_Appl/APPL_Module/Appl_Module.c ****  * Function: APPL_Module_CMD_MODBUS_print
+  98:../01_Appl/APPL_Module/Appl_Module.c ****  *
+  99:../01_Appl/APPL_Module/Appl_Module.c ****  * Parameters:      -
+ 100:../01_Appl/APPL_Module/Appl_Module.c ****  * Returned value:  -
+ 101:../01_Appl/APPL_Module/Appl_Module.c ****  *
+ 102:../01_Appl/APPL_Module/Appl_Module.c ****  * Description:
+ 103:../01_Appl/APPL_Module/Appl_Module.c ****  *
+ 104:../01_Appl/APPL_Module/Appl_Module.c ****  * Calling:
+ 105:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+ 106:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_CMD_MODBUS_print(EKM_MODBUS_t *tmp)
+ 107:../01_Appl/APPL_Module/Appl_Module.c **** {
+ 240              		.loc 1 107 1 is_stmt 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		.loc 1 107 1 is_stmt 0 view .LVU52
+ 245 0000 38B5     		push	{r3, r4, r5, lr}
+ 246              	.LCFI4:
+ 247              		.cfi_def_cfa_offset 16
+ 248              		.cfi_offset 3, -16
+ 249              		.cfi_offset 4, -12
+ 250              		.cfi_offset 5, -8
+ 251              		.cfi_offset 14, -4
+ 252 0002 0546     		mov	r5, r0
+ 108:../01_Appl/APPL_Module/Appl_Module.c ****   APPL_CMD_printf("Module %d : ", tmp->len);
+ 253              		.loc 1 108 3 is_stmt 1 view .LVU53
+ 254 0004 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 255 0006 0948     		ldr	r0, .L17
+ 256              	.LVL20:
+ 257              		.loc 1 108 3 is_stmt 0 view .LVU54
+ 258 0008 FFF7FEFF 		bl	APPL_CMD_printf
+ 259              	.LVL21:
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ 260              		.loc 1 109 3 is_stmt 1 view .LVU55
+ 261              	.LBB2:
+ 262              		.loc 1 109 8 view .LVU56
+ 263              		.loc 1 109 12 is_stmt 0 view .LVU57
+ 264 000c 0024     		movs	r4, #0
+ 265              		.loc 1 109 3 view .LVU58
+ 266 000e 05E0     		b	.L14
+ 267              	.LVL22:
+ 268              	.L15:
+ 110:../01_Appl/APPL_Module/Appl_Module.c ****   {
+ 111:../01_Appl/APPL_Module/Appl_Module.c ****     APPL_CMD_printf("%02x ", tmp->MODdata[i]);
+ 269              		.loc 1 111 5 is_stmt 1 discriminator 3 view .LVU59
+ 270              		.loc 1 111 33 is_stmt 0 discriminator 3 view .LVU60
+ 271 0010 6B68     		ldr	r3, [r5, #4]
+ 272              		.loc 1 111 5 discriminator 3 view .LVU61
+ 273 0012 195D     		ldrb	r1, [r3, r4]	@ zero_extendqisi2
+ 274 0014 0648     		ldr	r0, .L17+4
+ 275 0016 FFF7FEFF 		bl	APPL_CMD_printf
+ 276              	.LVL23:
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 8
+
+
+ 277              		.loc 1 109 33 is_stmt 1 discriminator 3 view .LVU62
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ 278              		.loc 1 109 34 is_stmt 0 discriminator 3 view .LVU63
+ 279 001a 0134     		adds	r4, r4, #1
+ 280              	.LVL24:
+ 281              	.L14:
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ 282              		.loc 1 109 19 is_stmt 1 discriminator 1 view .LVU64
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ 283              		.loc 1 109 26 is_stmt 0 discriminator 1 view .LVU65
+ 284 001c 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 109:../01_Appl/APPL_Module/Appl_Module.c ****   for (int i = 0; i < tmp->len; i++)
+ 285              		.loc 1 109 3 discriminator 1 view .LVU66
+ 286 001e A342     		cmp	r3, r4
+ 287 0020 F6DC     		bgt	.L15
+ 288              	.LBE2:
+ 112:../01_Appl/APPL_Module/Appl_Module.c ****   }
+ 113:../01_Appl/APPL_Module/Appl_Module.c ****   APPL_CMD_printf("%04x\r\n", tmp->crc);
+ 289              		.loc 1 113 3 is_stmt 1 view .LVU67
+ 290 0022 2989     		ldrh	r1, [r5, #8]
+ 291 0024 0348     		ldr	r0, .L17+8
+ 292 0026 FFF7FEFF 		bl	APPL_CMD_printf
+ 293              	.LVL25:
+ 114:../01_Appl/APPL_Module/Appl_Module.c **** }
+ 294              		.loc 1 114 1 is_stmt 0 view .LVU68
+ 295 002a 38BD     		pop	{r3, r4, r5, pc}
+ 296              	.LVL26:
+ 297              	.L18:
+ 298              		.loc 1 114 1 view .LVU69
+ 299              		.align	2
+ 300              	.L17:
+ 301 002c 00000000 		.word	.LC2
+ 302 0030 00000000 		.word	.LC0
+ 303 0034 08000000 		.word	.LC1
+ 304              		.cfi_endproc
+ 305              	.LFE293:
+ 307              		.section	.rodata.APPL_Module_LineProcess.str1.4,"aMS",%progbits,1
+ 308              		.align	2
+ 309              	.LC3:
+ 310 0000 4D6F6475 		.ascii	"Module Clear\015\012\000"
+ 310      6C652043 
+ 310      6C656172 
+ 310      0D0A00
+ 311              		.section	.text.APPL_Module_LineProcess,"ax",%progbits
+ 312              		.align	1
+ 313              		.global	APPL_Module_LineProcess
+ 314              		.syntax unified
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.fpu fpv4-sp-d16
+ 319              	APPL_Module_LineProcess:
+ 320              	.LFB294:
+ 115:../01_Appl/APPL_Module/Appl_Module.c **** 
+ 116:../01_Appl/APPL_Module/Appl_Module.c **** /*******************************************************************************
+ 117:../01_Appl/APPL_Module/Appl_Module.c ****  * Function: APPL_Module_LineProcess
+ 118:../01_Appl/APPL_Module/Appl_Module.c ****  *
+ 119:../01_Appl/APPL_Module/Appl_Module.c ****  * Parameters:      -
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 9
+
+
+ 120:../01_Appl/APPL_Module/Appl_Module.c ****  * Returned value:  -
+ 121:../01_Appl/APPL_Module/Appl_Module.c ****  *
+ 122:../01_Appl/APPL_Module/Appl_Module.c ****  * Description:
+ 123:../01_Appl/APPL_Module/Appl_Module.c ****  *
+ 124:../01_Appl/APPL_Module/Appl_Module.c ****  * Calling:
+ 125:../01_Appl/APPL_Module/Appl_Module.c ****  ******************************************************************************/
+ 126:../01_Appl/APPL_Module/Appl_Module.c **** void APPL_Module_LineProcess(void)
+ 127:../01_Appl/APPL_Module/Appl_Module.c **** {
+ 321              		.loc 1 127 1 is_stmt 1 view -0
+ 322              		.cfi_startproc
+ 323              		@ args = 0, pretend = 0, frame = 32
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128:../01_Appl/APPL_Module/Appl_Module.c ****   if (APPL_Module_EN_INTERVAL == 1)
+ 325              		.loc 1 128 3 view .LVU71
+ 326              		.loc 1 128 31 is_stmt 0 view .LVU72
+ 327 0000 444B     		ldr	r3, .L35
+ 328 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 329              		.loc 1 128 6 view .LVU73
+ 330 0004 012B     		cmp	r3, #1
+ 331 0006 00D0     		beq	.L30
+ 332 0008 7047     		bx	lr
+ 333              	.L30:
+ 127:../01_Appl/APPL_Module/Appl_Module.c ****   if (APPL_Module_EN_INTERVAL == 1)
+ 334              		.loc 1 127 1 view .LVU74
+ 335 000a 10B5     		push	{r4, lr}
+ 336              	.LCFI5:
+ 337              		.cfi_def_cfa_offset 8
+ 338              		.cfi_offset 4, -8
+ 339              		.cfi_offset 14, -4
+ 340 000c 88B0     		sub	sp, sp, #32
+ 341              	.LCFI6:
+ 342              		.cfi_def_cfa_offset 40
+ 129:../01_Appl/APPL_Module/Appl_Module.c ****   {
+ 130:../01_Appl/APPL_Module/Appl_Module.c ****      //APPL_Module_CMD_MODBUS_print(&APPL_Module_MODBUS_RX);
+ 131:../01_Appl/APPL_Module/Appl_Module.c ****     // APPL_CMD_printf("Module Run\r\n");
+ 132:../01_Appl/APPL_Module/Appl_Module.c ****     if (EKM_MODBUS_CRC_Decode(&APPL_Module_MODBUS_RX) == 1)
+ 343              		.loc 1 132 5 is_stmt 1 view .LVU75
+ 344              		.loc 1 132 9 is_stmt 0 view .LVU76
+ 345 000e 4248     		ldr	r0, .L35+4
+ 346 0010 FFF7FEFF 		bl	EKM_MODBUS_CRC_Decode
+ 347              	.LVL27:
+ 348              		.loc 1 132 8 view .LVU77
+ 349 0014 0128     		cmp	r0, #1
+ 350 0016 09D0     		beq	.L31
+ 351              	.L21:
+ 133:../01_Appl/APPL_Module/Appl_Module.c ****     {
+ 134:../01_Appl/APPL_Module/Appl_Module.c ****       //APPL_Module_CMD_MODBUS_print(&APPL_Module_MODBUS_RX);
+ 135:../01_Appl/APPL_Module/Appl_Module.c ****       if (APPL_Module_MODBUS_RX.MODdata[0] == 0x01)
+ 136:../01_Appl/APPL_Module/Appl_Module.c ****       {
+ 137:../01_Appl/APPL_Module/Appl_Module.c ****         if (APPL_Module_MODBUS_RX.MODdata[1] == 0x03)
+ 138:../01_Appl/APPL_Module/Appl_Module.c ****         {
+ 139:../01_Appl/APPL_Module/Appl_Module.c **** 
+ 140:../01_Appl/APPL_Module/Appl_Module.c ****           EKM_MODBUS_t tm;
+ 141:../01_Appl/APPL_Module/Appl_Module.c ****           uint8_t test[20];
+ 142:../01_Appl/APPL_Module/Appl_Module.c ****           if ((APPL_Module_MODBUS_RX.MODdata[2] == 0x00) &&
+ 143:../01_Appl/APPL_Module/Appl_Module.c ****               (APPL_Module_MODBUS_RX.MODdata[3] == 0x01))
+ 144:../01_Appl/APPL_Module/Appl_Module.c ****           {
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 10
+
+
+ 145:../01_Appl/APPL_Module/Appl_Module.c ****             Bit32ToBit8_t tmpx;
+ 146:../01_Appl/APPL_Module/Appl_Module.c ****             tmpx.REG = APPL_ads1115_uVolt(&APPL_Task_d.RAW_ADC_Ch0);
+ 147:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 7);
+ 148:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x01);
+ 149:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x03);
+ 150:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x02);
+ 151:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HHREG);
+ 152:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HLREG);
+ 153:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LHREG);
+ 154:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LLREG);
+ 155:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_CRC_Encode(&tm);
+ 156:../01_Appl/APPL_Module/Appl_Module.c ****             APPL_Module_MODBUS_print(&tm);
+ 157:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_DataClear(&tm);
+ 158:../01_Appl/APPL_Module/Appl_Module.c ****           }
+ 159:../01_Appl/APPL_Module/Appl_Module.c ****           else if ((APPL_Module_MODBUS_RX.MODdata[2] == 0x00) &&
+ 160:../01_Appl/APPL_Module/Appl_Module.c ****                    (APPL_Module_MODBUS_RX.MODdata[3] == 0x02))
+ 161:../01_Appl/APPL_Module/Appl_Module.c ****           {
+ 162:../01_Appl/APPL_Module/Appl_Module.c ****             Bit16ToBit8_t tmpx;
+ 163:../01_Appl/APPL_Module/Appl_Module.c ****             tmpx.REG = APPL_Task_d.RAW_ADC_Ch0;
+ 164:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 5);
+ 165:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x01);
+ 166:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x03);
+ 167:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x02);
+ 168:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HREG);
+ 169:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LREG);
+ 170:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_CRC_Encode(&tm);
+ 171:../01_Appl/APPL_Module/Appl_Module.c ****             APPL_Module_MODBUS_print(&tm);
+ 172:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_DataClear(&tm);
+ 173:../01_Appl/APPL_Module/Appl_Module.c ****           }
+ 174:../01_Appl/APPL_Module/Appl_Module.c ****         }
+ 175:../01_Appl/APPL_Module/Appl_Module.c ****       }
+ 176:../01_Appl/APPL_Module/Appl_Module.c ****       EKM_MODBUS_DataClear(&APPL_Module_MODBUS_RX);
+ 177:../01_Appl/APPL_Module/Appl_Module.c ****     }
+ 178:../01_Appl/APPL_Module/Appl_Module.c ****     if (APPL_Module_MODBUS_RX.len >= APPL_Module_MODBUS_RX.Maxsize)
+ 352              		.loc 1 178 5 is_stmt 1 view .LVU78
+ 353              		.loc 1 178 30 is_stmt 0 view .LVU79
+ 354 0018 3F4B     		ldr	r3, .L35+4
+ 355 001a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 356              		.loc 1 178 59 view .LVU80
+ 357 001c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 358              		.loc 1 178 8 view .LVU81
+ 359 001e 9A42     		cmp	r2, r3
+ 360 0020 70D2     		bcs	.L32
+ 361              	.L25:
+ 179:../01_Appl/APPL_Module/Appl_Module.c ****     {
+ 180:../01_Appl/APPL_Module/Appl_Module.c ****       EKM_MODBUS_DataClear(&APPL_Module_MODBUS_RX);
+ 181:../01_Appl/APPL_Module/Appl_Module.c ****       APPL_CMD_printf("Module Clear\r\n");
+ 182:../01_Appl/APPL_Module/Appl_Module.c ****     }
+ 183:../01_Appl/APPL_Module/Appl_Module.c ****     APPL_Module_EN_INTERVAL = 0;
+ 362              		.loc 1 183 5 is_stmt 1 view .LVU82
+ 363              		.loc 1 183 29 is_stmt 0 view .LVU83
+ 364 0022 3C4B     		ldr	r3, .L35
+ 365 0024 0022     		movs	r2, #0
+ 366 0026 1A70     		strb	r2, [r3]
+ 184:../01_Appl/APPL_Module/Appl_Module.c ****   }
+ 185:../01_Appl/APPL_Module/Appl_Module.c **** }
+ 367              		.loc 1 185 1 view .LVU84
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 11
+
+
+ 368 0028 08B0     		add	sp, sp, #32
+ 369              	.LCFI7:
+ 370              		.cfi_remember_state
+ 371              		.cfi_def_cfa_offset 8
+ 372              		@ sp needed
+ 373 002a 10BD     		pop	{r4, pc}
+ 374              	.L31:
+ 375              	.LCFI8:
+ 376              		.cfi_restore_state
+ 135:../01_Appl/APPL_Module/Appl_Module.c ****       {
+ 377              		.loc 1 135 7 is_stmt 1 view .LVU85
+ 135:../01_Appl/APPL_Module/Appl_Module.c ****       {
+ 378              		.loc 1 135 32 is_stmt 0 view .LVU86
+ 379 002c 3A4B     		ldr	r3, .L35+4
+ 380 002e 5B68     		ldr	r3, [r3, #4]
+ 135:../01_Appl/APPL_Module/Appl_Module.c ****       {
+ 381              		.loc 1 135 40 view .LVU87
+ 382 0030 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 135:../01_Appl/APPL_Module/Appl_Module.c ****       {
+ 383              		.loc 1 135 10 view .LVU88
+ 384 0032 012A     		cmp	r2, #1
+ 385 0034 03D0     		beq	.L33
+ 386              	.L22:
+ 176:../01_Appl/APPL_Module/Appl_Module.c ****     }
+ 387              		.loc 1 176 7 is_stmt 1 view .LVU89
+ 388 0036 3848     		ldr	r0, .L35+4
+ 389 0038 FFF7FEFF 		bl	EKM_MODBUS_DataClear
+ 390              	.LVL28:
+ 391 003c ECE7     		b	.L21
+ 392              	.L33:
+ 137:../01_Appl/APPL_Module/Appl_Module.c ****         {
+ 393              		.loc 1 137 9 view .LVU90
+ 137:../01_Appl/APPL_Module/Appl_Module.c ****         {
+ 394              		.loc 1 137 42 is_stmt 0 view .LVU91
+ 395 003e 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 137:../01_Appl/APPL_Module/Appl_Module.c ****         {
+ 396              		.loc 1 137 12 view .LVU92
+ 397 0040 032A     		cmp	r2, #3
+ 398 0042 F8D1     		bne	.L22
+ 399              	.LBB3:
+ 140:../01_Appl/APPL_Module/Appl_Module.c ****           uint8_t test[20];
+ 400              		.loc 1 140 11 is_stmt 1 view .LVU93
+ 141:../01_Appl/APPL_Module/Appl_Module.c ****           if ((APPL_Module_MODBUS_RX.MODdata[2] == 0x00) &&
+ 401              		.loc 1 141 11 view .LVU94
+ 142:../01_Appl/APPL_Module/Appl_Module.c ****               (APPL_Module_MODBUS_RX.MODdata[3] == 0x01))
+ 402              		.loc 1 142 11 view .LVU95
+ 142:../01_Appl/APPL_Module/Appl_Module.c ****               (APPL_Module_MODBUS_RX.MODdata[3] == 0x01))
+ 403              		.loc 1 142 45 is_stmt 0 view .LVU96
+ 404 0044 9A78     		ldrb	r2, [r3, #2]	@ zero_extendqisi2
+ 142:../01_Appl/APPL_Module/Appl_Module.c ****               (APPL_Module_MODBUS_RX.MODdata[3] == 0x01))
+ 405              		.loc 1 142 14 view .LVU97
+ 406 0046 12B9     		cbnz	r2, .L23
+ 143:../01_Appl/APPL_Module/Appl_Module.c ****           {
+ 407              		.loc 1 143 45 discriminator 1 view .LVU98
+ 408 0048 D978     		ldrb	r1, [r3, #3]	@ zero_extendqisi2
+ 142:../01_Appl/APPL_Module/Appl_Module.c ****               (APPL_Module_MODBUS_RX.MODdata[3] == 0x01))
+ 409              		.loc 1 142 58 discriminator 1 view .LVU99
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 12
+
+
+ 410 004a 0129     		cmp	r1, #1
+ 411 004c 29D0     		beq	.L34
+ 412              	.L23:
+ 159:../01_Appl/APPL_Module/Appl_Module.c ****                    (APPL_Module_MODBUS_RX.MODdata[3] == 0x02))
+ 413              		.loc 1 159 16 is_stmt 1 view .LVU100
+ 159:../01_Appl/APPL_Module/Appl_Module.c ****                    (APPL_Module_MODBUS_RX.MODdata[3] == 0x02))
+ 414              		.loc 1 159 19 is_stmt 0 view .LVU101
+ 415 004e 002A     		cmp	r2, #0
+ 416 0050 F1D1     		bne	.L22
+ 160:../01_Appl/APPL_Module/Appl_Module.c ****           {
+ 417              		.loc 1 160 50 discriminator 1 view .LVU102
+ 418 0052 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 159:../01_Appl/APPL_Module/Appl_Module.c ****                    (APPL_Module_MODBUS_RX.MODdata[3] == 0x02))
+ 419              		.loc 1 159 63 discriminator 1 view .LVU103
+ 420 0054 022B     		cmp	r3, #2
+ 421 0056 EED1     		bne	.L22
+ 422              	.LBB4:
+ 162:../01_Appl/APPL_Module/Appl_Module.c ****             tmpx.REG = APPL_Task_d.RAW_ADC_Ch0;
+ 423              		.loc 1 162 13 is_stmt 1 discriminator 2 view .LVU104
+ 163:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 5);
+ 424              		.loc 1 163 13 discriminator 2 view .LVU105
+ 163:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 5);
+ 425              		.loc 1 163 35 is_stmt 0 discriminator 2 view .LVU106
+ 426 0058 304B     		ldr	r3, .L35+8
+ 427 005a 9C8A     		ldrh	r4, [r3, #20]
+ 164:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x01);
+ 428              		.loc 1 164 13 is_stmt 1 discriminator 2 view .LVU107
+ 429 005c 0522     		movs	r2, #5
+ 430 005e 03A9     		add	r1, sp, #12
+ 431 0060 6846     		mov	r0, sp
+ 432 0062 FFF7FEFF 		bl	EKM_MODBUS_Setup
+ 433              	.LVL29:
+ 165:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x03);
+ 434              		.loc 1 165 13 discriminator 2 view .LVU108
+ 435 0066 0121     		movs	r1, #1
+ 436 0068 6846     		mov	r0, sp
+ 437 006a FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 438              	.LVL30:
+ 166:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x02);
+ 439              		.loc 1 166 13 discriminator 2 view .LVU109
+ 440 006e 0321     		movs	r1, #3
+ 441 0070 6846     		mov	r0, sp
+ 442 0072 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 443              	.LVL31:
+ 167:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HREG);
+ 444              		.loc 1 167 13 discriminator 2 view .LVU110
+ 445 0076 0221     		movs	r1, #2
+ 446 0078 6846     		mov	r0, sp
+ 447 007a FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 448              	.LVL32:
+ 168:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LREG);
+ 449              		.loc 1 168 13 discriminator 2 view .LVU111
+ 450 007e 210A     		lsrs	r1, r4, #8
+ 451 0080 6846     		mov	r0, sp
+ 452 0082 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 453              	.LVL33:
+ 169:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_CRC_Encode(&tm);
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 13
+
+
+ 454              		.loc 1 169 13 discriminator 2 view .LVU112
+ 455 0086 E1B2     		uxtb	r1, r4
+ 456 0088 6846     		mov	r0, sp
+ 457 008a FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 458              	.LVL34:
+ 170:../01_Appl/APPL_Module/Appl_Module.c ****             APPL_Module_MODBUS_print(&tm);
+ 459              		.loc 1 170 13 discriminator 2 view .LVU113
+ 460 008e 6846     		mov	r0, sp
+ 461 0090 FFF7FEFF 		bl	EKM_MODBUS_CRC_Encode
+ 462              	.LVL35:
+ 171:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_DataClear(&tm);
+ 463              		.loc 1 171 13 discriminator 2 view .LVU114
+ 464 0094 6846     		mov	r0, sp
+ 465 0096 FFF7FEFF 		bl	APPL_Module_MODBUS_print
+ 466              	.LVL36:
+ 172:../01_Appl/APPL_Module/Appl_Module.c ****           }
+ 467              		.loc 1 172 13 discriminator 2 view .LVU115
+ 468 009a 6846     		mov	r0, sp
+ 469 009c FFF7FEFF 		bl	EKM_MODBUS_DataClear
+ 470              	.LVL37:
+ 471 00a0 C9E7     		b	.L22
+ 472              	.L34:
+ 473              	.LBE4:
+ 474              	.LBB5:
+ 145:../01_Appl/APPL_Module/Appl_Module.c ****             tmpx.REG = APPL_ads1115_uVolt(&APPL_Task_d.RAW_ADC_Ch0);
+ 475              		.loc 1 145 13 view .LVU116
+ 146:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 7);
+ 476              		.loc 1 146 13 view .LVU117
+ 146:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Setup(&tm, test, 7);
+ 477              		.loc 1 146 24 is_stmt 0 view .LVU118
+ 478 00a2 1F48     		ldr	r0, .L35+12
+ 479 00a4 FFF7FEFF 		bl	APPL_ads1115_uVolt
+ 480              	.LVL38:
+ 481 00a8 0446     		mov	r4, r0
+ 147:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x01);
+ 482              		.loc 1 147 13 is_stmt 1 view .LVU119
+ 483 00aa 0722     		movs	r2, #7
+ 484 00ac 03A9     		add	r1, sp, #12
+ 485 00ae 6846     		mov	r0, sp
+ 486 00b0 FFF7FEFF 		bl	EKM_MODBUS_Setup
+ 487              	.LVL39:
+ 148:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x03);
+ 488              		.loc 1 148 13 view .LVU120
+ 489 00b4 0121     		movs	r1, #1
+ 490 00b6 6846     		mov	r0, sp
+ 491 00b8 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 492              	.LVL40:
+ 149:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, 0x02);
+ 493              		.loc 1 149 13 view .LVU121
+ 494 00bc 0321     		movs	r1, #3
+ 495 00be 6846     		mov	r0, sp
+ 496 00c0 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 497              	.LVL41:
+ 150:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HHREG);
+ 498              		.loc 1 150 13 view .LVU122
+ 499 00c4 0221     		movs	r1, #2
+ 500 00c6 6846     		mov	r0, sp
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 14
+
+
+ 501 00c8 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 502              	.LVL42:
+ 151:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.HLREG);
+ 503              		.loc 1 151 13 view .LVU123
+ 504 00cc 210E     		lsrs	r1, r4, #24
+ 505 00ce 6846     		mov	r0, sp
+ 506 00d0 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 507              	.LVL43:
+ 152:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LHREG);
+ 508              		.loc 1 152 13 view .LVU124
+ 509 00d4 C4F30741 		ubfx	r1, r4, #16, #8
+ 510 00d8 6846     		mov	r0, sp
+ 511 00da FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 512              	.LVL44:
+ 153:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_Receiver_Set(&tm, tmpx.LLREG);
+ 513              		.loc 1 153 13 view .LVU125
+ 514 00de C4F30721 		ubfx	r1, r4, #8, #8
+ 515 00e2 6846     		mov	r0, sp
+ 516 00e4 FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 517              	.LVL45:
+ 154:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_CRC_Encode(&tm);
+ 518              		.loc 1 154 13 view .LVU126
+ 519 00e8 E1B2     		uxtb	r1, r4
+ 520 00ea 6846     		mov	r0, sp
+ 521 00ec FFF7FEFF 		bl	EKM_MODBUS_Receiver_Set
+ 522              	.LVL46:
+ 155:../01_Appl/APPL_Module/Appl_Module.c ****             APPL_Module_MODBUS_print(&tm);
+ 523              		.loc 1 155 13 view .LVU127
+ 524 00f0 6846     		mov	r0, sp
+ 525 00f2 FFF7FEFF 		bl	EKM_MODBUS_CRC_Encode
+ 526              	.LVL47:
+ 156:../01_Appl/APPL_Module/Appl_Module.c ****             EKM_MODBUS_DataClear(&tm);
+ 527              		.loc 1 156 13 view .LVU128
+ 528 00f6 6846     		mov	r0, sp
+ 529 00f8 FFF7FEFF 		bl	APPL_Module_MODBUS_print
+ 530              	.LVL48:
+ 157:../01_Appl/APPL_Module/Appl_Module.c ****           }
+ 531              		.loc 1 157 13 view .LVU129
+ 532 00fc 6846     		mov	r0, sp
+ 533 00fe FFF7FEFF 		bl	EKM_MODBUS_DataClear
+ 534              	.LVL49:
+ 535              	.LBE5:
+ 144:../01_Appl/APPL_Module/Appl_Module.c ****             Bit32ToBit8_t tmpx;
+ 536              		.loc 1 144 11 is_stmt 0 view .LVU130
+ 537 0102 98E7     		b	.L22
+ 538              	.L32:
+ 539              	.LBE3:
+ 180:../01_Appl/APPL_Module/Appl_Module.c ****       APPL_CMD_printf("Module Clear\r\n");
+ 540              		.loc 1 180 7 is_stmt 1 view .LVU131
+ 541 0104 0448     		ldr	r0, .L35+4
+ 542 0106 FFF7FEFF 		bl	EKM_MODBUS_DataClear
+ 543              	.LVL50:
+ 181:../01_Appl/APPL_Module/Appl_Module.c ****     }
+ 544              		.loc 1 181 7 view .LVU132
+ 545 010a 0648     		ldr	r0, .L35+16
+ 546 010c FFF7FEFF 		bl	APPL_CMD_printf
+ 547              	.LVL51:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 15
+
+
+ 548 0110 87E7     		b	.L25
+ 549              	.L36:
+ 550 0112 00BF     		.align	2
+ 551              	.L35:
+ 552 0114 00000000 		.word	.LANCHOR3
+ 553 0118 00000000 		.word	.LANCHOR1
+ 554 011c 00000000 		.word	APPL_Task_d
+ 555 0120 14000000 		.word	APPL_Task_d+20
+ 556 0124 00000000 		.word	.LC3
+ 557              		.cfi_endproc
+ 558              	.LFE294:
+ 560              		.global	APPL_Module_MODBUS_Send_Semaphome
+ 561              		.global	APPL_Module_EN_INTERVAL
+ 562              		.global	APPL_Module_RX_Buf_d
+ 563              		.global	APPL_Module_MODBUS_RX
+ 564              		.section	.bss.APPL_Module_EN_INTERVAL,"aw",%nobits
+ 565              		.set	.LANCHOR3,. + 0
+ 568              	APPL_Module_EN_INTERVAL:
+ 569 0000 00       		.space	1
+ 570              		.section	.bss.APPL_Module_MODBUS_RX,"aw",%nobits
+ 571              		.align	2
+ 572              		.set	.LANCHOR1,. + 0
+ 575              	APPL_Module_MODBUS_RX:
+ 576 0000 00000000 		.space	12
+ 576      00000000 
+ 576      00000000 
+ 577              		.section	.bss.APPL_Module_MODBUS_Send_Semaphome,"aw",%nobits
+ 578              		.set	.LANCHOR2,. + 0
+ 581              	APPL_Module_MODBUS_Send_Semaphome:
+ 582 0000 00       		.space	1
+ 583              		.section	.bss.APPL_Module_RX_Buf_d,"aw",%nobits
+ 584              		.align	2
+ 585              		.set	.LANCHOR0,. + 0
+ 588              	APPL_Module_RX_Buf_d:
+ 589 0000 00000000 		.space	255
+ 589      00000000 
+ 589      00000000 
+ 589      00000000 
+ 589      00000000 
+ 590              		.text
+ 591              	.Letext0:
+ 592              		.file 2 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\machine\\_defau
+ 593              		.file 3 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 594              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 595              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 596              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 597              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 598              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 599              		.file 9 "../02_OS/EKM_Modbus/EKM_Modbus.h"
+ 600              		.file 10 "../01_Appl/APPL_Module/Appl_Module.h"
+ 601              		.file 11 "../02_OS/Core_UART/usart.h"
+ 602              		.file 12 "../01_Appl/APPL_Task/Appl_Task.h"
+ 603              		.file 13 "../01_Appl/APPL_ads1115/APPL_ads1115.h"
+ 604              		.file 14 "../01_Appl/APPL_CMD/Appl_CMD.h"
+ 605              		.file 15 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Appl_Module.c
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:18     .text.APPL_Module_Init:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:26     .text.APPL_Module_Init:00000000 APPL_Module_Init
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:60     .text.APPL_Module_Init:00000024 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:66     .rodata.APPL_Module_MODBUS_print.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:73     .text.APPL_Module_MODBUS_print:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:80     .text.APPL_Module_MODBUS_print:00000000 APPL_Module_MODBUS_print
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:218    .text.APPL_Module_MODBUS_print:00000088 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:226    .rodata.APPL_Module_CMD_MODBUS_print.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:230    .text.APPL_Module_CMD_MODBUS_print:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:237    .text.APPL_Module_CMD_MODBUS_print:00000000 APPL_Module_CMD_MODBUS_print
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:301    .text.APPL_Module_CMD_MODBUS_print:0000002c $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:308    .rodata.APPL_Module_LineProcess.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:312    .text.APPL_Module_LineProcess:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:319    .text.APPL_Module_LineProcess:00000000 APPL_Module_LineProcess
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:552    .text.APPL_Module_LineProcess:00000114 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:581    .bss.APPL_Module_MODBUS_Send_Semaphome:00000000 APPL_Module_MODBUS_Send_Semaphome
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:568    .bss.APPL_Module_EN_INTERVAL:00000000 APPL_Module_EN_INTERVAL
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:588    .bss.APPL_Module_RX_Buf_d:00000000 APPL_Module_RX_Buf_d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:575    .bss.APPL_Module_MODBUS_RX:00000000 APPL_Module_MODBUS_RX
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:569    .bss.APPL_Module_EN_INTERVAL:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:571    .bss.APPL_Module_MODBUS_RX:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:582    .bss.APPL_Module_MODBUS_Send_Semaphome:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccqjAKBP.s:584    .bss.APPL_Module_RX_Buf_d:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+EKM_MODBUS_Setup
+EKM_MODBUS_DataClear
+APPL_CMD_printf
+HAL_Delay
+HAL_UART_Transmit
+huart2
+EKM_MODBUS_CRC_Decode
+EKM_MODBUS_Receiver_Set
+EKM_MODBUS_CRC_Encode
+APPL_ads1115_uVolt
+APPL_Task_d

@@ -1,0 +1,587 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"APPL_ads1115.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.APPL_ads1115_getDefaultConfig,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	APPL_ads1115_getDefaultConfig:
+  26              	.LFB291:
+  27              		.file 1 "../01_Appl/APPL_ads1115/APPL_ads1115.c"
+   1:../01_Appl/APPL_ads1115/APPL_ads1115.c **** #include "main.h"
+   2:../01_Appl/APPL_ads1115/APPL_ads1115.c **** #include "i2c.h"
+   3:../01_Appl/APPL_ads1115/APPL_ads1115.c **** #include "APPL_ads1115.h"
+   4:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+   5:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int APPL_ads1115_readSample(uint16_t *value);
+   6:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int APPL_ads1115_startSampling(uint8_t mux_mode);
+   7:../01_Appl/APPL_ads1115/APPL_ads1115.c **** bool APPL_ads1115_isBusy(void);
+   8:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int32_t APPL_ads1115_uVolt(uint16_t *adcValueX);
+   9:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  10:../01_Appl/APPL_ads1115/APPL_ads1115.c **** static uint16_t APPL_ads1115_getDefaultConfig()
+  11:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+  28              		.loc 1 11 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  12:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint16_t config = 0;
+  33              		.loc 1 12 3 view .LVU1
+  34              	.LVL0:
+  13:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  14:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_OS_NOEFFECT & ADS1115_OS_MASK) << ADS1115_OS_POS;
+  35              		.loc 1 14 3 view .LVU2
+  15:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_MUX_1 & ADS1115_MUX_MASK) << ADS1115_MUX_POS;
+  36              		.loc 1 15 3 view .LVU3
+  16:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_PGA_1 & ADS1115_PGA_MASK) << ADS1115_PGA_POS;
+  37              		.loc 1 16 3 view .LVU4
+  17:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_MODE_SINGLE & ADS1115_MODE_MASK) << ADS1115_MODE_POS;
+  38              		.loc 1 17 3 view .LVU5
+  18:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_DR_8 & ADS1115_DR_MASK) << ADS1115_DR_POS;
+  39              		.loc 1 18 3 view .LVU6
+  19:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_COMP_MODE_TRAD & ADS1115_COMP_MODE_MASK) << ADS1115_COMP_MODE_POS;
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 2
+
+
+  40              		.loc 1 19 3 view .LVU7
+  20:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_COMP_POL_ACTVLOW & ADS1115_COMP_POL_MASK) << ADS1115_COMP_POL_POS;
+  41              		.loc 1 20 3 view .LVU8
+  21:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_COMP_LAT_NONLAT & ADS1115_COMP_LAT_MASK) << ADS1115_COMP_LAT_POS;
+  42              		.loc 1 21 3 view .LVU9
+  22:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_COMP_QUE_NONE & ADS1115_COMP_QUE_MASK) << ADS1115_COMP_QUE_POS;
+  43              		.loc 1 22 3 view .LVU10
+  23:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  24:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   // printf("ADS1115 : Config = 0x%x\n", config);
+  25:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  26:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return config;
+  44              		.loc 1 26 3 view .LVU11
+  27:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+  45              		.loc 1 27 1 is_stmt 0 view .LVU12
+  46 0000 40F2E330 		movw	r0, #995
+  47 0004 7047     		bx	lr
+  48              		.cfi_endproc
+  49              	.LFE291:
+  51              		.section	.text.APPL_ads1115_write,"ax",%progbits
+  52              		.align	1
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  56              		.fpu fpv4-sp-d16
+  58              	APPL_ads1115_write:
+  59              	.LVL1:
+  60              	.LFB292:
+  28:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  29:../01_Appl/APPL_ads1115/APPL_ads1115.c **** static int APPL_ads1115_write(uint8_t regAddr, uint16_t data)
+  30:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+  61              		.loc 1 30 1 is_stmt 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 8
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		.loc 1 30 1 is_stmt 0 view .LVU14
+  66 0000 00B5     		push	{lr}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 4
+  69              		.cfi_offset 14, -4
+  70 0002 85B0     		sub	sp, sp, #20
+  71              	.LCFI1:
+  72              		.cfi_def_cfa_offset 24
+  31:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   HAL_StatusTypeDef ret;
+  73              		.loc 1 31 3 is_stmt 1 view .LVU15
+  32:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   Bit16ToBit8_t temp;
+  74              		.loc 1 32 3 view .LVU16
+  33:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint8_t send[3];
+  75              		.loc 1 33 3 view .LVU17
+  34:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   temp.REG = data;
+  76              		.loc 1 34 3 view .LVU18
+  35:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   send[0] = regAddr;
+  77              		.loc 1 35 3 view .LVU19
+  78              		.loc 1 35 11 is_stmt 0 view .LVU20
+  79 0004 8DF80C00 		strb	r0, [sp, #12]
+  36:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   send[1] = temp.HREG;
+  80              		.loc 1 36 3 is_stmt 1 view .LVU21
+  81              		.loc 1 36 11 is_stmt 0 view .LVU22
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 3
+
+
+  82 0008 C1F30723 		ubfx	r3, r1, #8, #8
+  83 000c 8DF80D30 		strb	r3, [sp, #13]
+  37:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   send[2] = temp.LREG;
+  84              		.loc 1 37 3 is_stmt 1 view .LVU23
+  85              		.loc 1 37 11 is_stmt 0 view .LVU24
+  86 0010 8DF80E10 		strb	r1, [sp, #14]
+  38:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   ret = HAL_I2C_Master_Transmit(&hi2c1, ADS1115_IIC_ADDRESS0 << 1, send, 3, 100);
+  87              		.loc 1 38 3 is_stmt 1 view .LVU25
+  88              		.loc 1 38 9 is_stmt 0 view .LVU26
+  89 0014 6423     		movs	r3, #100
+  90 0016 0093     		str	r3, [sp]
+  91 0018 0323     		movs	r3, #3
+  92 001a 03AA     		add	r2, sp, #12
+  93 001c 9021     		movs	r1, #144
+  94              	.LVL2:
+  95              		.loc 1 38 9 view .LVU27
+  96 001e 0348     		ldr	r0, .L4
+  97              	.LVL3:
+  98              		.loc 1 38 9 view .LVU28
+  99 0020 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 100              	.LVL4:
+  39:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   //APPL_CMD_printf("I2C = 0x%x\r\n", ret);
+  40:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return ret;
+ 101              		.loc 1 40 3 is_stmt 1 view .LVU29
+  41:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 102              		.loc 1 41 1 is_stmt 0 view .LVU30
+ 103 0024 05B0     		add	sp, sp, #20
+ 104              	.LCFI2:
+ 105              		.cfi_def_cfa_offset 4
+ 106              		@ sp needed
+ 107 0026 5DF804FB 		ldr	pc, [sp], #4
+ 108              	.L5:
+ 109 002a 00BF     		.align	2
+ 110              	.L4:
+ 111 002c 00000000 		.word	hi2c1
+ 112              		.cfi_endproc
+ 113              	.LFE292:
+ 115              		.section	.text.APPL_ads1115_read,"ax",%progbits
+ 116              		.align	1
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	APPL_ads1115_read:
+ 123              	.LVL5:
+ 124              	.LFB293:
+  42:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  43:../01_Appl/APPL_ads1115/APPL_ads1115.c **** static int APPL_ads1115_read(uint8_t regAddr, uint16_t *data)
+  44:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+ 125              		.loc 1 44 1 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 8
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		.loc 1 44 1 is_stmt 0 view .LVU32
+ 130 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 131              	.LCFI3:
+ 132              		.cfi_def_cfa_offset 20
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 4
+
+
+ 133              		.cfi_offset 4, -20
+ 134              		.cfi_offset 5, -16
+ 135              		.cfi_offset 6, -12
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 85B0     		sub	sp, sp, #20
+ 139              	.LCFI4:
+ 140              		.cfi_def_cfa_offset 40
+ 141 0004 0D46     		mov	r5, r1
+  45:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   HAL_StatusTypeDef ret;
+ 142              		.loc 1 45 3 is_stmt 1 view .LVU33
+  46:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   Bit16ToBit8_t temp;
+ 143              		.loc 1 46 3 view .LVU34
+  47:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint8_t send[2];
+ 144              		.loc 1 47 3 view .LVU35
+  48:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   send[0] = regAddr;
+ 145              		.loc 1 48 3 view .LVU36
+ 146              		.loc 1 48 11 is_stmt 0 view .LVU37
+ 147 0006 8DF80C00 		strb	r0, [sp, #12]
+  49:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   send[1] = 0;
+ 148              		.loc 1 49 3 is_stmt 1 view .LVU38
+ 149              		.loc 1 49 11 is_stmt 0 view .LVU39
+ 150 000a 0023     		movs	r3, #0
+ 151 000c 8DF80D30 		strb	r3, [sp, #13]
+  50:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   ret = HAL_I2C_Master_Transmit(&hi2c1, ADS1115_IIC_ADDRESS0 << 1, send, 1, 100);
+ 152              		.loc 1 50 3 is_stmt 1 view .LVU40
+ 153              		.loc 1 50 9 is_stmt 0 view .LVU41
+ 154 0010 0F4E     		ldr	r6, .L8
+ 155 0012 6427     		movs	r7, #100
+ 156 0014 0097     		str	r7, [sp]
+ 157 0016 0123     		movs	r3, #1
+ 158 0018 03AA     		add	r2, sp, #12
+ 159 001a 9021     		movs	r1, #144
+ 160              	.LVL6:
+ 161              		.loc 1 50 9 view .LVU42
+ 162 001c 3046     		mov	r0, r6
+ 163              	.LVL7:
+ 164              		.loc 1 50 9 view .LVU43
+ 165 001e FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 166              	.LVL8:
+ 167              		.loc 1 50 9 view .LVU44
+ 168 0022 0446     		mov	r4, r0
+ 169              	.LVL9:
+  51:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   ret |= HAL_I2C_Master_Receive(&hi2c1, ADS1115_IIC_ADDRESS0 << 1, send, 2, 100);
+ 170              		.loc 1 51 3 is_stmt 1 view .LVU45
+ 171              		.loc 1 51 10 is_stmt 0 view .LVU46
+ 172 0024 0097     		str	r7, [sp]
+ 173 0026 0223     		movs	r3, #2
+ 174 0028 03AA     		add	r2, sp, #12
+ 175 002a 9021     		movs	r1, #144
+ 176 002c 3046     		mov	r0, r6
+ 177 002e FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 178              	.LVL10:
+ 179              		.loc 1 51 7 view .LVU47
+ 180 0032 2043     		orrs	r0, r0, r4
+ 181              	.LVL11:
+  52:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   temp.HREG = send[0];
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 5
+
+
+ 182              		.loc 1 52 3 is_stmt 1 view .LVU48
+ 183              		.loc 1 52 19 is_stmt 0 view .LVU49
+ 184 0034 9DF80C20 		ldrb	r2, [sp, #12]	@ zero_extendqisi2
+ 185              		.loc 1 52 13 view .LVU50
+ 186 0038 4FF00003 		mov	r3, #0	@ movhi
+ 187              	.LVL12:
+ 188              		.loc 1 52 13 view .LVU51
+ 189 003c 62F30F23 		bfi	r3, r2, #8, #8
+ 190              	.LVL13:
+  53:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   temp.LREG = send[1];
+ 191              		.loc 1 53 3 is_stmt 1 view .LVU52
+ 192              		.loc 1 53 19 is_stmt 0 view .LVU53
+ 193 0040 9DF80D20 		ldrb	r2, [sp, #13]	@ zero_extendqisi2
+ 194              		.loc 1 53 13 view .LVU54
+ 195 0044 62F30703 		bfi	r3, r2, #0, #8
+  54:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   *data = temp.REG;
+ 196              		.loc 1 54 3 is_stmt 1 view .LVU55
+ 197              		.loc 1 54 9 is_stmt 0 view .LVU56
+ 198 0048 2B80     		strh	r3, [r5]	@ movhi
+  55:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   //APPL_CMD_printf("I2C = 0x%x\r\n", ret);
+  56:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return ret;
+ 199              		.loc 1 56 3 is_stmt 1 view .LVU57
+  57:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 200              		.loc 1 57 1 is_stmt 0 view .LVU58
+ 201 004a C0B2     		uxtb	r0, r0
+ 202              		.loc 1 57 1 view .LVU59
+ 203 004c 05B0     		add	sp, sp, #20
+ 204              	.LCFI5:
+ 205              		.cfi_def_cfa_offset 20
+ 206              		@ sp needed
+ 207 004e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 208              	.LVL14:
+ 209              	.L9:
+ 210              		.loc 1 57 1 view .LVU60
+ 211              		.align	2
+ 212              	.L8:
+ 213 0050 00000000 		.word	hi2c1
+ 214              		.cfi_endproc
+ 215              	.LFE293:
+ 217              		.section	.text.APPL_ads1115_readSample,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	APPL_ads1115_readSample
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 223              		.fpu fpv4-sp-d16
+ 225              	APPL_ads1115_readSample:
+ 226              	.LVL15:
+ 227              	.LFB294:
+  58:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  59:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int APPL_ads1115_readSample(uint16_t *value)
+  60:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+ 228              		.loc 1 60 1 is_stmt 1 view -0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232              		.loc 1 60 1 is_stmt 0 view .LVU62
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 6
+
+
+ 233 0000 08B5     		push	{r3, lr}
+ 234              	.LCFI6:
+ 235              		.cfi_def_cfa_offset 8
+ 236              		.cfi_offset 3, -8
+ 237              		.cfi_offset 14, -4
+ 238 0002 0146     		mov	r1, r0
+  61:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   HAL_StatusTypeDef ret;
+ 239              		.loc 1 61 3 is_stmt 1 view .LVU63
+  62:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   ret = APPL_ads1115_read(ADS1115_POINTER_CONVERT, value);
+ 240              		.loc 1 62 3 view .LVU64
+ 241              		.loc 1 62 9 is_stmt 0 view .LVU65
+ 242 0004 0020     		movs	r0, #0
+ 243              	.LVL16:
+ 244              		.loc 1 62 9 view .LVU66
+ 245 0006 FFF7FEFF 		bl	APPL_ads1115_read
+ 246              	.LVL17:
+  63:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return ret;
+ 247              		.loc 1 63 3 is_stmt 1 view .LVU67
+  64:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 248              		.loc 1 64 1 is_stmt 0 view .LVU68
+ 249 000a C0B2     		uxtb	r0, r0
+ 250              		.loc 1 64 1 view .LVU69
+ 251 000c 08BD     		pop	{r3, pc}
+ 252              		.cfi_endproc
+ 253              	.LFE294:
+ 255              		.section	.text.APPL_ads1115_startSampling,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	APPL_ads1115_startSampling
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 261              		.fpu fpv4-sp-d16
+ 263              	APPL_ads1115_startSampling:
+ 264              	.LVL18:
+ 265              	.LFB295:
+  65:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  66:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int APPL_ads1115_startSampling(uint8_t mux_mode)
+  67:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+ 266              		.loc 1 67 1 is_stmt 1 view -0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 0
+ 269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 270              		.loc 1 67 1 is_stmt 0 view .LVU71
+ 271 0000 10B5     		push	{r4, lr}
+ 272              	.LCFI7:
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 4, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 0446     		mov	r4, r0
+  68:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint16_t config = APPL_ads1115_getDefaultConfig();
+ 277              		.loc 1 68 3 is_stmt 1 view .LVU72
+ 278              		.loc 1 68 21 is_stmt 0 view .LVU73
+ 279 0004 FFF7FEFF 		bl	APPL_ads1115_getDefaultConfig
+ 280              	.LVL19:
+  69:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (ADS1115_OS_SINGLE & ADS1115_OS_MASK) << ADS1115_OS_POS;
+ 281              		.loc 1 69 3 is_stmt 1 view .LVU74
+ 282              		.loc 1 69 10 is_stmt 0 view .LVU75
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 7
+
+
+ 283 0008 6FEA4041 		mvn	r1, r0, lsl #17
+ 284 000c 6FEA5141 		mvn	r1, r1, lsr #17
+ 285 0010 89B2     		uxth	r1, r1
+ 286              	.LVL20:
+  70:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   config |= (mux_mode & ADS1115_MUX_MASK) << ADS1115_MUX_POS;
+ 287              		.loc 1 70 3 is_stmt 1 view .LVU76
+ 288              		.loc 1 70 43 is_stmt 0 view .LVU77
+ 289 0012 2403     		lsls	r4, r4, #12
+ 290 0014 04F4E044 		and	r4, r4, #28672
+ 291              	.LVL21:
+  71:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   //APPL_CMD_printf("Data Value = %04X\r\n", config);
+  72:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return APPL_ads1115_write(ADS1115_POINTER_CONFIG, config);
+ 292              		.loc 1 72 3 is_stmt 1 view .LVU78
+ 293              		.loc 1 72 10 is_stmt 0 view .LVU79
+ 294 0018 2143     		orrs	r1, r1, r4
+ 295              	.LVL22:
+ 296              		.loc 1 72 10 view .LVU80
+ 297 001a 0120     		movs	r0, #1
+ 298 001c FFF7FEFF 		bl	APPL_ads1115_write
+ 299              	.LVL23:
+  73:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 300              		.loc 1 73 1 view .LVU81
+ 301 0020 10BD     		pop	{r4, pc}
+ 302              		.loc 1 73 1 view .LVU82
+ 303              		.cfi_endproc
+ 304              	.LFE295:
+ 306              		.section	.rodata.APPL_ads1115_isBusy.str1.4,"aMS",%progbits,1
+ 307              		.align	2
+ 308              	.LC0:
+ 309 0000 41445331 		.ascii	"ADS1115 : Get Status : Failed\012\000"
+ 309      31313520 
+ 309      3A204765 
+ 309      74205374 
+ 309      61747573 
+ 310              		.section	.text.APPL_ads1115_isBusy,"ax",%progbits
+ 311              		.align	1
+ 312              		.global	APPL_ads1115_isBusy
+ 313              		.syntax unified
+ 314              		.thumb
+ 315              		.thumb_func
+ 316              		.fpu fpv4-sp-d16
+ 318              	APPL_ads1115_isBusy:
+ 319              	.LFB296:
+  74:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  75:../01_Appl/APPL_ads1115/APPL_ads1115.c **** bool APPL_ads1115_isBusy(void)
+  76:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+ 320              		.loc 1 76 1 is_stmt 1 view -0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 8
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324 0000 00B5     		push	{lr}
+ 325              	.LCFI8:
+ 326              		.cfi_def_cfa_offset 4
+ 327              		.cfi_offset 14, -4
+ 328 0002 83B0     		sub	sp, sp, #12
+ 329              	.LCFI9:
+ 330              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 8
+
+
+  77:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   HAL_StatusTypeDef ret_code;
+ 331              		.loc 1 77 3 view .LVU84
+  78:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   bool busy = true;
+ 332              		.loc 1 78 3 view .LVU85
+ 333              	.LVL24:
+  79:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint16_t value = 0;
+ 334              		.loc 1 79 3 view .LVU86
+ 335              		.loc 1 79 12 is_stmt 0 view .LVU87
+ 336 0004 0023     		movs	r3, #0
+ 337 0006 ADF80630 		strh	r3, [sp, #6]	@ movhi
+  80:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   ret_code = APPL_ads1115_read(ADS1115_POINTER_CONFIG, &value);
+ 338              		.loc 1 80 3 is_stmt 1 view .LVU88
+ 339              		.loc 1 80 14 is_stmt 0 view .LVU89
+ 340 000a 0DF10601 		add	r1, sp, #6
+ 341 000e 0120     		movs	r0, #1
+ 342 0010 FFF7FEFF 		bl	APPL_ads1115_read
+ 343              	.LVL25:
+  81:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  82:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   // APPL_CMD_printf("I2C = 0x%x\r\n", ret_code);
+  83:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   if (ret_code == HAL_OK)
+ 344              		.loc 1 83 3 is_stmt 1 view .LVU90
+ 345              		.loc 1 83 6 is_stmt 0 view .LVU91
+ 346 0014 10F0FF0F 		tst	r0, #255
+ 347 0018 07D1     		bne	.L15
+  84:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   {
+  85:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     if (value & (ADS1115_OS_MASK << ADS1115_OS_POS))
+ 348              		.loc 1 85 5 is_stmt 1 view .LVU92
+ 349              		.loc 1 85 9 is_stmt 0 view .LVU93
+ 350 001a BDF90630 		ldrsh	r3, [sp, #6]
+ 351              		.loc 1 85 8 view .LVU94
+ 352 001e 002B     		cmp	r3, #0
+ 353 0020 08DB     		blt	.L17
+  78:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint16_t value = 0;
+ 354              		.loc 1 78 8 view .LVU95
+ 355 0022 0120     		movs	r0, #1
+ 356              	.LVL26:
+ 357              	.L16:
+  86:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     {
+  87:../01_Appl/APPL_ads1115/APPL_ads1115.c ****       busy = false;
+  88:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     }
+  89:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   }
+  90:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   else
+  91:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   {
+  92:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     APPL_CMD_printf("ADS1115 : Get Status : Failed\n");
+  93:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   }
+  94:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  95:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return busy;
+ 358              		.loc 1 95 3 is_stmt 1 view .LVU96
+  96:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 359              		.loc 1 96 1 is_stmt 0 view .LVU97
+ 360 0024 03B0     		add	sp, sp, #12
+ 361              	.LCFI10:
+ 362              		.cfi_remember_state
+ 363              		.cfi_def_cfa_offset 4
+ 364              		@ sp needed
+ 365 0026 5DF804FB 		ldr	pc, [sp], #4
+ 366              	.LVL27:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 9
+
+
+ 367              	.L15:
+ 368              	.LCFI11:
+ 369              		.cfi_restore_state
+  92:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   }
+ 370              		.loc 1 92 5 is_stmt 1 view .LVU98
+ 371 002a 0348     		ldr	r0, .L19
+ 372              	.LVL28:
+  92:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   }
+ 373              		.loc 1 92 5 is_stmt 0 view .LVU99
+ 374 002c FFF7FEFF 		bl	APPL_CMD_printf
+ 375              	.LVL29:
+  78:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   uint16_t value = 0;
+ 376              		.loc 1 78 8 view .LVU100
+ 377 0030 0120     		movs	r0, #1
+ 378 0032 F7E7     		b	.L16
+ 379              	.LVL30:
+ 380              	.L17:
+  87:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     }
+ 381              		.loc 1 87 12 view .LVU101
+ 382 0034 0020     		movs	r0, #0
+ 383              	.LVL31:
+  87:../01_Appl/APPL_ads1115/APPL_ads1115.c ****     }
+ 384              		.loc 1 87 12 view .LVU102
+ 385 0036 F5E7     		b	.L16
+ 386              	.L20:
+ 387              		.align	2
+ 388              	.L19:
+ 389 0038 00000000 		.word	.LC0
+ 390              		.cfi_endproc
+ 391              	.LFE296:
+ 393              		.section	.text.APPL_ads1115_uVolt,"ax",%progbits
+ 394              		.align	1
+ 395              		.global	APPL_ads1115_uVolt
+ 396              		.syntax unified
+ 397              		.thumb
+ 398              		.thumb_func
+ 399              		.fpu fpv4-sp-d16
+ 401              	APPL_ads1115_uVolt:
+ 402              	.LVL32:
+ 403              	.LFB297:
+  97:../01_Appl/APPL_ads1115/APPL_ads1115.c **** 
+  98:../01_Appl/APPL_ads1115/APPL_ads1115.c **** int32_t APPL_ads1115_uVolt(uint16_t *adcValueX)
+  99:../01_Appl/APPL_ads1115/APPL_ads1115.c **** {
+ 404              		.loc 1 99 1 is_stmt 1 view -0
+ 405              		.cfi_startproc
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408              		@ link register save eliminated.
+ 100:../01_Appl/APPL_ads1115/APPL_ads1115.c ****   return *adcValueX*4096000/32768;
+ 409              		.loc 1 100 3 view .LVU104
+ 410              		.loc 1 100 10 is_stmt 0 view .LVU105
+ 411 0000 0388     		ldrh	r3, [r0]
+ 412              		.loc 1 100 28 view .LVU106
+ 413 0002 C3EB4310 		rsb	r0, r3, r3, lsl #5
+ 414              	.LVL33:
+ 101:../01_Appl/APPL_ads1115/APPL_ads1115.c **** }
+ 415              		.loc 1 101 1 view .LVU107
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 10
+
+
+ 416 0006 03EB8000 		add	r0, r3, r0, lsl #2
+ 417 000a 7047     		bx	lr
+ 418              		.cfi_endproc
+ 419              	.LFE297:
+ 421              		.text
+ 422              	.Letext0:
+ 423              		.file 2 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\machine\\_defau
+ 424              		.file 3 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 425              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 426              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 427              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 428              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h"
+ 429              		.file 8 "../02_OS/EKM_Modbus/EKM_Modbus.h"
+ 430              		.file 9 "../02_OS/Core_I2C/i2c.h"
+ 431              		.file 10 "../01_Appl/APPL_CMD/Appl_CMD.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 APPL_ads1115.c
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:18     .text.APPL_ads1115_getDefaultConfig:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:25     .text.APPL_ads1115_getDefaultConfig:00000000 APPL_ads1115_getDefaultConfig
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:52     .text.APPL_ads1115_write:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:58     .text.APPL_ads1115_write:00000000 APPL_ads1115_write
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:111    .text.APPL_ads1115_write:0000002c $d
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:116    .text.APPL_ads1115_read:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:122    .text.APPL_ads1115_read:00000000 APPL_ads1115_read
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:213    .text.APPL_ads1115_read:00000050 $d
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:218    .text.APPL_ads1115_readSample:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:225    .text.APPL_ads1115_readSample:00000000 APPL_ads1115_readSample
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:256    .text.APPL_ads1115_startSampling:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:263    .text.APPL_ads1115_startSampling:00000000 APPL_ads1115_startSampling
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:307    .rodata.APPL_ads1115_isBusy.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:311    .text.APPL_ads1115_isBusy:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:318    .text.APPL_ads1115_isBusy:00000000 APPL_ads1115_isBusy
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:389    .text.APPL_ads1115_isBusy:00000038 $d
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:394    .text.APPL_ads1115_uVolt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc0ivnvy.s:401    .text.APPL_ads1115_uVolt:00000000 APPL_ads1115_uVolt
+
+UNDEFINED SYMBOLS
+HAL_I2C_Master_Transmit
+hi2c1
+HAL_I2C_Master_Receive
+APPL_CMD_printf

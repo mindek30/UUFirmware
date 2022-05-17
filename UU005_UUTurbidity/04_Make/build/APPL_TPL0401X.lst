@@ -1,0 +1,138 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccZbSquc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"APPL_TPL0401X.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.APPL_TPL0401X_write,"ax",%progbits
+  18              		.align	1
+  19              		.global	APPL_TPL0401X_write
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	APPL_TPL0401X_write:
+  27              	.LVL0:
+  28              	.LFB291:
+  29              		.file 1 "../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c"
+   1:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** /*
+   2:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * APPL_DAC80502.c
+   3:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *
+   4:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *  Created on: Oct 18, 2021
+   5:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *      Author: Eakawit
+   6:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *      Email: mindek30@gmail.com
+   7:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *
+   8:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  */
+   9:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** 
+  10:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** #include "main.h"
+  11:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** 
+  12:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** int APPL_TPL0401X_write(uint8_t Addr, uint8_t data);
+  13:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** 
+  14:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** /*******************************************************************************
+  15:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * Function: APPL_TPL0401X_write
+  16:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *
+  17:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * Parameters:      -
+  18:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * Returned value:  -
+  19:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *
+  20:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * Description:
+  21:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  *
+  22:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  * Calling:
+  23:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****  ******************************************************************************/
+  24:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** int APPL_TPL0401X_write(uint8_t Addr, uint8_t dataX)
+  25:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** {
+  30              		.loc 1 25 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 8
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccZbSquc.s 			page 2
+
+
+  34              		.loc 1 25 1 is_stmt 0 view .LVU1
+  35 0000 00B5     		push	{lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 4
+  38              		.cfi_offset 14, -4
+  39 0002 85B0     		sub	sp, sp, #20
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 24
+  26:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   HAL_StatusTypeDef ret;
+  42              		.loc 1 26 3 is_stmt 1 view .LVU2
+  27:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   uint8_t send[2];
+  43              		.loc 1 27 3 view .LVU3
+  28:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   send[0] = APPL_TPL0401X_NOOP;
+  44              		.loc 1 28 3 view .LVU4
+  45              		.loc 1 28 11 is_stmt 0 view .LVU5
+  46 0004 0023     		movs	r3, #0
+  47 0006 8DF80C30 		strb	r3, [sp, #12]
+  29:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   send[1] = dataX;
+  48              		.loc 1 29 3 is_stmt 1 view .LVU6
+  49              		.loc 1 29 11 is_stmt 0 view .LVU7
+  50 000a 8DF80D10 		strb	r1, [sp, #13]
+  30:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   ret = HAL_I2C_Master_Transmit(&hi2c1, Addr << 1, send, 2, 100);
+  51              		.loc 1 30 3 is_stmt 1 view .LVU8
+  52              		.loc 1 30 9 is_stmt 0 view .LVU9
+  53 000e 6423     		movs	r3, #100
+  54 0010 0093     		str	r3, [sp]
+  55 0012 0223     		movs	r3, #2
+  56 0014 03AA     		add	r2, sp, #12
+  57 0016 4100     		lsls	r1, r0, #1
+  58              	.LVL1:
+  59              		.loc 1 30 9 view .LVU10
+  60 0018 0248     		ldr	r0, .L3
+  61              	.LVL2:
+  62              		.loc 1 30 9 view .LVU11
+  63 001a FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+  64              	.LVL3:
+  31:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c ****   return ret;
+  65              		.loc 1 31 3 is_stmt 1 view .LVU12
+  32:../01_Appl/APPL_TPL0401X/APPL_TPL0401X.c **** }
+  66              		.loc 1 32 1 is_stmt 0 view .LVU13
+  67 001e 05B0     		add	sp, sp, #20
+  68              	.LCFI2:
+  69              		.cfi_def_cfa_offset 4
+  70              		@ sp needed
+  71 0020 5DF804FB 		ldr	pc, [sp], #4
+  72              	.L4:
+  73              		.align	2
+  74              	.L3:
+  75 0024 00000000 		.word	hi2c1
+  76              		.cfi_endproc
+  77              	.LFE291:
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\machine\\_defau
+  82              		.file 3 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+  83              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+  84              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccZbSquc.s 			page 3
+
+
+  85              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+  86              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h"
+  87              		.file 8 "../02_OS/Core_I2C/i2c.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccZbSquc.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 APPL_TPL0401X.c
+C:\Users\minde\AppData\Local\Temp\ccZbSquc.s:18     .text.APPL_TPL0401X_write:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccZbSquc.s:26     .text.APPL_TPL0401X_write:00000000 APPL_TPL0401X_write
+C:\Users\minde\AppData\Local\Temp\ccZbSquc.s:75     .text.APPL_TPL0401X_write:00000024 $d
+
+UNDEFINED SYMBOLS
+HAL_I2C_Master_Transmit
+hi2c1

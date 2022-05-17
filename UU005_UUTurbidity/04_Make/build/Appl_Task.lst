@@ -1,0 +1,883 @@
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"Appl_Task.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.APPL_Task_Init.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 55534152 		.ascii	"USART 1 Init\015\012\000"
+  20      54203120 
+  20      496E6974 
+  20      0D0A00
+  21 000f 00       		.align	2
+  22              	.LC1:
+  23 0010 4D6F6475 		.ascii	"Module Init\015\012\000"
+  23      6C652049 
+  23      6E69740D 
+  23      0A00
+  24 001e 0000     		.align	2
+  25              	.LC2:
+  26 0020 416C6C20 		.ascii	"All System Green\015\012\000"
+  26      53797374 
+  26      656D2047 
+  26      7265656E 
+  26      0D0A00
+  27              		.section	.text.APPL_Task_Init,"ax",%progbits
+  28              		.align	1
+  29              		.global	APPL_Task_Init
+  30              		.arch armv7e-m
+  31              		.syntax unified
+  32              		.thumb
+  33              		.thumb_func
+  34              		.fpu fpv4-sp-d16
+  36              	APPL_Task_Init:
+  37              	.LFB291:
+  38              		.file 1 "../01_Appl/APPL_Task/Appl_Task.c"
+   1:../01_Appl/APPL_Task/Appl_Task.c **** /*
+   2:../01_Appl/APPL_Task/Appl_Task.c ****  * Appl_Task.c
+   3:../01_Appl/APPL_Task/Appl_Task.c ****  *
+   4:../01_Appl/APPL_Task/Appl_Task.c ****  *  Created on: July 1, 2021
+   5:../01_Appl/APPL_Task/Appl_Task.c ****  *      Author: Eakawit
+   6:../01_Appl/APPL_Task/Appl_Task.c ****  *      Email: mindek30@gmail.com
+   7:../01_Appl/APPL_Task/Appl_Task.c ****  *
+   8:../01_Appl/APPL_Task/Appl_Task.c ****  */
+   9:../01_Appl/APPL_Task/Appl_Task.c **** 
+  10:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 2
+
+
+  11:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  12:../01_Appl/APPL_Task/Appl_Task.c ****  * INCLUDE
+  13:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  14:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+  15:../01_Appl/APPL_Task/Appl_Task.c **** #include "main.h"
+  16:../01_Appl/APPL_Task/Appl_Task.c **** 
+  17:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+  18:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  19:../01_Appl/APPL_Task/Appl_Task.c ****  * GOBAL VARIABLE
+  20:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  21:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+  22:../01_Appl/APPL_Task/Appl_Task.c **** Appl_Task_t APPL_Task_d;
+  23:../01_Appl/APPL_Task/Appl_Task.c **** 
+  24:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_Init(void);
+  25:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_10ms(void);
+  26:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_100ms(void);
+  27:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_1s(void);
+  28:../01_Appl/APPL_Task/Appl_Task.c **** 
+  29:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_LED(void);
+  30:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_MOD(void);
+  31:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_MainVoltage_Read(void);
+  32:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_LAMP_ON(uint8_t on);
+  33:../01_Appl/APPL_Task/Appl_Task.c **** 
+  34:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+  35:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  36:../01_Appl/APPL_Task/Appl_Task.c ****  * PRIVATE VARIABLE
+  37:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  38:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+  39:../01_Appl/APPL_Task/Appl_Task.c **** uint8_t APPL_Task_Time_10ms = 0;
+  40:../01_Appl/APPL_Task/Appl_Task.c **** uint8_t APPL_Task_Time_100ms = 0;
+  41:../01_Appl/APPL_Task/Appl_Task.c **** uint8_t APPL_Task_Time_1s = 0;
+  42:../01_Appl/APPL_Task/Appl_Task.c **** 
+  43:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+  44:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_Init
+  45:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  46:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+  47:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+  48:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  49:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+  50:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  51:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+  52:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+  53:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_Init(void)
+  54:../01_Appl/APPL_Task/Appl_Task.c **** {
+  39              		.loc 1 54 1 view -0
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 0
+  42              		@ frame_needed = 0, uses_anonymous_args = 0
+  43 0000 08B5     		push	{r3, lr}
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 3, -8
+  47              		.cfi_offset 14, -4
+  55:../01_Appl/APPL_Task/Appl_Task.c ****   // HAL_Delay(1000);
+  56:../01_Appl/APPL_Task/Appl_Task.c **** 
+  57:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_CMD_Init();
+  48              		.loc 1 57 3 view .LVU1
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 3
+
+
+  49 0002 FFF7FEFF 		bl	APPL_CMD_Init
+  50              	.LVL0:
+  58:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_CMD_printf("USART 1 Init\r\n");
+  51              		.loc 1 58 3 view .LVU2
+  52 0006 0C48     		ldr	r0, .L3
+  53 0008 FFF7FEFF 		bl	APPL_CMD_printf
+  54              	.LVL1:
+  59:../01_Appl/APPL_Task/Appl_Task.c **** 
+  60:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Module_Init();
+  55              		.loc 1 60 3 view .LVU3
+  56 000c FFF7FEFF 		bl	APPL_Module_Init
+  57              	.LVL2:
+  61:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_CMD_printf("Module Init\r\n");
+  58              		.loc 1 61 3 view .LVU4
+  59 0010 0A48     		ldr	r0, .L3+4
+  60 0012 FFF7FEFF 		bl	APPL_CMD_printf
+  61              	.LVL3:
+  62:../01_Appl/APPL_Task/Appl_Task.c **** 
+  63:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_GPIO_WritePin(AN_EN_GPIO_Port, AN_EN_Pin, GPIO_PIN_SET);
+  62              		.loc 1 63 3 view .LVU5
+  63 0016 0122     		movs	r2, #1
+  64 0018 1021     		movs	r1, #16
+  65 001a 4FF09040 		mov	r0, #1207959552
+  66 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
+  67              	.LVL4:
+  64:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_GPIO_WritePin(LAMP_EN_GPIO_Port, LAMP_EN_Pin, GPIO_PIN_RESET);
+  68              		.loc 1 64 3 view .LVU6
+  69 0022 0022     		movs	r2, #0
+  70 0024 2021     		movs	r1, #32
+  71 0026 4FF09040 		mov	r0, #1207959552
+  72 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  73              	.LVL5:
+  65:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_CMD_printf("All System Green\r\n");
+  74              		.loc 1 65 3 view .LVU7
+  75 002e 0448     		ldr	r0, .L3+8
+  76 0030 FFF7FEFF 		bl	APPL_CMD_printf
+  77              	.LVL6:
+  66:../01_Appl/APPL_Task/Appl_Task.c **** }
+  78              		.loc 1 66 1 is_stmt 0 view .LVU8
+  79 0034 08BD     		pop	{r3, pc}
+  80              	.L4:
+  81 0036 00BF     		.align	2
+  82              	.L3:
+  83 0038 00000000 		.word	.LC0
+  84 003c 10000000 		.word	.LC1
+  85 0040 20000000 		.word	.LC2
+  86              		.cfi_endproc
+  87              	.LFE291:
+  89              		.section	.text.APPL_Task_1s,"ax",%progbits
+  90              		.align	1
+  91              		.global	APPL_Task_1s
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu fpv4-sp-d16
+  97              	APPL_Task_1s:
+  98              	.LFB294:
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 4
+
+
+  67:../01_Appl/APPL_Task/Appl_Task.c **** 
+  68:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+  69:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_10ms
+  70:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  71:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+  72:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+  73:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  74:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+  75:../01_Appl/APPL_Task/Appl_Task.c ****  *
+  76:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+  77:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+  78:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_10ms(void)
+  79:../01_Appl/APPL_Task/Appl_Task.c **** {
+  80:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_10ms++)
+  81:../01_Appl/APPL_Task/Appl_Task.c ****   {
+  82:../01_Appl/APPL_Task/Appl_Task.c ****   case 10:
+  83:../01_Appl/APPL_Task/Appl_Task.c ****   {
+  84:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_100ms();
+  85:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_LED();
+  86:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_Time_10ms = 0;
+  87:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+  88:../01_Appl/APPL_Task/Appl_Task.c ****   }
+  89:../01_Appl/APPL_Task/Appl_Task.c ****   case 4:
+  90:../01_Appl/APPL_Task/Appl_Task.c ****   {
+  91:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_LAMP_ON(1);
+  92:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+  93:../01_Appl/APPL_Task/Appl_Task.c ****   }
+  94:../01_Appl/APPL_Task/Appl_Task.c ****   case 5:
+  95:../01_Appl/APPL_Task/Appl_Task.c ****   {
+  96:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_MainVoltage_Read();
+  97:../01_Appl/APPL_Task/Appl_Task.c ****     //APPL_Task_LAMP_ON(0);
+  98:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+  99:../01_Appl/APPL_Task/Appl_Task.c ****   }  
+ 100:../01_Appl/APPL_Task/Appl_Task.c ****   case 8:
+ 101:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 102:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Module_LineProcess();
+ 103:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 104:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 105:../01_Appl/APPL_Task/Appl_Task.c ****   case 9:
+ 106:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 107:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_CMD_LineProcess();
+ 108:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 109:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 110:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 111:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 112:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 113:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 114:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_100ms
+ 115:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 116:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 117:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 118:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 119:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 120:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 121:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 122:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 123:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_100ms(void)
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 5
+
+
+ 124:../01_Appl/APPL_Task/Appl_Task.c **** {
+ 125:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_Time_100ms++;
+ 126:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_100ms)
+ 127:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 128:../01_Appl/APPL_Task/Appl_Task.c ****   case 10:
+ 129:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 130:../01_Appl/APPL_Task/Appl_Task.c ****     // APPL_CMD_printf("Module Init\r\n");
+ 131:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_1s();
+ 132:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_Time_100ms = 0;
+ 133:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 134:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 135:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 136:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 137:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 138:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 139:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_1s
+ 140:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 141:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 142:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 143:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 144:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 145:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 146:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 147:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 148:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_1s(void)
+ 149:../01_Appl/APPL_Task/Appl_Task.c **** {
+  99              		.loc 1 149 1 is_stmt 1 view -0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 150:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_Time_1s++;
+ 104              		.loc 1 150 3 view .LVU10
+ 105              		.loc 1 150 20 is_stmt 0 view .LVU11
+ 106 0000 054A     		ldr	r2, .L8
+ 107 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 108 0004 0133     		adds	r3, r3, #1
+ 109 0006 DBB2     		uxtb	r3, r3
+ 110 0008 1370     		strb	r3, [r2]
+ 151:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_1s)
+ 111              		.loc 1 151 3 is_stmt 1 view .LVU12
+ 112 000a 0F2B     		cmp	r3, #15
+ 113 000c 00D0     		beq	.L7
+ 114              	.L5:
+ 152:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 153:../01_Appl/APPL_Task/Appl_Task.c ****   case 2:
+ 154:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 155:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 156:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 157:../01_Appl/APPL_Task/Appl_Task.c ****   case 15:
+ 158:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 159:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_Time_1s = 0;
+ 160:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 161:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 162:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 163:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 115              		.loc 1 163 1 is_stmt 0 view .LVU13
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 6
+
+
+ 116 000e 7047     		bx	lr
+ 117              	.L7:
+ 159:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 118              		.loc 1 159 5 is_stmt 1 view .LVU14
+ 159:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 119              		.loc 1 159 23 is_stmt 0 view .LVU15
+ 120 0010 1346     		mov	r3, r2
+ 121 0012 0022     		movs	r2, #0
+ 122 0014 1A70     		strb	r2, [r3]
+ 160:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 123              		.loc 1 160 5 is_stmt 1 view .LVU16
+ 124              		.loc 1 163 1 is_stmt 0 view .LVU17
+ 125 0016 FAE7     		b	.L5
+ 126              	.L9:
+ 127              		.align	2
+ 128              	.L8:
+ 129 0018 00000000 		.word	.LANCHOR0
+ 130              		.cfi_endproc
+ 131              	.LFE294:
+ 133              		.section	.text.APPL_Task_100ms,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	APPL_Task_100ms
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu fpv4-sp-d16
+ 141              	APPL_Task_100ms:
+ 142              	.LFB293:
+ 124:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_Time_100ms++;
+ 143              		.loc 1 124 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147 0000 08B5     		push	{r3, lr}
+ 148              	.LCFI1:
+ 149              		.cfi_def_cfa_offset 8
+ 150              		.cfi_offset 3, -8
+ 151              		.cfi_offset 14, -4
+ 125:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_100ms)
+ 152              		.loc 1 125 3 view .LVU19
+ 125:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_100ms)
+ 153              		.loc 1 125 23 is_stmt 0 view .LVU20
+ 154 0002 074A     		ldr	r2, .L14
+ 155 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 156 0006 0133     		adds	r3, r3, #1
+ 157 0008 DBB2     		uxtb	r3, r3
+ 158 000a 1370     		strb	r3, [r2]
+ 126:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 159              		.loc 1 126 3 is_stmt 1 view .LVU21
+ 160 000c 0A2B     		cmp	r3, #10
+ 161 000e 00D0     		beq	.L13
+ 162              	.L10:
+ 136:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 163              		.loc 1 136 1 is_stmt 0 view .LVU22
+ 164 0010 08BD     		pop	{r3, pc}
+ 165              	.L13:
+ 131:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_Time_100ms = 0;
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 7
+
+
+ 166              		.loc 1 131 5 is_stmt 1 view .LVU23
+ 167 0012 FFF7FEFF 		bl	APPL_Task_1s
+ 168              	.LVL7:
+ 132:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 169              		.loc 1 132 5 view .LVU24
+ 132:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 170              		.loc 1 132 26 is_stmt 0 view .LVU25
+ 171 0016 024B     		ldr	r3, .L14
+ 172 0018 0022     		movs	r2, #0
+ 173 001a 1A70     		strb	r2, [r3]
+ 133:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 174              		.loc 1 133 5 is_stmt 1 view .LVU26
+ 136:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 175              		.loc 1 136 1 is_stmt 0 view .LVU27
+ 176 001c F8E7     		b	.L10
+ 177              	.L15:
+ 178 001e 00BF     		.align	2
+ 179              	.L14:
+ 180 0020 00000000 		.word	.LANCHOR1
+ 181              		.cfi_endproc
+ 182              	.LFE293:
+ 184              		.section	.text.APPL_Task_LED,"ax",%progbits
+ 185              		.align	1
+ 186              		.global	APPL_Task_LED
+ 187              		.syntax unified
+ 188              		.thumb
+ 189              		.thumb_func
+ 190              		.fpu fpv4-sp-d16
+ 192              	APPL_Task_LED:
+ 193              	.LFB295:
+ 164:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 165:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 166:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_LED
+ 167:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 168:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 169:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 170:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 171:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 172:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 173:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 174:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 175:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_LED(void)
+ 176:../01_Appl/APPL_Task/Appl_Task.c **** {
+ 194              		.loc 1 176 1 is_stmt 1 view -0
+ 195              		.cfi_startproc
+ 196              		@ args = 0, pretend = 0, frame = 0
+ 197              		@ frame_needed = 0, uses_anonymous_args = 0
+ 198 0000 08B5     		push	{r3, lr}
+ 199              	.LCFI2:
+ 200              		.cfi_def_cfa_offset 8
+ 201              		.cfi_offset 3, -8
+ 202              		.cfi_offset 14, -4
+ 177:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
+ 203              		.loc 1 177 3 view .LVU29
+ 204 0002 4021     		movs	r1, #64
+ 205 0004 4FF09040 		mov	r0, #1207959552
+ 206 0008 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 8
+
+
+ 207              	.LVL8:
+ 178:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 208              		.loc 1 178 1 is_stmt 0 view .LVU30
+ 209 000c 08BD     		pop	{r3, pc}
+ 210              		.cfi_endproc
+ 211              	.LFE295:
+ 213              		.section	.text.APPL_Task_MOD,"ax",%progbits
+ 214              		.align	1
+ 215              		.global	APPL_Task_MOD
+ 216              		.syntax unified
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.fpu fpv4-sp-d16
+ 221              	APPL_Task_MOD:
+ 222              	.LFB296:
+ 179:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 180:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 181:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_MOD
+ 182:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 183:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 184:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 185:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 186:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 187:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 188:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 189:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 190:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_MOD(void)
+ 191:../01_Appl/APPL_Task/Appl_Task.c **** {
+ 223              		.loc 1 191 1 is_stmt 1 view -0
+ 224              		.cfi_startproc
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 227 0000 38B5     		push	{r3, r4, r5, lr}
+ 228              	.LCFI3:
+ 229              		.cfi_def_cfa_offset 16
+ 230              		.cfi_offset 3, -16
+ 231              		.cfi_offset 4, -12
+ 232              		.cfi_offset 5, -8
+ 233              		.cfi_offset 14, -4
+ 192:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_ADC_Start(&hadc1);
+ 234              		.loc 1 192 3 view .LVU32
+ 235 0002 0C4C     		ldr	r4, .L20
+ 236 0004 2046     		mov	r0, r4
+ 237 0006 FFF7FEFF 		bl	HAL_ADC_Start
+ 238              	.LVL9:
+ 193:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_ADC_PollForConversion(&hadc1, 5);
+ 239              		.loc 1 193 3 view .LVU33
+ 240 000a 0521     		movs	r1, #5
+ 241 000c 2046     		mov	r0, r4
+ 242 000e FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 243              	.LVL10:
+ 194:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_d.Mod1 = HAL_ADC_GetValue(&hadc1);
+ 244              		.loc 1 194 3 view .LVU34
+ 245              		.loc 1 194 22 is_stmt 0 view .LVU35
+ 246 0012 2046     		mov	r0, r4
+ 247 0014 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 248              	.LVL11:
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 9
+
+
+ 249              		.loc 1 194 20 view .LVU36
+ 250 0018 074D     		ldr	r5, .L20+4
+ 251 001a 2860     		str	r0, [r5]
+ 195:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_ADC_PollForConversion(&hadc1, 5);
+ 252              		.loc 1 195 3 is_stmt 1 view .LVU37
+ 253 001c 0521     		movs	r1, #5
+ 254 001e 2046     		mov	r0, r4
+ 255 0020 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 256              	.LVL12:
+ 196:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_d.Mod2 = HAL_ADC_GetValue(&hadc1);
+ 257              		.loc 1 196 3 view .LVU38
+ 258              		.loc 1 196 22 is_stmt 0 view .LVU39
+ 259 0024 2046     		mov	r0, r4
+ 260 0026 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 261              	.LVL13:
+ 262              		.loc 1 196 20 view .LVU40
+ 263 002a 6860     		str	r0, [r5, #4]
+ 197:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_ADC_Stop(&hadc1);
+ 264              		.loc 1 197 3 is_stmt 1 view .LVU41
+ 265 002c 2046     		mov	r0, r4
+ 266 002e FFF7FEFF 		bl	HAL_ADC_Stop
+ 267              	.LVL14:
+ 198:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 268              		.loc 1 198 1 is_stmt 0 view .LVU42
+ 269 0032 38BD     		pop	{r3, r4, r5, pc}
+ 270              	.L21:
+ 271              		.align	2
+ 272              	.L20:
+ 273 0034 00000000 		.word	hadc1
+ 274 0038 00000000 		.word	.LANCHOR2
+ 275              		.cfi_endproc
+ 276              	.LFE296:
+ 278              		.section	.text.APPL_Task_MainVoltage_Read,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	APPL_Task_MainVoltage_Read
+ 281              		.syntax unified
+ 282              		.thumb
+ 283              		.thumb_func
+ 284              		.fpu fpv4-sp-d16
+ 286              	APPL_Task_MainVoltage_Read:
+ 287              	.LFB297:
+ 199:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 200:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 201:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_MainVoltage_Read
+ 202:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 203:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 204:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 205:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 206:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 207:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 208:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 209:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 210:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_MainVoltage_Read(void)
+ 211:../01_Appl/APPL_Task/Appl_Task.c **** {
+ 288              		.loc 1 211 1 is_stmt 1 view -0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 10
+
+
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292 0000 00B5     		push	{lr}
+ 293              	.LCFI4:
+ 294              		.cfi_def_cfa_offset 4
+ 295              		.cfi_offset 14, -4
+ 296 0002 83B0     		sub	sp, sp, #12
+ 297              	.LCFI5:
+ 298              		.cfi_def_cfa_offset 16
+ 212:../01_Appl/APPL_Task/Appl_Task.c ****   uint16_t val = 0;
+ 299              		.loc 1 212 3 view .LVU44
+ 300              		.loc 1 212 12 is_stmt 0 view .LVU45
+ 301 0004 0023     		movs	r3, #0
+ 302 0006 ADF80630 		strh	r3, [sp, #6]	@ movhi
+ 213:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_ads1115_startSampling(ADS1115_MUX_5); // P = AIN0, N = GND
+ 303              		.loc 1 213 3 is_stmt 1 view .LVU46
+ 304 000a 0420     		movs	r0, #4
+ 305 000c FFF7FEFF 		bl	APPL_ads1115_startSampling
+ 306              	.LVL15:
+ 214:../01_Appl/APPL_Task/Appl_Task.c ****   while (APPL_ads1115_isBusy());
+ 307              		.loc 1 214 3 view .LVU47
+ 308              	.L23:
+ 309              		.loc 1 214 32 discriminator 1 view .LVU48
+ 310              		.loc 1 214 9 discriminator 1 view .LVU49
+ 311              		.loc 1 214 10 is_stmt 0 discriminator 1 view .LVU50
+ 312 0010 FFF7FEFF 		bl	APPL_ads1115_isBusy
+ 313              	.LVL16:
+ 314              		.loc 1 214 9 discriminator 1 view .LVU51
+ 315 0014 0028     		cmp	r0, #0
+ 316 0016 FBD1     		bne	.L23
+ 215:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_ads1115_readSample(&val);
+ 317              		.loc 1 215 3 is_stmt 1 view .LVU52
+ 318 0018 0DF10600 		add	r0, sp, #6
+ 319 001c FFF7FEFF 		bl	APPL_ads1115_readSample
+ 320              	.LVL17:
+ 216:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_d.RAW_ADC_Ch0 = val;
+ 321              		.loc 1 216 3 view .LVU53
+ 322              		.loc 1 216 27 is_stmt 0 view .LVU54
+ 323 0020 0A4B     		ldr	r3, .L26
+ 324 0022 BDF80620 		ldrh	r2, [sp, #6]
+ 325 0026 9A82     		strh	r2, [r3, #20]	@ movhi
+ 217:../01_Appl/APPL_Task/Appl_Task.c ****   
+ 218:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_ads1115_startSampling(ADS1115_MUX_6); // P = AIN1, N = GND
+ 326              		.loc 1 218 3 is_stmt 1 view .LVU55
+ 327 0028 0520     		movs	r0, #5
+ 328 002a FFF7FEFF 		bl	APPL_ads1115_startSampling
+ 329              	.LVL18:
+ 219:../01_Appl/APPL_Task/Appl_Task.c ****   while (APPL_ads1115_isBusy());
+ 330              		.loc 1 219 3 view .LVU56
+ 331              	.L24:
+ 332              		.loc 1 219 32 discriminator 1 view .LVU57
+ 333              		.loc 1 219 9 discriminator 1 view .LVU58
+ 334              		.loc 1 219 10 is_stmt 0 discriminator 1 view .LVU59
+ 335 002e FFF7FEFF 		bl	APPL_ads1115_isBusy
+ 336              	.LVL19:
+ 337              		.loc 1 219 9 discriminator 1 view .LVU60
+ 338 0032 0028     		cmp	r0, #0
+ 339 0034 FBD1     		bne	.L24
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 11
+
+
+ 220:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_ads1115_readSample(&val);
+ 340              		.loc 1 220 3 is_stmt 1 view .LVU61
+ 341 0036 0DF10600 		add	r0, sp, #6
+ 342 003a FFF7FEFF 		bl	APPL_ads1115_readSample
+ 343              	.LVL20:
+ 221:../01_Appl/APPL_Task/Appl_Task.c ****   APPL_Task_d.RAW_ADC_Ch1 = val;
+ 344              		.loc 1 221 3 view .LVU62
+ 345              		.loc 1 221 27 is_stmt 0 view .LVU63
+ 346 003e 034B     		ldr	r3, .L26
+ 347 0040 BDF80620 		ldrh	r2, [sp, #6]
+ 348 0044 DA82     		strh	r2, [r3, #22]	@ movhi
+ 222:../01_Appl/APPL_Task/Appl_Task.c ****   
+ 223:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 349              		.loc 1 223 1 view .LVU64
+ 350 0046 03B0     		add	sp, sp, #12
+ 351              	.LCFI6:
+ 352              		.cfi_def_cfa_offset 4
+ 353              		@ sp needed
+ 354 0048 5DF804FB 		ldr	pc, [sp], #4
+ 355              	.L27:
+ 356              		.align	2
+ 357              	.L26:
+ 358 004c 00000000 		.word	.LANCHOR2
+ 359              		.cfi_endproc
+ 360              	.LFE297:
+ 362              		.section	.text.APPL_Task_LAMP_ON,"ax",%progbits
+ 363              		.align	1
+ 364              		.global	APPL_Task_LAMP_ON
+ 365              		.syntax unified
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.fpu fpv4-sp-d16
+ 370              	APPL_Task_LAMP_ON:
+ 371              	.LVL21:
+ 372              	.LFB298:
+ 224:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 225:../01_Appl/APPL_Task/Appl_Task.c **** /*******************************************************************************
+ 226:../01_Appl/APPL_Task/Appl_Task.c ****  * Function: APPL_Task_LAMP_ON
+ 227:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 228:../01_Appl/APPL_Task/Appl_Task.c ****  * Parameters:      -
+ 229:../01_Appl/APPL_Task/Appl_Task.c ****  * Returned value:  -
+ 230:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 231:../01_Appl/APPL_Task/Appl_Task.c ****  * Description:
+ 232:../01_Appl/APPL_Task/Appl_Task.c ****  *
+ 233:../01_Appl/APPL_Task/Appl_Task.c ****  * Calling:
+ 234:../01_Appl/APPL_Task/Appl_Task.c ****  ******************************************************************************/
+ 235:../01_Appl/APPL_Task/Appl_Task.c **** void APPL_Task_LAMP_ON(uint8_t on)
+ 236:../01_Appl/APPL_Task/Appl_Task.c **** {
+ 373              		.loc 1 236 1 is_stmt 1 view -0
+ 374              		.cfi_startproc
+ 375              		@ args = 0, pretend = 0, frame = 0
+ 376              		@ frame_needed = 0, uses_anonymous_args = 0
+ 377              		.loc 1 236 1 is_stmt 0 view .LVU66
+ 378 0000 08B5     		push	{r3, lr}
+ 379              	.LCFI7:
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 3, -8
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 12
+
+
+ 382              		.cfi_offset 14, -4
+ 383 0002 0246     		mov	r2, r0
+ 237:../01_Appl/APPL_Task/Appl_Task.c ****   HAL_GPIO_WritePin(LAMP_EN_GPIO_Port, LAMP_EN_Pin, on);
+ 384              		.loc 1 237 3 is_stmt 1 view .LVU67
+ 385 0004 2021     		movs	r1, #32
+ 386 0006 4FF09040 		mov	r0, #1207959552
+ 387              	.LVL22:
+ 388              		.loc 1 237 3 is_stmt 0 view .LVU68
+ 389 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 390              	.LVL23:
+ 238:../01_Appl/APPL_Task/Appl_Task.c **** }
+ 391              		.loc 1 238 1 view .LVU69
+ 392 000e 08BD     		pop	{r3, pc}
+ 393              		.cfi_endproc
+ 394              	.LFE298:
+ 396              		.section	.text.APPL_Task_10ms,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	APPL_Task_10ms
+ 399              		.syntax unified
+ 400              		.thumb
+ 401              		.thumb_func
+ 402              		.fpu fpv4-sp-d16
+ 404              	APPL_Task_10ms:
+ 405              	.LFB292:
+  79:../01_Appl/APPL_Task/Appl_Task.c ****   switch (APPL_Task_Time_10ms++)
+ 406              		.loc 1 79 1 is_stmt 1 view -0
+ 407              		.cfi_startproc
+ 408              		@ args = 0, pretend = 0, frame = 0
+ 409              		@ frame_needed = 0, uses_anonymous_args = 0
+ 410 0000 08B5     		push	{r3, lr}
+ 411              	.LCFI8:
+ 412              		.cfi_def_cfa_offset 8
+ 413              		.cfi_offset 3, -8
+ 414              		.cfi_offset 14, -4
+  80:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 415              		.loc 1 80 3 view .LVU71
+  80:../01_Appl/APPL_Task/Appl_Task.c ****   {
+ 416              		.loc 1 80 30 is_stmt 0 view .LVU72
+ 417 0002 114A     		ldr	r2, .L39
+ 418 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 419 0006 591C     		adds	r1, r3, #1
+ 420 0008 1170     		strb	r1, [r2]
+ 421 000a 043B     		subs	r3, r3, #4
+ 422 000c 062B     		cmp	r3, #6
+ 423 000e 0CD8     		bhi	.L30
+ 424 0010 DFE803F0 		tbb	[pc, r3]
+ 425              	.L33:
+ 426 0014 0C       		.byte	(.L37-.L33)/2
+ 427 0015 10       		.byte	(.L36-.L33)/2
+ 428 0016 0B       		.byte	(.L30-.L33)/2
+ 429 0017 0B       		.byte	(.L30-.L33)/2
+ 430 0018 13       		.byte	(.L35-.L33)/2
+ 431 0019 16       		.byte	(.L34-.L33)/2
+ 432 001a 04       		.byte	(.L32-.L33)/2
+ 433 001b 00       		.p2align 1
+ 434              	.L32:
+  84:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_LED();
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 13
+
+
+ 435              		.loc 1 84 5 is_stmt 1 view .LVU73
+ 436 001c FFF7FEFF 		bl	APPL_Task_100ms
+ 437              	.LVL24:
+  85:../01_Appl/APPL_Task/Appl_Task.c ****     APPL_Task_Time_10ms = 0;
+ 438              		.loc 1 85 5 view .LVU74
+ 439 0020 FFF7FEFF 		bl	APPL_Task_LED
+ 440              	.LVL25:
+  86:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 441              		.loc 1 86 5 view .LVU75
+  86:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 442              		.loc 1 86 25 is_stmt 0 view .LVU76
+ 443 0024 084B     		ldr	r3, .L39
+ 444 0026 0022     		movs	r2, #0
+ 445 0028 1A70     		strb	r2, [r3]
+  87:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 446              		.loc 1 87 5 is_stmt 1 view .LVU77
+ 447              	.L30:
+ 111:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 448              		.loc 1 111 1 is_stmt 0 view .LVU78
+ 449 002a 08BD     		pop	{r3, pc}
+ 450              	.L37:
+  91:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 451              		.loc 1 91 5 is_stmt 1 view .LVU79
+ 452 002c 0120     		movs	r0, #1
+ 453 002e FFF7FEFF 		bl	APPL_Task_LAMP_ON
+ 454              	.LVL26:
+  92:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 455              		.loc 1 92 5 view .LVU80
+ 456 0032 FAE7     		b	.L30
+ 457              	.L36:
+  96:../01_Appl/APPL_Task/Appl_Task.c ****     //APPL_Task_LAMP_ON(0);
+ 458              		.loc 1 96 5 view .LVU81
+ 459 0034 FFF7FEFF 		bl	APPL_Task_MainVoltage_Read
+ 460              	.LVL27:
+  98:../01_Appl/APPL_Task/Appl_Task.c ****   }  
+ 461              		.loc 1 98 5 view .LVU82
+ 462 0038 F7E7     		b	.L30
+ 463              	.L35:
+ 102:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 464              		.loc 1 102 5 view .LVU83
+ 465 003a FFF7FEFF 		bl	APPL_Module_LineProcess
+ 466              	.LVL28:
+ 103:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 467              		.loc 1 103 5 view .LVU84
+ 468 003e F4E7     		b	.L30
+ 469              	.L34:
+ 107:../01_Appl/APPL_Task/Appl_Task.c ****     break;
+ 470              		.loc 1 107 5 view .LVU85
+ 471 0040 FFF7FEFF 		bl	APPL_CMD_LineProcess
+ 472              	.LVL29:
+ 108:../01_Appl/APPL_Task/Appl_Task.c ****   }
+ 473              		.loc 1 108 5 view .LVU86
+ 111:../01_Appl/APPL_Task/Appl_Task.c **** 
+ 474              		.loc 1 111 1 is_stmt 0 view .LVU87
+ 475 0044 F1E7     		b	.L30
+ 476              	.L40:
+ 477 0046 00BF     		.align	2
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 14
+
+
+ 478              	.L39:
+ 479 0048 00000000 		.word	.LANCHOR3
+ 480              		.cfi_endproc
+ 481              	.LFE292:
+ 483              		.global	APPL_Task_Time_1s
+ 484              		.global	APPL_Task_Time_100ms
+ 485              		.global	APPL_Task_Time_10ms
+ 486              		.global	APPL_Task_d
+ 487              		.section	.bss.APPL_Task_Time_100ms,"aw",%nobits
+ 488              		.set	.LANCHOR1,. + 0
+ 491              	APPL_Task_Time_100ms:
+ 492 0000 00       		.space	1
+ 493              		.section	.bss.APPL_Task_Time_10ms,"aw",%nobits
+ 494              		.set	.LANCHOR3,. + 0
+ 497              	APPL_Task_Time_10ms:
+ 498 0000 00       		.space	1
+ 499              		.section	.bss.APPL_Task_Time_1s,"aw",%nobits
+ 500              		.set	.LANCHOR0,. + 0
+ 503              	APPL_Task_Time_1s:
+ 504 0000 00       		.space	1
+ 505              		.section	.bss.APPL_Task_d,"aw",%nobits
+ 506              		.align	2
+ 507              		.set	.LANCHOR2,. + 0
+ 510              	APPL_Task_d:
+ 511 0000 00000000 		.space	24
+ 511      00000000 
+ 511      00000000 
+ 511      00000000 
+ 511      00000000 
+ 512              		.text
+ 513              	.Letext0:
+ 514              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\inc
+ 515              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\inc
+ 516              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 517              		.file 5 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
+ 518              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 519              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 520              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 521              		.file 9 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_adc.h"
+ 522              		.file 10 "../01_Appl/APPL_Task/Appl_Task.h"
+ 523              		.file 11 "../02_OS/Core_ADC/adc.h"
+ 524              		.file 12 "../01_Appl/APPL_ads1115/APPL_ads1115.h"
+ 525              		.file 13 "../01_Appl/APPL_Module/Appl_Module.h"
+ 526              		.file 14 "../01_Appl/APPL_CMD/Appl_CMD.h"
+ARM GAS  C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Appl_Task.c
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:18     .rodata.APPL_Task_Init.str1.4:00000000 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:28     .text.APPL_Task_Init:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:36     .text.APPL_Task_Init:00000000 APPL_Task_Init
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:83     .text.APPL_Task_Init:00000038 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:90     .text.APPL_Task_1s:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:97     .text.APPL_Task_1s:00000000 APPL_Task_1s
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:129    .text.APPL_Task_1s:00000018 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:134    .text.APPL_Task_100ms:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:141    .text.APPL_Task_100ms:00000000 APPL_Task_100ms
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:180    .text.APPL_Task_100ms:00000020 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:185    .text.APPL_Task_LED:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:192    .text.APPL_Task_LED:00000000 APPL_Task_LED
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:214    .text.APPL_Task_MOD:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:221    .text.APPL_Task_MOD:00000000 APPL_Task_MOD
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:273    .text.APPL_Task_MOD:00000034 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:279    .text.APPL_Task_MainVoltage_Read:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:286    .text.APPL_Task_MainVoltage_Read:00000000 APPL_Task_MainVoltage_Read
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:358    .text.APPL_Task_MainVoltage_Read:0000004c $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:363    .text.APPL_Task_LAMP_ON:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:370    .text.APPL_Task_LAMP_ON:00000000 APPL_Task_LAMP_ON
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:397    .text.APPL_Task_10ms:00000000 $t
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:404    .text.APPL_Task_10ms:00000000 APPL_Task_10ms
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:426    .text.APPL_Task_10ms:00000014 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:479    .text.APPL_Task_10ms:00000048 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:503    .bss.APPL_Task_Time_1s:00000000 APPL_Task_Time_1s
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:491    .bss.APPL_Task_Time_100ms:00000000 APPL_Task_Time_100ms
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:497    .bss.APPL_Task_Time_10ms:00000000 APPL_Task_Time_10ms
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:510    .bss.APPL_Task_d:00000000 APPL_Task_d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:492    .bss.APPL_Task_Time_100ms:00000000 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:498    .bss.APPL_Task_Time_10ms:00000000 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:504    .bss.APPL_Task_Time_1s:00000000 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:506    .bss.APPL_Task_d:00000000 $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:433    .text.APPL_Task_10ms:0000001b $d
+C:\Users\EAKAWI~1\AppData\Local\Temp\ccH3vMEc.s:433    .text.APPL_Task_10ms:0000001c $t
+
+UNDEFINED SYMBOLS
+APPL_CMD_Init
+APPL_CMD_printf
+APPL_Module_Init
+HAL_GPIO_WritePin
+HAL_GPIO_TogglePin
+HAL_ADC_Start
+HAL_ADC_PollForConversion
+HAL_ADC_GetValue
+HAL_ADC_Stop
+hadc1
+APPL_ads1115_startSampling
+APPL_ads1115_isBusy
+APPL_ads1115_readSample
+APPL_Module_LineProcess
+APPL_CMD_LineProcess

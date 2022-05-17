@@ -1,0 +1,180 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32l4xx_hal_msp.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_MspInit,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_MspInit
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	HAL_MspInit:
+  27              	.LFB291:
+  28              		.file 1 "../02_OS/Core_Reg/stm32l4xx_hal_msp.c"
+   1:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN Header */
+   2:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /**
+   3:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   ******************************************************************************
+   4:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * @file         stm32l4xx_hal_msp.c
+   5:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * @brief        This file provides code for the MSP Initialization
+   6:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   *               and de-Initialization codes.
+   7:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   ******************************************************************************
+   8:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * @attention
+   9:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   *
+  10:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  11:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * All rights reserved.</center></h2>
+  12:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   *
+  13:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  14:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * the "License"; You may not use this file except in compliance with the
+  15:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * License. You may obtain a copy of the License at:
+  16:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  17:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   *
+  18:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   ******************************************************************************
+  19:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   */
+  20:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END Header */
+  21:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  22:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Includes ------------------------------------------------------------------*/
+  23:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** #include "main.h"
+  24:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN Includes */
+  25:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  26:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END Includes */
+  27:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  28:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Private typedef -----------------------------------------------------------*/
+  29:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN TD */
+  30:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s 			page 2
+
+
+  31:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END TD */
+  32:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  33:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Private define ------------------------------------------------------------*/
+  34:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN Define */
+  35:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  36:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END Define */
+  37:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  38:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Private macro -------------------------------------------------------------*/
+  39:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN Macro */
+  40:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  41:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END Macro */
+  42:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  43:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Private variables ---------------------------------------------------------*/
+  44:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN PV */
+  45:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  46:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END PV */
+  47:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  48:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* Private function prototypes -----------------------------------------------*/
+  49:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN PFP */
+  50:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  51:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END PFP */
+  52:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  53:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* External functions --------------------------------------------------------*/
+  54:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN ExternalFunctions */
+  55:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  56:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END ExternalFunctions */
+  57:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  58:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE BEGIN 0 */
+  59:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  60:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /* USER CODE END 0 */
+  61:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** /**
+  62:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   * Initializes the Global MSP.
+  63:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   */
+  64:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** void HAL_MspInit(void)
+  65:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** {
+  29              		.loc 1 65 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 82B0     		sub	sp, sp, #8
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  66:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   /* USER CODE BEGIN MspInit 0 */
+  67:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  68:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   /* USER CODE END MspInit 0 */
+  69:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  70:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   __HAL_RCC_SYSCFG_CLK_ENABLE();
+  37              		.loc 1 70 3 view .LVU1
+  38              	.LBB2:
+  39              		.loc 1 70 3 view .LVU2
+  40              		.loc 1 70 3 view .LVU3
+  41 0002 0A4B     		ldr	r3, .L3
+  42 0004 1A6E     		ldr	r2, [r3, #96]
+  43 0006 42F00102 		orr	r2, r2, #1
+  44 000a 1A66     		str	r2, [r3, #96]
+  45              		.loc 1 70 3 view .LVU4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s 			page 3
+
+
+  46 000c 1A6E     		ldr	r2, [r3, #96]
+  47 000e 02F00102 		and	r2, r2, #1
+  48 0012 0092     		str	r2, [sp]
+  49              		.loc 1 70 3 view .LVU5
+  50 0014 009A     		ldr	r2, [sp]
+  51              	.LBE2:
+  52              		.loc 1 70 3 view .LVU6
+  71:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   __HAL_RCC_PWR_CLK_ENABLE();
+  53              		.loc 1 71 3 view .LVU7
+  54              	.LBB3:
+  55              		.loc 1 71 3 view .LVU8
+  56              		.loc 1 71 3 view .LVU9
+  57 0016 9A6D     		ldr	r2, [r3, #88]
+  58 0018 42F08052 		orr	r2, r2, #268435456
+  59 001c 9A65     		str	r2, [r3, #88]
+  60              		.loc 1 71 3 view .LVU10
+  61 001e 9B6D     		ldr	r3, [r3, #88]
+  62 0020 03F08053 		and	r3, r3, #268435456
+  63 0024 0193     		str	r3, [sp, #4]
+  64              		.loc 1 71 3 view .LVU11
+  65 0026 019B     		ldr	r3, [sp, #4]
+  66              	.LBE3:
+  67              		.loc 1 71 3 view .LVU12
+  72:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  73:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   /* System interrupt init*/
+  74:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  75:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   /* USER CODE BEGIN MspInit 1 */
+  76:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** 
+  77:../02_OS/Core_Reg/stm32l4xx_hal_msp.c ****   /* USER CODE END MspInit 1 */
+  78:../02_OS/Core_Reg/stm32l4xx_hal_msp.c **** }
+  68              		.loc 1 78 1 is_stmt 0 view .LVU13
+  69 0028 02B0     		add	sp, sp, #8
+  70              	.LCFI1:
+  71              		.cfi_def_cfa_offset 0
+  72              		@ sp needed
+  73 002a 7047     		bx	lr
+  74              	.L4:
+  75              		.align	2
+  76              	.L3:
+  77 002c 00100240 		.word	1073876992
+  78              		.cfi_endproc
+  79              	.LFE291:
+  81              		.text
+  82              	.Letext0:
+  83              		.file 2 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\machine\\_defau
+  84              		.file 3 "c:\\gnu arm embedded toolchain\\10 2020-q4-major\\arm-none-eabi\\include\\sys\\_stdint.h"
+  85              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_hal_msp.c
+C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s:18     .text.HAL_MspInit:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s:26     .text.HAL_MspInit:00000000 HAL_MspInit
+C:\Users\minde\AppData\Local\Temp\ccuCw5Kh.s:77     .text.HAL_MspInit:0000002c $d
+
+NO UNDEFINED SYMBOLS
