@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "appl_iocon.h": "c",
+        "appl_lte.h": "c",
+        "stdbool.h": "c",
+        "appl_module.h": "c",
+        "stdarg.h": "c",
+        "ekm_buffer.h": "c",
+        "ekm_modbus.h": "c",
+        "appl_usbservice.h": "c"
+    }
+}

@@ -1,0 +1,180 @@
+GAS LISTING C:\Users\minde\AppData\Local\Temp\cctE4ALg.s 			page 1
+
+
+   1              		.file	"EKM_Modbus.c"
+   2              		.text
+   3              		.globl	_EKM_MODBUS_CRC_Encode
+   5              	_EKM_MODBUS_CRC_Encode:
+   6              	LFB13:
+   7              		.cfi_startproc
+   8 0000 55       		pushl	%ebp
+   9              		.cfi_def_cfa_offset 8
+  10              		.cfi_offset 5, -8
+  11 0001 89E5     		movl	%esp, %ebp
+  12              		.cfi_def_cfa_register 5
+  13 0003 83EC10   		subl	$16, %esp
+  14 0006 C645FF00 		movb	$0, -1(%ebp)
+  15 000a 8B4508   		movl	8(%ebp), %eax
+  16 000d 66C74004 		movw	$-1, 4(%eax)
+  16      FFFF
+  17 0013 8B4508   		movl	8(%ebp), %eax
+  18 0016 0FB64006 		movzbl	6(%eax), %eax
+  19 001a 0FB6D0   		movzbl	%al, %edx
+  20 001d 8B4508   		movl	8(%ebp), %eax
+  21 0020 0FB64002 		movzbl	2(%eax), %eax
+  22 0024 0FB6C0   		movzbl	%al, %eax
+  23 0027 83C002   		addl	$2, %eax
+  24 002a 39C2     		cmpl	%eax, %edx
+  25 002c 0F8CA500 		jl	L2
+  25      0000
+  26 0032 C645FF00 		movb	$0, -1(%ebp)
+  27 0036 E98C0000 		jmp	L3
+  27      00
+  28              	L8:
+  29 003b 8B4508   		movl	8(%ebp), %eax
+  30 003e 0FB75004 		movzwl	4(%eax), %edx
+  31 0042 8B4508   		movl	8(%ebp), %eax
+  32 0045 8B4808   		movl	8(%eax), %ecx
+  33 0048 0FB645FF 		movzbl	-1(%ebp), %eax
+  34 004c 01C8     		addl	%ecx, %eax
+  35 004e 0FB600   		movzbl	(%eax), %eax
+  36 0051 0FB6C0   		movzbl	%al, %eax
+  37 0054 31C2     		xorl	%eax, %edx
+  38 0056 8B4508   		movl	8(%ebp), %eax
+  39 0059 66895004 		movw	%dx, 4(%eax)
+  40 005d C745F808 		movl	$8, -8(%ebp)
+  40      000000
+  41 0064 EB51     		jmp	L4
+  42              	L7:
+  43 0066 8B4508   		movl	8(%ebp), %eax
+  44 0069 0FB74004 		movzwl	4(%eax), %eax
+  45 006d 0FB7C0   		movzwl	%ax, %eax
+  46 0070 83E001   		andl	$1, %eax
+  47 0073 85C0     		testl	%eax, %eax
+  48 0075 7429     		je	L5
+  49 0077 8B4508   		movl	8(%ebp), %eax
+  50 007a 0FB74004 		movzwl	4(%eax), %eax
+  51 007e 66D1E8   		shrw	%ax
+  52 0081 89C2     		movl	%eax, %edx
+  53 0083 8B4508   		movl	8(%ebp), %eax
+  54 0086 66895004 		movw	%dx, 4(%eax)
+GAS LISTING C:\Users\minde\AppData\Local\Temp\cctE4ALg.s 			page 2
+
+
+  55 008a 8B4508   		movl	8(%ebp), %eax
+  56 008d 0FB74004 		movzwl	4(%eax), %eax
+  57 0091 663501A0 		xorw	$-24575, %ax
+  58 0095 89C2     		movl	%eax, %edx
+  59 0097 8B4508   		movl	8(%ebp), %eax
+  60 009a 66895004 		movw	%dx, 4(%eax)
+  61 009e EB13     		jmp	L6
+  62              	L5:
+  63 00a0 8B4508   		movl	8(%ebp), %eax
+  64 00a3 0FB74004 		movzwl	4(%eax), %eax
+  65 00a7 66D1E8   		shrw	%ax
+  66 00aa 89C2     		movl	%eax, %edx
+  67 00ac 8B4508   		movl	8(%ebp), %eax
+  68 00af 66895004 		movw	%dx, 4(%eax)
+  69              	L6:
+  70 00b3 836DF801 		subl	$1, -8(%ebp)
+  71              	L4:
+  72 00b7 837DF800 		cmpl	$0, -8(%ebp)
+  73 00bb 75A9     		jne	L7
+  74 00bd 0FB645FF 		movzbl	-1(%ebp), %eax
+  75 00c1 83C001   		addl	$1, %eax
+  76 00c4 8845FF   		movb	%al, -1(%ebp)
+  77              	L3:
+  78 00c7 8B4508   		movl	8(%ebp), %eax
+  79 00ca 0FB64002 		movzbl	2(%eax), %eax
+  80 00ce 3A45FF   		cmpb	-1(%ebp), %al
+  81 00d1 0F8764FF 		ja	L8
+  81      FFFF
+  82              	L2:
+  83 00d7 8B4508   		movl	8(%ebp), %eax
+  84 00da 0FB74004 		movzwl	4(%eax), %eax
+  85 00de C9       		leave
+  86              		.cfi_restore 5
+  87              		.cfi_def_cfa 4, 4
+  88 00df C3       		ret
+  89              		.cfi_endproc
+  90              	LFE13:
+  91              		.globl	_EKM_MODBUS_CRC_Decode
+  93              	_EKM_MODBUS_CRC_Decode:
+  94              	LFB14:
+  95              		.cfi_startproc
+  96 00e0 55       		pushl	%ebp
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 5, -8
+  99 00e1 89E5     		movl	%esp, %ebp
+ 100              		.cfi_def_cfa_register 5
+ 101 00e3 83EC10   		subl	$16, %esp
+ 102 00e6 C645FF00 		movb	$0, -1(%ebp)
+ 103 00ea 66C745FC 		movw	$-1, -4(%ebp)
+ 103      FFFF
+ 104 00f0 C645FF00 		movb	$0, -1(%ebp)
+ 105 00f4 EB4E     		jmp	L11
+ 106              	L16:
+ 107 00f6 8B4508   		movl	8(%ebp), %eax
+ 108 00f9 8B5008   		movl	8(%eax), %edx
+ 109 00fc 0FB645FF 		movzbl	-1(%ebp), %eax
+ 110 0100 01D0     		addl	%edx, %eax
+GAS LISTING C:\Users\minde\AppData\Local\Temp\cctE4ALg.s 			page 3
+
+
+ 111 0102 0FB600   		movzbl	(%eax), %eax
+ 112 0105 0FB6C0   		movzbl	%al, %eax
+ 113 0108 663145FC 		xorw	%ax, -4(%ebp)
+ 114 010c C745F808 		movl	$8, -8(%ebp)
+ 114      000000
+ 115 0113 EB1F     		jmp	L12
+ 116              	L15:
+ 117 0115 0FB745FC 		movzwl	-4(%ebp), %eax
+ 118 0119 83E001   		andl	$1, %eax
+ 119 011c 85C0     		testl	%eax, %eax
+ 120 011e 740C     		je	L13
+ 121 0120 66D16DFC 		shrw	-4(%ebp)
+ 122 0124 668175FC 		xorw	$-24575, -4(%ebp)
+ 122      01A0
+ 123 012a EB04     		jmp	L14
+ 124              	L13:
+ 125 012c 66D16DFC 		shrw	-4(%ebp)
+ 126              	L14:
+ 127 0130 836DF801 		subl	$1, -8(%ebp)
+ 128              	L12:
+ 129 0134 837DF800 		cmpl	$0, -8(%ebp)
+ 130 0138 75DB     		jne	L15
+ 131 013a 0FB645FF 		movzbl	-1(%ebp), %eax
+ 132 013e 83C001   		addl	$1, %eax
+ 133 0141 8845FF   		movb	%al, -1(%ebp)
+ 134              	L11:
+ 135 0144 8B4508   		movl	8(%ebp), %eax
+ 136 0147 0FB64002 		movzbl	2(%eax), %eax
+ 137 014b 3A45FF   		cmpb	-1(%ebp), %al
+ 138 014e 77A6     		ja	L16
+ 139 0150 8B4508   		movl	8(%ebp), %eax
+ 140 0153 0FB74004 		movzwl	4(%eax), %eax
+ 141 0157 663B45FC 		cmpw	-4(%ebp), %ax
+ 142 015b 7507     		jne	L17
+ 143 015d B8000000 		movl	$0, %eax
+ 143      00
+ 144 0162 EB05     		jmp	L18
+ 145              	L17:
+ 146 0164 B8010000 		movl	$1, %eax
+ 146      00
+ 147              	L18:
+ 148 0169 C9       		leave
+ 149              		.cfi_restore 5
+ 150              		.cfi_def_cfa 4, 4
+ 151 016a C3       		ret
+ 152              		.cfi_endproc
+ 153              	LFE14:
+ 154 016b 90       		.ident	"GCC: (MinGW.org GCC-6.3.0-1) 6.3.0"
+GAS LISTING C:\Users\minde\AppData\Local\Temp\cctE4ALg.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 EKM_Modbus.c
+C:\Users\minde\AppData\Local\Temp\cctE4ALg.s:5      .text:00000000 _EKM_MODBUS_CRC_Encode
+C:\Users\minde\AppData\Local\Temp\cctE4ALg.s:93     .text:000000e0 _EKM_MODBUS_CRC_Decode
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdbool.h": "c",
+        "ekm_buffer.h": "c",
+        "ekm_hexchar.h": "c",
+        "stdint.h": "c",
+        "appl_module.h": "c",
+        "appl_task.h": "c"
+    }
+}

@@ -1,0 +1,67 @@
+GAS LISTING C:\Users\minde\AppData\Local\Temp\ccd5twNg.s 			page 1
+
+
+   1              		.file	"test.c"
+   3              		.section .rdata,"dr"
+   4              	LC0:
+   5 0000 25782C20 		.ascii "%x, %x\12\0"
+   5      25780A00 
+   6              	LC1:
+   7 0008 70617573 		.ascii "pause\0"
+   7      6500
+   8 000e 0000     		.text
+   9              		.globl	_main
+  11              	_main:
+  12              	LFB26:
+  13              		.cfi_startproc
+  14 0000 55       		pushl	%ebp
+  15              		.cfi_def_cfa_offset 8
+  16              		.cfi_offset 5, -8
+  17 0001 89E5     		movl	%esp, %ebp
+  18              		.cfi_def_cfa_register 5
+  19 0003 83E4F0   		andl	$-16, %esp
+  20 0006 83EC20   		subl	$32, %esp
+  21 0009 E8000000 		call	___main
+  21      00
+  22 000e 66C74424 		movw	$-21555, 28(%esp)
+  22      1CCDAB
+  23 0015 0FB64424 		movzbl	28(%esp), %eax
+  23      1C
+  24 001a 8844241F 		movb	%al, 31(%esp)
+  25 001e 0FB64424 		movzbl	29(%esp), %eax
+  25      1D
+  26 0023 8844241E 		movb	%al, 30(%esp)
+  27 0027 0FB65424 		movzbl	30(%esp), %edx
+  27      1E
+  28 002c 0FB64424 		movzbl	31(%esp), %eax
+  28      1F
+  29 0031 89542408 		movl	%edx, 8(%esp)
+  30 0035 89442404 		movl	%eax, 4(%esp)
+  31 0039 C7042400 		movl	$LC0, (%esp)
+  31      000000
+  32 0040 E8000000 		call	_printf
+  32      00
+  33 0045 C7042408 		movl	$LC1, (%esp)
+  33      000000
+  34 004c E8000000 		call	_system
+  34      00
+  35 0051 B8000000 		movl	$0, %eax
+  35      00
+  36 0056 C9       		leave
+  37              		.cfi_restore 5
+  38              		.cfi_def_cfa 4, 4
+  39 0057 C3       		ret
+  40              		.cfi_endproc
+  41              	LFE26:
+  42              		.ident	"GCC: (MinGW.org GCC-6.3.0-1) 6.3.0"
+GAS LISTING C:\Users\minde\AppData\Local\Temp\ccd5twNg.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 test.c
+C:\Users\minde\AppData\Local\Temp\ccd5twNg.s:11     .text:00000000 _main
+
+UNDEFINED SYMBOLS
+___main
+_printf
+_system
