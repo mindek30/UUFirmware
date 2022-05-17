@@ -1,0 +1,30 @@
+Connected with result code 0
+topic = uucontrol1 qos = 0 msg = exit
+Connected with result code 0
+topic = uucontrol1 qos = 0 msg = exitt
+topic = uucontrol qos = 0 msg = A0FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A1FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A2FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A3FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A4FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A5FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A6FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A7FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A8FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A9FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A10FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A11FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A12FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A13FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A14FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A15FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A16FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A17FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A18FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A19FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A20FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A21FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A22FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A23FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol qos = 0 msg = A24FFFF:FFFFFFFF:FFFFFFFFFFFFFFFF
+topic = uucontrol1 qos = 0 msg = exit

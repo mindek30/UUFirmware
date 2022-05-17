@@ -1,0 +1,12 @@
+FFFF FFFF FF F............. 
+<ID 2 byte> <UID 2 byte> <Len 1 byte> ....
+
+FFFF FFFF FF
+<ID 2 byte> <UID 2 byte> <Out 1 byte>
+
+FFFF FFFFFFFF FFFFFFFF 
+<ID> <Lat 4 byte> <Lon 4 byte>
+
+FFFF FFFF FF FF FF FF FFFF FFFF FFFF FFFF
+<ID 2 byte> <UID 2 byte> <TEMP 1 byte> <BAT 1 byte> <CIO 1 byte> <IO 1 byte> <AI0 2 byte> <AI1 2 byte> <AI2 2 byte> <AI3 2 byte>
+
