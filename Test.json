@@ -1,0 +1,24 @@
+{
+    "status":{
+         "code":"0",
+         "message":"success"
+    },
+    "data":{
+         "Serial_No":"0020130260",
+         "IMEI":"865057043207871",
+         "CurrReadDate":"25640305",
+         "Seq":"1",
+         "CurrReadNum":"iamgique",
+         "CurrReadTime":"0930",
+         "PctOfBatteryMeter":"",
+         "PctOfBatteryLogger":"096",
+         "PctOfSignal":"085",
+         "WaterPressure":"",
+         "FlowRate":"",
+         "Turbidity":"",
+         "Salinity":"",
+         "Chlorine":"",
+         "SendFromServer":"",
+         "Provider_Name":"Universal Utilities"
+    }
+}

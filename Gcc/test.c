@@ -424,33 +424,28 @@ void chartohex(uint8_t *x)
 int main()
 {
     int8_t line = 1;
-    uint8_t xx[] = "AT\r\r\n\r\nOK\r\naa";
+    uint8_t xx[] = "AT\r\nOK\r\naa\r\nade\r\n";
     // uint8_t xx[] = "ATasdfasefe\r\n";
     EKM_Buffer_t test;
     uint8_t test_buffer[test_buffer_max];
     uint8_t test_buffer_r[test_buffer_max];
     EKM_Buffer_Setup(&test, test_buffer_max, test_buffer);
-    EKM_Buffer_Set_Muti(&test, xx, strlen(xx));
+    //EKM_Buffer_Set_Muti(&test, xx, strlen(xx));
     printf("Hello World\r\n");
     memset(test_buffer_r, 0, test_buffer_max);
-    while (EKM_Buffer_readline(&test, test_buffer_r, "\r\n"))
+    for (int x = 0; x < sizeof(xx) / sizeof(xx[0]); x++)
     {
-        printf("\n------------------------\n");
-        chartohex(test_buffer_r);
-        printf("\n%s\n%d", test_buffer_r, line);
-        memset(test_buffer_r, 0, test_buffer_max);
-        printf("\n------------------------\n");
+        printf(" xx[%d] : %02X : %c \n", x,xx[x],xx[x]);
+        EKM_Buffer_Set(&test,xx[x]);
+        while (EKM_Buffer_readline(&test, test_buffer_r, "\r\n"))
+        {
+            printf("\n------------------------\n");
+            chartohex(test_buffer_r);
+            //printf("%s = %d", test_buffer_r, line);
+            memset(test_buffer_r, 0, test_buffer_max);
+            printf("\n------------------------\n");
+        }
     }
-    chartohex(test.buffer);
-    memset(test_buffer_r, 0, test_buffer_max);
-    while (EKM_Buffer_readline(&test, test_buffer_r, "\r\n"))
-    {
-        printf("\n------------------------\n");
-        chartohex(test_buffer_r);
-        printf("\n%s\n%d", test_buffer_r, line);
-        memset(test_buffer_r, 0, test_buffer_max);
-        printf("\n------------------------\n");
-    }
-    
+
     return 0;
 }
