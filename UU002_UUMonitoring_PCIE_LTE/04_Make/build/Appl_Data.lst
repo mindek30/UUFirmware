@@ -1,0 +1,1277 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"Appl_Data.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.APPL_Data_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	APPL_Data_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	APPL_Data_Init:
+  27              	.LFB291:
+  28              		.file 1 "../01_Applcation/Appl_Data/Appl_Data.c"
+   1:../01_Applcation/Appl_Data/Appl_Data.c **** /*
+   2:../01_Applcation/Appl_Data/Appl_Data.c ****  * Appl_Data.c
+   3:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+   4:../01_Applcation/Appl_Data/Appl_Data.c ****  * Created: 05/06/2022 1:46:27
+   5:../01_Applcation/Appl_Data/Appl_Data.c ****  *  Author: Eakawit_kor
+   6:../01_Applcation/Appl_Data/Appl_Data.c ****  */
+   7:../01_Applcation/Appl_Data/Appl_Data.c **** 
+   8:../01_Applcation/Appl_Data/Appl_Data.c **** #include <stdio.h>
+   9:../01_Applcation/Appl_Data/Appl_Data.c **** #include <stdarg.h>
+  10:../01_Applcation/Appl_Data/Appl_Data.c **** #include <stdlib.h>
+  11:../01_Applcation/Appl_Data/Appl_Data.c **** #include <stdint.h>
+  12:../01_Applcation/Appl_Data/Appl_Data.c **** #include <stdbool.h>
+  13:../01_Applcation/Appl_Data/Appl_Data.c **** #include <string.h>
+  14:../01_Applcation/Appl_Data/Appl_Data.c **** #include "main.h"
+  15:../01_Applcation/Appl_Data/Appl_Data.c **** #include "usart.h"
+  16:../01_Applcation/Appl_Data/Appl_Data.c **** #include "gpio.h"
+  17:../01_Applcation/Appl_Data/Appl_Data.c **** #include "i2c.h"
+  18:../01_Applcation/Appl_Data/Appl_Data.c **** #include "EKM_CMD.h"
+  19:../01_Applcation/Appl_Data/Appl_Data.c **** #include "EKM_Buffer.h"
+  20:../01_Applcation/Appl_Data/Appl_Data.c **** #include "Appl_Data.h"
+  21:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  22:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+  23:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  24:../01_Applcation/Appl_Data/Appl_Data.c ****  * DEFINE
+  25:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  26:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+  27:../01_Applcation/Appl_Data/Appl_Data.c **** #define APPL_Data_RS485_Buffer_Size 255
+  28:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  29:../01_Applcation/Appl_Data/Appl_Data.c **** //! Structure for an entry in the command list table.
+  30:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Buffer[APPL_Data_RS485_Buffer_Size];
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 2
+
+
+  31:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Buffer_pointer = 0;
+  32:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  33:../01_Applcation/Appl_Data/Appl_Data.c **** APPL_DATA_t APPL_data;
+  34:../01_Applcation/Appl_Data/Appl_Data.c **** //*****************************************************************************
+  35:../01_Applcation/Appl_Data/Appl_Data.c **** // Prototypes for the APIs.
+  36:../01_Applcation/Appl_Data/Appl_Data.c **** //*****************************************************************************
+  37:../01_Applcation/Appl_Data/Appl_Data.c **** static int APPL_Data_ID_Set(uint16_t data);
+  38:../01_Applcation/Appl_Data/Appl_Data.c **** static int APPL_Data_ID_Get(void);
+  39:../01_Applcation/Appl_Data/Appl_Data.c **** uint16_t APPL_Data_RS485_CRC_Encode(uint8_t len, uint8_t *pdata);
+  40:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_CRC_Decode(uint8_t *data, uint8_t len);
+  41:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Send(uint8_t *data, uint8_t len);
+  42:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Set(uint8_t data);
+  43:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  44:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+  45:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  46:../01_Applcation/Appl_Data/Appl_Data.c ****  * PRIVATE VARIABLE
+  47:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  48:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+  49:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  50:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+  51:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_Init
+  52:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  53:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+  54:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+  55:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  56:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+  57:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  58:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+  59:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+  60:../01_Applcation/Appl_Data/Appl_Data.c **** void APPL_Data_Init(void)
+  61:../01_Applcation/Appl_Data/Appl_Data.c **** {
+  29              		.loc 1 61 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  62:../01_Applcation/Appl_Data/Appl_Data.c **** }
+  34              		.loc 1 62 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE291:
+  39              		.section	.text.APPL_Data_RS485_CRC_Encode,"ax",%progbits
+  40              		.align	1
+  41              		.global	APPL_Data_RS485_CRC_Encode
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  46              	APPL_Data_RS485_CRC_Encode:
+  47              	.LVL0:
+  48              	.LFB294:
+  63:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  64:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+  65:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_ID_Set
+  66:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  67:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+  68:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+  69:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 3
+
+
+  70:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+  71:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  72:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+  73:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+  74:../01_Applcation/Appl_Data/Appl_Data.c **** static int APPL_Data_ID_Set(uint16_t data)
+  75:../01_Applcation/Appl_Data/Appl_Data.c **** {
+  76:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_StatusTypeDef ret;
+  77:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t send[3];
+  78:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+  79:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.deviceID = data;
+  80:../01_Applcation/Appl_Data/Appl_Data.c ****     tmp.REG = data;
+  81:../01_Applcation/Appl_Data/Appl_Data.c ****     send[0] = APPL_DATA_ID0_ADD;
+  82:../01_Applcation/Appl_Data/Appl_Data.c ****     send[1] = tmp.HREG;
+  83:../01_Applcation/Appl_Data/Appl_Data.c ****     send[2] = tmp.LREG;
+  84:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+  85:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  86:../01_Applcation/Appl_Data/Appl_Data.c ****     ret = HAL_I2C_Master_Transmit(&hi2c1, AT24AA02_Page0 << 1, send, 3, 100);
+  87:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  88:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+  89:../01_Applcation/Appl_Data/Appl_Data.c ****     // APPL_CMD_printf("I2C = 0x%x\r\n", ret);
+  90:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+  91:../01_Applcation/Appl_Data/Appl_Data.c **** }
+  92:../01_Applcation/Appl_Data/Appl_Data.c **** 
+  93:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+  94:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_ID_Get
+  95:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  96:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+  97:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+  98:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+  99:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 100:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 101:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 102:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 103:../01_Applcation/Appl_Data/Appl_Data.c **** static int APPL_Data_ID_Get(void)
+ 104:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 105:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_StatusTypeDef ret;
+ 106:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t send[3];
+ 107:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 108:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 109:../01_Applcation/Appl_Data/Appl_Data.c ****     send[0] = APPL_DATA_ID0_ADD;
+ 110:../01_Applcation/Appl_Data/Appl_Data.c ****     send[1] = 0;
+ 111:../01_Applcation/Appl_Data/Appl_Data.c ****     send[2] = 0;
+ 112:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 113:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+ 114:../01_Applcation/Appl_Data/Appl_Data.c ****     ret = HAL_I2C_Master_Transmit(&hi2c1, AT24AA02_Page0 << 1, send, 1, 100);
+ 115:../01_Applcation/Appl_Data/Appl_Data.c ****     ret |= HAL_I2C_Master_Receive(&hi2c1, AT24AA02_Page0 << 1, send, 2, 100);
+ 116:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 117:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 118:../01_Applcation/Appl_Data/Appl_Data.c ****     tmp.HREG = send[0];
+ 119:../01_Applcation/Appl_Data/Appl_Data.c ****     tmp.LREG = send[1];
+ 120:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 121:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.deviceID = tmp.REG;
+ 122:../01_Applcation/Appl_Data/Appl_Data.c ****     // APPL_CMD_printf("I2C = 0x%x\r\n", ret);
+ 123:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+ 124:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 125:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 126:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 4
+
+
+ 127:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_RS485_CRC_Encode
+ 128:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 129:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ 130:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 131:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 132:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 133:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 134:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 135:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 136:../01_Applcation/Appl_Data/Appl_Data.c **** uint16_t APPL_Data_RS485_CRC_Encode(uint8_t len, uint8_t *pdata)
+ 137:../01_Applcation/Appl_Data/Appl_Data.c **** {
+  49              		.loc 1 137 1 view -0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 0
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t pos = 0;
+  53              		.loc 1 138 5 view .LVU3
+ 139:../01_Applcation/Appl_Data/Appl_Data.c ****     uint16_t crc = 0xFFFF;
+  54              		.loc 1 139 5 view .LVU4
+ 140:../01_Applcation/Appl_Data/Appl_Data.c ****     if (pdata != (void *)0)
+  55              		.loc 1 140 5 view .LVU5
+  56              		.loc 1 140 8 is_stmt 0 view .LVU6
+  57 0000 09B1     		cbz	r1, .L15
+ 141:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 142:../01_Applcation/Appl_Data/Appl_Data.c ****         return 0;
+  58              		.loc 1 142 16 view .LVU7
+  59 0002 0020     		movs	r0, #0
+  60              	.LVL1:
+ 143:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     for (pos = 0; pos < len; pos++)
+ 145:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 146:../01_Applcation/Appl_Data/Appl_Data.c ****         crc ^= (uint16_t)pdata[pos]; // XOR byte into least sig. byte of crc
+ 147:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         for (int i = 8; i != 0; i--)
+ 149:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 150:../01_Applcation/Appl_Data/Appl_Data.c ****             if ((crc & 0x0001) != 0)
+ 151:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+ 152:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc >>= 1; // Shift right and XOR 0xA001
+ 153:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc ^= 0xA001;
+ 154:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 155:../01_Applcation/Appl_Data/Appl_Data.c ****             else           // Else LSB is not set
+ 156:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc >>= 1; // Just shift right
+ 157:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+ 158:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 159:../01_Applcation/Appl_Data/Appl_Data.c ****     // Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)
+ 160:../01_Applcation/Appl_Data/Appl_Data.c ****     return crc;
+ 161:../01_Applcation/Appl_Data/Appl_Data.c **** }
+  61              		.loc 1 161 1 view .LVU8
+  62 0004 7047     		bx	lr
+  63              	.LVL2:
+  64              	.L15:
+ 137:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t pos = 0;
+  65              		.loc 1 137 1 view .LVU9
+  66 0006 00B5     		push	{lr}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 4
+  69              		.cfi_offset 14, -4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 5
+
+
+  70 0008 8446     		mov	ip, r0
+  71 000a 8E46     		mov	lr, r1
+ 139:../01_Applcation/Appl_Data/Appl_Data.c ****     if (pdata != (void *)0)
+  72              		.loc 1 139 14 view .LVU10
+  73 000c 4FF6FF70 		movw	r0, #65535
+  74              	.LVL3:
+ 139:../01_Applcation/Appl_Data/Appl_Data.c ****     if (pdata != (void *)0)
+  75              		.loc 1 139 14 view .LVU11
+  76 0010 0CE0     		b	.L4
+  77              	.LVL4:
+  78              	.L6:
+  79              	.LBB2:
+ 156:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+  80              		.loc 1 156 17 is_stmt 1 view .LVU12
+ 156:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+  81              		.loc 1 156 21 is_stmt 0 view .LVU13
+  82 0012 4008     		lsrs	r0, r0, #1
+  83              	.LVL5:
+  84              	.L7:
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+  85              		.loc 1 148 33 is_stmt 1 discriminator 2 view .LVU14
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+  86              		.loc 1 148 34 is_stmt 0 discriminator 2 view .LVU15
+  87 0014 013B     		subs	r3, r3, #1
+  88              	.LVL6:
+  89              	.L5:
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+  90              		.loc 1 148 25 is_stmt 1 discriminator 1 view .LVU16
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+  91              		.loc 1 148 9 is_stmt 0 discriminator 1 view .LVU17
+  92 0016 3BB1     		cbz	r3, .L16
+ 150:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+  93              		.loc 1 150 13 is_stmt 1 view .LVU18
+ 150:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+  94              		.loc 1 150 16 is_stmt 0 view .LVU19
+  95 0018 10F0010F 		tst	r0, #1
+  96 001c F9D0     		beq	.L6
+ 152:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc ^= 0xA001;
+  97              		.loc 1 152 17 is_stmt 1 view .LVU20
+  98              	.LVL7:
+ 153:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+  99              		.loc 1 153 17 view .LVU21
+ 153:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 100              		.loc 1 153 21 is_stmt 0 view .LVU22
+ 101 001e 4AF20102 		movw	r2, #40961
+ 102 0022 82EA5000 		eor	r0, r2, r0, lsr #1
+ 103              	.LVL8:
+ 153:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 104              		.loc 1 153 21 view .LVU23
+ 105 0026 F5E7     		b	.L7
+ 106              	.L16:
+ 153:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 107              		.loc 1 153 21 view .LVU24
+ 108              	.LBE2:
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 109              		.loc 1 144 30 is_stmt 1 discriminator 2 view .LVU25
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 6
+
+
+ 110              		.loc 1 144 33 is_stmt 0 discriminator 2 view .LVU26
+ 111 0028 0131     		adds	r1, r1, #1
+ 112              	.LVL9:
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 113              		.loc 1 144 33 discriminator 2 view .LVU27
+ 114 002a C9B2     		uxtb	r1, r1
+ 115              	.LVL10:
+ 116              	.L4:
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 117              		.loc 1 144 19 is_stmt 1 discriminator 1 view .LVU28
+ 144:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 118              		.loc 1 144 5 is_stmt 0 discriminator 1 view .LVU29
+ 119 002c 6145     		cmp	r1, ip
+ 120 002e 04D2     		bcs	.L17
+ 146:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 121              		.loc 1 146 9 is_stmt 1 view .LVU30
+ 146:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 122              		.loc 1 146 31 is_stmt 0 view .LVU31
+ 123 0030 1EF80130 		ldrb	r3, [lr, r1]	@ zero_extendqisi2
+ 146:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 124              		.loc 1 146 13 view .LVU32
+ 125 0034 5840     		eors	r0, r0, r3
+ 126              	.LVL11:
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 127              		.loc 1 148 9 is_stmt 1 view .LVU33
+ 128              	.LBB3:
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 129              		.loc 1 148 14 view .LVU34
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 130              		.loc 1 148 18 is_stmt 0 view .LVU35
+ 131 0036 0823     		movs	r3, #8
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 132              		.loc 1 148 9 view .LVU36
+ 133 0038 EDE7     		b	.L5
+ 134              	.LVL12:
+ 135              	.L17:
+ 148:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 136              		.loc 1 148 9 view .LVU37
+ 137              	.LBE3:
+ 138              		.loc 1 161 1 view .LVU38
+ 139 003a 5DF804FB 		ldr	pc, [sp], #4
+ 140              		.cfi_endproc
+ 141              	.LFE294:
+ 143              		.section	.text.APPL_Data_RS485_CRC_Decode,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	APPL_Data_RS485_CRC_Decode
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 150              	APPL_Data_RS485_CRC_Decode:
+ 151              	.LVL13:
+ 152              	.LFB295:
+ 162:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 163:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ 164:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_RS485_CRC_Decode
+ 165:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 166:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 7
+
+
+ 167:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 168:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 169:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 170:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 171:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 172:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 173:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_CRC_Decode(uint8_t *data, uint8_t len)
+ 174:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 153              		.loc 1 174 1 is_stmt 1 view -0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t pos = 0;
+ 157              		.loc 1 175 5 view .LVU40
+ 176:../01_Applcation/Appl_Data/Appl_Data.c ****     uint16_t crc = 0xFFFF;
+ 158              		.loc 1 176 5 view .LVU41
+ 177:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 159              		.loc 1 177 5 view .LVU42
+ 178:../01_Applcation/Appl_Data/Appl_Data.c ****     if (data != (void *)0)
+ 160              		.loc 1 178 5 view .LVU43
+ 161              		.loc 1 178 8 is_stmt 0 view .LVU44
+ 162 0000 08B1     		cbz	r0, .L33
+ 179:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 180:../01_Applcation/Appl_Data/Appl_Data.c ****         return HAL_ERROR;
+ 163              		.loc 1 180 16 view .LVU45
+ 164 0002 0120     		movs	r0, #1
+ 165              	.LVL14:
+ 181:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     for (pos = 0; pos < (len - 2); pos++)
+ 183:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 184:../01_Applcation/Appl_Data/Appl_Data.c ****         crc ^= (uint16_t)data[pos]; // XOR byte into least sig. byte of crc
+ 185:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         for (int i = 8; i != 0; i--)
+ 187:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 188:../01_Applcation/Appl_Data/Appl_Data.c ****             if ((crc & 0x0001) != 0)
+ 189:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+ 190:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc >>= 1; // Shift right and XOR 0xA001
+ 191:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc ^= 0xA001;
+ 192:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 193:../01_Applcation/Appl_Data/Appl_Data.c ****             else           // Else LSB is not set
+ 194:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc >>= 1; // Just shift right
+ 195:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+ 196:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****     if (((uint16_t)data[len - 2] == tmp.HREG) &&
+ 198:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 199:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 200:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 201:../01_Applcation/Appl_Data/Appl_Data.c ****         return 1;
+ 202:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 203:../01_Applcation/Appl_Data/Appl_Data.c ****     // Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)
+ 204:../01_Applcation/Appl_Data/Appl_Data.c ****     return 0;
+ 205:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 166              		.loc 1 205 1 view .LVU46
+ 167 0004 7047     		bx	lr
+ 168              	.LVL15:
+ 169              	.L33:
+ 174:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t pos = 0;
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 8
+
+
+ 170              		.loc 1 174 1 view .LVU47
+ 171 0006 00B5     		push	{lr}
+ 172              	.LCFI1:
+ 173              		.cfi_def_cfa_offset 4
+ 174              		.cfi_offset 14, -4
+ 175 0008 8646     		mov	lr, r0
+ 176:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 176              		.loc 1 176 14 view .LVU48
+ 177 000a 4FF6FF73 		movw	r3, #65535
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 178              		.loc 1 182 14 view .LVU49
+ 179 000e 4FF0000C 		mov	ip, #0
+ 180 0012 0EE0     		b	.L20
+ 181              	.LVL16:
+ 182              	.L22:
+ 183              	.LBB4:
+ 194:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+ 184              		.loc 1 194 17 is_stmt 1 view .LVU50
+ 194:../01_Applcation/Appl_Data/Appl_Data.c ****         }
+ 185              		.loc 1 194 21 is_stmt 0 view .LVU51
+ 186 0014 5B08     		lsrs	r3, r3, #1
+ 187              	.LVL17:
+ 188              	.L23:
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 189              		.loc 1 186 33 is_stmt 1 discriminator 2 view .LVU52
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 190              		.loc 1 186 34 is_stmt 0 discriminator 2 view .LVU53
+ 191 0016 013A     		subs	r2, r2, #1
+ 192              	.LVL18:
+ 193              	.L21:
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 194              		.loc 1 186 25 is_stmt 1 discriminator 1 view .LVU54
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 195              		.loc 1 186 9 is_stmt 0 discriminator 1 view .LVU55
+ 196 0018 3AB1     		cbz	r2, .L34
+ 188:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+ 197              		.loc 1 188 13 is_stmt 1 view .LVU56
+ 188:../01_Applcation/Appl_Data/Appl_Data.c ****             {              // If the LSB is set
+ 198              		.loc 1 188 16 is_stmt 0 view .LVU57
+ 199 001a 13F0010F 		tst	r3, #1
+ 200 001e F9D0     		beq	.L22
+ 190:../01_Applcation/Appl_Data/Appl_Data.c ****                 crc ^= 0xA001;
+ 201              		.loc 1 190 17 is_stmt 1 view .LVU58
+ 202              	.LVL19:
+ 191:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 203              		.loc 1 191 17 view .LVU59
+ 191:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 204              		.loc 1 191 21 is_stmt 0 view .LVU60
+ 205 0020 4AF20100 		movw	r0, #40961
+ 206 0024 80EA5303 		eor	r3, r0, r3, lsr #1
+ 207              	.LVL20:
+ 191:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 208              		.loc 1 191 21 view .LVU61
+ 209 0028 F5E7     		b	.L23
+ 210              	.L34:
+ 191:../01_Applcation/Appl_Data/Appl_Data.c ****             }
+ 211              		.loc 1 191 21 view .LVU62
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 9
+
+
+ 212              	.LBE4:
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 213              		.loc 1 182 36 is_stmt 1 discriminator 2 view .LVU63
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 214              		.loc 1 182 39 is_stmt 0 discriminator 2 view .LVU64
+ 215 002a 0CF1010C 		add	ip, ip, #1
+ 216              	.LVL21:
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 217              		.loc 1 182 39 discriminator 2 view .LVU65
+ 218 002e 5FFA8CFC 		uxtb	ip, ip
+ 219              	.LVL22:
+ 220              	.L20:
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 221              		.loc 1 182 19 is_stmt 1 discriminator 1 view .LVU66
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 222              		.loc 1 182 30 is_stmt 0 discriminator 1 view .LVU67
+ 223 0032 8A1E     		subs	r2, r1, #2
+ 182:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 224              		.loc 1 182 5 discriminator 1 view .LVU68
+ 225 0034 9445     		cmp	ip, r2
+ 226 0036 04DA     		bge	.L35
+ 184:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 227              		.loc 1 184 9 is_stmt 1 view .LVU69
+ 184:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 228              		.loc 1 184 30 is_stmt 0 view .LVU70
+ 229 0038 1EF80C20 		ldrb	r2, [lr, ip]	@ zero_extendqisi2
+ 184:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 230              		.loc 1 184 13 view .LVU71
+ 231 003c 5340     		eors	r3, r3, r2
+ 232              	.LVL23:
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 233              		.loc 1 186 9 is_stmt 1 view .LVU72
+ 234              	.LBB5:
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 235              		.loc 1 186 14 view .LVU73
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 236              		.loc 1 186 18 is_stmt 0 view .LVU74
+ 237 003e 0822     		movs	r2, #8
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 238              		.loc 1 186 9 view .LVU75
+ 239 0040 EAE7     		b	.L21
+ 240              	.LVL24:
+ 241              	.L35:
+ 186:../01_Applcation/Appl_Data/Appl_Data.c ****         { // Loop over each bit
+ 242              		.loc 1 186 9 view .LVU76
+ 243              	.LBE5:
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 244              		.loc 1 197 5 is_stmt 1 view .LVU77
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 245              		.loc 1 197 24 is_stmt 0 view .LVU78
+ 246 0042 0EEB0103 		add	r3, lr, r1
+ 247              	.LVL25:
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 248              		.loc 1 197 24 view .LVU79
+ 249 0046 13F8023C 		ldrb	r3, [r3, #-2]	@ zero_extendqisi2
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 250              		.loc 1 197 8 view .LVU80
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 10
+
+
+ 251 004a 13B1     		cbz	r3, .L36
+ 204:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 252              		.loc 1 204 12 view .LVU81
+ 253 004c 0020     		movs	r0, #0
+ 254              	.LVL26:
+ 255              	.L19:
+ 256              		.loc 1 205 1 view .LVU82
+ 257 004e 5DF804FB 		ldr	pc, [sp], #4
+ 258              	.LVL27:
+ 259              	.L36:
+ 198:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 260              		.loc 1 198 24 discriminator 1 view .LVU83
+ 261 0052 7144     		add	r1, r1, lr
+ 262              	.LVL28:
+ 198:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 263              		.loc 1 198 24 discriminator 1 view .LVU84
+ 264 0054 11F8013C 		ldrb	r3, [r1, #-1]	@ zero_extendqisi2
+ 197:../01_Applcation/Appl_Data/Appl_Data.c ****         ((uint16_t)data[len - 1] == tmp.LREG))
+ 265              		.loc 1 197 47 discriminator 1 view .LVU85
+ 266 0058 0BB1     		cbz	r3, .L28
+ 204:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 267              		.loc 1 204 12 view .LVU86
+ 268 005a 0020     		movs	r0, #0
+ 269 005c F7E7     		b	.L19
+ 270              	.L28:
+ 201:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 271              		.loc 1 201 16 view .LVU87
+ 272 005e 0120     		movs	r0, #1
+ 273 0060 F5E7     		b	.L19
+ 274              		.cfi_endproc
+ 275              	.LFE295:
+ 277              		.section	.text.APPL_Data_RS485_Send,"ax",%progbits
+ 278              		.align	1
+ 279              		.global	APPL_Data_RS485_Send
+ 280              		.syntax unified
+ 281              		.thumb
+ 282              		.thumb_func
+ 284              	APPL_Data_RS485_Send:
+ 285              	.LVL29:
+ 286              	.LFB296:
+ 206:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 207:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ 208:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_RS485_Send
+ 209:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 210:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ 211:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 212:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 213:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 214:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 215:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 216:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 217:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Send(uint8_t *data, uint8_t len)
+ 218:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 287              		.loc 1 218 1 is_stmt 1 view -0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 11
+
+
+ 219:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 291              		.loc 1 219 5 view .LVU89
+ 220:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_StatusTypeDef ret;
+ 292              		.loc 1 220 5 view .LVU90
+ 221:../01_Applcation/Appl_Data/Appl_Data.c ****     if (data != (void *)0)
+ 293              		.loc 1 221 5 view .LVU91
+ 294              		.loc 1 221 8 is_stmt 0 view .LVU92
+ 295 0000 08B1     		cbz	r0, .L45
+ 222:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 223:../01_Applcation/Appl_Data/Appl_Data.c ****         return HAL_ERROR;
+ 224:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 225:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(USART2_EN_GPIO_Port, USART2_EN_Pin, GPIO_PIN_SET);
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     for (int i = 0; i < len; i++)
+ 227:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 228:../01_Applcation/Appl_Data/Appl_Data.c ****         HAL_UART_Transmit(&huart2, &data[i], 1, 10);
+ 229:../01_Applcation/Appl_Data/Appl_Data.c ****         HAL_Delay(1);
+ 230:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 231:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(USART2_EN_GPIO_Port, USART2_EN_Pin, GPIO_PIN_RESET);
+ 232:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+ 233:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 296              		.loc 1 233 1 view .LVU93
+ 297 0002 0120     		movs	r0, #1
+ 298              	.LVL30:
+ 299              		.loc 1 233 1 view .LVU94
+ 300 0004 7047     		bx	lr
+ 301              	.LVL31:
+ 302              	.L45:
+ 218:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 303              		.loc 1 218 1 view .LVU95
+ 304 0006 70B5     		push	{r4, r5, r6, lr}
+ 305              	.LCFI2:
+ 306              		.cfi_def_cfa_offset 16
+ 307              		.cfi_offset 4, -16
+ 308              		.cfi_offset 5, -12
+ 309              		.cfi_offset 6, -8
+ 310              		.cfi_offset 14, -4
+ 311 0008 0D46     		mov	r5, r1
+ 312 000a 0646     		mov	r6, r0
+ 225:../01_Applcation/Appl_Data/Appl_Data.c ****     for (int i = 0; i < len; i++)
+ 313              		.loc 1 225 5 is_stmt 1 view .LVU96
+ 314 000c 0122     		movs	r2, #1
+ 315 000e 0221     		movs	r1, #2
+ 316              	.LVL32:
+ 225:../01_Applcation/Appl_Data/Appl_Data.c ****     for (int i = 0; i < len; i++)
+ 317              		.loc 1 225 5 is_stmt 0 view .LVU97
+ 318 0010 4FF09040 		mov	r0, #1207959552
+ 319              	.LVL33:
+ 225:../01_Applcation/Appl_Data/Appl_Data.c ****     for (int i = 0; i < len; i++)
+ 320              		.loc 1 225 5 view .LVU98
+ 321 0014 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 322              	.LVL34:
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 323              		.loc 1 226 5 is_stmt 1 view .LVU99
+ 324              	.LBB6:
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 325              		.loc 1 226 10 view .LVU100
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 12
+
+
+ 326              		.loc 1 226 14 is_stmt 0 view .LVU101
+ 327 0018 0024     		movs	r4, #0
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 328              		.loc 1 226 5 view .LVU102
+ 329 001a 09E0     		b	.L39
+ 330              	.LVL35:
+ 331              	.L40:
+ 228:../01_Applcation/Appl_Data/Appl_Data.c ****         HAL_Delay(1);
+ 332              		.loc 1 228 9 is_stmt 1 discriminator 3 view .LVU103
+ 333 001c 0A23     		movs	r3, #10
+ 334 001e 0122     		movs	r2, #1
+ 335 0020 3119     		adds	r1, r6, r4
+ 336 0022 0848     		ldr	r0, .L46
+ 337 0024 FFF7FEFF 		bl	HAL_UART_Transmit
+ 338              	.LVL36:
+ 229:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 339              		.loc 1 229 9 discriminator 3 view .LVU104
+ 340 0028 0120     		movs	r0, #1
+ 341 002a FFF7FEFF 		bl	HAL_Delay
+ 342              	.LVL37:
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 343              		.loc 1 226 30 discriminator 3 view .LVU105
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 344              		.loc 1 226 31 is_stmt 0 discriminator 3 view .LVU106
+ 345 002e 0134     		adds	r4, r4, #1
+ 346              	.LVL38:
+ 347              	.L39:
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 348              		.loc 1 226 21 is_stmt 1 discriminator 1 view .LVU107
+ 226:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 349              		.loc 1 226 5 is_stmt 0 discriminator 1 view .LVU108
+ 350 0030 A542     		cmp	r5, r4
+ 351 0032 F3DC     		bgt	.L40
+ 352              	.LBE6:
+ 231:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+ 353              		.loc 1 231 5 is_stmt 1 view .LVU109
+ 354 0034 0022     		movs	r2, #0
+ 355 0036 0221     		movs	r1, #2
+ 356 0038 4FF09040 		mov	r0, #1207959552
+ 357 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 358              	.LVL39:
+ 232:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 359              		.loc 1 232 5 view .LVU110
+ 360              		.loc 1 233 1 is_stmt 0 view .LVU111
+ 361 0040 0120     		movs	r0, #1
+ 362 0042 70BD     		pop	{r4, r5, r6, pc}
+ 363              	.LVL40:
+ 364              	.L47:
+ 365              		.loc 1 233 1 view .LVU112
+ 366              		.align	2
+ 367              	.L46:
+ 368 0044 00000000 		.word	huart2
+ 369              		.cfi_endproc
+ 370              	.LFE296:
+ 372              		.section	.text.APPL_Data_RS485_Set,"ax",%progbits
+ 373              		.align	1
+ 374              		.global	APPL_Data_RS485_Set
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 13
+
+
+ 375              		.syntax unified
+ 376              		.thumb
+ 377              		.thumb_func
+ 379              	APPL_Data_RS485_Set:
+ 380              	.LVL41:
+ 381              	.LFB297:
+ 234:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 235:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ 236:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_RS485_Set
+ 237:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 238:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ 239:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 240:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 241:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 242:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 243:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 244:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 245:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_RS485_Set(uint8_t data)
+ 246:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 382              		.loc 1 246 1 is_stmt 1 view -0
+ 383              		.cfi_startproc
+ 384              		@ args = 0, pretend = 0, frame = 0
+ 385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 386              		.loc 1 246 1 is_stmt 0 view .LVU114
+ 387 0000 08B5     		push	{r3, lr}
+ 388              	.LCFI3:
+ 389              		.cfi_def_cfa_offset 8
+ 390              		.cfi_offset 3, -8
+ 391              		.cfi_offset 14, -4
+ 392 0002 0346     		mov	r3, r0
+ 247:../01_Applcation/Appl_Data/Appl_Data.c ****     return EKM_Buffer_Raw_set(APPL_Data_RS485_Buffer,
+ 393              		.loc 1 247 5 is_stmt 1 view .LVU115
+ 394              		.loc 1 247 12 is_stmt 0 view .LVU116
+ 395 0004 024A     		ldr	r2, .L50
+ 396 0006 FF21     		movs	r1, #255
+ 397 0008 0248     		ldr	r0, .L50+4
+ 398              	.LVL42:
+ 399              		.loc 1 247 12 view .LVU117
+ 400 000a FFF7FEFF 		bl	EKM_Buffer_Raw_set
+ 401              	.LVL43:
+ 248:../01_Applcation/Appl_Data/Appl_Data.c ****                               APPL_Data_RS485_Buffer_Size,
+ 249:../01_Applcation/Appl_Data/Appl_Data.c ****                               &APPL_Data_RS485_Buffer_pointer,
+ 250:../01_Applcation/Appl_Data/Appl_Data.c ****                               data);
+ 251:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 402              		.loc 1 251 1 view .LVU118
+ 403 000e 08BD     		pop	{r3, pc}
+ 404              	.L51:
+ 405              		.align	2
+ 406              	.L50:
+ 407 0010 00000000 		.word	.LANCHOR0
+ 408 0014 00000000 		.word	.LANCHOR1
+ 409              		.cfi_endproc
+ 410              	.LFE297:
+ 412              		.section	.text.APPL_Data_MODBUS_Set,"ax",%progbits
+ 413              		.align	1
+ 414              		.global	APPL_Data_MODBUS_Set
+ 415              		.syntax unified
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 14
+
+
+ 416              		.thumb
+ 417              		.thumb_func
+ 419              	APPL_Data_MODBUS_Set:
+ 420              	.LVL44:
+ 421              	.LFB298:
+ 252:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 253:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ 254:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_MODBUS_Set
+ 255:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 256:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ 257:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 258:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 259:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 260:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 261:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 262:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 263:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_MODBUS_Set(uint8_t *data, uint8_t len)
+ 264:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 422              		.loc 1 264 1 is_stmt 1 view -0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 256
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426              		.loc 1 264 1 is_stmt 0 view .LVU120
+ 427 0000 30B5     		push	{r4, r5, lr}
+ 428              	.LCFI4:
+ 429              		.cfi_def_cfa_offset 12
+ 430              		.cfi_offset 4, -12
+ 431              		.cfi_offset 5, -8
+ 432              		.cfi_offset 14, -4
+ 433 0002 C3B0     		sub	sp, sp, #268
+ 434              	.LCFI5:
+ 435              		.cfi_def_cfa_offset 280
+ 265:../01_Applcation/Appl_Data/Appl_Data.c ****     int i;
+ 436              		.loc 1 265 5 is_stmt 1 view .LVU121
+ 266:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 437              		.loc 1 266 5 view .LVU122
+ 267:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_StatusTypeDef ret;
+ 438              		.loc 1 267 5 view .LVU123
+ 268:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t send[255];
+ 439              		.loc 1 268 5 view .LVU124
+ 269:../01_Applcation/Appl_Data/Appl_Data.c ****     send[0] = APPL_DATA_Modbus_ADD;
+ 440              		.loc 1 269 5 view .LVU125
+ 441              		.loc 1 269 13 is_stmt 0 view .LVU126
+ 442 0004 0223     		movs	r3, #2
+ 443 0006 8DF80830 		strb	r3, [sp, #8]
+ 270:../01_Applcation/Appl_Data/Appl_Data.c ****     send[1] = APPL_DATA_Modbus_ADD + 1;
+ 444              		.loc 1 270 5 is_stmt 1 view .LVU127
+ 445              		.loc 1 270 13 is_stmt 0 view .LVU128
+ 446 000a 0323     		movs	r3, #3
+ 447 000c 8DF80930 		strb	r3, [sp, #9]
+ 271:../01_Applcation/Appl_Data/Appl_Data.c ****     if (data != (void *)0)
+ 448              		.loc 1 271 5 is_stmt 1 view .LVU129
+ 449              		.loc 1 271 8 is_stmt 0 view .LVU130
+ 450 0010 18B1     		cbz	r0, .L59
+ 272:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 273:../01_Applcation/Appl_Data/Appl_Data.c ****         return HAL_ERROR;
+ 451              		.loc 1 273 16 view .LVU131
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 15
+
+
+ 452 0012 0124     		movs	r4, #1
+ 453              	.LVL45:
+ 454              	.L53:
+ 274:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 275:../01_Applcation/Appl_Data/Appl_Data.c ****     if (len >= 250)
+ 276:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 277:../01_Applcation/Appl_Data/Appl_Data.c ****         return HAL_ERROR;
+ 278:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < len; i++)
+ 280:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 281:../01_Applcation/Appl_Data/Appl_Data.c ****         APPL_data.modsend[i] = data[i];
+ 282:../01_Applcation/Appl_Data/Appl_Data.c ****         send[i + 2] = data[i];
+ 283:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 284:../01_Applcation/Appl_Data/Appl_Data.c ****     tmp.REG = APPL_Data_RS485_CRC_Encode(len, data);
+ 285:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.HREG;
+ 286:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.LREG;
+ 287:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+ 288:../01_Applcation/Appl_Data/Appl_Data.c ****     ret = HAL_I2C_Master_Transmit(&hi2c1, AT24AA02_Page0 << 1, send, i + 2, 100);
+ 289:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 290:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 291:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+ 292:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 455              		.loc 1 292 1 view .LVU132
+ 456 0014 2046     		mov	r0, r4
+ 457 0016 43B0     		add	sp, sp, #268
+ 458              	.LCFI6:
+ 459              		.cfi_remember_state
+ 460              		.cfi_def_cfa_offset 12
+ 461              		@ sp needed
+ 462 0018 30BD     		pop	{r4, r5, pc}
+ 463              	.LVL46:
+ 464              	.L59:
+ 465              	.LCFI7:
+ 466              		.cfi_restore_state
+ 467              		.loc 1 292 1 view .LVU133
+ 468 001a 0A46     		mov	r2, r1
+ 469 001c 0146     		mov	r1, r0
+ 470              	.LVL47:
+ 275:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 471              		.loc 1 275 5 is_stmt 1 view .LVU134
+ 275:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 472              		.loc 1 275 8 is_stmt 0 view .LVU135
+ 473 001e F92A     		cmp	r2, #249
+ 474 0020 2FD8     		bhi	.L57
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 475              		.loc 1 279 12 view .LVU136
+ 476 0022 0024     		movs	r4, #0
+ 477 0024 0AE0     		b	.L54
+ 478              	.LVL48:
+ 479              	.L55:
+ 281:../01_Applcation/Appl_Data/Appl_Data.c ****         send[i + 2] = data[i];
+ 480              		.loc 1 281 9 is_stmt 1 discriminator 3 view .LVU137
+ 281:../01_Applcation/Appl_Data/Appl_Data.c ****         send[i + 2] = data[i];
+ 481              		.loc 1 281 36 is_stmt 0 discriminator 3 view .LVU138
+ 482 0026 085D     		ldrb	r0, [r1, r4]	@ zero_extendqisi2
+ 281:../01_Applcation/Appl_Data/Appl_Data.c ****         send[i + 2] = data[i];
+ 483              		.loc 1 281 30 discriminator 3 view .LVU139
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 16
+
+
+ 484 0028 174B     		ldr	r3, .L60
+ 485 002a 2344     		add	r3, r3, r4
+ 486 002c 9871     		strb	r0, [r3, #6]
+ 282:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 487              		.loc 1 282 9 is_stmt 1 discriminator 3 view .LVU140
+ 282:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 488              		.loc 1 282 16 is_stmt 0 discriminator 3 view .LVU141
+ 489 002e A31C     		adds	r3, r4, #2
+ 282:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 490              		.loc 1 282 27 discriminator 3 view .LVU142
+ 491 0030 11F804C0 		ldrb	ip, [r1, r4]	@ zero_extendqisi2
+ 282:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 492              		.loc 1 282 21 discriminator 3 view .LVU143
+ 493 0034 02A8     		add	r0, sp, #8
+ 494 0036 00F803C0 		strb	ip, [r0, r3]
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 495              		.loc 1 279 26 is_stmt 1 discriminator 3 view .LVU144
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 496              		.loc 1 279 27 is_stmt 0 discriminator 3 view .LVU145
+ 497 003a 0134     		adds	r4, r4, #1
+ 498              	.LVL49:
+ 499              	.L54:
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 500              		.loc 1 279 17 is_stmt 1 discriminator 1 view .LVU146
+ 279:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 501              		.loc 1 279 5 is_stmt 0 discriminator 1 view .LVU147
+ 502 003c A242     		cmp	r2, r4
+ 503 003e F2DC     		bgt	.L55
+ 284:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.HREG;
+ 504              		.loc 1 284 5 is_stmt 1 view .LVU148
+ 284:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.HREG;
+ 505              		.loc 1 284 15 is_stmt 0 view .LVU149
+ 506 0040 1046     		mov	r0, r2
+ 507 0042 FFF7FEFF 		bl	APPL_Data_RS485_CRC_Encode
+ 508              	.LVL50:
+ 285:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.LREG;
+ 509              		.loc 1 285 5 is_stmt 1 view .LVU150
+ 285:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.LREG;
+ 510              		.loc 1 285 24 is_stmt 0 view .LVU151
+ 511 0046 621C     		adds	r2, r4, #1
+ 512              	.LVL51:
+ 285:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modsend[i++] = tmp.LREG;
+ 513              		.loc 1 285 28 view .LVU152
+ 514 0048 0F4B     		ldr	r3, .L60
+ 515 004a 1919     		adds	r1, r3, r4
+ 516 004c C0F30725 		ubfx	r5, r0, #8, #8
+ 517 0050 8D71     		strb	r5, [r1, #6]
+ 286:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+ 518              		.loc 1 286 5 is_stmt 1 view .LVU153
+ 519              	.LVL52:
+ 286:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+ 520              		.loc 1 286 28 is_stmt 0 view .LVU154
+ 521 0052 1344     		add	r3, r3, r2
+ 522 0054 9871     		strb	r0, [r3, #6]
+ 287:../01_Applcation/Appl_Data/Appl_Data.c ****     ret = HAL_I2C_Master_Transmit(&hi2c1, AT24AA02_Page0 << 1, send, i + 2, 100);
+ 523              		.loc 1 287 5 is_stmt 1 view .LVU155
+ 524 0056 0D4D     		ldr	r5, .L60+4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 17
+
+
+ 525 0058 0122     		movs	r2, #1
+ 526 005a 1146     		mov	r1, r2
+ 527 005c 2846     		mov	r0, r5
+ 528 005e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 529              	.LVL53:
+ 288:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 530              		.loc 1 288 5 view .LVU156
+ 288:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 531              		.loc 1 288 11 is_stmt 0 view .LVU157
+ 532 0062 0434     		adds	r4, r4, #4
+ 533              	.LVL54:
+ 288:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 534              		.loc 1 288 11 view .LVU158
+ 535 0064 6423     		movs	r3, #100
+ 536 0066 0093     		str	r3, [sp]
+ 537 0068 A3B2     		uxth	r3, r4
+ 538 006a 02AA     		add	r2, sp, #8
+ 539 006c A021     		movs	r1, #160
+ 540 006e 0848     		ldr	r0, .L60+8
+ 541 0070 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 542              	.LVL55:
+ 543 0074 0446     		mov	r4, r0
+ 544              	.LVL56:
+ 289:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 545              		.loc 1 289 5 is_stmt 1 view .LVU159
+ 546 0076 0022     		movs	r2, #0
+ 547 0078 0121     		movs	r1, #1
+ 548 007a 2846     		mov	r0, r5
+ 549 007c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 550              	.LVL57:
+ 291:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 551              		.loc 1 291 5 view .LVU160
+ 291:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 552              		.loc 1 291 12 is_stmt 0 view .LVU161
+ 553 0080 C8E7     		b	.L53
+ 554              	.LVL58:
+ 555              	.L57:
+ 277:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 556              		.loc 1 277 16 view .LVU162
+ 557 0082 0124     		movs	r4, #1
+ 558 0084 C6E7     		b	.L53
+ 559              	.L61:
+ 560 0086 00BF     		.align	2
+ 561              	.L60:
+ 562 0088 00000000 		.word	.LANCHOR2
+ 563 008c 00040048 		.word	1207960576
+ 564 0090 00000000 		.word	hi2c1
+ 565              		.cfi_endproc
+ 566              	.LFE298:
+ 568              		.section	.text.APPL_Data_MODBUS_Get,"ax",%progbits
+ 569              		.align	1
+ 570              		.global	APPL_Data_MODBUS_Get
+ 571              		.syntax unified
+ 572              		.thumb
+ 573              		.thumb_func
+ 575              	APPL_Data_MODBUS_Get:
+ 576              	.LVL59:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 18
+
+
+ 577              	.LFB299:
+ 293:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 294:../01_Applcation/Appl_Data/Appl_Data.c **** /*******************************************************************************
+ 295:../01_Applcation/Appl_Data/Appl_Data.c ****  * Function: APPL_Data_MODBUS_Get
+ 296:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 297:../01_Applcation/Appl_Data/Appl_Data.c ****  * Parameters:      -
+ 298:../01_Applcation/Appl_Data/Appl_Data.c ****  * Returned value:  -
+ 299:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 300:../01_Applcation/Appl_Data/Appl_Data.c ****  * Description:
+ 301:../01_Applcation/Appl_Data/Appl_Data.c ****  *
+ 302:../01_Applcation/Appl_Data/Appl_Data.c ****  * Calling:
+ 303:../01_Applcation/Appl_Data/Appl_Data.c ****  ******************************************************************************/
+ 304:../01_Applcation/Appl_Data/Appl_Data.c **** uint8_t APPL_Data_MODBUS_Get(uint8_t *data)
+ 305:../01_Applcation/Appl_Data/Appl_Data.c **** {
+ 578              		.loc 1 305 1 is_stmt 1 view -0
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 256
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582              		.loc 1 305 1 is_stmt 0 view .LVU164
+ 583 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 584              	.LCFI8:
+ 585              		.cfi_def_cfa_offset 24
+ 586              		.cfi_offset 4, -24
+ 587              		.cfi_offset 5, -20
+ 588              		.cfi_offset 6, -16
+ 589              		.cfi_offset 7, -12
+ 590              		.cfi_offset 8, -8
+ 591              		.cfi_offset 14, -4
+ 592 0004 C2B0     		sub	sp, sp, #264
+ 593              	.LCFI9:
+ 594              		.cfi_def_cfa_offset 288
+ 306:../01_Applcation/Appl_Data/Appl_Data.c ****     int i;
+ 595              		.loc 1 306 5 is_stmt 1 view .LVU165
+ 307:../01_Applcation/Appl_Data/Appl_Data.c ****     EKM_16Bto8B_t tmp;
+ 596              		.loc 1 307 5 view .LVU166
+ 308:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_StatusTypeDef ret;
+ 597              		.loc 1 308 5 view .LVU167
+ 309:../01_Applcation/Appl_Data/Appl_Data.c ****     uint8_t send[255];
+ 598              		.loc 1 309 5 view .LVU168
+ 310:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 311:../01_Applcation/Appl_Data/Appl_Data.c ****     send[0] = APPL_DATA_ID0_ADD;
+ 599              		.loc 1 311 5 view .LVU169
+ 600              		.loc 1 311 13 is_stmt 0 view .LVU170
+ 601 0006 0024     		movs	r4, #0
+ 602 0008 8DF80840 		strb	r4, [sp, #8]
+ 312:../01_Applcation/Appl_Data/Appl_Data.c ****     send[1] = 0;
+ 603              		.loc 1 312 5 is_stmt 1 view .LVU171
+ 604              		.loc 1 312 13 is_stmt 0 view .LVU172
+ 605 000c 8DF80940 		strb	r4, [sp, #9]
+ 313:../01_Applcation/Appl_Data/Appl_Data.c ****     send[2] = 0;
+ 606              		.loc 1 313 5 is_stmt 1 view .LVU173
+ 607              		.loc 1 313 13 is_stmt 0 view .LVU174
+ 608 0010 8DF80A40 		strb	r4, [sp, #10]
+ 314:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 315:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_SET);
+ 609              		.loc 1 315 5 is_stmt 1 view .LVU175
+ 610 0014 1A4E     		ldr	r6, .L66
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 19
+
+
+ 611 0016 0122     		movs	r2, #1
+ 612 0018 1146     		mov	r1, r2
+ 613 001a 3046     		mov	r0, r6
+ 614              	.LVL60:
+ 615              		.loc 1 315 5 is_stmt 0 view .LVU176
+ 616 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 617              	.LVL61:
+ 316:../01_Applcation/Appl_Data/Appl_Data.c ****     
+ 317:../01_Applcation/Appl_Data/Appl_Data.c ****     ret = HAL_I2C_Master_Transmit(&hi2c1, AT24AA02_Page0 << 1, send, 1, 100);
+ 618              		.loc 1 317 5 is_stmt 1 view .LVU177
+ 619              		.loc 1 317 11 is_stmt 0 view .LVU178
+ 620 0020 184F     		ldr	r7, .L66+4
+ 621 0022 4FF06408 		mov	r8, #100
+ 622 0026 CDF80080 		str	r8, [sp]
+ 623 002a 0123     		movs	r3, #1
+ 624 002c 02AA     		add	r2, sp, #8
+ 625 002e A021     		movs	r1, #160
+ 626 0030 3846     		mov	r0, r7
+ 627 0032 FFF7FEFF 		bl	HAL_I2C_Master_Transmit
+ 628              	.LVL62:
+ 629 0036 0546     		mov	r5, r0
+ 630              	.LVL63:
+ 318:../01_Applcation/Appl_Data/Appl_Data.c ****     ret |= HAL_I2C_Master_Receive(&hi2c1, AT24AA02_Page0 << 1, send, 252, 100);
+ 631              		.loc 1 318 5 is_stmt 1 view .LVU179
+ 632              		.loc 1 318 12 is_stmt 0 view .LVU180
+ 633 0038 CDF80080 		str	r8, [sp]
+ 634 003c FC23     		movs	r3, #252
+ 635 003e 02AA     		add	r2, sp, #8
+ 636 0040 A021     		movs	r1, #160
+ 637 0042 3846     		mov	r0, r7
+ 638 0044 FFF7FEFF 		bl	HAL_I2C_Master_Receive
+ 639              	.LVL64:
+ 640              		.loc 1 318 9 view .LVU181
+ 641 0048 0543     		orrs	r5, r5, r0
+ 642              	.LVL65:
+ 643              		.loc 1 318 9 view .LVU182
+ 644 004a EDB2     		uxtb	r5, r5
+ 645              	.LVL66:
+ 319:../01_Applcation/Appl_Data/Appl_Data.c **** 
+ 320:../01_Applcation/Appl_Data/Appl_Data.c ****     HAL_GPIO_WritePin(I2C1_EN_GPIO_Port, I2C1_EN_Pin, GPIO_PIN_RESET);
+ 646              		.loc 1 320 5 is_stmt 1 view .LVU183
+ 647 004c 2246     		mov	r2, r4
+ 648 004e 0121     		movs	r1, #1
+ 649 0050 3046     		mov	r0, r6
+ 650 0052 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 651              	.LVL67:
+ 321:../01_Applcation/Appl_Data/Appl_Data.c ****     APPL_data.modbus_size = send[1];
+ 652              		.loc 1 321 5 view .LVU184
+ 653              		.loc 1 321 33 is_stmt 0 view .LVU185
+ 654 0056 9DF80900 		ldrb	r0, [sp, #9]	@ zero_extendqisi2
+ 655              		.loc 1 321 27 view .LVU186
+ 656 005a 0B4B     		ldr	r3, .L66+8
+ 657 005c 83F80501 		strb	r0, [r3, #261]
+ 322:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < APPL_data.modbus_size; i++)
+ 658              		.loc 1 322 5 is_stmt 1 view .LVU187
+ 659              	.LVL68:
+ 660              		.loc 1 322 12 is_stmt 0 view .LVU188
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 20
+
+
+ 661 0060 2246     		mov	r2, r4
+ 662              		.loc 1 322 5 view .LVU189
+ 663 0062 06E0     		b	.L63
+ 664              	.LVL69:
+ 665              	.L64:
+ 323:../01_Applcation/Appl_Data/Appl_Data.c ****     {
+ 324:../01_Applcation/Appl_Data/Appl_Data.c ****         APPL_data.modsend[i] = send[i + 2];
+ 666              		.loc 1 324 9 is_stmt 1 discriminator 3 view .LVU190
+ 667              		.loc 1 324 39 is_stmt 0 discriminator 3 view .LVU191
+ 668 0064 931C     		adds	r3, r2, #2
+ 669              		.loc 1 324 36 discriminator 3 view .LVU192
+ 670 0066 02A9     		add	r1, sp, #8
+ 671 0068 C95C     		ldrb	r1, [r1, r3]	@ zero_extendqisi2
+ 672              		.loc 1 324 30 discriminator 3 view .LVU193
+ 673 006a 074B     		ldr	r3, .L66+8
+ 674 006c 1344     		add	r3, r3, r2
+ 675 006e 9971     		strb	r1, [r3, #6]
+ 322:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < APPL_data.modbus_size; i++)
+ 676              		.loc 1 322 44 is_stmt 1 discriminator 3 view .LVU194
+ 322:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < APPL_data.modbus_size; i++)
+ 677              		.loc 1 322 45 is_stmt 0 discriminator 3 view .LVU195
+ 678 0070 0132     		adds	r2, r2, #1
+ 679              	.LVL70:
+ 680              	.L63:
+ 322:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < APPL_data.modbus_size; i++)
+ 681              		.loc 1 322 17 is_stmt 1 discriminator 1 view .LVU196
+ 322:../01_Applcation/Appl_Data/Appl_Data.c ****     for (i = 0; i < APPL_data.modbus_size; i++)
+ 682              		.loc 1 322 5 is_stmt 0 discriminator 1 view .LVU197
+ 683 0072 9042     		cmp	r0, r2
+ 684 0074 F6DC     		bgt	.L64
+ 325:../01_Applcation/Appl_Data/Appl_Data.c ****     }
+ 326:../01_Applcation/Appl_Data/Appl_Data.c ****     // APPL_CMD_printf("I2C = 0x%x\r\n", ret);
+ 327:../01_Applcation/Appl_Data/Appl_Data.c ****     return ret;
+ 685              		.loc 1 327 5 is_stmt 1 view .LVU198
+ 328:../01_Applcation/Appl_Data/Appl_Data.c **** }
+ 686              		.loc 1 328 1 is_stmt 0 view .LVU199
+ 687 0076 2846     		mov	r0, r5
+ 688 0078 42B0     		add	sp, sp, #264
+ 689              	.LCFI10:
+ 690              		.cfi_def_cfa_offset 24
+ 691              		@ sp needed
+ 692 007a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 693              	.LVL71:
+ 694              	.L67:
+ 695              		.loc 1 328 1 view .LVU200
+ 696 007e 00BF     		.align	2
+ 697              	.L66:
+ 698 0080 00040048 		.word	1207960576
+ 699 0084 00000000 		.word	hi2c1
+ 700 0088 00000000 		.word	.LANCHOR2
+ 701              		.cfi_endproc
+ 702              	.LFE299:
+ 704              		.global	APPL_data
+ 705              		.global	APPL_Data_RS485_Buffer_pointer
+ 706              		.global	APPL_Data_RS485_Buffer
+ 707              		.section	.bss.APPL_Data_RS485_Buffer,"aw",%nobits
+ 708              		.align	2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 21
+
+
+ 709              		.set	.LANCHOR1,. + 0
+ 712              	APPL_Data_RS485_Buffer:
+ 713 0000 00000000 		.space	255
+ 713      00000000 
+ 713      00000000 
+ 713      00000000 
+ 713      00000000 
+ 714              		.section	.bss.APPL_Data_RS485_Buffer_pointer,"aw",%nobits
+ 715              		.set	.LANCHOR0,. + 0
+ 718              	APPL_Data_RS485_Buffer_pointer:
+ 719 0000 00       		.space	1
+ 720              		.section	.bss.APPL_data,"aw",%nobits
+ 721              		.align	2
+ 722              		.set	.LANCHOR2,. + 0
+ 725              	APPL_data:
+ 726 0000 00000000 		.space	262
+ 726      00000000 
+ 726      00000000 
+ 726      00000000 
+ 726      00000000 
+ 727              		.text
+ 728              	.Letext0:
+ 729              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 730              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 731              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 732              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 733              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 734              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 735              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h"
+ 736              		.file 9 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 737              		.file 10 "../02_OS/Core_UART/usart.h"
+ 738              		.file 11 "../02_OS/Core_I2C/i2c.h"
+ 739              		.file 12 "../02_OS/EKM_Buffer/EKM_Buffer.h"
+ 740              		.file 13 "../01_Applcation/Appl_Data/Appl_Data.h"
+ 741              		.file 14 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Appl_Data.c
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:20     .text.APPL_Data_Init:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:26     .text.APPL_Data_Init:00000000 APPL_Data_Init
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:40     .text.APPL_Data_RS485_CRC_Encode:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:46     .text.APPL_Data_RS485_CRC_Encode:00000000 APPL_Data_RS485_CRC_Encode
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:144    .text.APPL_Data_RS485_CRC_Decode:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:150    .text.APPL_Data_RS485_CRC_Decode:00000000 APPL_Data_RS485_CRC_Decode
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:278    .text.APPL_Data_RS485_Send:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:284    .text.APPL_Data_RS485_Send:00000000 APPL_Data_RS485_Send
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:368    .text.APPL_Data_RS485_Send:00000044 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:373    .text.APPL_Data_RS485_Set:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:379    .text.APPL_Data_RS485_Set:00000000 APPL_Data_RS485_Set
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:407    .text.APPL_Data_RS485_Set:00000010 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:413    .text.APPL_Data_MODBUS_Set:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:419    .text.APPL_Data_MODBUS_Set:00000000 APPL_Data_MODBUS_Set
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:562    .text.APPL_Data_MODBUS_Set:00000088 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:569    .text.APPL_Data_MODBUS_Get:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:575    .text.APPL_Data_MODBUS_Get:00000000 APPL_Data_MODBUS_Get
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:698    .text.APPL_Data_MODBUS_Get:00000080 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:725    .bss.APPL_data:00000000 APPL_data
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:718    .bss.APPL_Data_RS485_Buffer_pointer:00000000 APPL_Data_RS485_Buffer_pointer
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:712    .bss.APPL_Data_RS485_Buffer:00000000 APPL_Data_RS485_Buffer
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:708    .bss.APPL_Data_RS485_Buffer:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:719    .bss.APPL_Data_RS485_Buffer_pointer:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccxPPJ0C.s:721    .bss.APPL_data:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_UART_Transmit
+HAL_Delay
+huart2
+EKM_Buffer_Raw_set
+HAL_I2C_Master_Transmit
+hi2c1
+HAL_I2C_Master_Receive
