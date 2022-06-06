@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
   27:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   * @{
   28:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   */
   29:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 2
 
 
   30:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** /** @defgroup PCDEx PCDEx
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
   84:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
   85:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   Tx_Offset = hpcd->Instance->GRXFSIZ;
   86:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 3
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 3
 
 
   87:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   if (fifo == 0U)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  141:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** HAL_StatusTypeDef HAL_PCDEx_DeActivateLPM(PCD_HandleTypeDef *hpcd)
  142:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** {
  143:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   USB_OTG_GlobalTypeDef *USBx = hpcd->Instance;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 4
 
 
  144:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  198:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     Port or Dedicated Charging Port */
  199:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     USBx->GCCFG &= ~ USB_OTG_GCCFG_PDEN;
  200:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     HAL_Delay(50U);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 5
 
 
  201:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     USBx->GCCFG |=  USB_OTG_GCCFG_SDEN;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  255:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   USBx->GCCFG &= ~(USB_OTG_GCCFG_PDEN);
  256:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   USBx->GCCFG &= ~(USB_OTG_GCCFG_SDEN);
  257:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 6
 
 
  258:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   /* Power Down USB transceiver  */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 7
 
 
   34              		@ link register save eliminated.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  337:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     ep->pmaaddr0 = (uint16_t)(pmaadress & 0xFFFFU);
  338:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     ep->pmaaddr1 = (uint16_t)((pmaadress & 0xFFFF0000U) >> 16);
  339:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 8
 
 
  340:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** #endif /* (USE_USB_DOUBLE_BUFFER == 1U) */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  100              	.LFE288:
  102              		.section	.text.HAL_PCDEx_ActivateBCD,"ax",%progbits
  103              		.align	1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 9
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 9
 
 
  104              		.global	HAL_PCDEx_ActivateBCD
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  142 002c 22F00802 		bic	r2, r2, #8
  143 0030 92B2     		uxth	r2, r2
  144 0032 A3F85820 		strh	r2, [r3, #88]	@ movhi
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 10
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 10
 
 
  361:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   USBx->BCDR |= USB_BCDR_DCDEN;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  375:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
  376:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   /* Disable BCD feature */
  377:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   USBx->BCDR &= ~(USB_BCDR_BCDEN);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 11
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 11
 
 
  187              		.loc 1 377 3 is_stmt 1 view .LVU51
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  409:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   HAL_Delay(50U);
  410:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
  411:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   /* If Charger detect ? */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 12
 
 
  412:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   if ((USBx->BCDR & USB_BCDR_PDET) == USB_BCDR_PDET)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  466:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     hpcd->BCDCallback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
  467:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** #else
  468:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****     HAL_PCDEx_BCD_Callback(hpcd, PCD_BCD_DISCOVERY_COMPLETED);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 13
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 13
 
 
  469:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  488:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
  489:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   return HAL_OK;
  247              		.loc 1 489 3 is_stmt 1 view .LVU70
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 14
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 14
 
 
  490:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  289              		.loc 1 504 3 is_stmt 1 view .LVU82
  290              		.loc 1 504 16 is_stmt 0 view .LVU83
  291 001a B2F85430 		ldrh	r3, [r2, #84]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 15
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 15
 
 
  292 001e 9BB2     		uxth	r3, r3
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  327              		.syntax unified
  328              		.thumb
  329              		.thumb_func
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 16
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 16
 
 
  331              	HAL_PCDEx_BCD_Callback:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  368 0002 0546     		mov	r5, r0
  389:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   uint32_t tickstart = HAL_GetTick();
  369              		.loc 1 389 3 is_stmt 1 view .LVU96
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 17
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 17
 
 
  389:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c ****   uint32_t tickstart = HAL_GetTick();
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  409:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** 
  410              		.loc 1 409 3 is_stmt 1 view .LVU111
  411 0042 3220     		movs	r0, #50
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 18
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 18
 
 
  412 0044 FFF7FEFF 		bl	HAL_Delay
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  453              	.L20:
  401:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
  454              		.loc 1 401 5 view .LVU125
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 19
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 19
 
 
  455 0090 FE21     		movs	r1, #254
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  468:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pcd_ex.c **** #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
  499              		.loc 1 468 5 is_stmt 1 view .LVU136
  500 00c8 0021     		movs	r1, #0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 20
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 20
 
 
  501 00ca 2846     		mov	r0, r5
@@ -1158,27 +1158,27 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 1
  515              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h"
  516              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd.h"
  517              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cce9xxZU.s 			page 21
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l4xx_hal_pcd_ex.c
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:20     .text.HAL_PCDEx_PMAConfig:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:26     .text.HAL_PCDEx_PMAConfig:00000000 HAL_PCDEx_PMAConfig
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:103    .text.HAL_PCDEx_ActivateBCD:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:109    .text.HAL_PCDEx_ActivateBCD:00000000 HAL_PCDEx_ActivateBCD
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:161    .text.HAL_PCDEx_DeActivateBCD:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:167    .text.HAL_PCDEx_DeActivateBCD:00000000 HAL_PCDEx_DeActivateBCD
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:203    .text.HAL_PCDEx_ActivateLPM:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:209    .text.HAL_PCDEx_ActivateLPM:00000000 HAL_PCDEx_ActivateLPM
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:254    .text.HAL_PCDEx_DeActivateLPM:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:260    .text.HAL_PCDEx_DeActivateLPM:00000000 HAL_PCDEx_DeActivateLPM
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:303    .text.HAL_PCDEx_LPM_Callback:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:309    .text.HAL_PCDEx_LPM_Callback:00000000 HAL_PCDEx_LPM_Callback
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:325    .text.HAL_PCDEx_BCD_Callback:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:331    .text.HAL_PCDEx_BCD_Callback:00000000 HAL_PCDEx_BCD_Callback
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:347    .text.HAL_PCDEx_BCD_VBUSDetect:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cce9xxZU.s:353    .text.HAL_PCDEx_BCD_VBUSDetect:00000000 HAL_PCDEx_BCD_VBUSDetect
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:20     .text.HAL_PCDEx_PMAConfig:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:26     .text.HAL_PCDEx_PMAConfig:00000000 HAL_PCDEx_PMAConfig
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:103    .text.HAL_PCDEx_ActivateBCD:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:109    .text.HAL_PCDEx_ActivateBCD:00000000 HAL_PCDEx_ActivateBCD
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:161    .text.HAL_PCDEx_DeActivateBCD:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:167    .text.HAL_PCDEx_DeActivateBCD:00000000 HAL_PCDEx_DeActivateBCD
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:203    .text.HAL_PCDEx_ActivateLPM:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:209    .text.HAL_PCDEx_ActivateLPM:00000000 HAL_PCDEx_ActivateLPM
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:254    .text.HAL_PCDEx_DeActivateLPM:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:260    .text.HAL_PCDEx_DeActivateLPM:00000000 HAL_PCDEx_DeActivateLPM
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:303    .text.HAL_PCDEx_LPM_Callback:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:309    .text.HAL_PCDEx_LPM_Callback:00000000 HAL_PCDEx_LPM_Callback
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:325    .text.HAL_PCDEx_BCD_Callback:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:331    .text.HAL_PCDEx_BCD_Callback:00000000 HAL_PCDEx_BCD_Callback
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:347    .text.HAL_PCDEx_BCD_VBUSDetect:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfNmfRM.s:353    .text.HAL_PCDEx_BCD_VBUSDetect:00000000 HAL_PCDEx_BCD_VBUSDetect
 
 UNDEFINED SYMBOLS
 HAL_GetTick

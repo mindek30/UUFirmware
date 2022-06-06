@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
   28:../02_OS/Core_REG/system_stm32l4xx.c ****   *        System Clock source                    | MSI
   29:../02_OS/Core_REG/system_stm32l4xx.c ****   *-----------------------------------------------------------------------------
   30:../02_OS/Core_REG/system_stm32l4xx.c ****   *        SYSCLK(Hz)                             | 4000000
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 2
 
 
   31:../02_OS/Core_REG/system_stm32l4xx.c ****   *-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
   85:../02_OS/Core_REG/system_stm32l4xx.c ****   */
   86:../02_OS/Core_REG/system_stm32l4xx.c **** 
   87:../02_OS/Core_REG/system_stm32l4xx.c **** /** @addtogroup STM32L4xx_System_Private_Includes
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 3
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 3
 
 
   88:../02_OS/Core_REG/system_stm32l4xx.c ****   * @{
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  142:../02_OS/Core_REG/system_stm32l4xx.c ****                                                      This value must be a multiple of 0x200. */
  143:../02_OS/Core_REG/system_stm32l4xx.c **** #endif /* VECT_TAB_SRAM */
  144:../02_OS/Core_REG/system_stm32l4xx.c **** #endif /* USER_VECT_TAB_ADDRESS */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 4
 
 
  145:../02_OS/Core_REG/system_stm32l4xx.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
   29              		.loc 1 198 1 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 5
 
 
   32              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  229:../02_OS/Core_REG/system_stm32l4xx.c ****   *
  230:../02_OS/Core_REG/system_stm32l4xx.c ****   *           - If SYSCLK source is PLL, SystemCoreClock will contain the HSE_VALUE(***)
  231:../02_OS/Core_REG/system_stm32l4xx.c ****   *             or HSI_VALUE(*) or MSI_VALUE(*) multiplied/divided by the PLL factors.
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 6
 
 
  232:../02_OS/Core_REG/system_stm32l4xx.c ****   *
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  265:../02_OS/Core_REG/system_stm32l4xx.c ****   msirange = MSIRangeTable[msirange];
   79              		.loc 1 265 3 is_stmt 1 view .LVU12
   80              		.loc 1 265 12 is_stmt 0 view .LVU13
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 7
 
 
   81 0014 2B4A     		ldr	r2, .L19+4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  125 0044 1A60     		str	r2, [r3]
  272:../02_OS/Core_REG/system_stm32l4xx.c ****       break;
  126              		.loc 1 272 7 is_stmt 1 view .LVU24
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 8
 
 
  127 0046 28E0     		b	.L13
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  288:../02_OS/Core_REG/system_stm32l4xx.c **** 
  289:../02_OS/Core_REG/system_stm32l4xx.c ****       switch (pllsource)
  166              		.loc 1 289 7 is_stmt 1 view .LVU40
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 9
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 9
 
 
  167 0068 0229     		cmp	r1, #2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  202 0088 CA68     		ldr	r2, [r1, #12]
  203              		.loc 1 304 50 view .LVU55
  204 008a C2F34162 		ubfx	r2, r2, #25, #2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 10
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 10
 
 
  205              		.loc 1 304 58 view .LVU56
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  244              	.LVL23:
  296:../02_OS/Core_REG/system_stm32l4xx.c ****           break;
  245              		.loc 1 296 18 view .LVU72
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 11
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 11
 
 
  246 00b2 B2FBF3F2 		udiv	r2, r2, r3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  301 0000 A0860100 		.word	100000
  302 0004 400D0300 		.word	200000
  303 0008 801A0600 		.word	400000
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 12
 
 
  304 000c 00350C00 		.word	800000
@@ -677,27 +677,27 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 1
  317              		.file 4 "../03_Drivers/CMSIS/Include/core_cm4.h"
  318              		.file 5 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h"
  319              		.file 6 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccu8K70t.s 			page 13
+ARM GAS  C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32l4xx.c
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:20     .text.SystemInit:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:26     .text.SystemInit:00000000 SystemInit
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:45     .text.SystemInit:00000010 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:50     .text.SystemCoreClockUpdate:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:56     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:95     .text.SystemCoreClockUpdate:0000002a $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:261    .text.SystemCoreClockUpdate:000000c0 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:300    .rodata.MSIRangeTable:00000000 MSIRangeTable
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:293    .rodata.APBPrescTable:00000000 APBPrescTable
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:286    .rodata.AHBPrescTable:00000000 AHBPrescTable
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:279    .data.SystemCoreClock:00000000 SystemCoreClock
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:275    .data.SystemCoreClock:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:282    .rodata.AHBPrescTable:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:290    .rodata.APBPrescTable:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:296    .rodata.MSIRangeTable:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:109    .text.SystemCoreClockUpdate:00000037 $d
-C:\Users\minde\AppData\Local\Temp\ccu8K70t.s:109    .text.SystemCoreClockUpdate:00000038 $t
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:20     .text.SystemInit:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:26     .text.SystemInit:00000000 SystemInit
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:45     .text.SystemInit:00000010 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:50     .text.SystemCoreClockUpdate:00000000 $t
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:56     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:95     .text.SystemCoreClockUpdate:0000002a $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:261    .text.SystemCoreClockUpdate:000000c0 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:300    .rodata.MSIRangeTable:00000000 MSIRangeTable
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:293    .rodata.APBPrescTable:00000000 APBPrescTable
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:286    .rodata.AHBPrescTable:00000000 AHBPrescTable
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:279    .data.SystemCoreClock:00000000 SystemCoreClock
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:275    .data.SystemCoreClock:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:282    .rodata.AHBPrescTable:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:290    .rodata.APBPrescTable:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:296    .rodata.MSIRangeTable:00000000 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:109    .text.SystemCoreClockUpdate:00000037 $d
+C:\Users\minde\AppData\Local\Temp\cc5WSAnk.s:109    .text.SystemCoreClockUpdate:00000038 $t
 
 NO UNDEFINED SYMBOLS

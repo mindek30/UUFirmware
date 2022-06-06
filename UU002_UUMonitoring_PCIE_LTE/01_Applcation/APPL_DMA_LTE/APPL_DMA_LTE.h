@@ -12,13 +12,11 @@
 #include "EKM_Buffer.h"
 
 //! Structure for an entry in the command list table.
-//! Structure for an entry in the command list table.
 typedef struct APPL_DMA_LTE_type
 {
     const char *Command;
     uint8_t Return_Stage;
 } APPL_DMA_LTE_t;
-
 
 
 //*****************************************************************************
@@ -29,6 +27,7 @@ extern APPL_DMA_LTE_t APPL_DMA_LTE_Step_Init[15];
 extern void APPL_DMA_LTE_Init(void);
 extern void APPL_DMA_LTE_SIM7000G_Init(void);
 extern void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...);
+extern void APPL_DMA_LTE_MQTT_PUBLISH_Raw(const char *MQTT_Topic, uint8_t *data, uint8_t len);
 extern void APPL_DMA_LTE_printf(const char *format, ...);
 extern void APPL_DMA_LTE_LineProcess(void);
 

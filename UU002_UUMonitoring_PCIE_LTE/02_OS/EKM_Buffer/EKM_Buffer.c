@@ -328,7 +328,7 @@ uint8_t EKM_Buffer_Raw_set(uint8_t *c, uint8_t Size, uint8_t *Raw_pointer, uint8
     else
     {
         EKM_Buffer_Raw_Reset(c, Raw_pointer, Size);
-        c[*Raw_pointer++] = buf;
+        //c[*Raw_pointer++] = buf;
     }
     return 0;
 }

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
   27:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****                     ##### How to use this driver #####
   28:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   ==============================================================================
   29:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     [..]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 2
 
 
   30:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       (#) Fill parameters of Init structure in USB_OTG_CfgTypeDef structure.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
   84:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
   85:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   HAL_StatusTypeDef ret;
   86:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 3
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 3
 
 
   87:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* Select FS Embedded PHY */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  141:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
  142:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       /* hclk Clock Range between 17.2-18.5 MHz */
  143:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       UsbTrd = 0xCU;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 4
 
 
  144:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  198:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  199:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** /**
  200:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @brief  USB_DisableGlobalInt
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 5
 
 
  201:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   *         Disable the controller's Global Int in the AHB Config reg
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  255:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  256:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return HAL_OK;
  257:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 6
 
 
  258:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  312:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
  313:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     ret = HAL_ERROR;
  314:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 7
 
 
  315:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  369:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  370:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* Clear any pending interrupts */
  371:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   USBx->GINTSTS = 0xBFFFFFFFU;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 8
 
 
  372:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  426:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if (count > 200000U)
  427:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
  428:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       return HAL_TIMEOUT;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 9
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 9
 
 
  429:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  483:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
  484:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  485:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   USBx_DEVICE->DCFG |= speed;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 10
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 10
 
 
  486:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return HAL_OK;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  540:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     USBx_DEVICE->DAINTMSK |= USB_OTG_DAINTMSK_OEPM & ((uint32_t)(1UL << (ep->num & EP_ADDR_MSK)) <<
  541:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  542:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if (((USBx_OUTEP(epnum)->DOEPCTL) & USB_OTG_DOEPCTL_USBAEP) == 0U)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 11
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 11
 
 
  543:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  597:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
  598:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef USB_DeactivateEndpoint(USB_OTG_GlobalTypeDef *USBx, USB_OTG_EPTypeDef *ep)
  599:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 12
 
 
  600:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  654:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
  655:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPCTL  |= USB_OTG_DIEPCTL_SNAK;
  656:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPCTL  |= USB_OTG_DIEPCTL_EPDIS;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 13
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 13
 
 
  657:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  711:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ |= (USB_OTG_DIEPTSIZ_XFRSIZ & ep->xfer_len);
  712:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  713:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       if (ep->type == EP_TYPE_ISOC)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 14
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 14
 
 
  714:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  768:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
  769:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       if ((USBx_DEVICE->DSTS & (1U << 8)) == 0U)
  770:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 15
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 15
 
 
  771:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         USBx_OUTEP(epnum)->DOEPCTL |= USB_OTG_DOEPCTL_SODDFRM;
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  825:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     USBx_INEP(epnum)->DIEPCTL |= (USB_OTG_DIEPCTL_CNAK | USB_OTG_DIEPCTL_EPENA);
  826:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  827:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     /* Enable the Tx FIFO Empty Interrupt for this EP */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 16
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 16
 
 
  828:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if (ep->xfer_len > 0U)
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  882:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       do
  883:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
  884:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         count++;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 17
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 17
 
 
  885:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  939:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     pSrc++;
  940:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     pSrc++;
  941:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     pSrc++;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 18
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 18
 
 
  942:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     pSrc++;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  996:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
  997:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef USB_EPSetStall(USB_OTG_GlobalTypeDef *USBx, USB_OTG_EPTypeDef *ep)
  998:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 19
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 19
 
 
  999:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1053:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @brief  USB_StopDevice : Stop the usb device mode
 1054:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  USBx  Selected device
 1055:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL status
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 20
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 20
 
 
 1056:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1110:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  USBx  Selected device
 1111:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL status
 1112:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 21
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 21
 
 
 1113:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef  USB_DevConnect(USB_OTG_GlobalTypeDef *USBx)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1167:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   tmpreg  = USBx_DEVICE->DAINT;
 1168:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   tmpreg &= USBx_DEVICE->DAINTMSK;
 1169:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 22
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 22
 
 
 1170:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return ((tmpreg & 0xffff0000U) >> 16);
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1224:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   tmpreg = USBx_INEP((uint32_t)epnum)->DIEPINT & msk;
 1225:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 1226:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return tmpreg;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 23
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 23
 
 
 1227:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1281:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 1282:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   if (gSNPSiD > USB_OTG_CORE_ID_300A)
 1283:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 24
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 24
 
 
 1284:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if ((USBx_OUTEP(0U)->DOEPCTL & USB_OTG_DOEPCTL_EPENA) == USB_OTG_DOEPCTL_EPENA)
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1338:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  USBx  Selected device
 1339:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  cfg   pointer to a USB_OTG_CfgTypeDef structure that contains
 1340:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   *         the configuration information for the specified USBx peripheral.
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 25
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 25
 
 
 1341:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL status
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1395:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****                     USB_OTG_GINTMSK_PXFRM_IISOOXFRM  | USB_OTG_GINTMSK_WUIM);
 1396:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 1397:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return ret;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 26
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 26
 
 
 1398:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1452:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   HAL_Delay(100U);                                 /* See Note #1 */
 1453:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   USBx_HPRT0 = ((~USB_OTG_HPRT_PRST) & hprt0);
 1454:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   HAL_Delay(10U);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 27
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 27
 
 
 1455:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1509:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
 1510:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** uint32_t USB_GetCurrentFrame(USB_OTG_GlobalTypeDef *USBx)
 1511:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 28
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 28
 
 
 1512:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1566:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
 1567:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         USBx_HC((uint32_t)ch_num)->HCINTMSK |= USB_OTG_HCINTMSK_BBERRM;
 1568:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 29
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 29
 
 
 1569:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       break;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1623:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   HostCoreSpeed = USB_GetHostSpeed(USBx);
 1624:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 1625:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* LS device plugged to HUB */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 30
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 30
 
 
 1626:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   if ((speed == HPRT0_PRTSPD_LOW_SPEED) && (HostCoreSpeed != HPRT0_PRTSPD_LOW_SPEED))
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1680:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /*
 1681:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****    * For IN channel HCTSIZ.XferSize is expected to be an integer multiple of
 1682:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****    * max_packet size.
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 31
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 31
 
 
 1683:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****    */
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1737:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       case EP_TYPE_INTR:
 1738:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       case EP_TYPE_ISOC:
 1739:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         len_words = (uint16_t)((hc->xfer_len + 3U) / 4U);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 32
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 32
 
 
 1740:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         /* check if there is enough space in FIFO space */
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1794:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
 1795:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHDIS;
 1796:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 33
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 33
 
 
 1797:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if ((USBx->GAHBCFG & USB_OTG_GAHBCFG_DMAEN) == 0U)
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1851:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL state
 1852:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
 1853:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef USB_DoPing(USB_OTG_GlobalTypeDef *USBx, uint8_t ch_num)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 34
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 34
 
 
 1854:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1908:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* Halt all channels to put them into a known state. */
 1909:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   for (i = 0U; i <= 15U; i++)
 1910:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 35
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 35
 
 
 1911:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     value = USBx_HC(i)->HCCHAR;
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 1965:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   USBx_DEVICE->DCTL &= ~(USB_OTG_DCTL_RWUSIG);
 1966:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 1967:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return HAL_OK;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 36
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 36
 
 
 1968:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** }
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
   62              	USB_EnableGlobalInt:
   63              	.LVL2:
   64              	.LFB289:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 37
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 37
 
 
 1992:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
   95              		.thumb
   96              		.thumb_func
   98              	USB_DisableGlobalInt:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 38
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 38
 
 
   99              	.LVL5:
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  133              	.LFB291:
 2039:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2040:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** /**
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 39
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 39
 
 
 2041:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @brief  USB_SetCurrentMode Set functional mode
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  160              		.loc 1 2070 1 is_stmt 1 view -0
  161              		.cfi_startproc
  162              		@ args = 40, pretend = 16, frame = 0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 40
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 40
 
 
  163              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  200              		.global	USB_FlushTxFifo
  201              		.syntax unified
  202              		.thumb
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 41
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 41
 
 
  203              		.thumb_func
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2115:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL status
 2116:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
 2117:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef USB_FlushRxFifo(USB_TypeDef *USBx)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 42
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 42
 
 
 2118:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** {
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  269 0002 0346     		mov	r3, r0
 2139:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   HAL_StatusTypeDef ret = HAL_OK;
  270              		.loc 1 2139 3 is_stmt 1 view .LVU59
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 43
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 43
 
 
  271              	.LVL16:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2163:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     default:
 2164:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       ret = HAL_ERROR;
 2165:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       break;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 44
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 44
 
 
 2166:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   }
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  344              		.loc 1 2177 7 view .LVU85
  345 0064 B3F85020 		ldrh	r2, [r3, #80]
  346 0068 13FA82F2 		uxtah	r2, r3, r2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 45
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 45
 
 
  347              	.LVL24:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  398 00ac 1DD0     		beq	.L20
 2181:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
 2182:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         /* Configure NAK status for the Endpoint */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 46
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 46
 
 
 2183:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         PCD_SET_EP_TX_STATUS(USBx, ep->num, USB_EP_TX_NAK);
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2160:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       break;
  444              		.loc 1 2160 7 is_stmt 1 view .LVU124
 2160:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       break;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 47
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 47
 
 
  445              		.loc 1 2160 17 is_stmt 0 view .LVU125
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  484              		.loc 1 2194 7 is_stmt 1 view .LVU139
  485              	.LBB8:
  486              		.loc 1 2194 7 view .LVU140
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 48
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 48
 
 
  487              		.loc 1 2194 7 view .LVU141
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  538              		.loc 1 2197 7 discriminator 5 view .LVU161
  539 0148 6FEACC6C 		mvn	ip, ip, lsl #27
  540              	.LVL51:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 49
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 49
 
 
  541              		.loc 1 2197 7 is_stmt 0 discriminator 5 view .LVU162
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2202:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         /* Configure VALID status for EP0 */
 2203:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         PCD_SET_EP_RX_STATUS(USBx, ep->num, USB_EP_RX_VALID);
  591              		.loc 1 2203 9 is_stmt 1 view .LVU183
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 50
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 50
 
 
  592              	.LBB14:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  640 01cc 14F0010F 		tst	r4, #1
  641 01d0 01D0     		beq	.L26
 2197:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       PCD_CLEAR_RX_DTOG(USBx, ep->num);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 51
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 51
 
 
  642              		.loc 1 2197 7 discriminator 10 view .LVU199
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2214:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   else
 2215:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
 2216:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if (ep->type == EP_TYPE_BULK)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 52
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 52
 
 
  683              		.loc 1 2216 5 is_stmt 1 view .LVU212
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  725              		.loc 1 2228 5 is_stmt 1 discriminator 1 view .LVU230
  726 0236 B1F808C0 		ldrh	ip, [r1, #8]
  727 023a 4FEA5C0C 		lsr	ip, ip, #1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 53
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 53
 
 
  728 023e 4FEA4C0C 		lsl	ip, ip, #1
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  777              		.loc 1 2233 7 discriminator 1 view .LVU252
  778              		.loc 1 2233 7 discriminator 1 view .LVU253
  779 0278 33F82420 		ldrh	r2, [r3, r4, lsl #2]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 54
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 54
 
 
  780              	.LVL80:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  831              		.loc 1 2236 7 discriminator 3 view .LVU273
  832              	.LBB24:
  833              		.loc 1 2236 7 discriminator 3 view .LVU274
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 55
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 55
 
 
  834              		.loc 1 2236 7 discriminator 3 view .LVU275
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2248:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         PCD_SET_EP_TX_STATUS(USBx, ep->num, USB_EP_TX_NAK);
 2249:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
 2250:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       else
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 56
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 56
 
 
 2251:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2242:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       PCD_CLEAR_TX_DTOG(USBx, ep->num);
  910              		.loc 1 2242 7 view .LVU304
  911 0314 12F4804F 		tst	r2, #16384
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 57
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 57
 
 
  912 0318 0CD0     		beq	.L34
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  950 0340 33F82420 		ldrh	r2, [r3, r4, lsl #2]
  951              	.LVL101:
 2243:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 58
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 58
 
 
  952              		.loc 1 2243 7 is_stmt 0 discriminator 1 view .LVU321
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  991 0374 42F40042 		orr	r2, r2, #32768
  992              	.LVL106:
 2248:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 59
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 59
 
 
  993              		.loc 1 2248 9 is_stmt 0 view .LVU337
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1033 03aa 22F04002 		bic	r2, r2, #64
  1034              	.LVL111:
 2253:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 60
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 60
 
 
  1035              		.loc 1 2253 9 view .LVU352
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1074              		.loc 1 2276 7 is_stmt 1 view .LVU363
  1075              	.LBB34:
  1076              		.loc 1 2276 7 view .LVU364
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 61
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 61
 
 
  1077              		.loc 1 2276 7 view .LVU365
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2280:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
 2281:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2282:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     else
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 62
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 62
 
 
 2283:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1140              		.loc 1 2284 7 view .LVU390
  1141 0050 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
  1142 0052 30F82230 		ldrh	r3, [r0, r2, lsl #2]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 63
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 63
 
 
  1143              	.LVL122:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2287:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
  1182              		.loc 1 2287 7 discriminator 3 view .LVU406
  1183 0086 43F40043 		orr	r3, r3, #32768
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 64
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 64
 
 
  1184              	.LVL127:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1223 00b8 43F08003 		orr	r3, r3, #128
  1224 00bc 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
  1225              	.L48:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 65
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 65
 
 
 2297:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       PCD_CLEAR_TX_DTOG(USBx, ep->num);
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2301:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  1264              		.loc 1 2301 7 discriminator 3 view .LVU438
  1265              	.LBB44:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 66
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 66
 
 
 2301:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2304:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
  1305              		.loc 1 2304 7 discriminator 3 view .LVU454
  1306 011e 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 67
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 67
 
 
  1307 0120 30F82230 		ldrh	r3, [r0, r2, lsl #2]
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2309:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       PCD_CLEAR_TX_DTOG(USBx, ep->num);
  1347              		.loc 1 2309 7 is_stmt 0 discriminator 1 view .LVU469
  1348 0156 43F08003 		orr	r3, r3, #128
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 68
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 68
 
 
  1349 015a 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2310:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       PCD_RX_DTOG(USBx, ep->num);
  1388              		.loc 1 2310 7 discriminator 3 view .LVU485
 2311:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 69
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 69
 
 
  1389              		.loc 1 2311 7 discriminator 3 view .LVU486
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2315:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
  1429              		.loc 1 2315 7 discriminator 3 view .LVU501
 2315:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 70
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 70
 
 
  1430              		.loc 1 2315 7 discriminator 3 view .LVU502
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2345:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     else
 2346:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
 2347:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       len = ep->xfer_len;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 71
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 71
 
 
 2348:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2402:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr0;
 2403:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2404:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             /* Write the user buffer to USB PMA */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 72
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 72
 
 
 2405:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             USB_WritePMA(USBx, ep->xfer_buff, pmabuffer, (uint16_t)len);
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2459:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           /* Set the Double buffer counter for pmabuffer0 */
 2460:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           PCD_SET_EP_DBUF0_CNT(USBx, ep->num, ep->is_in, len);
 2461:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr0;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 73
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 73
 
 
 2462:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2516:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         /* Multi packet transfer */
 2517:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         if (ep->xfer_len > ep->maxpacket)
 2518:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 74
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 74
 
 
 2519:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           len = ep->maxpacket;
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1478              	.LVL157:
  1479              		.loc 1 2553 5 view .LVU514
  1480              		.loc 1 2553 5 view .LVU515
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 75
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 75
 
 
  1481 0014 83F01003 		eor	r3, r3, #16
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2557:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   }
  1520              		.loc 1 2557 5 is_stmt 0 view .LVU531
  1521 0040 43F08003 		orr	r3, r3, #128
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 76
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 76
 
 
  1522 0044 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1564              		.loc 1 2575 7 discriminator 1 view .LVU543
  1565              	.LBB57:
  1566              		.loc 1 2575 7 discriminator 1 view .LVU544
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 77
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 77
 
 
  1567              		.loc 1 2575 7 discriminator 1 view .LVU545
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1616              		.loc 1 2580 9 view .LVU563
  1617              	.LBE58:
 2581:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 78
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 78
 
 
 2582:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     }
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1665 008e 83F44053 		eor	r3, r3, #12288
  1666              	.LVL178:
  1667              		.loc 1 2588 7 discriminator 3 view .LVU584
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 79
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 79
 
 
  1668 0092 43F40043 		orr	r3, r3, #32768
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2606:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     if (ep->doublebuffer == 0U)
 2607:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     {
 2608:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       if (ep->type != EP_TYPE_ISOC)
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 80
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 80
 
 
 2609:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2628:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
 2629:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       else
 2630:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 81
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 81
 
 
 2631:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         /* Configure RX Endpoint to disabled state */
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1776 0050 83F02003 		eor	r3, r3, #32
  1777              	.LVL188:
 2611:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 82
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 82
 
 
  1778              		.loc 1 2611 9 view .LVU626
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1819              	.LVL192:
 2632:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
  1820              		.loc 1 2632 9 view .LVU640
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 83
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 83
 
 
 2632:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2653:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2654:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* switch-off device */
 2655:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   USBx->CNTR = (uint16_t)(USB_CNTR_FRES | USB_CNTR_PDWN);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 84
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 84
 
 
  1860              		.loc 1 2655 3 is_stmt 1 view .LVU651
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1895 0008 0020     		movs	r0, #0
  1896              	.LVL197:
  1897              		.loc 1 2676 1 view .LVU662
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 85
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 85
 
 
  1898 000a 7047     		bx	lr
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2690:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2691:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** /**
 2692:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @brief  USB_DevDisconnect Disconnect the USB device by disabling the pull-up/pull-down
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 86
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 86
 
 
 2693:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  USBx Selected device
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  1978              		.loc 1 2713 3 view .LVU677
  1979              		.loc 1 2713 16 is_stmt 0 view .LVU678
  1980 0000 B0F84400 		ldrh	r0, [r0, #68]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 87
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 87
 
 
  1981              	.LVL203:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2020              		.thumb
  2021              		.thumb_func
  2023              	USB_ReadDevAllInEpInterrupt:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 88
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 88
 
 
  2024              	.LVL207:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2054              		@ frame_needed = 0, uses_anonymous_args = 0
  2055              		@ link register save eliminated.
 2758:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   /* Prevent unused argument(s) compilation warning */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 89
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 89
 
 
 2759:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   UNUSED(USBx);
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2085              		.loc 1 2785 1 is_stmt 0 view .LVU702
  2086 0000 0020     		movs	r0, #0
  2087              	.LVL212:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 90
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 90
 
 
  2088              		.loc 1 2785 1 view .LVU703
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2807:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @param  psetup pointer to setup packet
 2808:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   * @retval HAL status
 2809:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 91
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 91
 
 
 2810:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** HAL_StatusTypeDef USB_EP0_OutStart(USB_TypeDef *USBx, uint8_t *psetup)
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2161 000a A0F84030 		strh	r3, [r0, #64]	@ movhi
 2830:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
 2831:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   return HAL_OK;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 92
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 92
 
 
  2162              		.loc 1 2831 3 is_stmt 1 view .LVU717
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2206              		.thumb
  2207              		.thumb_func
  2209              	USB_WritePMA:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 93
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 93
 
 
  2210              	.LVL220:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2243              	.LVL224:
  2244              	.L82:
 2866:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 94
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 94
 
 
 2867:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     WrVal = pBuf[0];
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2282              		.cfi_endproc
  2283              	.LFE314:
  2285              		.section	.text.USB_EPStartXfer,"ax",%progbits
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 95
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 95
 
 
  2286              		.align	1
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2327              		.loc 1 2477 28 view .LVU771
  2328 0016 0A69     		ldr	r2, [r1, #16]
 2477:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 96
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 96
 
 
  2329              		.loc 1 2477 10 view .LVU772
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2367              		.loc 1 2488 7 discriminator 3 view .LVU788
  2368 003e 0139     		subs	r1, r1, #1
  2369              	.LVL238:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 97
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 97
 
 
  2370              	.L138:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2540:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  2410              		.loc 1 2540 1 view .LVU803
  2411 0070 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 98
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 98
 
 
  2412              	.LVL244:
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2451:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr1;
  2450              		.loc 1 2451 11 is_stmt 1 view .LVU820
  2451              	.LBB70:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 99
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 99
 
 
 2451:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr1;
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2451:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr1;
  2490              		.loc 1 2451 11 is_stmt 0 discriminator 7 view .LVU837
  2491 00c0 6FEA5242 		mvn	r2, r2, lsr #17
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 100
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 100
 
 
  2492 00c4 92B2     		uxth	r2, r2
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2533              	.LBB76:
 2470:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   }
  2534              		.loc 1 2470 5 view .LVU851
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 101
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 101
 
 
 2470:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****   }
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2574 0120 23F4E043 		bic	r3, r3, #28672
  2575 0124 23F07003 		bic	r3, r3, #112
  2576              	.LVL265:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 102
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 102
 
 
 2365:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2614              		.loc 1 2374 13 discriminator 1 view .LVU883
  2615 0154 02EBC303 		add	r3, r2, r3, lsl #3
  2616              	.LVL270:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 103
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 103
 
 
 2374:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr1;
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2657 018c 6FEA4242 		mvn	r2, r2, lsl #17
  2658 0190 6FEA5242 		mvn	r2, r2, lsr #17
  2659 0194 92B2     		uxth	r2, r2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 104
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 104
 
 
  2660 0196 A3F80624 		strh	r2, [r3, #1030]	@ movhi
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2378:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             ep->xfer_buff += len;
  2702              		.loc 1 2378 13 is_stmt 0 discriminator 18 view .LVU910
  2703 01bc FFF7FEFF 		bl	USB_WritePMA
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 105
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 105
 
 
  2704              	.LVL283:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2742              	.LBB82:
 2392:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr0;
  2743              		.loc 1 2392 13 discriminator 1 view .LVU927
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 106
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 106
 
 
 2392:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr0;
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2785 0216 CDE7     		b	.L95
  2786              	.LVL294:
  2787              	.L98:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 107
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 107
 
 
 2374:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr1;
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2829              		.loc 1 2392 13 discriminator 14 view .LVU953
  2830 0250 9202     		lsls	r2, r2, #10
  2831              	.LVL298:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 108
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 108
 
 
 2392:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr0;
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2872              		.loc 1 2392 13 discriminator 16 view .LVU967
  2873 027a B2B2     		uxth	r2, r6
  2874 027c A3F80224 		strh	r2, [r3, #1026]	@ movhi
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 109
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 109
 
 
  2875 0280 EDE7     		b	.L103
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2913              		.loc 1 2401 13 discriminator 7 view .LVU983
  2914 02a0 6FEAC262 		mvn	r2, r2, lsl #27
  2915              	.LVL311:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 110
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 110
 
 
 2401:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr0;
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  2958 02e2 92B2     		uxth	r2, r2
  2959 02e4 A3F80224 		strh	r2, [r3, #1026]	@ movhi
  2960 02e8 01E0     		b	.L109
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 111
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 111
 
 
  2961              	.LVL318:
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3000              	.L113:
 2419:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr1;
  3001              		.loc 1 2419 13 is_stmt 1 view .LVU1011
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 112
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 112
 
 
  3002              	.LBB89:
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3040              		.loc 1 2419 13 discriminator 7 view .LVU1027
  3041 032e 6FEAC262 		mvn	r2, r2, lsl #27
  3042              	.LVL328:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 113
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 113
 
 
 2419:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****             pmabuffer = ep->pmaaddr1;
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3082 0356 1E46     		mov	r6, r3
  3083 0358 D8E7     		b	.L113
  3084              	.LVL334:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 114
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 114
 
 
  3085              	.L115:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3128              		.loc 1 2419 13 is_stmt 1 discriminator 2 view .LVU1053
  3129 0394 012B     		cmp	r3, #1
  3130 0396 06D0     		beq	.L175
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 115
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 115
 
 
  3131              	.LVL339:
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3172 03c2 92B2     		uxth	r2, r2
  3173 03c4 22F4E242 		bic	r2, r2, #28928
  3174 03c8 22F07002 		bic	r2, r2, #112
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 116
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 116
 
 
  3175              	.LVL345:
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2439:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****         }
  3214              		.loc 1 2439 11 view .LVU1082
  3215 03f2 FFF7FEFF 		bl	USB_WritePMA
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 117
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 117
 
 
  3216              	.LVL354:
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3259 042c A3F80624 		strh	r2, [r3, #1030]	@ movhi
  3260 0430 08E0     		b	.L124
  3261              	.LVL361:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 118
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 118
 
 
  3262              	.L121:
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3301              		.loc 1 2460 11 discriminator 1 view .LVU1108
  3302              	.LBB100:
 2460:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr0;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 119
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 119
 
 
  3303              		.loc 1 2460 11 discriminator 1 view .LVU1109
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2460:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr0;
  3343              		.loc 1 2460 11 discriminator 9 view .LVU1124
  3344 0480 B3F80224 		ldrh	r2, [r3, #1026]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 120
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 120
 
 
  3345              	.LVL376:
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2460:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr0;
  3387              		.loc 1 2460 11 discriminator 16 view .LVU1137
 2460:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****           pmabuffer = ep->pmaaddr0;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 121
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 121
 
 
  3388              		.loc 1 2460 11 discriminator 16 view .LVU1138
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3428              	.LVL389:
  3429              	.L137:
  3430              	.LBB103:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 122
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 122
 
 
  3431              	.LBB68:
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2495:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
  3474              		.loc 1 2495 7 is_stmt 1 view .LVU1164
 2495:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 123
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 123
 
 
  3475              		.loc 1 2495 13 is_stmt 0 view .LVU1165
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3512              	.LVL399:
 2527:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
  3513              		.loc 1 2527 9 discriminator 1 view .LVU1183
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 124
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 124
 
 
  3514 053e 2178     		ldrb	r1, [r4]	@ zero_extendqisi2
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3552              		.loc 1 2527 9 discriminator 18 view .LVU1199
 2527:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
  3553              		.loc 1 2527 9 discriminator 18 view .LVU1200
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 125
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 125
 
 
  3554 0562 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2527:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
  3594              		.loc 1 2527 9 is_stmt 1 discriminator 25 view .LVU1215
  3595 0596 5AE5     		b	.L139
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 126
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 126
 
 
  3596              	.LVL411:
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3634 05b4 00D1     		bne	.L145
 2497:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  3635              		.loc 1 2497 9 discriminator 5 view .LVU1232
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 127
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 127
 
 
  3636 05b6 013A     		subs	r2, r2, #1
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2497:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  3675              		.loc 1 2497 9 discriminator 19 view .LVU1248
  3676              	.LBB117:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 128
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 128
 
 
 2497:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3718              		.loc 1 2497 9 discriminator 9 view .LVU1261
  3719 060c B3F80224 		ldrh	r2, [r3, #1026]
  3720 0610 6FEA4242 		mvn	r2, r2, lsl #17
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 129
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 129
 
 
  3721 0614 6FEA5242 		mvn	r2, r2, lsr #17
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3765 0654 A3F80624 		strh	r2, [r3, #1030]	@ movhi
  3766 0658 0BE0     		b	.L151
  3767              	.L152:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 130
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 130
 
 
 2497:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2503:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  3807              		.loc 1 2503 20 is_stmt 0 view .LVU1287
  3808 067a 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 131
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 131
 
 
 2503:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2497:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c **** 
  3850              		.loc 1 2497 9 discriminator 34 view .LVU1301
  3851 06b6 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 132
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 132
 
 
  3852 06b8 03EBC203 		add	r3, r3, r2, lsl #3
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3894              		.loc 1 2527 9 discriminator 10 view .LVU1313
  3895 06f4 13F0010F 		tst	r3, #1
  3896 06f8 00D0     		beq	.L161
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 133
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 133
 
 
 2527:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3940 072e 13F0010F 		tst	r3, #1
  3941 0732 00D0     		beq	.L166
 2527:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 134
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 134
 
 
  3942              		.loc 1 2527 9 discriminator 30 view .LVU1325
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  3985              	.LFE297:
  3987              		.section	.text.USB_ReadPMA,"ax",%progbits
  3988              		.align	1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 135
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 135
 
 
  3989              		.global	USB_ReadPMA
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  4023              		.loc 1 2900 3 is_stmt 1 view .LVU1349
  4024              		.loc 1 2900 3 is_stmt 0 view .LVU1350
  4025 000a 07E0     		b	.L179
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 136
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 136
 
 
  4026              	.LVL464:
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
 2916:../03_Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_usb.c ****     RdVal = *pdwVal;
  4061              		.loc 1 2916 5 is_stmt 1 view .LVU1368
  4062              		.loc 1 2916 13 is_stmt 0 view .LVU1369
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 137
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 137
 
 
  4063 0026 0388     		ldrh	r3, [r0]
@@ -8188,71 +8188,71 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 1
  4085              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
  4086              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
  4087              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 138
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 138
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l4xx_ll_usb.c
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:20     .text.USB_CoreInit:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:26     .text.USB_CoreInit:00000000 USB_CoreInit
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:56     .text.USB_EnableGlobalInt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:62     .text.USB_EnableGlobalInt:00000000 USB_EnableGlobalInt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:92     .text.USB_DisableGlobalInt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:98     .text.USB_DisableGlobalInt:00000000 USB_DisableGlobalInt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:125    .text.USB_SetCurrentMode:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:131    .text.USB_SetCurrentMode:00000000 USB_SetCurrentMode
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:151    .text.USB_DevInit:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:157    .text.USB_DevInit:00000000 USB_DevInit
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:199    .text.USB_FlushTxFifo:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:205    .text.USB_FlushTxFifo:00000000 USB_FlushTxFifo
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:225    .text.USB_FlushRxFifo:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:231    .text.USB_FlushRxFifo:00000000 USB_FlushRxFifo
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:250    .text.USB_ActivateEndpoint:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:256    .text.USB_ActivateEndpoint:00000000 USB_ActivateEndpoint
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:293    .text.USB_ActivateEndpoint:00000024 $d
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:297    .text.USB_ActivateEndpoint:00000028 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1049   .text.USB_DeactivateEndpoint:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1055   .text.USB_DeactivateEndpoint:00000000 USB_DeactivateEndpoint
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1450   .text.USB_EPSetStall:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1456   .text.USB_EPSetStall:00000000 USB_EPSetStall
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1529   .text.USB_EPClearStall:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1535   .text.USB_EPClearStall:00000000 USB_EPClearStall
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1687   .text.USB_EPStopXfer:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1693   .text.USB_EPStopXfer:00000000 USB_EPStopXfer
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1834   .text.USB_StopDevice:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1840   .text.USB_StopDevice:00000000 USB_StopDevice
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1871   .text.USB_SetDevAddress:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1877   .text.USB_SetDevAddress:00000000 USB_SetDevAddress
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1903   .text.USB_DevConnect:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1909   .text.USB_DevConnect:00000000 USB_DevConnect
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1934   .text.USB_DevDisconnect:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1940   .text.USB_DevDisconnect:00000000 USB_DevDisconnect
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1963   .text.USB_ReadInterrupts:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1969   .text.USB_ReadInterrupts:00000000 USB_ReadInterrupts
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1992   .text.USB_ReadDevAllOutEpInterrupt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:1998   .text.USB_ReadDevAllOutEpInterrupt:00000000 USB_ReadDevAllOutEpInterrupt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2017   .text.USB_ReadDevAllInEpInterrupt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2023   .text.USB_ReadDevAllInEpInterrupt:00000000 USB_ReadDevAllInEpInterrupt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2042   .text.USB_ReadDevOutEPInterrupt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2048   .text.USB_ReadDevOutEPInterrupt:00000000 USB_ReadDevOutEPInterrupt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2068   .text.USB_ReadDevInEPInterrupt:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2074   .text.USB_ReadDevInEPInterrupt:00000000 USB_ReadDevInEPInterrupt
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2094   .text.USB_ClearInterrupts:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2100   .text.USB_ClearInterrupts:00000000 USB_ClearInterrupts
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2116   .text.USB_EP0_OutStart:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2122   .text.USB_EP0_OutStart:00000000 USB_EP0_OutStart
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2142   .text.USB_ActivateRemoteWakeup:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2148   .text.USB_ActivateRemoteWakeup:00000000 USB_ActivateRemoteWakeup
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2172   .text.USB_DeActivateRemoteWakeup:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2178   .text.USB_DeActivateRemoteWakeup:00000000 USB_DeActivateRemoteWakeup
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2203   .text.USB_WritePMA:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2209   .text.USB_WritePMA:00000000 USB_WritePMA
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2286   .text.USB_EPStartXfer:00000000 $t
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cck2eIc9.s 			page 139
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:20     .text.USB_CoreInit:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:26     .text.USB_CoreInit:00000000 USB_CoreInit
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:56     .text.USB_EnableGlobalInt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:62     .text.USB_EnableGlobalInt:00000000 USB_EnableGlobalInt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:92     .text.USB_DisableGlobalInt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:98     .text.USB_DisableGlobalInt:00000000 USB_DisableGlobalInt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:125    .text.USB_SetCurrentMode:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:131    .text.USB_SetCurrentMode:00000000 USB_SetCurrentMode
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:151    .text.USB_DevInit:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:157    .text.USB_DevInit:00000000 USB_DevInit
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:199    .text.USB_FlushTxFifo:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:205    .text.USB_FlushTxFifo:00000000 USB_FlushTxFifo
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:225    .text.USB_FlushRxFifo:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:231    .text.USB_FlushRxFifo:00000000 USB_FlushRxFifo
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:250    .text.USB_ActivateEndpoint:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:256    .text.USB_ActivateEndpoint:00000000 USB_ActivateEndpoint
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:293    .text.USB_ActivateEndpoint:00000024 $d
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:297    .text.USB_ActivateEndpoint:00000028 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1049   .text.USB_DeactivateEndpoint:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1055   .text.USB_DeactivateEndpoint:00000000 USB_DeactivateEndpoint
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1450   .text.USB_EPSetStall:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1456   .text.USB_EPSetStall:00000000 USB_EPSetStall
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1529   .text.USB_EPClearStall:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1535   .text.USB_EPClearStall:00000000 USB_EPClearStall
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1687   .text.USB_EPStopXfer:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1693   .text.USB_EPStopXfer:00000000 USB_EPStopXfer
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1834   .text.USB_StopDevice:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1840   .text.USB_StopDevice:00000000 USB_StopDevice
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1871   .text.USB_SetDevAddress:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1877   .text.USB_SetDevAddress:00000000 USB_SetDevAddress
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1903   .text.USB_DevConnect:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1909   .text.USB_DevConnect:00000000 USB_DevConnect
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1934   .text.USB_DevDisconnect:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1940   .text.USB_DevDisconnect:00000000 USB_DevDisconnect
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1963   .text.USB_ReadInterrupts:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1969   .text.USB_ReadInterrupts:00000000 USB_ReadInterrupts
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1992   .text.USB_ReadDevAllOutEpInterrupt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:1998   .text.USB_ReadDevAllOutEpInterrupt:00000000 USB_ReadDevAllOutEpInterrupt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2017   .text.USB_ReadDevAllInEpInterrupt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2023   .text.USB_ReadDevAllInEpInterrupt:00000000 USB_ReadDevAllInEpInterrupt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2042   .text.USB_ReadDevOutEPInterrupt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2048   .text.USB_ReadDevOutEPInterrupt:00000000 USB_ReadDevOutEPInterrupt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2068   .text.USB_ReadDevInEPInterrupt:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2074   .text.USB_ReadDevInEPInterrupt:00000000 USB_ReadDevInEPInterrupt
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2094   .text.USB_ClearInterrupts:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2100   .text.USB_ClearInterrupts:00000000 USB_ClearInterrupts
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2116   .text.USB_EP0_OutStart:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2122   .text.USB_EP0_OutStart:00000000 USB_EP0_OutStart
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2142   .text.USB_ActivateRemoteWakeup:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2148   .text.USB_ActivateRemoteWakeup:00000000 USB_ActivateRemoteWakeup
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2172   .text.USB_DeActivateRemoteWakeup:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2178   .text.USB_DeActivateRemoteWakeup:00000000 USB_DeActivateRemoteWakeup
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2203   .text.USB_WritePMA:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2209   .text.USB_WritePMA:00000000 USB_WritePMA
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2286   .text.USB_EPStartXfer:00000000 $t
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s 			page 139
 
 
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:2292   .text.USB_EPStartXfer:00000000 USB_EPStartXfer
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:3988   .text.USB_ReadPMA:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cck2eIc9.s:3994   .text.USB_ReadPMA:00000000 USB_ReadPMA
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:2292   .text.USB_EPStartXfer:00000000 USB_EPStartXfer
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:3988   .text.USB_ReadPMA:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccnvPQD3.s:3994   .text.USB_ReadPMA:00000000 USB_ReadPMA
 
 NO UNDEFINED SYMBOLS

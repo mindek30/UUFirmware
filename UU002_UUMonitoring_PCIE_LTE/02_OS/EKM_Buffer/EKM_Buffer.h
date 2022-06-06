@@ -42,8 +42,8 @@ typedef union EKM_16Bto8B
 {
   struct
   {
-    uint16_t LREG : 8;
     uint16_t HREG : 8;
+    uint16_t LREG : 8;
   };
   uint16_t REG;
 } EKM_16Bto8B_t;

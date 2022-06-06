@@ -35,7 +35,8 @@ build/stm32l4xx_it.o: ../02_OS/Core_REG/stm32l4xx_it.c \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../02_OS/Core_REG/stm32l4xx_it.h ../02_OS/EKM_Buffer/EKM_Buffer.h \
- ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h
+ ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h \
+ ../01_Applcation/Appl_Data/Appl_Data.h
 ../01_Applcation/Appl_Main/main.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../02_OS/Core_REG/stm32l4xx_hal_conf.h:
@@ -74,3 +75,4 @@ build/stm32l4xx_it.o: ../02_OS/Core_REG/stm32l4xx_it.c \
 ../02_OS/Core_REG/stm32l4xx_it.h:
 ../02_OS/EKM_Buffer/EKM_Buffer.h:
 ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h:
+../01_Applcation/Appl_Data/Appl_Data.h:

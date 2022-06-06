@@ -37,10 +37,14 @@ extern APPL_DATA_t APPL_data;
 //*****************************************************************************
 // Prototypes for the APIs.
 //*****************************************************************************
-extern uint16_t APPL_Data_RS485_CRC_Encode(uint8_t len, uint8_t *pdata);
-extern uint8_t APPL_Data_RS485_CRC_Decode(uint8_t *data, uint8_t len);
-extern uint8_t APPL_Data_RS485_Send(uint8_t *data, uint8_t len);
+extern void APPL_Data_Init(void);
+extern uint8_t APPL_Data_ID_Set(uint16_t data);
+extern uint8_t APPL_Data_ID_Get(void);
+extern uint8_t APPL_Data_MODBUS_Set(uint8_t *data, uint8_t len);
+extern uint8_t APPL_Data_MODBUS_Get(void);
+extern uint8_t APPL_Data_RS485_Send(void);
 extern uint8_t APPL_Data_RS485_Set(uint8_t data);
+extern void APPL_Data_MODBUS_Task(void);
 
 
 #endif /* APPL_DATA_H_ */

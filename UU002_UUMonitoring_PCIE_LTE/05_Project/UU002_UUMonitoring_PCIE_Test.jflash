@@ -3,7 +3,7 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = "D:\UUFirmware\UU002_UUMonitoring_PCIE_LTE\04_Make\build\UU002_UUMonitoring.hex"
+  CurrentFile = "D:\UUFirmware\UU002_UUMonitoring_PCIE_LTE\04_Make\build\UU002_UUMonitoring_LTE.hex"
   DataFileSAddr = 0x00000000
   GUIMode = 0
   HostName = ""

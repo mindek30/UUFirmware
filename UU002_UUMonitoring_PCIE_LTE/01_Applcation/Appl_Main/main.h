@@ -51,7 +51,7 @@ extern "C" {
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
-
+extern uint16_t Systick_count;
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

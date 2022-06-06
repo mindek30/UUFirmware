@@ -30,8 +30,7 @@
 #include "usbd_cdc_if.h"
 #include "usb_device.h"
 #include "gpio.h"
-#include "APPL_DMA_LTE.h"
-#include "EKM_Buffer.h"
+#include "Appl_Task.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -55,7 +54,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint16_t Systick_count = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -103,8 +102,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  APPL_DMA_LTE_Init();
-  HAL_GPIO_WritePin(USART1_EN_GPIO_Port,USART1_EN_Pin,GPIO_PIN_SET);
+  APPL_Task_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -112,9 +110,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port,LED_STATUS_Pin);
-    HAL_Delay(50);
-    //APPL_USB_printf("Hello");
+    if (Systick_count >= 9)
+    {
+      APPL_Task_10ms();
+      Systick_count = 0;
+    }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

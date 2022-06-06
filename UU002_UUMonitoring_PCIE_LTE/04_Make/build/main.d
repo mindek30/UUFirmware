@@ -46,8 +46,7 @@ build/main.o: ../01_Applcation/Appl_Main/main.c \
  ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
  ../02_OS/USB_DEVICE/App/usb_device.h \
  ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../02_OS/Core_GPIO/gpio.h ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h \
- ../02_OS/EKM_Buffer/EKM_Buffer.h
+ ../02_OS/Core_GPIO/gpio.h ../01_Applcation/Appl_Task/Appl_Task.h
 ../01_Applcation/Appl_Main/main.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../02_OS/Core_REG/stm32l4xx_hal_conf.h:
@@ -98,5 +97,4 @@ build/main.o: ../01_Applcation/Appl_Main/main.c \
 ../02_OS/USB_DEVICE/App/usb_device.h:
 ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
 ../02_OS/Core_GPIO/gpio.h:
-../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h:
-../02_OS/EKM_Buffer/EKM_Buffer.h:
+../01_Applcation/Appl_Task/Appl_Task.h:

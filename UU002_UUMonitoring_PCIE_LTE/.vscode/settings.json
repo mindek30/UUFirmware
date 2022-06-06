@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "usb_device.h": "c",
-        "ekm_buffer.h": "c"
+        "ekm_buffer.h": "c",
+        "appl_data.h": "c",
+        "usart.h": "c",
+        "appl_dma_lte.h": "c"
     }
 }

@@ -23,6 +23,7 @@
 
 /* USER CODE BEGIN INCLUDE */
 #include "EKM_Buffer.h"
+#include "Appl_USBService.h"
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -260,7 +261,7 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
   */
 static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
-  extern EKM_Buffer_t APPL_USB_Rx;
+
   /* USER CODE BEGIN 6 */
   for (int i = 0; i < *Len; i++)
   {

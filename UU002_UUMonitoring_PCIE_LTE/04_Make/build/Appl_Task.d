@@ -1,9 +1,5 @@
-build/usbd_cdc_if.o: ../02_OS/USB_DEVICE/App/usbd_cdc_if.c \
- ../02_OS/USB_DEVICE/App/usbd_cdc_if.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../02_OS/USB_DEVICE/Target/usbd_conf.h ../01_Applcation/Appl_Main/main.h \
+build/Appl_Task.o: ../01_Applcation/Appl_Task/Appl_Task.c \
+ ../01_Applcation/Appl_Main/main.h \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  ../02_OS/Core_REG/stm32l4xx_hal_conf.h \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -38,16 +34,12 @@ build/usbd_cdc_if.o: ../02_OS/USB_DEVICE/App/usbd_cdc_if.c \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
- ../02_OS/EKM_Buffer/EKM_Buffer.h \
- ../01_Applcation/Appl_USBService/Appl_USBService.h
-../02_OS/USB_DEVICE/App/usbd_cdc_if.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../02_OS/USB_DEVICE/Target/usbd_conf.h:
+ ../02_OS/Core_UART/usart.h ../02_OS/Core_GPIO/gpio.h \
+ ../02_OS/Core_I2C/i2c.h ../02_OS/EKM_CMD/EKM_CMD.h \
+ ../02_OS/EKM_Buffer/EKM_Buffer.h ../01_Applcation/Appl_Task/Appl_Task.h \
+ ../01_Applcation/Appl_USBService/Appl_USBService.h \
+ ../01_Applcation/Appl_Data/Appl_Data.h \
+ ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h
 ../01_Applcation/Appl_Main/main.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../02_OS/Core_REG/stm32l4xx_hal_conf.h:
@@ -83,8 +75,12 @@ build/usbd_cdc_if.o: ../02_OS/USB_DEVICE/App/usbd_cdc_if.c \
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../02_OS/Core_UART/usart.h:
+../02_OS/Core_GPIO/gpio.h:
+../02_OS/Core_I2C/i2c.h:
+../02_OS/EKM_CMD/EKM_CMD.h:
 ../02_OS/EKM_Buffer/EKM_Buffer.h:
+../01_Applcation/Appl_Task/Appl_Task.h:
 ../01_Applcation/Appl_USBService/Appl_USBService.h:
+../01_Applcation/Appl_Data/Appl_Data.h:
+../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h:

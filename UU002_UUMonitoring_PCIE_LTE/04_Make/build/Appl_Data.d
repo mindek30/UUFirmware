@@ -36,7 +36,9 @@ build/Appl_Data.o: ../01_Applcation/Appl_Data/Appl_Data.c \
  ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../02_OS/Core_UART/usart.h ../02_OS/Core_GPIO/gpio.h \
  ../02_OS/Core_I2C/i2c.h ../02_OS/EKM_CMD/EKM_CMD.h \
- ../02_OS/EKM_Buffer/EKM_Buffer.h ../01_Applcation/Appl_Data/Appl_Data.h
+ ../02_OS/EKM_Buffer/EKM_Buffer.h ../01_Applcation/Appl_Data/Appl_Data.h \
+ ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h \
+ ../01_Applcation/Appl_USBService/Appl_USBService.h
 ../01_Applcation/Appl_Main/main.h:
 ../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 ../02_OS/Core_REG/stm32l4xx_hal_conf.h:
@@ -78,3 +80,5 @@ build/Appl_Data.o: ../01_Applcation/Appl_Data/Appl_Data.c \
 ../02_OS/EKM_CMD/EKM_CMD.h:
 ../02_OS/EKM_Buffer/EKM_Buffer.h:
 ../01_Applcation/Appl_Data/Appl_Data.h:
+../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h:
+../01_Applcation/Appl_USBService/Appl_USBService.h:

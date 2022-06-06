@@ -20,6 +20,7 @@
 #include <string.h>
 #include "EKM_Buffer.h"
 #include "EKM_CMD.h"
+#include "Appl_Data.h"
 #include "usbd_cdc_if.h"
 #include "Appl_USBService.h"
 
@@ -212,6 +213,7 @@ int APPL_USB_Address(int argc, char *argv[])
     if(argc > 1){
         APPL_USB_printf("RS485 Command =  %s\r\n",argv[1]);
     }
+    APPL_Data_RS485_Send();
     return 0;
 }
 

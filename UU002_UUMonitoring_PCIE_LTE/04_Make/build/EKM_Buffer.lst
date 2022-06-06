@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
   28:../02_OS/EKM_Buffer/EKM_Buffer.c **** #include <stdarg.h>
   29:../02_OS/EKM_Buffer/EKM_Buffer.c **** #include <stdint.h>
   30:../02_OS/EKM_Buffer/EKM_Buffer.c **** #include <stdbool.h>
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 2
 
 
   31:../02_OS/EKM_Buffer/EKM_Buffer.c **** #include <string.h>
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
   85:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->Size = 0;
   86:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->LineCount = 0;
   87:../02_OS/EKM_Buffer/EKM_Buffer.c ****     EKM_Buffer_Reset(tmp);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 3
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 3
 
 
   88:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
   44              	.LVL1:
   45              	.L3:
  127:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 4
 
 
  128:../02_OS/EKM_Buffer/EKM_Buffer.c ****         tmp->read = (tmp->read + 1) % tmp->SizeMax;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
   88 003a E6E7     		b	.L3
   89              		.cfi_endproc
   90              	.LFE5:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 5
 
 
   92              		.section	.text.EKM_Buffer_Reset,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  132 0010 C278     		ldrb	r2, [r0, #3]	@ zero_extendqisi2
  133 0012 8068     		ldr	r0, [r0, #8]
  134              	.LVL5:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 6
 
 
  109:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
   85:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->LineCount = 0;
  180              		.loc 1 85 5 is_stmt 1 view .LVU50
   85:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->LineCount = 0;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 7
 
 
  181              		.loc 1 85 15 is_stmt 0 view .LVU51
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  149:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->read = (tmp->read + 1) % tmp->SizeMax;
  150:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->Size = EKM_Buffer_Element(tmp);
  151:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 8
 
 
  152:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  206:../02_OS/EKM_Buffer/EKM_Buffer.c ****  *
  207:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Parameters:      -
  208:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Returned value:  -
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 9
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 9
 
 
  209:../02_OS/EKM_Buffer/EKM_Buffer.c ****  *
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  220:../02_OS/EKM_Buffer/EKM_Buffer.c ****         EKM_Buffer_Index_Increment(tmp);
  249              		.loc 1 220 33 view .LVU70
  250 0014 8154     		strb	r1, [r0, r2]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 10
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 10
 
 
  221:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 0;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  253:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
  254:../02_OS/EKM_Buffer/EKM_Buffer.c ****     return 0;
  255:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 11
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 11
 
 
  256:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  309 0014 C0B2     		uxtb	r0, r0
  310              	.LVL22:
  311              		.loc 1 276 18 view .LVU91
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 12
 
 
  312 0016 7047     		bx	lr
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  355              	.LCFI5:
  356              		.cfi_def_cfa_offset 8
  357              		.cfi_offset 4, -8
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 13
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 13
 
 
  358              		.cfi_offset 14, -4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  400              		.thumb_func
  402              	EKM_Buffer_Get:
  403              	.LVL30:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 14
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 14
 
 
  404              	.LFB7:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  442              		.loc 1 170 9 is_stmt 1 view .LVU131
  443 001a 1846     		mov	r0, r3
  444 001c FFF7FEFF 		bl	EKM_Buffer_Index_Decrement
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 15
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 15
 
 
  445              	.LVL32:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  493              		.cfi_offset 3, -24
  494              		.cfi_offset 4, -20
  495              		.cfi_offset 5, -16
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 16
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 16
 
 
  496              		.cfi_offset 6, -12
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  535              	.LVL40:
  536              	.L44:
  190:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 17
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 17
 
 
  537              		.loc 1 190 21 is_stmt 1 discriminator 1 view .LVU155
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  580              		.syntax unified
  581              		.thumb
  582              		.thumb_func
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 18
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 18
 
 
  584              	EKM_Buffer_Set_Muti:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  625 0016 7A5D     		ldrb	r2, [r7, r5]	@ zero_extendqisi2
  245:../02_OS/EKM_Buffer/EKM_Buffer.c ****             EKM_Buffer_Index_Increment(tmp);
  626              		.loc 1 245 37 view .LVU181
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 19
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 19
 
 
  627 0018 A168     		ldr	r1, [r4, #8]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  669              	.LVL51:
  670              	.L55:
  671              	.LCFI13:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 20
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 20
 
 
  672              		.cfi_def_cfa_offset 24
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  710              		.cfi_def_cfa_offset 8
  711              		.cfi_offset 4, -8
  712              		.cfi_offset 14, -4
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 21
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 21
 
 
  301:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 1;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  308:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Function: EKM_Buffer_Raw_set
  309:../02_OS/EKM_Buffer/EKM_Buffer.c ****  *
  310:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Parameters:      - tmp       : pointer for Buffer type use in process read line.
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 22
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 22
 
 
  311:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Returned value:  -
@@ -1276,129 +1276,111 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  319:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (c == ((void *)0))
  763              		.loc 1 319 5 view .LVU213
  764              		.loc 1 319 8 is_stmt 0 view .LVU214
- 765 0000 90B1     		cbz	r0, .L72
+ 765 0000 78B1     		cbz	r0, .L72
  318:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (c == ((void *)0))
  766              		.loc 1 318 1 view .LVU215
- 767 0002 70B5     		push	{r4, r5, r6, lr}
+ 767 0002 08B5     		push	{r3, lr}
  768              	.LCFI16:
- 769              		.cfi_def_cfa_offset 16
- 770              		.cfi_offset 4, -16
- 771              		.cfi_offset 5, -12
- 772              		.cfi_offset 6, -8
- 773              		.cfi_offset 14, -4
- 774 0004 1446     		mov	r4, r2
- 775 0006 1D46     		mov	r5, r3
- 776 0008 0646     		mov	r6, r0
+ 769              		.cfi_def_cfa_offset 8
+ 770              		.cfi_offset 3, -8
+ 771              		.cfi_offset 14, -4
+ 772 0004 8C46     		mov	ip, r1
+ 773 0006 1146     		mov	r1, r2
+ 774              	.LVL60:
+ 318:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (c == ((void *)0))
+ 775              		.loc 1 318 1 view .LVU216
+ 776 0008 8646     		mov	lr, r0
  320:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 1;
  321:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (Raw_pointer == ((void *)0))
- 777              		.loc 1 321 5 is_stmt 1 view .LVU216
- 778              		.loc 1 321 8 is_stmt 0 view .LVU217
- 779 000a 7AB1     		cbz	r2, .L73
+ 777              		.loc 1 321 5 is_stmt 1 view .LVU217
+ 778              		.loc 1 321 8 is_stmt 0 view .LVU218
+ 779 000a 62B1     		cbz	r2, .L73
  322:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 1;
  323:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
  324:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (*Raw_pointer < Size)
- 780              		.loc 1 324 5 is_stmt 1 view .LVU218
- 781              		.loc 1 324 9 is_stmt 0 view .LVU219
- 782 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 783              	.LVL60:
- 784              		.loc 1 324 8 view .LVU220
- 785 000e 8B42     		cmp	r3, r1
+ 780              		.loc 1 324 5 is_stmt 1 view .LVU219
+ 781              		.loc 1 324 9 is_stmt 0 view .LVU220
+ 782 000c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 783              	.LVL61:
+ 784              		.loc 1 324 8 view .LVU221
+ 785 000e 6245     		cmp	r2, ip
  786 0010 02D2     		bcs	.L71
  325:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
  326:../02_OS/EKM_Buffer/EKM_Buffer.c ****         c[*Raw_pointer++] = buf;
- 787              		.loc 1 326 9 is_stmt 1 view .LVU221
- 788              	.LVL61:
- 789              		.loc 1 326 27 is_stmt 0 view .LVU222
- 790 0012 C554     		strb	r5, [r0, r3]
+ 787              		.loc 1 326 9 is_stmt 1 view .LVU222
+ 788              	.LVL62:
+ 789              		.loc 1 326 27 is_stmt 0 view .LVU223
+ 790 0012 8354     		strb	r3, [r0, r2]
  327:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
  328:../02_OS/EKM_Buffer/EKM_Buffer.c ****     else
  329:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
  330:../02_OS/EKM_Buffer/EKM_Buffer.c ****         EKM_Buffer_Raw_Reset(c, Raw_pointer, Size);
- 331:../02_OS/EKM_Buffer/EKM_Buffer.c ****         c[*Raw_pointer++] = buf;
+ 331:../02_OS/EKM_Buffer/EKM_Buffer.c ****         //c[*Raw_pointer++] = buf;
  332:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
  333:../02_OS/EKM_Buffer/EKM_Buffer.c ****     return 0;
- 791              		.loc 1 333 12 view .LVU223
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 23
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 23
 
 
+ 791              		.loc 1 333 12 view .LVU224
  792 0014 0020     		movs	r0, #0
- 793              	.LVL62:
+ 793              	.LVL63:
  794              	.L70:
  334:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
- 795              		.loc 1 334 1 view .LVU224
- 796 0016 70BD     		pop	{r4, r5, r6, pc}
- 797              	.LVL63:
+ 795              		.loc 1 334 1 view .LVU225
+ 796 0016 08BD     		pop	{r3, pc}
+ 797              	.LVL64:
  798              	.L71:
- 330:../02_OS/EKM_Buffer/EKM_Buffer.c ****         c[*Raw_pointer++] = buf;
- 799              		.loc 1 330 9 is_stmt 1 view .LVU225
- 800 0018 0A46     		mov	r2, r1
- 801              	.LVL64:
- 330:../02_OS/EKM_Buffer/EKM_Buffer.c ****         c[*Raw_pointer++] = buf;
- 802              		.loc 1 330 9 is_stmt 0 view .LVU226
- 803 001a 2146     		mov	r1, r4
- 804              	.LVL65:
- 330:../02_OS/EKM_Buffer/EKM_Buffer.c ****         c[*Raw_pointer++] = buf;
- 805              		.loc 1 330 9 view .LVU227
- 806 001c FFF7FEFF 		bl	EKM_Buffer_Raw_Reset
- 807              	.LVL66:
- 331:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
- 808              		.loc 1 331 9 is_stmt 1 view .LVU228
- 331:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
- 809              		.loc 1 331 11 is_stmt 0 view .LVU229
- 810 0020 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 331:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
- 811              		.loc 1 331 27 view .LVU230
- 812 0022 F554     		strb	r5, [r6, r3]
+ 330:../02_OS/EKM_Buffer/EKM_Buffer.c ****         //c[*Raw_pointer++] = buf;
+ 799              		.loc 1 330 9 is_stmt 1 view .LVU226
+ 800 0018 6246     		mov	r2, ip
+ 801 001a FFF7FEFF 		bl	EKM_Buffer_Raw_Reset
+ 802              	.LVL65:
  333:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
- 813              		.loc 1 333 12 view .LVU231
- 814 0024 0020     		movs	r0, #0
- 815 0026 F6E7     		b	.L70
- 816              	.LVL67:
- 817              	.L72:
- 818              	.LCFI17:
- 819              		.cfi_def_cfa_offset 0
- 820              		.cfi_restore 4
- 821              		.cfi_restore 5
- 822              		.cfi_restore 6
- 823              		.cfi_restore 14
+ 803              		.loc 1 333 12 is_stmt 0 view .LVU227
+ 804 001e 0020     		movs	r0, #0
+ 805 0020 F9E7     		b	.L70
+ 806              	.LVL66:
+ 807              	.L72:
+ 808              	.LCFI17:
+ 809              		.cfi_def_cfa_offset 0
+ 810              		.cfi_restore 3
+ 811              		.cfi_restore 14
  320:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (Raw_pointer == ((void *)0))
- 824              		.loc 1 320 16 view .LVU232
- 825 0028 0120     		movs	r0, #1
- 826              	.LVL68:
- 827              		.loc 1 334 1 view .LVU233
- 828 002a 7047     		bx	lr
- 829              	.LVL69:
- 830              	.L73:
- 831              	.LCFI18:
- 832              		.cfi_def_cfa_offset 16
- 833              		.cfi_offset 4, -16
- 834              		.cfi_offset 5, -12
- 835              		.cfi_offset 6, -8
- 836              		.cfi_offset 14, -4
+ 812              		.loc 1 320 16 view .LVU228
+ 813 0022 0120     		movs	r0, #1
+ 814              	.LVL67:
+ 815              		.loc 1 334 1 view .LVU229
+ 816 0024 7047     		bx	lr
+ 817              	.LVL68:
+ 818              	.L73:
+ 819              	.LCFI18:
+ 820              		.cfi_def_cfa_offset 8
+ 821              		.cfi_offset 3, -8
+ 822              		.cfi_offset 14, -4
  322:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
- 837              		.loc 1 322 16 view .LVU234
- 838 002c 0120     		movs	r0, #1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 24
-
-
+ 823              		.loc 1 322 16 view .LVU230
+ 824 0026 0120     		movs	r0, #1
+ 825              	.LVL69:
+ 322:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
+ 826              		.loc 1 322 16 view .LVU231
+ 827 0028 F5E7     		b	.L70
+ 828              		.cfi_endproc
+ 829              	.LFE13:
+ 831              		.section	.text.EKM_Buffer_readline,"ax",%progbits
+ 832              		.align	1
+ 833              		.global	EKM_Buffer_readline
+ 834              		.syntax unified
+ 835              		.thumb
+ 836              		.thumb_func
+ 838              	EKM_Buffer_readline:
  839              	.LVL70:
- 322:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
- 840              		.loc 1 322 16 view .LVU235
- 841 002e F2E7     		b	.L70
- 842              		.cfi_endproc
- 843              	.LFE13:
- 845              		.section	.text.EKM_Buffer_readline,"ax",%progbits
- 846              		.align	1
- 847              		.global	EKM_Buffer_readline
- 848              		.syntax unified
- 849              		.thumb
- 850              		.thumb_func
- 852              	EKM_Buffer_readline:
- 853              	.LVL71:
- 854              	.LFB14:
+ 840              	.LFB14:
  335:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
  336:../02_OS/EKM_Buffer/EKM_Buffer.c **** /*******************************************************************************
  337:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Function: EKM_Buffer_readline
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 24
+
+
  338:../02_OS/EKM_Buffer/EKM_Buffer.c ****  *
  339:../02_OS/EKM_Buffer/EKM_Buffer.c ****  * Parameters:      - tmp       : pointer for Buffer type use in process read line.
  340:../02_OS/EKM_Buffer/EKM_Buffer.c ****  *                  - readline  : pointer for get line data.
@@ -1413,112 +1395,112 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  349:../02_OS/EKM_Buffer/EKM_Buffer.c ****  ******************************************************************************/
  350:../02_OS/EKM_Buffer/EKM_Buffer.c **** uint8_t EKM_Buffer_readline(EKM_Buffer_t *tmp, uint8_t *readline, const char *varsplit)
  351:../02_OS/EKM_Buffer/EKM_Buffer.c **** {
- 855              		.loc 1 351 1 is_stmt 1 view -0
- 856              		.cfi_startproc
- 857              		@ args = 0, pretend = 0, frame = 8
- 858              		@ frame_needed = 1, uses_anonymous_args = 0
+ 841              		.loc 1 351 1 is_stmt 1 view -0
+ 842              		.cfi_startproc
+ 843              		@ args = 0, pretend = 0, frame = 8
+ 844              		@ frame_needed = 1, uses_anonymous_args = 0
  352:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (tmp == ((void *)0))
- 859              		.loc 1 352 5 view .LVU237
- 860              		.loc 1 352 8 is_stmt 0 view .LVU238
- 861 0000 0028     		cmp	r0, #0
- 862 0002 7BD0     		beq	.L89
+ 845              		.loc 1 352 5 view .LVU233
+ 846              		.loc 1 352 8 is_stmt 0 view .LVU234
+ 847 0000 0028     		cmp	r0, #0
+ 848 0002 7BD0     		beq	.L89
  351:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (tmp == ((void *)0))
- 863              		.loc 1 351 1 view .LVU239
- 864 0004 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 865              	.LCFI19:
- 866              		.cfi_def_cfa_offset 36
- 867              		.cfi_offset 4, -36
- 868              		.cfi_offset 5, -32
- 869              		.cfi_offset 6, -28
- 870              		.cfi_offset 7, -24
- 871              		.cfi_offset 8, -20
- 872              		.cfi_offset 9, -16
- 873              		.cfi_offset 10, -12
- 874              		.cfi_offset 11, -8
- 875              		.cfi_offset 14, -4
- 876 0008 83B0     		sub	sp, sp, #12
- 877              	.LCFI20:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 25
-
-
- 878              		.cfi_def_cfa_offset 48
- 879 000a 00AF     		add	r7, sp, #0
- 880              	.LCFI21:
- 881              		.cfi_def_cfa_register 7
- 882 000c 8A46     		mov	r10, r1
- 883 000e 9046     		mov	r8, r2
- 884 0010 0646     		mov	r6, r0
+ 849              		.loc 1 351 1 view .LVU235
+ 850 0004 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 851              	.LCFI19:
+ 852              		.cfi_def_cfa_offset 36
+ 853              		.cfi_offset 4, -36
+ 854              		.cfi_offset 5, -32
+ 855              		.cfi_offset 6, -28
+ 856              		.cfi_offset 7, -24
+ 857              		.cfi_offset 8, -20
+ 858              		.cfi_offset 9, -16
+ 859              		.cfi_offset 10, -12
+ 860              		.cfi_offset 11, -8
+ 861              		.cfi_offset 14, -4
+ 862 0008 83B0     		sub	sp, sp, #12
+ 863              	.LCFI20:
+ 864              		.cfi_def_cfa_offset 48
+ 865 000a 00AF     		add	r7, sp, #0
+ 866              	.LCFI21:
+ 867              		.cfi_def_cfa_register 7
+ 868 000c 8A46     		mov	r10, r1
+ 869 000e 9046     		mov	r8, r2
+ 870 0010 0646     		mov	r6, r0
  353:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 1;
  354:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (readline == ((void *)0))
- 885              		.loc 1 354 5 is_stmt 1 view .LVU240
- 886              		.loc 1 354 8 is_stmt 0 view .LVU241
- 887 0012 0029     		cmp	r1, #0
- 888 0014 74D0     		beq	.L90
+ 871              		.loc 1 354 5 is_stmt 1 view .LVU236
+ 872              		.loc 1 354 8 is_stmt 0 view .LVU237
+ 873 0012 0029     		cmp	r1, #0
+ 874 0014 74D0     		beq	.L90
  355:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 1;
  356:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
  357:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t i = 0;
- 889              		.loc 1 357 5 is_stmt 1 view .LVU242
- 890              	.LVL72:
+ 875              		.loc 1 357 5 is_stmt 1 view .LVU238
+ 876              	.LVL71:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 25
+
+
  358:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t j = 0;
- 891              		.loc 1 358 5 view .LVU243
+ 877              		.loc 1 358 5 view .LVU239
  359:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t firstLine = 0;
- 892              		.loc 1 359 5 view .LVU244
+ 878              		.loc 1 359 5 view .LVU240
  360:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t vs = strlen(varsplit);
- 893              		.loc 1 360 5 view .LVU245
- 894              		.loc 1 360 18 is_stmt 0 view .LVU246
- 895 0016 1046     		mov	r0, r2
- 896              	.LVL73:
- 897              		.loc 1 360 18 view .LVU247
- 898 0018 FFF7FEFF 		bl	strlen
- 899              	.LVL74:
- 900              		.loc 1 360 18 view .LVU248
- 901 001c 7860     		str	r0, [r7, #4]
- 902              		.loc 1 360 13 view .LVU249
- 903 001e 5FFA80FB 		uxtb	fp, r0
- 904              	.LVL75:
+ 879              		.loc 1 360 5 view .LVU241
+ 880              		.loc 1 360 18 is_stmt 0 view .LVU242
+ 881 0016 1046     		mov	r0, r2
+ 882              	.LVL72:
+ 883              		.loc 1 360 18 view .LVU243
+ 884 0018 FFF7FEFF 		bl	strlen
+ 885              	.LVL73:
+ 886              		.loc 1 360 18 view .LVU244
+ 887 001c 7860     		str	r0, [r7, #4]
+ 888              		.loc 1 360 13 view .LVU245
+ 889 001e 5FFA80FB 		uxtb	fp, r0
+ 890              	.LVL74:
  361:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t vb = 0;
- 905              		.loc 1 361 5 is_stmt 1 view .LVU250
+ 891              		.loc 1 361 5 is_stmt 1 view .LVU246
  362:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t index_read = tmp->read;
- 906              		.loc 1 362 5 view .LVU251
- 907              		.loc 1 362 13 is_stmt 0 view .LVU252
- 908 0022 3478     		ldrb	r4, [r6]	@ zero_extendqisi2
- 909              	.LVL76:
+ 892              		.loc 1 362 5 view .LVU247
+ 893              		.loc 1 362 13 is_stmt 0 view .LVU248
+ 894 0022 3478     		ldrb	r4, [r6]	@ zero_extendqisi2
+ 895              	.LVL75:
  363:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t Buffer_temp[tmp->SizeMax];
- 910              		.loc 1 363 5 is_stmt 1 view .LVU253
- 911              		.loc 1 363 28 is_stmt 0 view .LVU254
- 912 0024 F278     		ldrb	r2, [r6, #3]	@ zero_extendqisi2
- 913              	.LVL77:
- 914              		.loc 1 363 13 view .LVU255
- 915 0026 D31D     		adds	r3, r2, #7
- 916 0028 03F4FC73 		and	r3, r3, #504
- 917 002c ADEB030D 		sub	sp, sp, r3
- 918 0030 E946     		mov	r9, sp
- 919              	.LVL78:
+ 896              		.loc 1 363 5 is_stmt 1 view .LVU249
+ 897              		.loc 1 363 28 is_stmt 0 view .LVU250
+ 898 0024 F278     		ldrb	r2, [r6, #3]	@ zero_extendqisi2
+ 899              	.LVL76:
+ 900              		.loc 1 363 13 view .LVU251
+ 901 0026 D31D     		adds	r3, r2, #7
+ 902 0028 03F4FC73 		and	r3, r3, #504
+ 903 002c ADEB030D 		sub	sp, sp, r3
+ 904 0030 E946     		mov	r9, sp
+ 905              	.LVL77:
  364:../02_OS/EKM_Buffer/EKM_Buffer.c ****     tmp->LineCount = 0;
- 920              		.loc 1 364 5 is_stmt 1 view .LVU256
- 921              		.loc 1 364 20 is_stmt 0 view .LVU257
- 922 0032 0025     		movs	r5, #0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 26
-
-
- 923 0034 7571     		strb	r5, [r6, #5]
+ 906              		.loc 1 364 5 is_stmt 1 view .LVU252
+ 907              		.loc 1 364 20 is_stmt 0 view .LVU253
+ 908 0032 0025     		movs	r5, #0
+ 909 0034 7571     		strb	r5, [r6, #5]
  365:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
  366:../02_OS/EKM_Buffer/EKM_Buffer.c ****     memset(Buffer_temp, 0, tmp->SizeMax);
- 924              		.loc 1 366 5 is_stmt 1 view .LVU258
- 925 0036 2946     		mov	r1, r5
- 926 0038 6846     		mov	r0, sp
- 927 003a FFF7FEFF 		bl	memset
- 928              	.LVL79:
+ 910              		.loc 1 366 5 is_stmt 1 view .LVU254
+ 911 0036 2946     		mov	r1, r5
+ 912 0038 6846     		mov	r0, sp
+ 913 003a FFF7FEFF 		bl	memset
+ 914              	.LVL78:
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     for (i = 0; i < EKM_Buffer_Element(tmp); i++)
- 929              		.loc 1 367 5 view .LVU259
+ 915              		.loc 1 367 5 view .LVU255
  359:../02_OS/EKM_Buffer/EKM_Buffer.c ****     uint8_t vs = strlen(varsplit);
- 930              		.loc 1 359 13 is_stmt 0 view .LVU260
- 931 003e 3D60     		str	r5, [r7]
- 932              		.loc 1 367 5 view .LVU261
- 933 0040 14E0     		b	.L80
- 934              	.LVL80:
- 935              	.L91:
- 936              	.LBB6:
+ 916              		.loc 1 359 13 is_stmt 0 view .LVU256
+ 917 003e 3D60     		str	r5, [r7]
+ 918              		.loc 1 367 5 view .LVU257
+ 919 0040 14E0     		b	.L80
+ 920              	.LVL79:
+ 921              	.L91:
+ 922              	.LBB6:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 26
+
+
  368:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
  369:../02_OS/EKM_Buffer/EKM_Buffer.c ****         uint8_t t = 0;
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         Buffer_temp[i] = tmp->buffer[index_read];
@@ -1527,51 +1509,48 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  373:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
  374:../02_OS/EKM_Buffer/EKM_Buffer.c ****             t = 1;
  375:../02_OS/EKM_Buffer/EKM_Buffer.c ****             for (j = vs; j > 0; j--)
- 937              		.loc 1 375 20 view .LVU262
- 938 0042 5B46     		mov	r3, fp
- 939              	.LVL81:
- 940              	.L81:
- 941              		.loc 1 375 26 is_stmt 1 discriminator 1 view .LVU263
- 942              		.loc 1 375 13 is_stmt 0 discriminator 1 view .LVU264
- 943 0044 5BB1     		cbz	r3, .L99
+ 923              		.loc 1 375 20 view .LVU258
+ 924 0042 5B46     		mov	r3, fp
+ 925              	.LVL80:
+ 926              	.L81:
+ 927              		.loc 1 375 26 is_stmt 1 discriminator 1 view .LVU259
+ 928              		.loc 1 375 13 is_stmt 0 discriminator 1 view .LVU260
+ 929 0044 5BB1     		cbz	r3, .L99
  376:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
  377:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 if (Buffer_temp[i + j - 2] != varsplit[j - 1])
- 944              		.loc 1 377 17 is_stmt 1 view .LVU265
- 945              		.loc 1 377 35 is_stmt 0 view .LVU266
- 946 0046 5A18     		adds	r2, r3, r1
- 947              		.loc 1 377 39 view .LVU267
- 948 0048 023A     		subs	r2, r2, #2
- 949              		.loc 1 377 32 view .LVU268
- 950 004a 19F80200 		ldrb	r0, [r9, r2]	@ zero_extendqisi2
- 951              		.loc 1 377 55 view .LVU269
- 952 004e 5A1E     		subs	r2, r3, #1
- 953              		.loc 1 377 44 view .LVU270
- 954 0050 18F80220 		ldrb	r2, [r8, r2]	@ zero_extendqisi2
- 955              		.loc 1 377 20 view .LVU271
- 956 0054 9042     		cmp	r0, r2
- 957 0056 22D1     		bne	.L92
+ 930              		.loc 1 377 17 is_stmt 1 view .LVU261
+ 931              		.loc 1 377 35 is_stmt 0 view .LVU262
+ 932 0046 5A18     		adds	r2, r3, r1
+ 933              		.loc 1 377 39 view .LVU263
+ 934 0048 023A     		subs	r2, r2, #2
+ 935              		.loc 1 377 32 view .LVU264
+ 936 004a 19F80200 		ldrb	r0, [r9, r2]	@ zero_extendqisi2
+ 937              		.loc 1 377 55 view .LVU265
+ 938 004e 5A1E     		subs	r2, r3, #1
+ 939              		.loc 1 377 44 view .LVU266
+ 940 0050 18F80220 		ldrb	r2, [r8, r2]	@ zero_extendqisi2
+ 941              		.loc 1 377 20 view .LVU267
+ 942 0054 9042     		cmp	r0, r2
+ 943 0056 22D1     		bne	.L92
  375:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 958              		.loc 1 375 33 is_stmt 1 discriminator 2 view .LVU272
+ 944              		.loc 1 375 33 is_stmt 1 discriminator 2 view .LVU268
  375:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 959              		.loc 1 375 34 is_stmt 0 discriminator 2 view .LVU273
- 960 0058 013B     		subs	r3, r3, #1
- 961              	.LVL82:
+ 945              		.loc 1 375 34 is_stmt 0 discriminator 2 view .LVU269
+ 946 0058 013B     		subs	r3, r3, #1
+ 947              	.LVL81:
  375:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 962              		.loc 1 375 34 discriminator 2 view .LVU274
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 27
-
-
- 963 005a DBB2     		uxtb	r3, r3
- 964              	.LVL83:
+ 948              		.loc 1 375 34 discriminator 2 view .LVU270
+ 949 005a DBB2     		uxtb	r3, r3
+ 950              	.LVL82:
  375:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 965              		.loc 1 375 34 discriminator 2 view .LVU275
- 966 005c F2E7     		b	.L81
- 967              	.L99:
+ 951              		.loc 1 375 34 discriminator 2 view .LVU271
+ 952 005c F2E7     		b	.L81
+ 953              	.L99:
  374:../02_OS/EKM_Buffer/EKM_Buffer.c ****             for (j = vs; j > 0; j--)
- 968              		.loc 1 374 15 view .LVU276
- 969 005e 0123     		movs	r3, #1
- 970              	.LVL84:
- 971              	.L83:
+ 954              		.loc 1 374 15 view .LVU272
+ 955 005e 0123     		movs	r3, #1
+ 956              	.LVL83:
+ 957              	.L83:
  378:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 {
  379:../02_OS/EKM_Buffer/EKM_Buffer.c ****                     t = 0;
  380:../02_OS/EKM_Buffer/EKM_Buffer.c ****                     break;
@@ -1579,141 +1558,144 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  382:../02_OS/EKM_Buffer/EKM_Buffer.c ****             }
  383:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
  384:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (t == 1)
- 972              		.loc 1 384 9 is_stmt 1 view .LVU277
- 973              		.loc 1 384 12 is_stmt 0 view .LVU278
- 974 0060 FBB9     		cbnz	r3, .L100
- 975              	.LVL85:
- 976              	.L82:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 27
+
+
+ 958              		.loc 1 384 9 is_stmt 1 view .LVU273
+ 959              		.loc 1 384 12 is_stmt 0 view .LVU274
+ 960 0060 FBB9     		cbnz	r3, .L100
+ 961              	.LVL84:
+ 962              	.L82:
  385:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
  386:../02_OS/EKM_Buffer/EKM_Buffer.c ****             if (firstLine == 0)
  387:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 firstLine = i;
  388:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
  389:../02_OS/EKM_Buffer/EKM_Buffer.c ****         tmp->LineCount += t;
- 977              		.loc 1 389 9 is_stmt 1 discriminator 2 view .LVU279
- 978              		.loc 1 389 24 is_stmt 0 discriminator 2 view .LVU280
- 979 0062 7279     		ldrb	r2, [r6, #5]	@ zero_extendqisi2
- 980 0064 1344     		add	r3, r3, r2
- 981 0066 7371     		strb	r3, [r6, #5]
- 982              	.LBE6:
+ 963              		.loc 1 389 9 is_stmt 1 discriminator 2 view .LVU275
+ 964              		.loc 1 389 24 is_stmt 0 discriminator 2 view .LVU276
+ 965 0062 7279     		ldrb	r2, [r6, #5]	@ zero_extendqisi2
+ 966 0064 1344     		add	r3, r3, r2
+ 967 0066 7371     		strb	r3, [r6, #5]
+ 968              	.LBE6:
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 983              		.loc 1 367 46 is_stmt 1 discriminator 2 view .LVU281
+ 969              		.loc 1 367 46 is_stmt 1 discriminator 2 view .LVU277
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 984              		.loc 1 367 47 is_stmt 0 discriminator 2 view .LVU282
- 985 0068 0135     		adds	r5, r5, #1
- 986              	.LVL86:
+ 970              		.loc 1 367 47 is_stmt 0 discriminator 2 view .LVU278
+ 971 0068 0135     		adds	r5, r5, #1
+ 972              	.LVL85:
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 987              		.loc 1 367 47 discriminator 2 view .LVU283
- 988 006a EDB2     		uxtb	r5, r5
- 989              	.LVL87:
- 990              	.L80:
+ 973              		.loc 1 367 47 discriminator 2 view .LVU279
+ 974 006a EDB2     		uxtb	r5, r5
+ 975              	.LVL86:
+ 976              	.L80:
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 991              		.loc 1 367 17 is_stmt 1 discriminator 1 view .LVU284
+ 977              		.loc 1 367 17 is_stmt 1 discriminator 1 view .LVU280
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 992              		.loc 1 367 21 is_stmt 0 discriminator 1 view .LVU285
- 993 006c 3046     		mov	r0, r6
- 994 006e FFF7FEFF 		bl	EKM_Buffer_Element
- 995              	.LVL88:
+ 978              		.loc 1 367 21 is_stmt 0 discriminator 1 view .LVU281
+ 979 006c 3046     		mov	r0, r6
+ 980 006e FFF7FEFF 		bl	EKM_Buffer_Element
+ 981              	.LVL87:
  367:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
- 996              		.loc 1 367 5 discriminator 1 view .LVU286
- 997 0072 8542     		cmp	r5, r0
- 998 0074 1AD2     		bcs	.L101
- 999              	.LBB7:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 28
-
-
+ 982              		.loc 1 367 5 discriminator 1 view .LVU282
+ 983 0072 8542     		cmp	r5, r0
+ 984 0074 1AD2     		bcs	.L101
+ 985              	.LBB7:
  369:../02_OS/EKM_Buffer/EKM_Buffer.c ****         Buffer_temp[i] = tmp->buffer[index_read];
- 1000              		.loc 1 369 9 is_stmt 1 view .LVU287
- 1001              	.LVL89:
+ 986              		.loc 1 369 9 is_stmt 1 view .LVU283
+ 987              	.LVL88:
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         index_read = (index_read + 1) % tmp->SizeMax;
- 1002              		.loc 1 370 9 view .LVU288
+ 988              		.loc 1 370 9 view .LVU284
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         index_read = (index_read + 1) % tmp->SizeMax;
- 1003              		.loc 1 370 29 is_stmt 0 view .LVU289
- 1004 0076 B368     		ldr	r3, [r6, #8]
+ 989              		.loc 1 370 29 is_stmt 0 view .LVU285
+ 990 0076 B368     		ldr	r3, [r6, #8]
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         index_read = (index_read + 1) % tmp->SizeMax;
- 1005              		.loc 1 370 20 view .LVU290
- 1006 0078 2946     		mov	r1, r5
+ 991              		.loc 1 370 20 view .LVU286
+ 992 0078 2946     		mov	r1, r5
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         index_read = (index_read + 1) % tmp->SizeMax;
- 1007              		.loc 1 370 37 view .LVU291
- 1008 007a 1A5D     		ldrb	r2, [r3, r4]	@ zero_extendqisi2
+ 993              		.loc 1 370 37 view .LVU287
+ 994 007a 1A5D     		ldrb	r2, [r3, r4]	@ zero_extendqisi2
  370:../02_OS/EKM_Buffer/EKM_Buffer.c ****         index_read = (index_read + 1) % tmp->SizeMax;
- 1009              		.loc 1 370 24 view .LVU292
- 1010 007c 09F80520 		strb	r2, [r9, r5]
+ 995              		.loc 1 370 24 view .LVU288
+ 996 007c 09F80520 		strb	r2, [r9, r5]
  371:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (Buffer_temp[i] == varsplit[vs - 1])
- 1011              		.loc 1 371 9 is_stmt 1 view .LVU293
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 28
+
+
+ 997              		.loc 1 371 9 is_stmt 1 view .LVU289
  371:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (Buffer_temp[i] == varsplit[vs - 1])
- 1012              		.loc 1 371 34 is_stmt 0 view .LVU294
- 1013 0080 0134     		adds	r4, r4, #1
- 1014              	.LVL90:
+ 998              		.loc 1 371 34 is_stmt 0 view .LVU290
+ 999 0080 0134     		adds	r4, r4, #1
+ 1000              	.LVL89:
  371:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (Buffer_temp[i] == varsplit[vs - 1])
- 1015              		.loc 1 371 44 view .LVU295
- 1016 0082 F378     		ldrb	r3, [r6, #3]	@ zero_extendqisi2
+ 1001              		.loc 1 371 44 view .LVU291
+ 1002 0082 F378     		ldrb	r3, [r6, #3]	@ zero_extendqisi2
  371:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (Buffer_temp[i] == varsplit[vs - 1])
- 1017              		.loc 1 371 39 view .LVU296
- 1018 0084 94FBF3F0 		sdiv	r0, r4, r3
- 1019 0088 03FB1044 		mls	r4, r3, r0, r4
+ 1003              		.loc 1 371 39 view .LVU292
+ 1004 0084 94FBF3F0 		sdiv	r0, r4, r3
+ 1005 0088 03FB1044 		mls	r4, r3, r0, r4
  371:../02_OS/EKM_Buffer/EKM_Buffer.c ****         if (Buffer_temp[i] == varsplit[vs - 1])
- 1020              		.loc 1 371 20 view .LVU297
- 1021 008c E4B2     		uxtb	r4, r4
- 1022              	.LVL91:
+ 1006              		.loc 1 371 20 view .LVU293
+ 1007 008c E4B2     		uxtb	r4, r4
+ 1008              	.LVL90:
  372:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1023              		.loc 1 372 9 is_stmt 1 view .LVU298
+ 1009              		.loc 1 372 9 is_stmt 1 view .LVU294
  372:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1024              		.loc 1 372 39 is_stmt 0 view .LVU299
- 1025 008e 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
- 1026 0090 013B     		subs	r3, r3, #1
+ 1010              		.loc 1 372 39 is_stmt 0 view .LVU295
+ 1011 008e 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
+ 1012 0090 013B     		subs	r3, r3, #1
  372:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1027              		.loc 1 372 28 view .LVU300
- 1028 0092 18F80330 		ldrb	r3, [r8, r3]	@ zero_extendqisi2
+ 1013              		.loc 1 372 28 view .LVU296
+ 1014 0092 18F80330 		ldrb	r3, [r8, r3]	@ zero_extendqisi2
  372:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1029              		.loc 1 372 12 view .LVU301
- 1030 0096 9A42     		cmp	r2, r3
- 1031 0098 D3D0     		beq	.L91
+ 1015              		.loc 1 372 12 view .LVU297
+ 1016 0096 9A42     		cmp	r2, r3
+ 1017 0098 D3D0     		beq	.L91
  369:../02_OS/EKM_Buffer/EKM_Buffer.c ****         Buffer_temp[i] = tmp->buffer[index_read];
- 1032              		.loc 1 369 17 view .LVU302
- 1033 009a 0023     		movs	r3, #0
- 1034 009c E1E7     		b	.L82
- 1035              	.LVL92:
- 1036              	.L92:
+ 1018              		.loc 1 369 17 view .LVU298
+ 1019 009a 0023     		movs	r3, #0
+ 1020 009c E1E7     		b	.L82
+ 1021              	.LVL91:
+ 1022              	.L92:
  379:../02_OS/EKM_Buffer/EKM_Buffer.c ****                     break;
- 1037              		.loc 1 379 23 view .LVU303
- 1038 009e 0023     		movs	r3, #0
- 1039              	.LVL93:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 29
+ 1023              		.loc 1 379 23 view .LVU299
+ 1024 009e 0023     		movs	r3, #0
+ 1025              	.LVL92:
+ 379:../02_OS/EKM_Buffer/EKM_Buffer.c ****                     break;
+ 1026              		.loc 1 379 23 view .LVU300
+ 1027 00a0 DEE7     		b	.L83
+ 1028              	.LVL93:
+ 1029              	.L100:
+ 386:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 firstLine = i;
+ 1030              		.loc 1 386 13 is_stmt 1 view .LVU301
+ 386:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 firstLine = i;
+ 1031              		.loc 1 386 16 is_stmt 0 view .LVU302
+ 1032 00a2 3A68     		ldr	r2, [r7]
+ 1033 00a4 002A     		cmp	r2, #0
+ 1034 00a6 DCD1     		bne	.L82
+ 387:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
+ 1035              		.loc 1 387 27 view .LVU303
+ 1036 00a8 3D60     		str	r5, [r7]
+ 1037              	.LVL94:
+ 387:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
+ 1038              		.loc 1 387 27 view .LVU304
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 29
 
 
- 379:../02_OS/EKM_Buffer/EKM_Buffer.c ****                     break;
- 1040              		.loc 1 379 23 view .LVU304
- 1041 00a0 DEE7     		b	.L83
- 1042              	.LVL94:
- 1043              	.L100:
- 386:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 firstLine = i;
- 1044              		.loc 1 386 13 is_stmt 1 view .LVU305
- 386:../02_OS/EKM_Buffer/EKM_Buffer.c ****                 firstLine = i;
- 1045              		.loc 1 386 16 is_stmt 0 view .LVU306
- 1046 00a2 3A68     		ldr	r2, [r7]
- 1047 00a4 002A     		cmp	r2, #0
- 1048 00a6 DCD1     		bne	.L82
+ 1039 00aa DAE7     		b	.L82
+ 1040              	.LVL95:
+ 1041              	.L101:
  387:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
- 1049              		.loc 1 387 27 view .LVU307
- 1050 00a8 3D60     		str	r5, [r7]
- 1051              	.LVL95:
- 387:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
- 1052              		.loc 1 387 27 view .LVU308
- 1053 00aa DAE7     		b	.L82
- 1054              	.LVL96:
- 1055              	.L101:
- 387:../02_OS/EKM_Buffer/EKM_Buffer.c ****         }
- 1056              		.loc 1 387 27 view .LVU309
- 1057              	.LBE7:
+ 1042              		.loc 1 387 27 view .LVU305
+ 1043              	.LBE7:
  390:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
  391:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
  392:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (tmp->LineCount > 0)
- 1058              		.loc 1 392 5 is_stmt 1 view .LVU310
- 1059              		.loc 1 392 12 is_stmt 0 view .LVU311
- 1060 00ac 96F90530 		ldrsb	r3, [r6, #5]
- 1061              		.loc 1 392 8 view .LVU312
- 1062 00b0 002B     		cmp	r3, #0
- 1063 00b2 04DC     		bgt	.L102
+ 1044              		.loc 1 392 5 is_stmt 1 view .LVU306
+ 1045              		.loc 1 392 12 is_stmt 0 view .LVU307
+ 1046 00ac 96F90530 		ldrsb	r3, [r6, #5]
+ 1047              		.loc 1 392 8 view .LVU308
+ 1048 00b0 002B     		cmp	r3, #0
+ 1049 00b2 04DC     		bgt	.L102
  393:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
  394:../02_OS/EKM_Buffer/EKM_Buffer.c ****         EKM_Buffer_Get_Muti(tmp, readline, firstLine + vs - 1);
  395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         vb = strlen((char *)readline) - 1;
@@ -1729,191 +1711,191 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 1
  405:../02_OS/EKM_Buffer/EKM_Buffer.c ****     else
  406:../02_OS/EKM_Buffer/EKM_Buffer.c ****     {
  407:../02_OS/EKM_Buffer/EKM_Buffer.c ****         return 0;
- 1064              		.loc 1 407 16 view .LVU313
- 1065 00b4 0020     		movs	r0, #0
- 1066              	.LVL97:
- 1067              	.L79:
+ 1050              		.loc 1 407 16 view .LVU309
+ 1051 00b4 0020     		movs	r0, #0
+ 1052              	.LVL96:
+ 1053              	.L79:
  408:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
  409:../02_OS/EKM_Buffer/EKM_Buffer.c **** }
- 1068              		.loc 1 409 1 view .LVU314
- 1069 00b6 0C37     		adds	r7, r7, #12
- 1070              	.LCFI22:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 30
-
-
- 1071              		.cfi_remember_state
- 1072              		.cfi_def_cfa_offset 36
- 1073 00b8 BD46     		mov	sp, r7
- 1074              	.LCFI23:
- 1075              		.cfi_def_cfa_register 13
- 1076              		@ sp needed
- 1077 00ba BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 1078              	.LVL98:
- 1079              	.L102:
- 1080              	.LCFI24:
- 1081              		.cfi_restore_state
+ 1054              		.loc 1 409 1 view .LVU310
+ 1055 00b6 0C37     		adds	r7, r7, #12
+ 1056              	.LCFI22:
+ 1057              		.cfi_remember_state
+ 1058              		.cfi_def_cfa_offset 36
+ 1059 00b8 BD46     		mov	sp, r7
+ 1060              	.LCFI23:
+ 1061              		.cfi_def_cfa_register 13
+ 1062              		@ sp needed
+ 1063 00ba BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1064              	.LVL97:
+ 1065              	.L102:
+ 1066              	.LCFI24:
+ 1067              		.cfi_restore_state
  394:../02_OS/EKM_Buffer/EKM_Buffer.c ****         vb = strlen((char *)readline) - 1;
- 1082              		.loc 1 394 9 is_stmt 1 view .LVU315
+ 1068              		.loc 1 394 9 is_stmt 1 view .LVU311
  394:../02_OS/EKM_Buffer/EKM_Buffer.c ****         vb = strlen((char *)readline) - 1;
- 1083              		.loc 1 394 54 is_stmt 0 view .LVU316
- 1084 00be 3A68     		ldr	r2, [r7]
- 1085 00c0 5A44     		add	r2, r2, fp
- 1086 00c2 D2B2     		uxtb	r2, r2
- 394:../02_OS/EKM_Buffer/EKM_Buffer.c ****         vb = strlen((char *)readline) - 1;
- 1087              		.loc 1 394 9 view .LVU317
- 1088 00c4 013A     		subs	r2, r2, #1
- 1089 00c6 D2B2     		uxtb	r2, r2
- 1090 00c8 5146     		mov	r1, r10
- 1091 00ca 3046     		mov	r0, r6
- 1092 00cc FFF7FEFF 		bl	EKM_Buffer_Get_Muti
- 1093              	.LVL99:
- 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
- 1094              		.loc 1 395 9 is_stmt 1 view .LVU318
- 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
- 1095              		.loc 1 395 14 is_stmt 0 view .LVU319
- 1096 00d0 5046     		mov	r0, r10
- 1097 00d2 FFF7FEFF 		bl	strlen
- 1098              	.LVL100:
- 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
- 1099              		.loc 1 395 39 view .LVU320
- 1100 00d6 C1B2     		uxtb	r1, r0
- 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
- 1101              		.loc 1 395 12 view .LVU321
- 1102 00d8 0139     		subs	r1, r1, #1
- 1103 00da C9B2     		uxtb	r1, r1
- 1104              	.LVL101:
- 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1105              		.loc 1 396 9 is_stmt 1 view .LVU322
- 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1106              		.loc 1 396 16 is_stmt 0 view .LVU323
- 1107 00dc 0023     		movs	r3, #0
- 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1108              		.loc 1 396 9 view .LVU324
- 1109 00de 01E0     		b	.L86
- 1110              	.LVL102:
- 1111              	.L87:
- 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1112              		.loc 1 396 29 is_stmt 1 discriminator 2 view .LVU325
- 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1113              		.loc 1 396 30 is_stmt 0 discriminator 2 view .LVU326
- 1114 00e0 0133     		adds	r3, r3, #1
- 1115              	.LVL103:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 31
+ 1069              		.loc 1 394 54 is_stmt 0 view .LVU312
+ 1070 00be 3A68     		ldr	r2, [r7]
+ 1071 00c0 5A44     		add	r2, r2, fp
+ 1072 00c2 D2B2     		uxtb	r2, r2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 30
 
 
+ 394:../02_OS/EKM_Buffer/EKM_Buffer.c ****         vb = strlen((char *)readline) - 1;
+ 1073              		.loc 1 394 9 view .LVU313
+ 1074 00c4 013A     		subs	r2, r2, #1
+ 1075 00c6 D2B2     		uxtb	r2, r2
+ 1076 00c8 5146     		mov	r1, r10
+ 1077 00ca 3046     		mov	r0, r6
+ 1078 00cc FFF7FEFF 		bl	EKM_Buffer_Get_Muti
+ 1079              	.LVL98:
+ 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
+ 1080              		.loc 1 395 9 is_stmt 1 view .LVU314
+ 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
+ 1081              		.loc 1 395 14 is_stmt 0 view .LVU315
+ 1082 00d0 5046     		mov	r0, r10
+ 1083 00d2 FFF7FEFF 		bl	strlen
+ 1084              	.LVL99:
+ 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
+ 1085              		.loc 1 395 39 view .LVU316
+ 1086 00d6 C1B2     		uxtb	r1, r0
+ 395:../02_OS/EKM_Buffer/EKM_Buffer.c ****         for (i = 0; i < vb; i++)
+ 1087              		.loc 1 395 12 view .LVU317
+ 1088 00d8 0139     		subs	r1, r1, #1
+ 1089 00da C9B2     		uxtb	r1, r1
+ 1090              	.LVL100:
  396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1116              		.loc 1 396 30 discriminator 2 view .LVU327
- 1117 00e2 DBB2     		uxtb	r3, r3
- 1118              	.LVL104:
- 1119              	.L86:
+ 1091              		.loc 1 396 9 is_stmt 1 view .LVU318
  396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1120              		.loc 1 396 21 is_stmt 1 discriminator 1 view .LVU328
+ 1092              		.loc 1 396 16 is_stmt 0 view .LVU319
+ 1093 00dc 0023     		movs	r3, #0
  396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
- 1121              		.loc 1 396 9 is_stmt 0 discriminator 1 view .LVU329
- 1122 00e4 8B42     		cmp	r3, r1
- 1123 00e6 07D2     		bcs	.L103
+ 1094              		.loc 1 396 9 view .LVU320
+ 1095 00de 01E0     		b	.L86
+ 1096              	.LVL101:
+ 1097              	.L87:
+ 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
+ 1098              		.loc 1 396 29 is_stmt 1 discriminator 2 view .LVU321
+ 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
+ 1099              		.loc 1 396 30 is_stmt 0 discriminator 2 view .LVU322
+ 1100 00e0 0133     		adds	r3, r3, #1
+ 1101              	.LVL102:
+ 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
+ 1102              		.loc 1 396 30 discriminator 2 view .LVU323
+ 1103 00e2 DBB2     		uxtb	r3, r3
+ 1104              	.LVL103:
+ 1105              	.L86:
+ 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
+ 1106              		.loc 1 396 21 is_stmt 1 discriminator 1 view .LVU324
+ 396:../02_OS/EKM_Buffer/EKM_Buffer.c ****         {
+ 1107              		.loc 1 396 9 is_stmt 0 discriminator 1 view .LVU325
+ 1108 00e4 8B42     		cmp	r3, r1
+ 1109 00e6 07D2     		bcs	.L103
  398:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 1124              		.loc 1 398 13 is_stmt 1 view .LVU330
+ 1110              		.loc 1 398 13 is_stmt 1 view .LVU326
  398:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 1125              		.loc 1 398 24 is_stmt 0 view .LVU331
- 1126 00e8 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
- 1127 00ea 8A1A     		subs	r2, r1, r2
+ 1111              		.loc 1 398 24 is_stmt 0 view .LVU327
+ 1112 00e8 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
+ 1113 00ea 8A1A     		subs	r2, r1, r2
  398:../02_OS/EKM_Buffer/EKM_Buffer.c ****             {
- 1128              		.loc 1 398 16 view .LVU332
- 1129 00ec 9342     		cmp	r3, r2
- 1130 00ee F7DD     		ble	.L87
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 31
+
+
+ 1114              		.loc 1 398 16 view .LVU328
+ 1115 00ec 9342     		cmp	r3, r2
+ 1116 00ee F7DD     		ble	.L87
  400:../02_OS/EKM_Buffer/EKM_Buffer.c ****             }
- 1131              		.loc 1 400 17 is_stmt 1 view .LVU333
+ 1117              		.loc 1 400 17 is_stmt 1 view .LVU329
  400:../02_OS/EKM_Buffer/EKM_Buffer.c ****             }
- 1132              		.loc 1 400 29 is_stmt 0 view .LVU334
- 1133 00f0 0022     		movs	r2, #0
- 1134 00f2 0AF80320 		strb	r2, [r10, r3]
- 1135 00f6 F3E7     		b	.L87
- 1136              	.L103:
+ 1118              		.loc 1 400 29 is_stmt 0 view .LVU330
+ 1119 00f0 0022     		movs	r2, #0
+ 1120 00f2 0AF80320 		strb	r2, [r10, r3]
+ 1121 00f6 F3E7     		b	.L87
+ 1122              	.L103:
  403:../02_OS/EKM_Buffer/EKM_Buffer.c ****     }
- 1137              		.loc 1 403 16 view .LVU335
- 1138 00f8 0120     		movs	r0, #1
- 1139 00fa DCE7     		b	.L79
- 1140              	.LVL105:
- 1141              	.L89:
- 1142              	.LCFI25:
- 1143              		.cfi_def_cfa 13, 0
- 1144              		.cfi_restore 4
- 1145              		.cfi_restore 5
- 1146              		.cfi_restore 6
- 1147              		.cfi_restore 7
- 1148              		.cfi_restore 8
- 1149              		.cfi_restore 9
- 1150              		.cfi_restore 10
- 1151              		.cfi_restore 11
- 1152              		.cfi_restore 14
+ 1123              		.loc 1 403 16 view .LVU331
+ 1124 00f8 0120     		movs	r0, #1
+ 1125 00fa DCE7     		b	.L79
+ 1126              	.LVL104:
+ 1127              	.L89:
+ 1128              	.LCFI25:
+ 1129              		.cfi_def_cfa 13, 0
+ 1130              		.cfi_restore 4
+ 1131              		.cfi_restore 5
+ 1132              		.cfi_restore 6
+ 1133              		.cfi_restore 7
+ 1134              		.cfi_restore 8
+ 1135              		.cfi_restore 9
+ 1136              		.cfi_restore 10
+ 1137              		.cfi_restore 11
+ 1138              		.cfi_restore 14
  353:../02_OS/EKM_Buffer/EKM_Buffer.c ****     if (readline == ((void *)0))
- 1153              		.loc 1 353 16 view .LVU336
- 1154 00fc 0120     		movs	r0, #1
- 1155              	.LVL106:
- 1156              		.loc 1 409 1 view .LVU337
- 1157 00fe 7047     		bx	lr
- 1158              	.LVL107:
- 1159              	.L90:
- 1160              	.LCFI26:
- 1161              		.cfi_def_cfa 7, 48
- 1162              		.cfi_offset 4, -36
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 32
+ 1139              		.loc 1 353 16 view .LVU332
+ 1140 00fc 0120     		movs	r0, #1
+ 1141              	.LVL105:
+ 1142              		.loc 1 409 1 view .LVU333
+ 1143 00fe 7047     		bx	lr
+ 1144              	.LVL106:
+ 1145              	.L90:
+ 1146              	.LCFI26:
+ 1147              		.cfi_def_cfa 7, 48
+ 1148              		.cfi_offset 4, -36
+ 1149              		.cfi_offset 5, -32
+ 1150              		.cfi_offset 6, -28
+ 1151              		.cfi_offset 7, -24
+ 1152              		.cfi_offset 8, -20
+ 1153              		.cfi_offset 9, -16
+ 1154              		.cfi_offset 10, -12
+ 1155              		.cfi_offset 11, -8
+ 1156              		.cfi_offset 14, -4
+ 355:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
+ 1157              		.loc 1 355 16 view .LVU334
+ 1158 0100 0120     		movs	r0, #1
+ 1159              	.LVL107:
+ 355:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
+ 1160              		.loc 1 355 16 view .LVU335
+ 1161 0102 D8E7     		b	.L79
+ 1162              		.cfi_endproc
+ 1163              	.LFE14:
+ 1165              		.text
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 32
 
 
- 1163              		.cfi_offset 5, -32
- 1164              		.cfi_offset 6, -28
- 1165              		.cfi_offset 7, -24
- 1166              		.cfi_offset 8, -20
- 1167              		.cfi_offset 9, -16
- 1168              		.cfi_offset 10, -12
- 1169              		.cfi_offset 11, -8
- 1170              		.cfi_offset 14, -4
- 355:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
- 1171              		.loc 1 355 16 view .LVU338
- 1172 0100 0120     		movs	r0, #1
- 1173              	.LVL108:
- 355:../02_OS/EKM_Buffer/EKM_Buffer.c **** 
- 1174              		.loc 1 355 16 view .LVU339
- 1175 0102 D8E7     		b	.L79
- 1176              		.cfi_endproc
- 1177              	.LFE14:
- 1179              		.text
- 1180              	.Letext0:
- 1181              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
- 1182              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
- 1183              		.file 4 "../02_OS/EKM_Buffer/EKM_Buffer.h"
- 1184              		.file 5 "c:\\gnuarm\\arm-none-eabi\\include\\string.h"
- 1185              		.file 6 "<built-in>"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s 			page 33
+ 1166              	.Letext0:
+ 1167              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1168              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1169              		.file 4 "../02_OS/EKM_Buffer/EKM_Buffer.h"
+ 1170              		.file 5 "c:\\gnuarm\\arm-none-eabi\\include\\string.h"
+ 1171              		.file 6 "<built-in>"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 EKM_Buffer.c
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:20     .text.EKM_Buffer_Index_Increment:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:25     .text.EKM_Buffer_Index_Increment:00000000 EKM_Buffer_Index_Increment
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:93     .text.EKM_Buffer_Reset:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:99     .text.EKM_Buffer_Reset:00000000 EKM_Buffer_Reset
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:152    .text.EKM_Buffer_Setup:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:158    .text.EKM_Buffer_Setup:00000000 EKM_Buffer_Setup
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:206    .text.EKM_Buffer_Set:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:212    .text.EKM_Buffer_Set:00000000 EKM_Buffer_Set
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:267    .text.EKM_Buffer_Element:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:273    .text.EKM_Buffer_Element:00000000 EKM_Buffer_Element
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:338    .text.EKM_Buffer_Index_Decrement:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:343    .text.EKM_Buffer_Index_Decrement:00000000 EKM_Buffer_Index_Decrement
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:396    .text.EKM_Buffer_Get:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:402    .text.EKM_Buffer_Get:00000000 EKM_Buffer_Get
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:476    .text.EKM_Buffer_Get_Muti:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:482    .text.EKM_Buffer_Get_Muti:00000000 EKM_Buffer_Get_Muti
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:578    .text.EKM_Buffer_Set_Muti:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:584    .text.EKM_Buffer_Set_Muti:00000000 EKM_Buffer_Set_Muti
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:688    .text.EKM_Buffer_Raw_Reset:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:694    .text.EKM_Buffer_Raw_Reset:00000000 EKM_Buffer_Raw_Reset
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:750    .text.EKM_Buffer_Raw_set:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:756    .text.EKM_Buffer_Raw_set:00000000 EKM_Buffer_Raw_set
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:846    .text.EKM_Buffer_readline:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccrZKUwb.s:852    .text.EKM_Buffer_readline:00000000 EKM_Buffer_readline
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:20     .text.EKM_Buffer_Index_Increment:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:25     .text.EKM_Buffer_Index_Increment:00000000 EKM_Buffer_Index_Increment
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:93     .text.EKM_Buffer_Reset:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:99     .text.EKM_Buffer_Reset:00000000 EKM_Buffer_Reset
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:152    .text.EKM_Buffer_Setup:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:158    .text.EKM_Buffer_Setup:00000000 EKM_Buffer_Setup
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:206    .text.EKM_Buffer_Set:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:212    .text.EKM_Buffer_Set:00000000 EKM_Buffer_Set
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:267    .text.EKM_Buffer_Element:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:273    .text.EKM_Buffer_Element:00000000 EKM_Buffer_Element
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:338    .text.EKM_Buffer_Index_Decrement:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:343    .text.EKM_Buffer_Index_Decrement:00000000 EKM_Buffer_Index_Decrement
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:396    .text.EKM_Buffer_Get:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:402    .text.EKM_Buffer_Get:00000000 EKM_Buffer_Get
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:476    .text.EKM_Buffer_Get_Muti:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:482    .text.EKM_Buffer_Get_Muti:00000000 EKM_Buffer_Get_Muti
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:578    .text.EKM_Buffer_Set_Muti:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:584    .text.EKM_Buffer_Set_Muti:00000000 EKM_Buffer_Set_Muti
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:688    .text.EKM_Buffer_Raw_Reset:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:694    .text.EKM_Buffer_Raw_Reset:00000000 EKM_Buffer_Raw_Reset
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:750    .text.EKM_Buffer_Raw_set:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:756    .text.EKM_Buffer_Raw_set:00000000 EKM_Buffer_Raw_set
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:832    .text.EKM_Buffer_readline:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccfwQTPB.s:838    .text.EKM_Buffer_readline:00000000 EKM_Buffer_readline
 
 UNDEFINED SYMBOLS
 memset

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,99 +58,99 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
   28:../01_Applcation/Appl_Main/main.c **** #include "i2c.h"
   29:../01_Applcation/Appl_Main/main.c **** #include "usart.h"
   30:../01_Applcation/Appl_Main/main.c **** #include "usbd_cdc_if.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 2
 
 
   31:../01_Applcation/Appl_Main/main.c **** #include "usb_device.h"
   32:../01_Applcation/Appl_Main/main.c **** #include "gpio.h"
-  33:../01_Applcation/Appl_Main/main.c **** #include "APPL_DMA_LTE.h"
-  34:../01_Applcation/Appl_Main/main.c **** #include "EKM_Buffer.h"
-  35:../01_Applcation/Appl_Main/main.c **** 
-  36:../01_Applcation/Appl_Main/main.c **** /* Private includes ----------------------------------------------------------*/
-  37:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN Includes */
-  38:../01_Applcation/Appl_Main/main.c **** 
-  39:../01_Applcation/Appl_Main/main.c **** /* USER CODE END Includes */
-  40:../01_Applcation/Appl_Main/main.c **** 
-  41:../01_Applcation/Appl_Main/main.c **** /* Private typedef -----------------------------------------------------------*/
-  42:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PTD */
-  43:../01_Applcation/Appl_Main/main.c **** 
-  44:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PTD */
-  45:../01_Applcation/Appl_Main/main.c **** 
-  46:../01_Applcation/Appl_Main/main.c **** /* Private define ------------------------------------------------------------*/
-  47:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PD */
-  48:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PD */
-  49:../01_Applcation/Appl_Main/main.c **** 
-  50:../01_Applcation/Appl_Main/main.c **** /* Private macro -------------------------------------------------------------*/
-  51:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PM */
-  52:../01_Applcation/Appl_Main/main.c **** 
-  53:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PM */
-  54:../01_Applcation/Appl_Main/main.c **** 
-  55:../01_Applcation/Appl_Main/main.c **** /* Private variables ---------------------------------------------------------*/
-  56:../01_Applcation/Appl_Main/main.c **** 
-  57:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PV */
-  58:../01_Applcation/Appl_Main/main.c **** 
-  59:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PV */
-  60:../01_Applcation/Appl_Main/main.c **** 
-  61:../01_Applcation/Appl_Main/main.c **** /* Private function prototypes -----------------------------------------------*/
-  62:../01_Applcation/Appl_Main/main.c **** void SystemClock_Config(void);
-  63:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PFP */
-  64:../01_Applcation/Appl_Main/main.c **** 
-  65:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PFP */
-  66:../01_Applcation/Appl_Main/main.c **** 
-  67:../01_Applcation/Appl_Main/main.c **** /* Private user code ---------------------------------------------------------*/
-  68:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN 0 */
-  69:../01_Applcation/Appl_Main/main.c **** 
-  70:../01_Applcation/Appl_Main/main.c **** /* USER CODE END 0 */
-  71:../01_Applcation/Appl_Main/main.c **** 
-  72:../01_Applcation/Appl_Main/main.c **** /**
-  73:../01_Applcation/Appl_Main/main.c ****   * @brief  The application entry point.
-  74:../01_Applcation/Appl_Main/main.c ****   * @retval int
-  75:../01_Applcation/Appl_Main/main.c ****   */
-  76:../01_Applcation/Appl_Main/main.c **** int main(void)
-  77:../01_Applcation/Appl_Main/main.c **** {
-  78:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 1 */
-  79:../01_Applcation/Appl_Main/main.c **** 
-  80:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 1 */
-  81:../01_Applcation/Appl_Main/main.c **** 
-  82:../01_Applcation/Appl_Main/main.c ****   /* MCU Configuration--------------------------------------------------------*/
-  83:../01_Applcation/Appl_Main/main.c **** 
-  84:../01_Applcation/Appl_Main/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  85:../01_Applcation/Appl_Main/main.c ****   HAL_Init();
-  86:../01_Applcation/Appl_Main/main.c **** 
-  87:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN Init */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 3
+  33:../01_Applcation/Appl_Main/main.c **** #include "Appl_Task.h"
+  34:../01_Applcation/Appl_Main/main.c **** 
+  35:../01_Applcation/Appl_Main/main.c **** /* Private includes ----------------------------------------------------------*/
+  36:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN Includes */
+  37:../01_Applcation/Appl_Main/main.c **** 
+  38:../01_Applcation/Appl_Main/main.c **** /* USER CODE END Includes */
+  39:../01_Applcation/Appl_Main/main.c **** 
+  40:../01_Applcation/Appl_Main/main.c **** /* Private typedef -----------------------------------------------------------*/
+  41:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PTD */
+  42:../01_Applcation/Appl_Main/main.c **** 
+  43:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PTD */
+  44:../01_Applcation/Appl_Main/main.c **** 
+  45:../01_Applcation/Appl_Main/main.c **** /* Private define ------------------------------------------------------------*/
+  46:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PD */
+  47:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PD */
+  48:../01_Applcation/Appl_Main/main.c **** 
+  49:../01_Applcation/Appl_Main/main.c **** /* Private macro -------------------------------------------------------------*/
+  50:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PM */
+  51:../01_Applcation/Appl_Main/main.c **** 
+  52:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PM */
+  53:../01_Applcation/Appl_Main/main.c **** 
+  54:../01_Applcation/Appl_Main/main.c **** /* Private variables ---------------------------------------------------------*/
+  55:../01_Applcation/Appl_Main/main.c **** 
+  56:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PV */
+  57:../01_Applcation/Appl_Main/main.c **** uint16_t Systick_count = 0;
+  58:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PV */
+  59:../01_Applcation/Appl_Main/main.c **** 
+  60:../01_Applcation/Appl_Main/main.c **** /* Private function prototypes -----------------------------------------------*/
+  61:../01_Applcation/Appl_Main/main.c **** void SystemClock_Config(void);
+  62:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN PFP */
+  63:../01_Applcation/Appl_Main/main.c **** 
+  64:../01_Applcation/Appl_Main/main.c **** /* USER CODE END PFP */
+  65:../01_Applcation/Appl_Main/main.c **** 
+  66:../01_Applcation/Appl_Main/main.c **** /* Private user code ---------------------------------------------------------*/
+  67:../01_Applcation/Appl_Main/main.c **** /* USER CODE BEGIN 0 */
+  68:../01_Applcation/Appl_Main/main.c **** 
+  69:../01_Applcation/Appl_Main/main.c **** /* USER CODE END 0 */
+  70:../01_Applcation/Appl_Main/main.c **** 
+  71:../01_Applcation/Appl_Main/main.c **** /**
+  72:../01_Applcation/Appl_Main/main.c ****   * @brief  The application entry point.
+  73:../01_Applcation/Appl_Main/main.c ****   * @retval int
+  74:../01_Applcation/Appl_Main/main.c ****   */
+  75:../01_Applcation/Appl_Main/main.c **** int main(void)
+  76:../01_Applcation/Appl_Main/main.c **** {
+  77:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 1 */
+  78:../01_Applcation/Appl_Main/main.c **** 
+  79:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 1 */
+  80:../01_Applcation/Appl_Main/main.c **** 
+  81:../01_Applcation/Appl_Main/main.c ****   /* MCU Configuration--------------------------------------------------------*/
+  82:../01_Applcation/Appl_Main/main.c **** 
+  83:../01_Applcation/Appl_Main/main.c ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  84:../01_Applcation/Appl_Main/main.c ****   HAL_Init();
+  85:../01_Applcation/Appl_Main/main.c **** 
+  86:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN Init */
+  87:../01_Applcation/Appl_Main/main.c **** 
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 3
 
 
-  88:../01_Applcation/Appl_Main/main.c **** 
-  89:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END Init */
-  90:../01_Applcation/Appl_Main/main.c **** 
-  91:../01_Applcation/Appl_Main/main.c ****   /* Configure the system clock */
-  92:../01_Applcation/Appl_Main/main.c ****   SystemClock_Config();
-  93:../01_Applcation/Appl_Main/main.c **** 
-  94:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN SysInit */
-  95:../01_Applcation/Appl_Main/main.c **** 
-  96:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END SysInit */
-  97:../01_Applcation/Appl_Main/main.c **** 
-  98:../01_Applcation/Appl_Main/main.c ****   /* Initialize all configured peripherals */
-  99:../01_Applcation/Appl_Main/main.c ****   MX_GPIO_Init();
- 100:../01_Applcation/Appl_Main/main.c ****   MX_ADC1_Init();
- 101:../01_Applcation/Appl_Main/main.c ****   MX_I2C1_Init();
- 102:../01_Applcation/Appl_Main/main.c ****   MX_USART1_UART_Init();
- 103:../01_Applcation/Appl_Main/main.c ****   MX_USART2_UART_Init();
- 104:../01_Applcation/Appl_Main/main.c ****   MX_USB_DEVICE_Init();
- 105:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 2 */
- 106:../01_Applcation/Appl_Main/main.c ****   APPL_DMA_LTE_Init();
- 107:../01_Applcation/Appl_Main/main.c ****   HAL_GPIO_WritePin(USART1_EN_GPIO_Port,USART1_EN_Pin,GPIO_PIN_SET);
- 108:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 2 */
- 109:../01_Applcation/Appl_Main/main.c **** 
- 110:../01_Applcation/Appl_Main/main.c ****   /* Infinite loop */
- 111:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN WHILE */
- 112:../01_Applcation/Appl_Main/main.c ****   while (1)
- 113:../01_Applcation/Appl_Main/main.c ****   {
- 114:../01_Applcation/Appl_Main/main.c ****     /* USER CODE END WHILE */
- 115:../01_Applcation/Appl_Main/main.c ****     HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port,LED_STATUS_Pin);
- 116:../01_Applcation/Appl_Main/main.c ****     HAL_Delay(50);
- 117:../01_Applcation/Appl_Main/main.c ****     //APPL_USB_printf("Hello");
+  88:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END Init */
+  89:../01_Applcation/Appl_Main/main.c **** 
+  90:../01_Applcation/Appl_Main/main.c ****   /* Configure the system clock */
+  91:../01_Applcation/Appl_Main/main.c ****   SystemClock_Config();
+  92:../01_Applcation/Appl_Main/main.c **** 
+  93:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN SysInit */
+  94:../01_Applcation/Appl_Main/main.c **** 
+  95:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END SysInit */
+  96:../01_Applcation/Appl_Main/main.c **** 
+  97:../01_Applcation/Appl_Main/main.c ****   /* Initialize all configured peripherals */
+  98:../01_Applcation/Appl_Main/main.c ****   MX_GPIO_Init();
+  99:../01_Applcation/Appl_Main/main.c ****   MX_ADC1_Init();
+ 100:../01_Applcation/Appl_Main/main.c ****   MX_I2C1_Init();
+ 101:../01_Applcation/Appl_Main/main.c ****   MX_USART1_UART_Init();
+ 102:../01_Applcation/Appl_Main/main.c ****   MX_USART2_UART_Init();
+ 103:../01_Applcation/Appl_Main/main.c ****   MX_USB_DEVICE_Init();
+ 104:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 2 */
+ 105:../01_Applcation/Appl_Main/main.c ****   APPL_Task_Init();
+ 106:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 2 */
+ 107:../01_Applcation/Appl_Main/main.c **** 
+ 108:../01_Applcation/Appl_Main/main.c ****   /* Infinite loop */
+ 109:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN WHILE */
+ 110:../01_Applcation/Appl_Main/main.c ****   while (1)
+ 111:../01_Applcation/Appl_Main/main.c ****   {
+ 112:../01_Applcation/Appl_Main/main.c ****     /* USER CODE END WHILE */
+ 113:../01_Applcation/Appl_Main/main.c ****     if (Systick_count >= 9)
+ 114:../01_Applcation/Appl_Main/main.c ****     {
+ 115:../01_Applcation/Appl_Main/main.c ****       APPL_Task_10ms();
+ 116:../01_Applcation/Appl_Main/main.c ****       Systick_count = 0;
+ 117:../01_Applcation/Appl_Main/main.c ****     }
  118:../01_Applcation/Appl_Main/main.c ****     /* USER CODE BEGIN 3 */
  119:../01_Applcation/Appl_Main/main.c ****   }
  120:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 3 */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  142:../01_Applcation/Appl_Main/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
  143:../01_Applcation/Appl_Main/main.c ****   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
  144:../01_Applcation/Appl_Main/main.c ****   RCC_OscInitStruct.MSICalibrationValue = 0;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 4
 
 
  145:../01_Applcation/Appl_Main/main.c ****   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
    4:../03_Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.2.0
    5:../03_Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     08. May 2019
    6:../03_Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 5
 
 
    7:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** /*
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
   61:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
   62:../03_Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
   63:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 6
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 6
 
 
   64:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  118:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  119:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** 
  120:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** /* #########################  Startup and Lowlevel Init  ######################## */
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 7
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 7
 
 
  121:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  175:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  176:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** 
  177:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 8
 
 
  178:../03_Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE            __Vectors
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
   58              		.section	.text.SystemClock_Config,"ax",%progbits
   59              		.align	1
   60              		.global	SystemClock_Config
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 9
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 9
 
 
   61              		.syntax unified
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  143:../01_Applcation/Appl_Main/main.c ****   RCC_OscInitStruct.MSICalibrationValue = 0;
  105              		.loc 1 143 30 is_stmt 0 view .LVU18
  106 0028 0122     		movs	r2, #1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 10
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 10
 
 
  107 002a 0B92     		str	r2, [sp, #44]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  141              		.loc 1 153 7 is_stmt 0 view .LVU38
  142 0048 05A8     		add	r0, sp, #20
  143 004a FFF7FEFF 		bl	HAL_RCC_OscConfig
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 11
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 11
 
 
  144              	.LVL2:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  136:../01_Applcation/Appl_Main/main.c ****   }
  183              		.loc 1 136 5 is_stmt 1 view .LVU54
  184 0070 FFF7FEFF 		bl	Error_Handler
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 12
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 12
 
 
  185              	.LVL4:
@@ -682,8 +682,8 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  202              		.thumb_func
  204              	main:
  205              	.LFB292:
-  77:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 1 */
- 206              		.loc 1 77 1 view -0
+  76:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 1 */
+ 206              		.loc 1 76 1 view -0
  207              		.cfi_startproc
  208              		@ Volatile: function does not return.
  209              		@ args = 0, pretend = 0, frame = 0
@@ -693,107 +693,115 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 1
  213              		.cfi_def_cfa_offset 8
  214              		.cfi_offset 3, -8
  215              		.cfi_offset 14, -4
-  85:../01_Applcation/Appl_Main/main.c **** 
- 216              		.loc 1 85 3 view .LVU58
+  84:../01_Applcation/Appl_Main/main.c **** 
+ 216              		.loc 1 84 3 view .LVU58
  217 0002 FFF7FEFF 		bl	HAL_Init
  218              	.LVL7:
-  92:../01_Applcation/Appl_Main/main.c **** 
- 219              		.loc 1 92 3 view .LVU59
+  91:../01_Applcation/Appl_Main/main.c **** 
+ 219              		.loc 1 91 3 view .LVU59
  220 0006 FFF7FEFF 		bl	SystemClock_Config
  221              	.LVL8:
-  99:../01_Applcation/Appl_Main/main.c ****   MX_ADC1_Init();
- 222              		.loc 1 99 3 view .LVU60
+  98:../01_Applcation/Appl_Main/main.c ****   MX_ADC1_Init();
+ 222              		.loc 1 98 3 view .LVU60
  223 000a FFF7FEFF 		bl	MX_GPIO_Init
  224              	.LVL9:
- 100:../01_Applcation/Appl_Main/main.c ****   MX_I2C1_Init();
- 225              		.loc 1 100 3 view .LVU61
+  99:../01_Applcation/Appl_Main/main.c ****   MX_I2C1_Init();
+ 225              		.loc 1 99 3 view .LVU61
  226 000e FFF7FEFF 		bl	MX_ADC1_Init
  227              	.LVL10:
- 101:../01_Applcation/Appl_Main/main.c ****   MX_USART1_UART_Init();
- 228              		.loc 1 101 3 view .LVU62
+ 100:../01_Applcation/Appl_Main/main.c ****   MX_USART1_UART_Init();
+ 228              		.loc 1 100 3 view .LVU62
  229 0012 FFF7FEFF 		bl	MX_I2C1_Init
  230              	.LVL11:
- 102:../01_Applcation/Appl_Main/main.c ****   MX_USART2_UART_Init();
- 231              		.loc 1 102 3 view .LVU63
+ 101:../01_Applcation/Appl_Main/main.c ****   MX_USART2_UART_Init();
+ 231              		.loc 1 101 3 view .LVU63
  232 0016 FFF7FEFF 		bl	MX_USART1_UART_Init
  233              	.LVL12:
- 103:../01_Applcation/Appl_Main/main.c ****   MX_USB_DEVICE_Init();
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 13
+ 102:../01_Applcation/Appl_Main/main.c ****   MX_USB_DEVICE_Init();
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 13
 
 
- 234              		.loc 1 103 3 view .LVU64
+ 234              		.loc 1 102 3 view .LVU64
  235 001a FFF7FEFF 		bl	MX_USART2_UART_Init
  236              	.LVL13:
- 104:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 2 */
- 237              		.loc 1 104 3 view .LVU65
+ 103:../01_Applcation/Appl_Main/main.c ****   /* USER CODE BEGIN 2 */
+ 237              		.loc 1 103 3 view .LVU65
  238 001e FFF7FEFF 		bl	MX_USB_DEVICE_Init
  239              	.LVL14:
- 106:../01_Applcation/Appl_Main/main.c ****   HAL_GPIO_WritePin(USART1_EN_GPIO_Port,USART1_EN_Pin,GPIO_PIN_SET);
- 240              		.loc 1 106 3 view .LVU66
- 241 0022 FFF7FEFF 		bl	APPL_DMA_LTE_Init
+ 105:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 2 */
+ 240              		.loc 1 105 3 view .LVU66
+ 241 0022 FFF7FEFF 		bl	APPL_Task_Init
  242              	.LVL15:
- 107:../01_Applcation/Appl_Main/main.c ****   /* USER CODE END 2 */
- 243              		.loc 1 107 3 view .LVU67
- 244 0026 0122     		movs	r2, #1
- 245 0028 4FF48071 		mov	r1, #256
- 246 002c 4FF09040 		mov	r0, #1207959552
- 247 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 248              	.LVL16:
- 249              	.L12:
- 112:../01_Applcation/Appl_Main/main.c ****   {
- 250              		.loc 1 112 3 discriminator 1 view .LVU68
- 115:../01_Applcation/Appl_Main/main.c ****     HAL_Delay(50);
- 251              		.loc 1 115 5 discriminator 1 view .LVU69
- 252 0034 0221     		movs	r1, #2
- 253 0036 0348     		ldr	r0, .L14
- 254 0038 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 255              	.LVL17:
- 116:../01_Applcation/Appl_Main/main.c ****     //APPL_USB_printf("Hello");
- 256              		.loc 1 116 5 discriminator 1 view .LVU70
- 257 003c 3220     		movs	r0, #50
- 258 003e FFF7FEFF 		bl	HAL_Delay
- 259              	.LVL18:
- 112:../01_Applcation/Appl_Main/main.c ****   {
- 260              		.loc 1 112 9 discriminator 1 view .LVU71
- 261 0042 F7E7     		b	.L12
- 262              	.L15:
- 263              		.align	2
- 264              	.L14:
- 265 0044 00040048 		.word	1207960576
- 266              		.cfi_endproc
- 267              	.LFE292:
- 269              		.text
- 270              	.Letext0:
- 271              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
- 272              		.file 4 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
- 273              		.file 5 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
- 274              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h"
- 275              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 276              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 277              		.file 9 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h"
- 278              		.file 10 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
- 279              		.file 11 "../02_OS/Core_GPIO/gpio.h"
- 280              		.file 12 "../02_OS/Core_ADC/adc.h"
- 281              		.file 13 "../02_OS/Core_I2C/i2c.h"
- 282              		.file 14 "../02_OS/Core_UART/usart.h"
- 283              		.file 15 "../02_OS/USB_DEVICE/App/usb_device.h"
- 284              		.file 16 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 14
+ 243              	.L12:
+ 110:../01_Applcation/Appl_Main/main.c ****   {
+ 244              		.loc 1 110 3 view .LVU67
+ 113:../01_Applcation/Appl_Main/main.c ****     {
+ 245              		.loc 1 113 5 view .LVU68
+ 113:../01_Applcation/Appl_Main/main.c ****     {
+ 246              		.loc 1 113 23 is_stmt 0 view .LVU69
+ 247 0026 054B     		ldr	r3, .L15
+ 248 0028 1B88     		ldrh	r3, [r3]
+ 113:../01_Applcation/Appl_Main/main.c ****     {
+ 249              		.loc 1 113 8 view .LVU70
+ 250 002a 082B     		cmp	r3, #8
+ 251 002c FBD9     		bls	.L12
+ 115:../01_Applcation/Appl_Main/main.c ****       Systick_count = 0;
+ 252              		.loc 1 115 7 is_stmt 1 view .LVU71
+ 253 002e FFF7FEFF 		bl	APPL_Task_10ms
+ 254              	.LVL16:
+ 116:../01_Applcation/Appl_Main/main.c ****     }
+ 255              		.loc 1 116 7 view .LVU72
+ 116:../01_Applcation/Appl_Main/main.c ****     }
+ 256              		.loc 1 116 21 is_stmt 0 view .LVU73
+ 257 0032 024B     		ldr	r3, .L15
+ 258 0034 0022     		movs	r2, #0
+ 259 0036 1A80     		strh	r2, [r3]	@ movhi
+ 260 0038 F5E7     		b	.L12
+ 261              	.L16:
+ 262 003a 00BF     		.align	2
+ 263              	.L15:
+ 264 003c 00000000 		.word	.LANCHOR0
+ 265              		.cfi_endproc
+ 266              	.LFE292:
+ 268              		.global	Systick_count
+ 269              		.section	.bss.Systick_count,"aw",%nobits
+ 270              		.align	1
+ 271              		.set	.LANCHOR0,. + 0
+ 274              	Systick_count:
+ 275 0000 0000     		.space	2
+ 276              		.text
+ 277              	.Letext0:
+ 278              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 279              		.file 4 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 280              		.file 5 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h"
+ 281              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h"
+ 282              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 283              		.file 8 "../02_OS/Core_GPIO/gpio.h"
+ 284              		.file 9 "../02_OS/Core_ADC/adc.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 14
 
 
- 285              		.file 17 "<built-in>"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\cc97CCAp.s 			page 15
+ 285              		.file 10 "../02_OS/Core_I2C/i2c.h"
+ 286              		.file 11 "../02_OS/Core_UART/usart.h"
+ 287              		.file 12 "../02_OS/USB_DEVICE/App/usb_device.h"
+ 288              		.file 13 "../01_Applcation/Appl_Task/Appl_Task.h"
+ 289              		.file 14 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 290              		.file 15 "../01_Applcation/Appl_Main/main.h"
+ 291              		.file 16 "<built-in>"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccyjILnK.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:20     .text.Error_Handler:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:26     .text.Error_Handler:00000000 Error_Handler
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:59     .text.SystemClock_Config:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:65     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:198    .text.main:00000000 $t
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:204    .text.main:00000000 main
-C:\Users\minde\AppData\Local\Temp\cc97CCAp.s:265    .text.main:00000044 $d
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:20     .text.Error_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:26     .text.Error_Handler:00000000 Error_Handler
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:59     .text.SystemClock_Config:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:65     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:198    .text.main:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:204    .text.main:00000000 main
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:264    .text.main:0000003c $d
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:274    .bss.Systick_count:00000000 Systick_count
+C:\Users\minde\AppData\Local\Temp\ccyjILnK.s:270    .bss.Systick_count:00000000 $d
 
 UNDEFINED SYMBOLS
 memset
@@ -807,7 +815,5 @@ MX_I2C1_Init
 MX_USART1_UART_Init
 MX_USART2_UART_Init
 MX_USB_DEVICE_Init
-APPL_DMA_LTE_Init
-HAL_GPIO_WritePin
-HAL_GPIO_TogglePin
-HAL_Delay
+APPL_Task_Init
+APPL_Task_10ms

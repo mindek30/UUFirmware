@@ -13,7 +13,7 @@
 ######################################
 # target
 ######################################
-TARGET = UU002_UUMonitoring
+TARGET = UU002_UUMonitoring_LTE
 
 
 ######################################
@@ -37,6 +37,7 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 ../01_Applcation/Appl_Main/main.c \
+../01_Applcation/Appl_Task/Appl_Task.c \
 ../01_Applcation/Appl_Data/Appl_Data.c \
 ../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c \
 ../01_Applcation/Appl_USBService/Appl_USBService.c \
@@ -138,6 +139,7 @@ AS_INCLUDES =
 # C includes
 C_INCLUDES =  \
 -I../01_Applcation/Appl_Main \
+-I../01_Applcation/Appl_Task \
 -I../01_Applcation/Appl_Data \
 -I../01_Applcation/APPL_DMA_LTE \
 -I../01_Applcation/Appl_USBService \

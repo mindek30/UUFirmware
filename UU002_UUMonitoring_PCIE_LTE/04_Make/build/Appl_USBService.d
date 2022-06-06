@@ -1,6 +1,7 @@
 build/Appl_USBService.o: \
  ../01_Applcation/Appl_USBService/Appl_USBService.c \
  ../02_OS/EKM_Buffer/EKM_Buffer.h ../02_OS/EKM_CMD/EKM_CMD.h \
+ ../01_Applcation/Appl_Data/Appl_Data.h \
  ../02_OS/USB_DEVICE/App/usbd_cdc_if.h \
  ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
  ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
@@ -46,6 +47,7 @@ build/Appl_USBService.o: \
  ../01_Applcation/Appl_USBService/Appl_USBService.h
 ../02_OS/EKM_Buffer/EKM_Buffer.h:
 ../02_OS/EKM_CMD/EKM_CMD.h:
+../01_Applcation/Appl_Data/Appl_Data.h:
 ../02_OS/USB_DEVICE/App/usbd_cdc_if.h:
 ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
 ../03_Drivers/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
