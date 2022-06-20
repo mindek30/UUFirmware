@@ -207,10 +207,11 @@ void SysTick_Handler(void)
   */
 void USART1_IRQHandler(void)
 {
-  extern EKM_Buffer_t APPL_DMA_LTE_Buffer;
+  extern uint8_t APPL_DMA_LTE_Buffer[];
+  extern uint16_t APPL_DMA_LTE_Buffer_Pointer;
   /* USER CODE BEGIN USART1_IRQn 0 */
   uint8_t c = huart1.Instance->RDR;
-  EKM_Buffer_Set(&APPL_DMA_LTE_Buffer, c);
+  APPL_DMA_LTE_Buffer[APPL_DMA_LTE_Buffer_Pointer++] = c;
   
   return;
   /* USER CODE END USART1_IRQn 0 */

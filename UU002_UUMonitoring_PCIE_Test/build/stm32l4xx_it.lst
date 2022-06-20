@@ -1,0 +1,821 @@
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"stm32l4xx_it.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.rodata.NMI_Handler.str1.4,"aMS",%progbits,1
+  20              		.align	2
+  21              	.LC0:
+  22 0000 4E4D495F 		.ascii	"NMI_Handler\015\012\000"
+  22      48616E64 
+  22      6C65720D 
+  22      0A00
+  23              		.section	.text.NMI_Handler,"ax",%progbits
+  24              		.align	1
+  25              		.global	NMI_Handler
+  26              		.syntax unified
+  27              		.thumb
+  28              		.thumb_func
+  30              	NMI_Handler:
+  31              	.LFB292:
+  32              		.file 1 "Core/Src/stm32l4xx_it.c"
+   1:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/stm32l4xx_it.c **** /**
+   3:Core/Src/stm32l4xx_it.c ****   ******************************************************************************
+   4:Core/Src/stm32l4xx_it.c ****   * @file    stm32l4xx_it.c
+   5:Core/Src/stm32l4xx_it.c ****   * @brief   Interrupt Service Routines.
+   6:Core/Src/stm32l4xx_it.c ****   ******************************************************************************
+   7:Core/Src/stm32l4xx_it.c ****   * @attention
+   8:Core/Src/stm32l4xx_it.c ****   *
+   9:Core/Src/stm32l4xx_it.c ****   * Copyright (c) 2022 STMicroelectronics.
+  10:Core/Src/stm32l4xx_it.c ****   * All rights reserved.
+  11:Core/Src/stm32l4xx_it.c ****   *
+  12:Core/Src/stm32l4xx_it.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Core/Src/stm32l4xx_it.c ****   * in the root directory of this software component.
+  14:Core/Src/stm32l4xx_it.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Core/Src/stm32l4xx_it.c ****   *
+  16:Core/Src/stm32l4xx_it.c ****   ******************************************************************************
+  17:Core/Src/stm32l4xx_it.c ****   */
+  18:Core/Src/stm32l4xx_it.c **** /* USER CODE END Header */
+  19:Core/Src/stm32l4xx_it.c **** 
+  20:Core/Src/stm32l4xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/stm32l4xx_it.c **** #include "main.h"
+  22:Core/Src/stm32l4xx_it.c **** #include "stm32l4xx_it.h"
+  23:Core/Src/stm32l4xx_it.c **** #include "EKM_Buffer.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 2
+
+
+  24:Core/Src/stm32l4xx_it.c **** #include "usbd_cdc_if.h"
+  25:Core/Src/stm32l4xx_it.c **** /* Private includes ----------------------------------------------------------*/
+  26:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN Includes */
+  27:Core/Src/stm32l4xx_it.c **** /* USER CODE END Includes */
+  28:Core/Src/stm32l4xx_it.c **** 
+  29:Core/Src/stm32l4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+  30:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN TD */
+  31:Core/Src/stm32l4xx_it.c **** 
+  32:Core/Src/stm32l4xx_it.c **** /* USER CODE END TD */
+  33:Core/Src/stm32l4xx_it.c **** 
+  34:Core/Src/stm32l4xx_it.c **** /* Private define ------------------------------------------------------------*/
+  35:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN PD */
+  36:Core/Src/stm32l4xx_it.c **** 
+  37:Core/Src/stm32l4xx_it.c **** /* USER CODE END PD */
+  38:Core/Src/stm32l4xx_it.c **** 
+  39:Core/Src/stm32l4xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  40:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN PM */
+  41:Core/Src/stm32l4xx_it.c **** 
+  42:Core/Src/stm32l4xx_it.c **** /* USER CODE END PM */
+  43:Core/Src/stm32l4xx_it.c **** 
+  44:Core/Src/stm32l4xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  45:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN PV */
+  46:Core/Src/stm32l4xx_it.c **** 
+  47:Core/Src/stm32l4xx_it.c **** /* USER CODE END PV */
+  48:Core/Src/stm32l4xx_it.c **** 
+  49:Core/Src/stm32l4xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  50:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN PFP */
+  51:Core/Src/stm32l4xx_it.c **** 
+  52:Core/Src/stm32l4xx_it.c **** /* USER CODE END PFP */
+  53:Core/Src/stm32l4xx_it.c **** 
+  54:Core/Src/stm32l4xx_it.c **** /* Private user code ---------------------------------------------------------*/
+  55:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN 0 */
+  56:Core/Src/stm32l4xx_it.c **** 
+  57:Core/Src/stm32l4xx_it.c **** /* USER CODE END 0 */
+  58:Core/Src/stm32l4xx_it.c **** 
+  59:Core/Src/stm32l4xx_it.c **** /* External variables --------------------------------------------------------*/
+  60:Core/Src/stm32l4xx_it.c **** extern PCD_HandleTypeDef hpcd_USB_FS;
+  61:Core/Src/stm32l4xx_it.c **** extern UART_HandleTypeDef huart1;
+  62:Core/Src/stm32l4xx_it.c **** extern UART_HandleTypeDef huart2;
+  63:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN EV */
+  64:Core/Src/stm32l4xx_it.c **** extern void APPL_USB_printf(const char *format, ...);
+  65:Core/Src/stm32l4xx_it.c **** /* USER CODE END EV */
+  66:Core/Src/stm32l4xx_it.c **** 
+  67:Core/Src/stm32l4xx_it.c **** /******************************************************************************/
+  68:Core/Src/stm32l4xx_it.c **** /*           Cortex-M4 Processor Interruption and Exception Handlers          */
+  69:Core/Src/stm32l4xx_it.c **** /******************************************************************************/
+  70:Core/Src/stm32l4xx_it.c **** /**
+  71:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Non maskable interrupt.
+  72:Core/Src/stm32l4xx_it.c ****   */
+  73:Core/Src/stm32l4xx_it.c **** void NMI_Handler(void)
+  74:Core/Src/stm32l4xx_it.c **** {
+  33              		.loc 1 74 1 view -0
+  34              		.cfi_startproc
+  35              		@ Volatile: function does not return.
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 3
+
+
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 3, -8
+  42              		.cfi_offset 14, -4
+  75:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  76:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("NMI_Handler\r\n");
+  43              		.loc 1 76 3 view .LVU1
+  44 0002 0248     		ldr	r0, .L4
+  45 0004 FFF7FEFF 		bl	APPL_USB_printf
+  46              	.LVL0:
+  47              	.L2:
+  77:Core/Src/stm32l4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
+  78:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  79:Core/Src/stm32l4xx_it.c ****   while (1)
+  48              		.loc 1 79 3 discriminator 1 view .LVU2
+  80:Core/Src/stm32l4xx_it.c ****   {
+  81:Core/Src/stm32l4xx_it.c ****   }
+  49              		.loc 1 81 3 discriminator 1 view .LVU3
+  79:Core/Src/stm32l4xx_it.c ****   {
+  50              		.loc 1 79 9 discriminator 1 view .LVU4
+  51 0008 FEE7     		b	.L2
+  52              	.L5:
+  53 000a 00BF     		.align	2
+  54              	.L4:
+  55 000c 00000000 		.word	.LC0
+  56              		.cfi_endproc
+  57              	.LFE292:
+  59              		.section	.rodata.HardFault_Handler.str1.4,"aMS",%progbits,1
+  60              		.align	2
+  61              	.LC1:
+  62 0000 48617264 		.ascii	"HardFault_Handler\015\012\000"
+  62      4661756C 
+  62      745F4861 
+  62      6E646C65 
+  62      720D0A00 
+  63              		.section	.text.HardFault_Handler,"ax",%progbits
+  64              		.align	1
+  65              		.global	HardFault_Handler
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  70              	HardFault_Handler:
+  71              	.LFB293:
+  82:Core/Src/stm32l4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
+  83:Core/Src/stm32l4xx_it.c **** }
+  84:Core/Src/stm32l4xx_it.c **** 
+  85:Core/Src/stm32l4xx_it.c **** /**
+  86:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Hard fault interrupt.
+  87:Core/Src/stm32l4xx_it.c ****   */
+  88:Core/Src/stm32l4xx_it.c **** void HardFault_Handler(void)
+  89:Core/Src/stm32l4xx_it.c **** {
+  72              		.loc 1 89 1 view -0
+  73              		.cfi_startproc
+  74              		@ Volatile: function does not return.
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 4
+
+
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 3, -8
+  81              		.cfi_offset 14, -4
+  90:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  91:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("HardFault_Handler\r\n");
+  82              		.loc 1 91 3 view .LVU6
+  83 0002 0248     		ldr	r0, .L9
+  84 0004 FFF7FEFF 		bl	APPL_USB_printf
+  85              	.LVL1:
+  86              	.L7:
+  92:Core/Src/stm32l4xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
+  93:Core/Src/stm32l4xx_it.c ****   while (1)
+  87              		.loc 1 93 3 discriminator 1 view .LVU7
+  94:Core/Src/stm32l4xx_it.c ****   {
+  95:Core/Src/stm32l4xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+  96:Core/Src/stm32l4xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
+  97:Core/Src/stm32l4xx_it.c ****   }
+  88              		.loc 1 97 3 discriminator 1 view .LVU8
+  93:Core/Src/stm32l4xx_it.c ****   {
+  89              		.loc 1 93 9 discriminator 1 view .LVU9
+  90 0008 FEE7     		b	.L7
+  91              	.L10:
+  92 000a 00BF     		.align	2
+  93              	.L9:
+  94 000c 00000000 		.word	.LC1
+  95              		.cfi_endproc
+  96              	.LFE293:
+  98              		.section	.rodata.MemManage_Handler.str1.4,"aMS",%progbits,1
+  99              		.align	2
+ 100              	.LC2:
+ 101 0000 4D656D4D 		.ascii	"MemManage_Handler\015\012\000"
+ 101      616E6167 
+ 101      655F4861 
+ 101      6E646C65 
+ 101      720D0A00 
+ 102              		.section	.text.MemManage_Handler,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	MemManage_Handler
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 109              	MemManage_Handler:
+ 110              	.LFB294:
+  98:Core/Src/stm32l4xx_it.c **** }
+  99:Core/Src/stm32l4xx_it.c **** 
+ 100:Core/Src/stm32l4xx_it.c **** /**
+ 101:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Memory management fault.
+ 102:Core/Src/stm32l4xx_it.c ****   */
+ 103:Core/Src/stm32l4xx_it.c **** void MemManage_Handler(void)
+ 104:Core/Src/stm32l4xx_it.c **** {
+ 111              		.loc 1 104 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ Volatile: function does not return.
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 5
+
+
+ 117              	.LCFI2:
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 3, -8
+ 120              		.cfi_offset 14, -4
+ 105:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+ 106:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("MemManage_Handler\r\n");
+ 121              		.loc 1 106 3 view .LVU11
+ 122 0002 0248     		ldr	r0, .L14
+ 123 0004 FFF7FEFF 		bl	APPL_USB_printf
+ 124              	.LVL2:
+ 125              	.L12:
+ 107:Core/Src/stm32l4xx_it.c ****   /* USER CODE END MemoryManagement_IRQn 0 */
+ 108:Core/Src/stm32l4xx_it.c ****   while (1)
+ 126              		.loc 1 108 3 discriminator 1 view .LVU12
+ 109:Core/Src/stm32l4xx_it.c ****   {
+ 110:Core/Src/stm32l4xx_it.c ****     /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+ 111:Core/Src/stm32l4xx_it.c ****     /* USER CODE END W1_MemoryManagement_IRQn 0 */
+ 112:Core/Src/stm32l4xx_it.c ****   }
+ 127              		.loc 1 112 3 discriminator 1 view .LVU13
+ 108:Core/Src/stm32l4xx_it.c ****   {
+ 128              		.loc 1 108 9 discriminator 1 view .LVU14
+ 129 0008 FEE7     		b	.L12
+ 130              	.L15:
+ 131 000a 00BF     		.align	2
+ 132              	.L14:
+ 133 000c 00000000 		.word	.LC2
+ 134              		.cfi_endproc
+ 135              	.LFE294:
+ 137              		.section	.rodata.BusFault_Handler.str1.4,"aMS",%progbits,1
+ 138              		.align	2
+ 139              	.LC3:
+ 140 0000 42757346 		.ascii	"BusFault_Handler\015\012\000"
+ 140      61756C74 
+ 140      5F48616E 
+ 140      646C6572 
+ 140      0D0A00
+ 141              		.section	.text.BusFault_Handler,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	BusFault_Handler
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 148              	BusFault_Handler:
+ 149              	.LFB295:
+ 113:Core/Src/stm32l4xx_it.c **** }
+ 114:Core/Src/stm32l4xx_it.c **** 
+ 115:Core/Src/stm32l4xx_it.c **** /**
+ 116:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Prefetch fault, memory access fault.
+ 117:Core/Src/stm32l4xx_it.c ****   */
+ 118:Core/Src/stm32l4xx_it.c **** void BusFault_Handler(void)
+ 119:Core/Src/stm32l4xx_it.c **** {
+ 150              		.loc 1 119 1 view -0
+ 151              		.cfi_startproc
+ 152              		@ Volatile: function does not return.
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 6
+
+
+ 156              	.LCFI3:
+ 157              		.cfi_def_cfa_offset 8
+ 158              		.cfi_offset 3, -8
+ 159              		.cfi_offset 14, -4
+ 120:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN BusFault_IRQn 0 */
+ 121:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("BusFault_Handler\r\n");
+ 160              		.loc 1 121 3 view .LVU16
+ 161 0002 0248     		ldr	r0, .L19
+ 162 0004 FFF7FEFF 		bl	APPL_USB_printf
+ 163              	.LVL3:
+ 164              	.L17:
+ 122:Core/Src/stm32l4xx_it.c ****   /* USER CODE END BusFault_IRQn 0 */
+ 123:Core/Src/stm32l4xx_it.c ****   while (1)
+ 165              		.loc 1 123 3 discriminator 1 view .LVU17
+ 124:Core/Src/stm32l4xx_it.c ****   {
+ 125:Core/Src/stm32l4xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+ 126:Core/Src/stm32l4xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
+ 127:Core/Src/stm32l4xx_it.c ****   }
+ 166              		.loc 1 127 3 discriminator 1 view .LVU18
+ 123:Core/Src/stm32l4xx_it.c ****   {
+ 167              		.loc 1 123 9 discriminator 1 view .LVU19
+ 168 0008 FEE7     		b	.L17
+ 169              	.L20:
+ 170 000a 00BF     		.align	2
+ 171              	.L19:
+ 172 000c 00000000 		.word	.LC3
+ 173              		.cfi_endproc
+ 174              	.LFE295:
+ 176              		.section	.rodata.UsageFault_Handler.str1.4,"aMS",%progbits,1
+ 177              		.align	2
+ 178              	.LC4:
+ 179 0000 55736167 		.ascii	"UsageFault_Handler\015\012\000"
+ 179      65466175 
+ 179      6C745F48 
+ 179      616E646C 
+ 179      65720D0A 
+ 180              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 181              		.align	1
+ 182              		.global	UsageFault_Handler
+ 183              		.syntax unified
+ 184              		.thumb
+ 185              		.thumb_func
+ 187              	UsageFault_Handler:
+ 188              	.LFB296:
+ 128:Core/Src/stm32l4xx_it.c **** }
+ 129:Core/Src/stm32l4xx_it.c **** 
+ 130:Core/Src/stm32l4xx_it.c **** /**
+ 131:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Undefined instruction or illegal state.
+ 132:Core/Src/stm32l4xx_it.c ****   */
+ 133:Core/Src/stm32l4xx_it.c **** void UsageFault_Handler(void)
+ 134:Core/Src/stm32l4xx_it.c **** {
+ 189              		.loc 1 134 1 view -0
+ 190              		.cfi_startproc
+ 191              		@ Volatile: function does not return.
+ 192              		@ args = 0, pretend = 0, frame = 0
+ 193              		@ frame_needed = 0, uses_anonymous_args = 0
+ 194 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 7
+
+
+ 195              	.LCFI4:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 3, -8
+ 198              		.cfi_offset 14, -4
+ 135:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN UsageFault_IRQn 0 */
+ 136:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("UsageFault_Handler\r\n");
+ 199              		.loc 1 136 3 view .LVU21
+ 200 0002 0248     		ldr	r0, .L24
+ 201 0004 FFF7FEFF 		bl	APPL_USB_printf
+ 202              	.LVL4:
+ 203              	.L22:
+ 137:Core/Src/stm32l4xx_it.c ****   /* USER CODE END UsageFault_IRQn 0 */
+ 138:Core/Src/stm32l4xx_it.c ****   while (1)
+ 204              		.loc 1 138 3 discriminator 1 view .LVU22
+ 139:Core/Src/stm32l4xx_it.c ****   {
+ 140:Core/Src/stm32l4xx_it.c ****     /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+ 141:Core/Src/stm32l4xx_it.c ****     /* USER CODE END W1_UsageFault_IRQn 0 */
+ 142:Core/Src/stm32l4xx_it.c ****   }
+ 205              		.loc 1 142 3 discriminator 1 view .LVU23
+ 138:Core/Src/stm32l4xx_it.c ****   {
+ 206              		.loc 1 138 9 discriminator 1 view .LVU24
+ 207 0008 FEE7     		b	.L22
+ 208              	.L25:
+ 209 000a 00BF     		.align	2
+ 210              	.L24:
+ 211 000c 00000000 		.word	.LC4
+ 212              		.cfi_endproc
+ 213              	.LFE296:
+ 215              		.section	.rodata.SVC_Handler.str1.4,"aMS",%progbits,1
+ 216              		.align	2
+ 217              	.LC5:
+ 218 0000 5356435F 		.ascii	"SVC_Handler\015\012\000"
+ 218      48616E64 
+ 218      6C65720D 
+ 218      0A00
+ 219              		.section	.text.SVC_Handler,"ax",%progbits
+ 220              		.align	1
+ 221              		.global	SVC_Handler
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 226              	SVC_Handler:
+ 227              	.LFB297:
+ 143:Core/Src/stm32l4xx_it.c **** }
+ 144:Core/Src/stm32l4xx_it.c **** 
+ 145:Core/Src/stm32l4xx_it.c **** /**
+ 146:Core/Src/stm32l4xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+ 147:Core/Src/stm32l4xx_it.c ****   */
+ 148:Core/Src/stm32l4xx_it.c **** void SVC_Handler(void)
+ 149:Core/Src/stm32l4xx_it.c **** {
+ 228              		.loc 1 149 1 view -0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232 0000 08B5     		push	{r3, lr}
+ 233              	.LCFI5:
+ 234              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 8
+
+
+ 235              		.cfi_offset 3, -8
+ 236              		.cfi_offset 14, -4
+ 150:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 0 */
+ 151:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("SVC_Handler\r\n");
+ 237              		.loc 1 151 3 view .LVU26
+ 238 0002 0248     		ldr	r0, .L28
+ 239 0004 FFF7FEFF 		bl	APPL_USB_printf
+ 240              	.LVL5:
+ 152:Core/Src/stm32l4xx_it.c ****   /* USER CODE END SVCall_IRQn 0 */
+ 153:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN SVCall_IRQn 1 */
+ 154:Core/Src/stm32l4xx_it.c **** 
+ 155:Core/Src/stm32l4xx_it.c ****   /* USER CODE END SVCall_IRQn 1 */
+ 156:Core/Src/stm32l4xx_it.c **** }
+ 241              		.loc 1 156 1 is_stmt 0 view .LVU27
+ 242 0008 08BD     		pop	{r3, pc}
+ 243              	.L29:
+ 244 000a 00BF     		.align	2
+ 245              	.L28:
+ 246 000c 00000000 		.word	.LC5
+ 247              		.cfi_endproc
+ 248              	.LFE297:
+ 250              		.section	.rodata.DebugMon_Handler.str1.4,"aMS",%progbits,1
+ 251              		.align	2
+ 252              	.LC6:
+ 253 0000 44656275 		.ascii	"DebugMon_Handler\015\012\000"
+ 253      674D6F6E 
+ 253      5F48616E 
+ 253      646C6572 
+ 253      0D0A00
+ 254              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	DebugMon_Handler
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 261              	DebugMon_Handler:
+ 262              	.LFB298:
+ 157:Core/Src/stm32l4xx_it.c **** 
+ 158:Core/Src/stm32l4xx_it.c **** /**
+ 159:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Debug monitor.
+ 160:Core/Src/stm32l4xx_it.c ****   */
+ 161:Core/Src/stm32l4xx_it.c **** void DebugMon_Handler(void)
+ 162:Core/Src/stm32l4xx_it.c **** {
+ 263              		.loc 1 162 1 is_stmt 1 view -0
+ 264              		.cfi_startproc
+ 265              		@ args = 0, pretend = 0, frame = 0
+ 266              		@ frame_needed = 0, uses_anonymous_args = 0
+ 267 0000 08B5     		push	{r3, lr}
+ 268              	.LCFI6:
+ 269              		.cfi_def_cfa_offset 8
+ 270              		.cfi_offset 3, -8
+ 271              		.cfi_offset 14, -4
+ 163:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+ 164:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("DebugMon_Handler\r\n");
+ 272              		.loc 1 164 3 view .LVU29
+ 273 0002 0248     		ldr	r0, .L32
+ 274 0004 FFF7FEFF 		bl	APPL_USB_printf
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 9
+
+
+ 275              	.LVL6:
+ 165:Core/Src/stm32l4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 0 */
+ 166:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+ 167:Core/Src/stm32l4xx_it.c **** 
+ 168:Core/Src/stm32l4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
+ 169:Core/Src/stm32l4xx_it.c **** }
+ 276              		.loc 1 169 1 is_stmt 0 view .LVU30
+ 277 0008 08BD     		pop	{r3, pc}
+ 278              	.L33:
+ 279 000a 00BF     		.align	2
+ 280              	.L32:
+ 281 000c 00000000 		.word	.LC6
+ 282              		.cfi_endproc
+ 283              	.LFE298:
+ 285              		.section	.rodata.PendSV_Handler.str1.4,"aMS",%progbits,1
+ 286              		.align	2
+ 287              	.LC7:
+ 288 0000 50656E64 		.ascii	"PendSV_Handler\015\012\000"
+ 288      53565F48 
+ 288      616E646C 
+ 288      65720D0A 
+ 288      00
+ 289              		.section	.text.PendSV_Handler,"ax",%progbits
+ 290              		.align	1
+ 291              		.global	PendSV_Handler
+ 292              		.syntax unified
+ 293              		.thumb
+ 294              		.thumb_func
+ 296              	PendSV_Handler:
+ 297              	.LFB299:
+ 170:Core/Src/stm32l4xx_it.c **** 
+ 171:Core/Src/stm32l4xx_it.c **** /**
+ 172:Core/Src/stm32l4xx_it.c ****   * @brief This function handles Pendable request for system service.
+ 173:Core/Src/stm32l4xx_it.c ****   */
+ 174:Core/Src/stm32l4xx_it.c **** void PendSV_Handler(void)
+ 175:Core/Src/stm32l4xx_it.c **** {
+ 298              		.loc 1 175 1 is_stmt 1 view -0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302 0000 08B5     		push	{r3, lr}
+ 303              	.LCFI7:
+ 304              		.cfi_def_cfa_offset 8
+ 305              		.cfi_offset 3, -8
+ 306              		.cfi_offset 14, -4
+ 176:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
+ 177:Core/Src/stm32l4xx_it.c ****   APPL_USB_printf("PendSV_Handler\r\n");
+ 307              		.loc 1 177 3 view .LVU32
+ 308 0002 0248     		ldr	r0, .L36
+ 309 0004 FFF7FEFF 		bl	APPL_USB_printf
+ 310              	.LVL7:
+ 178:Core/Src/stm32l4xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
+ 179:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
+ 180:Core/Src/stm32l4xx_it.c **** 
+ 181:Core/Src/stm32l4xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
+ 182:Core/Src/stm32l4xx_it.c **** }
+ 311              		.loc 1 182 1 is_stmt 0 view .LVU33
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 10
+
+
+ 312 0008 08BD     		pop	{r3, pc}
+ 313              	.L37:
+ 314 000a 00BF     		.align	2
+ 315              	.L36:
+ 316 000c 00000000 		.word	.LC7
+ 317              		.cfi_endproc
+ 318              	.LFE299:
+ 320              		.section	.text.SysTick_Handler,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	SysTick_Handler
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 327              	SysTick_Handler:
+ 328              	.LFB300:
+ 183:Core/Src/stm32l4xx_it.c **** 
+ 184:Core/Src/stm32l4xx_it.c **** /**
+ 185:Core/Src/stm32l4xx_it.c ****   * @brief This function handles System tick timer.
+ 186:Core/Src/stm32l4xx_it.c ****   */
+ 187:Core/Src/stm32l4xx_it.c **** void SysTick_Handler(void)
+ 188:Core/Src/stm32l4xx_it.c **** {
+ 329              		.loc 1 188 1 is_stmt 1 view -0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 0
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333 0000 08B5     		push	{r3, lr}
+ 334              	.LCFI8:
+ 335              		.cfi_def_cfa_offset 8
+ 336              		.cfi_offset 3, -8
+ 337              		.cfi_offset 14, -4
+ 189:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 190:Core/Src/stm32l4xx_it.c **** 
+ 191:Core/Src/stm32l4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 192:Core/Src/stm32l4xx_it.c ****   HAL_IncTick();
+ 338              		.loc 1 192 3 view .LVU35
+ 339 0002 FFF7FEFF 		bl	HAL_IncTick
+ 340              	.LVL8:
+ 193:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 194:Core/Src/stm32l4xx_it.c **** 
+ 195:Core/Src/stm32l4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 196:Core/Src/stm32l4xx_it.c **** }
+ 341              		.loc 1 196 1 is_stmt 0 view .LVU36
+ 342 0006 08BD     		pop	{r3, pc}
+ 343              		.cfi_endproc
+ 344              	.LFE300:
+ 346              		.section	.text.USART1_IRQHandler,"ax",%progbits
+ 347              		.align	1
+ 348              		.global	USART1_IRQHandler
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 353              	USART1_IRQHandler:
+ 354              	.LFB301:
+ 197:Core/Src/stm32l4xx_it.c **** 
+ 198:Core/Src/stm32l4xx_it.c **** /******************************************************************************/
+ 199:Core/Src/stm32l4xx_it.c **** /* STM32L4xx Peripheral Interrupt Handlers                                    */
+ 200:Core/Src/stm32l4xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 11
+
+
+ 201:Core/Src/stm32l4xx_it.c **** /* For the available peripheral interrupt handler names,                      */
+ 202:Core/Src/stm32l4xx_it.c **** /* please refer to the startup file (startup_stm32l4xx.s).                    */
+ 203:Core/Src/stm32l4xx_it.c **** /******************************************************************************/
+ 204:Core/Src/stm32l4xx_it.c **** 
+ 205:Core/Src/stm32l4xx_it.c **** /**
+ 206:Core/Src/stm32l4xx_it.c ****   * @brief This function handles USART1 global interrupt.
+ 207:Core/Src/stm32l4xx_it.c ****   */
+ 208:Core/Src/stm32l4xx_it.c **** void USART1_IRQHandler(void)
+ 209:Core/Src/stm32l4xx_it.c **** {
+ 355              		.loc 1 209 1 is_stmt 1 view -0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359              		@ link register save eliminated.
+ 210:Core/Src/stm32l4xx_it.c ****   extern uint8_t APPL_DMA_LTE_Buffer[];
+ 360              		.loc 1 210 3 view .LVU38
+ 211:Core/Src/stm32l4xx_it.c ****   extern uint16_t APPL_DMA_LTE_Buffer_Pointer;
+ 361              		.loc 1 211 3 view .LVU39
+ 212:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 0 */
+ 213:Core/Src/stm32l4xx_it.c ****   uint8_t c = huart1.Instance->RDR;
+ 362              		.loc 1 213 3 view .LVU40
+ 363              		.loc 1 213 21 is_stmt 0 view .LVU41
+ 364 0000 044B     		ldr	r3, .L41
+ 365 0002 1B68     		ldr	r3, [r3]
+ 366              		.loc 1 213 30 view .LVU42
+ 367 0004 998C     		ldrh	r1, [r3, #36]
+ 368              	.LVL9:
+ 214:Core/Src/stm32l4xx_it.c ****   APPL_DMA_LTE_Buffer[APPL_DMA_LTE_Buffer_Pointer++] = c;
+ 369              		.loc 1 214 3 is_stmt 1 view .LVU43
+ 370              		.loc 1 214 50 is_stmt 0 view .LVU44
+ 371 0006 044A     		ldr	r2, .L41+4
+ 372 0008 1388     		ldrh	r3, [r2]
+ 373 000a 581C     		adds	r0, r3, #1
+ 374 000c 1080     		strh	r0, [r2]	@ movhi
+ 375              		.loc 1 214 54 view .LVU45
+ 376 000e 034A     		ldr	r2, .L41+8
+ 377 0010 D154     		strb	r1, [r2, r3]
+ 215:Core/Src/stm32l4xx_it.c ****   
+ 216:Core/Src/stm32l4xx_it.c ****   return;
+ 378              		.loc 1 216 3 is_stmt 1 view .LVU46
+ 217:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USART1_IRQn 0 */
+ 218:Core/Src/stm32l4xx_it.c ****   HAL_UART_IRQHandler(&huart1);
+ 219:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 1 */
+ 220:Core/Src/stm32l4xx_it.c **** 
+ 221:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USART1_IRQn 1 */
+ 222:Core/Src/stm32l4xx_it.c **** }
+ 379              		.loc 1 222 1 is_stmt 0 view .LVU47
+ 380 0012 7047     		bx	lr
+ 381              	.L42:
+ 382              		.align	2
+ 383              	.L41:
+ 384 0014 00000000 		.word	huart1
+ 385 0018 00000000 		.word	APPL_DMA_LTE_Buffer_Pointer
+ 386 001c 00000000 		.word	APPL_DMA_LTE_Buffer
+ 387              		.cfi_endproc
+ 388              	.LFE301:
+ 390              		.section	.text.USART2_IRQHandler,"ax",%progbits
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 12
+
+
+ 391              		.align	1
+ 392              		.global	USART2_IRQHandler
+ 393              		.syntax unified
+ 394              		.thumb
+ 395              		.thumb_func
+ 397              	USART2_IRQHandler:
+ 398              	.LFB302:
+ 223:Core/Src/stm32l4xx_it.c **** 
+ 224:Core/Src/stm32l4xx_it.c **** /**
+ 225:Core/Src/stm32l4xx_it.c ****   * @brief This function handles USART2 global interrupt.
+ 226:Core/Src/stm32l4xx_it.c ****   */
+ 227:Core/Src/stm32l4xx_it.c **** void USART2_IRQHandler(void)
+ 228:Core/Src/stm32l4xx_it.c **** {
+ 399              		.loc 1 228 1 is_stmt 1 view -0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403 0000 08B5     		push	{r3, lr}
+ 404              	.LCFI9:
+ 405              		.cfi_def_cfa_offset 8
+ 406              		.cfi_offset 3, -8
+ 407              		.cfi_offset 14, -4
+ 229:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 0 */
+ 230:Core/Src/stm32l4xx_it.c **** 
+ 231:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USART2_IRQn 0 */
+ 232:Core/Src/stm32l4xx_it.c ****   HAL_UART_IRQHandler(&huart2);
+ 408              		.loc 1 232 3 view .LVU49
+ 409 0002 0248     		ldr	r0, .L45
+ 410 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
+ 411              	.LVL10:
+ 233:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USART2_IRQn 1 */
+ 234:Core/Src/stm32l4xx_it.c **** 
+ 235:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USART2_IRQn 1 */
+ 236:Core/Src/stm32l4xx_it.c **** }
+ 412              		.loc 1 236 1 is_stmt 0 view .LVU50
+ 413 0008 08BD     		pop	{r3, pc}
+ 414              	.L46:
+ 415 000a 00BF     		.align	2
+ 416              	.L45:
+ 417 000c 00000000 		.word	huart2
+ 418              		.cfi_endproc
+ 419              	.LFE302:
+ 421              		.section	.text.USB_IRQHandler,"ax",%progbits
+ 422              		.align	1
+ 423              		.global	USB_IRQHandler
+ 424              		.syntax unified
+ 425              		.thumb
+ 426              		.thumb_func
+ 428              	USB_IRQHandler:
+ 429              	.LFB303:
+ 237:Core/Src/stm32l4xx_it.c **** 
+ 238:Core/Src/stm32l4xx_it.c **** /**
+ 239:Core/Src/stm32l4xx_it.c ****   * @brief This function handles USB event interrupt through EXTI line 17.
+ 240:Core/Src/stm32l4xx_it.c ****   */
+ 241:Core/Src/stm32l4xx_it.c **** void USB_IRQHandler(void)
+ 242:Core/Src/stm32l4xx_it.c **** {
+ 430              		.loc 1 242 1 is_stmt 1 view -0
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 13
+
+
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434 0000 08B5     		push	{r3, lr}
+ 435              	.LCFI10:
+ 436              		.cfi_def_cfa_offset 8
+ 437              		.cfi_offset 3, -8
+ 438              		.cfi_offset 14, -4
+ 243:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USB_IRQn 0 */
+ 244:Core/Src/stm32l4xx_it.c **** 
+ 245:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USB_IRQn 0 */
+ 246:Core/Src/stm32l4xx_it.c ****   HAL_PCD_IRQHandler(&hpcd_USB_FS);
+ 439              		.loc 1 246 3 view .LVU52
+ 440 0002 0248     		ldr	r0, .L49
+ 441 0004 FFF7FEFF 		bl	HAL_PCD_IRQHandler
+ 442              	.LVL11:
+ 247:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN USB_IRQn 1 */
+ 248:Core/Src/stm32l4xx_it.c **** 
+ 249:Core/Src/stm32l4xx_it.c ****   /* USER CODE END USB_IRQn 1 */
+ 250:Core/Src/stm32l4xx_it.c **** }
+ 443              		.loc 1 250 1 is_stmt 0 view .LVU53
+ 444 0008 08BD     		pop	{r3, pc}
+ 445              	.L50:
+ 446 000a 00BF     		.align	2
+ 447              	.L49:
+ 448 000c 00000000 		.word	hpcd_USB_FS
+ 449              		.cfi_endproc
+ 450              	.LFE303:
+ 452              		.text
+ 453              	.Letext0:
+ 454              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 455              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 456              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 457              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 458              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 459              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_ll_usb.h"
+ 460              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pcd.h"
+ 461              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 462              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_it.c
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:20     .rodata.NMI_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:24     .text.NMI_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:30     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:55     .text.NMI_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:60     .rodata.HardFault_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:64     .text.HardFault_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:70     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:94     .text.HardFault_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:99     .rodata.MemManage_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:103    .text.MemManage_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:109    .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:133    .text.MemManage_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:138    .rodata.BusFault_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:142    .text.BusFault_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:148    .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:172    .text.BusFault_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:177    .rodata.UsageFault_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:181    .text.UsageFault_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:187    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:211    .text.UsageFault_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:216    .rodata.SVC_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:220    .text.SVC_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:226    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:246    .text.SVC_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:251    .rodata.DebugMon_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:255    .text.DebugMon_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:261    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:281    .text.DebugMon_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:286    .rodata.PendSV_Handler.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:290    .text.PendSV_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:296    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:316    .text.PendSV_Handler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:321    .text.SysTick_Handler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:327    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:347    .text.USART1_IRQHandler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:353    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:384    .text.USART1_IRQHandler:00000014 $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:391    .text.USART2_IRQHandler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:397    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:417    .text.USART2_IRQHandler:0000000c $d
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:422    .text.USB_IRQHandler:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:428    .text.USB_IRQHandler:00000000 USB_IRQHandler
+C:\Users\minde\AppData\Local\Temp\ccrCRvNe.s:448    .text.USB_IRQHandler:0000000c $d
+
+UNDEFINED SYMBOLS
+APPL_USB_printf
+HAL_IncTick
+huart1
+APPL_DMA_LTE_Buffer_Pointer
+APPL_DMA_LTE_Buffer
+HAL_UART_IRQHandler
+huart2
+HAL_PCD_IRQHandler
+hpcd_USB_FS

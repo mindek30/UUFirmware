@@ -17,6 +17,7 @@
 #include "EKM_Buffer.h"
 #include "APPL_DMA_LTE.h"
 #include "Appl_Data.h"
+#include "Appl_USBService.h"
 
 /*******************************************************************************
  *
@@ -60,11 +61,12 @@ void APPL_DMA_LTE_LineProcess(void);
 void APPL_DMA_LTE_SIM7000G_Error_Handel(void);
 
 EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_OK;
+EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_PSUTTZ;
 EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_Error;
 EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_APP;
-EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_PAPP;
 
 int APPL_DMA_LTE_OK(int argc, char *argv[]);
+int APPL_DMA_LTE_PSUTTZ(int argc, char *argv[]);
 int APPL_DMA_LTE_Error(int argc, char *argv[]);
 int APPL_DMA_LTE_APP(int argc, char *argv[]);
 
@@ -85,11 +87,21 @@ void APPL_DMA_LTE_Init(void)
 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
 	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
 
-	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "ok";
+	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "OK";
 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
-	APPL_DMA_LTE_CMD_OK.next = (void *)0;
+	APPL_DMA_LTE_CMD_OK.next = &APPL_DMA_LTE_CMD_PSUTTZ;
 
+	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcCmd = "*PSUTTZ:";
+	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcHelp = "Turn On Init";
+	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pfnCmd = &APPL_DMA_LTE_PSUTTZ;
+	APPL_DMA_LTE_CMD_PSUTTZ.next = &APPL_DMA_LTE_CMD_Error;
+
+	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcCmd = "ERROR";
+	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcHelp = "ERROR";
+	APPL_DMA_LTE_CMD_Error.EKM_CMD_pfnCmd = &APPL_DMA_LTE_Error;
+	APPL_DMA_LTE_CMD_Error.next = (void *)0;
+	//*PSUTTZ:
 	APPL_data.deviceID = 0;
 
 	APPL_DMA_LTE_Step_Init[0].Command = "ATE0\r\n";
@@ -225,9 +237,10 @@ void APPL_DMA_LTE_SIM7000G_Init(void)
 	{
 		APPL_DMA_LTE_Init_Stage++;
 	}
-	if (APPL_DMA_LTE_Init_Stage < 15)
+	if (APPL_DMA_LTE_Init_Stage < 10)
 	{
 		APPL_DMA_LTE_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
+	//	APPL_USB_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
 	}
 }
 
@@ -257,14 +270,16 @@ void APPL_DMA_LTE_SIM7000G_Error_Handel(void)
  ******************************************************************************/
 void APPL_DMA_LTE_LineProcess(void)
 {
+	uint8_t commandread[255];
 	// APPL_DMA_LTE_printf("Command = %s", APPL_DMA_RS48_Rx.buffer);
-	if (EKM_CMD_RXPeek(APPL_DMA_LTE_Buffer.buffer, 0x0A, APPL_DMA_LTE_Buffer.write) > 0)
+	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
 	{
-		// APPL_DMA_RS485_printf("Command = %s", APPL_DMA_LTE_Buffer.buffer);
-		if (EKM_CMD_LineProcess((char *)APPL_DMA_LTE_Buffer.buffer, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD_LINE_BAD_CMD)
+		APPL_USB_printf("Command = %s--", commandread);
+		if (EKM_CMD_LineProcess((char *)commandread, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD_LINE_BAD_CMD){
 			// APPL_DMA_LTE_printf("Command not found");
-			EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
+		}
 	}
+//	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
 }
 
 /*******************************************************************************
@@ -279,7 +294,8 @@ void APPL_DMA_LTE_LineProcess(void)
  ******************************************************************************/
 int APPL_DMA_LTE_OK(int argc, char *argv[])
 {
-	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
+	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage--;
+	APPL_USB_printf("APPL_DMA_LTE_Init_Stage = %d", APPL_DMA_LTE_Init_Stage);
 	return 0;
 }
 
@@ -295,6 +311,7 @@ int APPL_DMA_LTE_OK(int argc, char *argv[])
  ******************************************************************************/
 int APPL_DMA_LTE_Error(int argc, char *argv[])
 {
+	APPL_DMA_LTE_printf("AT+CPOWD=0\r\n");
 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
 	{
 		APPL_DMA_LTE_SIM7000G_ErrorCount++;
@@ -318,10 +335,28 @@ int APPL_DMA_LTE_APP(int argc, char *argv[])
 	{
 		if (strstr(argv[2], "DEACTIVE") != NULL)
 		{
+
 		}
 		else if (strstr(argv[2], "ACTIVE") != NULL)
 		{
+			
 		}
 	}
+	return 0;
+}
+
+/*******************************************************************************
+ * Function: APPL_DMA_LTE_PSUTTZ
+ *
+ * Parameters:      -
+ * Returned value:  -
+ *
+ * Description: *PSUTTZ: 22/06/12,14:45:24","+28"
+ *
+ * Calling:
+ ******************************************************************************/
+int APPL_DMA_LTE_PSUTTZ(int argc, char *argv[])
+{
+	
 	return 0;
 }

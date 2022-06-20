@@ -261,14 +261,8 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
   */
 static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 {
-  extern EKM_Buffer_t APPL_USB_Rx;
   /* USER CODE BEGIN 6 */
-  for (int i = 0; i < *Len; i++)
-  {
-    EKM_Buffer_Set(&APPL_USB_Rx, Buf[i]);
-  }
-  
-  HAL_UART_Transmit(&huart1, Buf, *Len, 10);
+  HAL_UART_Transmit(&huart1, Buf, *Len, 100);
 
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);

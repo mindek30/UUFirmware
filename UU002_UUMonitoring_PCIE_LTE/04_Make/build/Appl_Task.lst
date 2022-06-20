@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 1
   12:../01_Applcation/Appl_Task/Appl_Task.c **** #include <stdbool.h>
   13:../01_Applcation/Appl_Task/Appl_Task.c **** #include <string.h>
   14:../01_Applcation/Appl_Task/Appl_Task.c **** #include "main.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 2
 
 
   15:../01_Applcation/Appl_Task/Appl_Task.c **** #include "usart.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 1
   47              		.cfi_offset 14, -4
   61:../01_Applcation/Appl_Task/Appl_Task.c ****     APPL_USB_Init();
   48              		.loc 1 61 5 view .LVU1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 3
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 3
 
 
   49 0002 FFF7FEFF 		bl	APPL_USB_Init
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 1
   72:../01_Applcation/Appl_Task/Appl_Task.c ****  *
   73:../01_Applcation/Appl_Task/Appl_Task.c ****  * Parameters:      -
   74:../01_Applcation/Appl_Task/Appl_Task.c ****  * Returned value:  -
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 4
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 4
 
 
   75:../01_Applcation/Appl_Task/Appl_Task.c ****  *
@@ -238,403 +238,430 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 1
  129:../01_Applcation/Appl_Task/Appl_Task.c ****     {
  130:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
  131:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 5
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 5
 
 
  132:../01_Applcation/Appl_Task/Appl_Task.c ****     }
  133:../01_Applcation/Appl_Task/Appl_Task.c ****     case 10:
  134:../01_Applcation/Appl_Task/Appl_Task.c ****     {
  135:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 136:../01_Applcation/Appl_Task/Appl_Task.c ****         time_10ms = 0;
- 137:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
- 138:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 139:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 140:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 141:../01_Applcation/Appl_Task/Appl_Task.c **** }
- 142:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 143:../01_Applcation/Appl_Task/Appl_Task.c **** /*******************************************************************************
- 144:../01_Applcation/Appl_Task/Appl_Task.c ****  * Function: APPL_Task_10ms
- 145:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 146:../01_Applcation/Appl_Task/Appl_Task.c ****  * Parameters:      -
- 147:../01_Applcation/Appl_Task/Appl_Task.c ****  * Returned value:  -
+ 136:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_DMA_LTE_LineProcess();
+ 137:../01_Applcation/Appl_Task/Appl_Task.c ****         
+ 138:../01_Applcation/Appl_Task/Appl_Task.c ****         time_10ms = 0;
+ 139:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
+ 140:../01_Applcation/Appl_Task/Appl_Task.c ****         
+ 141:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 142:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 143:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 144:../01_Applcation/Appl_Task/Appl_Task.c **** }
+ 145:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 146:../01_Applcation/Appl_Task/Appl_Task.c **** /*******************************************************************************
+ 147:../01_Applcation/Appl_Task/Appl_Task.c ****  * Function: APPL_Task_10ms
  148:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 149:../01_Applcation/Appl_Task/Appl_Task.c ****  * Description:
- 150:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 151:../01_Applcation/Appl_Task/Appl_Task.c ****  * Calling:
- 152:../01_Applcation/Appl_Task/Appl_Task.c ****  ******************************************************************************/
- 153:../01_Applcation/Appl_Task/Appl_Task.c **** void APPL_Task_100ms(void)
- 154:../01_Applcation/Appl_Task/Appl_Task.c **** {
- 155:../01_Applcation/Appl_Task/Appl_Task.c ****     time_100ms++;
- 156:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
- 157:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 158:../01_Applcation/Appl_Task/Appl_Task.c ****     case 1:
- 159:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 160:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 161:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 162:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 163:../01_Applcation/Appl_Task/Appl_Task.c ****     case 2:
- 164:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 165:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 166:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 167:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 168:../01_Applcation/Appl_Task/Appl_Task.c ****     case 3:
- 169:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 170:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 171:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 172:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 173:../01_Applcation/Appl_Task/Appl_Task.c ****     case 4:
- 174:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 175:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 176:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 177:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 178:../01_Applcation/Appl_Task/Appl_Task.c ****     case 5:
- 179:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 180:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 181:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 182:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 183:../01_Applcation/Appl_Task/Appl_Task.c ****     case 6:
- 184:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 185:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 186:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 187:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 188:../01_Applcation/Appl_Task/Appl_Task.c ****     case 7:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 6
+ 149:../01_Applcation/Appl_Task/Appl_Task.c ****  * Parameters:      -
+ 150:../01_Applcation/Appl_Task/Appl_Task.c ****  * Returned value:  -
+ 151:../01_Applcation/Appl_Task/Appl_Task.c ****  *
+ 152:../01_Applcation/Appl_Task/Appl_Task.c ****  * Description:
+ 153:../01_Applcation/Appl_Task/Appl_Task.c ****  *
+ 154:../01_Applcation/Appl_Task/Appl_Task.c ****  * Calling:
+ 155:../01_Applcation/Appl_Task/Appl_Task.c ****  ******************************************************************************/
+ 156:../01_Applcation/Appl_Task/Appl_Task.c **** void APPL_Task_100ms(void)
+ 157:../01_Applcation/Appl_Task/Appl_Task.c **** {
+ 158:../01_Applcation/Appl_Task/Appl_Task.c ****     time_100ms++;
+ 159:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
+ 160:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 161:../01_Applcation/Appl_Task/Appl_Task.c ****     case 1:
+ 162:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 163:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 164:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_DMA_LTE_SIM7000G_Init();
+ 165:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 166:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 167:../01_Applcation/Appl_Task/Appl_Task.c ****     case 2:
+ 168:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 169:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 170:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 171:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 172:../01_Applcation/Appl_Task/Appl_Task.c ****     case 3:
+ 173:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 174:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 175:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 176:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 177:../01_Applcation/Appl_Task/Appl_Task.c ****     case 4:
+ 178:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 179:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 180:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 181:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 182:../01_Applcation/Appl_Task/Appl_Task.c ****     case 5:
+ 183:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 184:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 185:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 186:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 187:../01_Applcation/Appl_Task/Appl_Task.c ****     case 6:
+ 188:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 6
 
 
- 189:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 190:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 191:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 192:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 193:../01_Applcation/Appl_Task/Appl_Task.c ****     case 8:
- 194:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 195:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 196:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 197:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 198:../01_Applcation/Appl_Task/Appl_Task.c ****     case 9:
- 199:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 200:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 201:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 202:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 203:../01_Applcation/Appl_Task/Appl_Task.c ****     case 10:
- 204:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 205:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 206:../01_Applcation/Appl_Task/Appl_Task.c ****         time_100ms=0;
- 207:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
- 208:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 209:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 210:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 211:../01_Applcation/Appl_Task/Appl_Task.c **** }
- 212:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 213:../01_Applcation/Appl_Task/Appl_Task.c **** /*******************************************************************************
- 214:../01_Applcation/Appl_Task/Appl_Task.c ****  * Function: APPL_Task_1s
- 215:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 216:../01_Applcation/Appl_Task/Appl_Task.c ****  * Parameters:      -
- 217:../01_Applcation/Appl_Task/Appl_Task.c ****  * Returned value:  -
- 218:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 219:../01_Applcation/Appl_Task/Appl_Task.c ****  * Description:
- 220:../01_Applcation/Appl_Task/Appl_Task.c ****  *
- 221:../01_Applcation/Appl_Task/Appl_Task.c ****  * Calling:
- 222:../01_Applcation/Appl_Task/Appl_Task.c ****  ******************************************************************************/
- 223:../01_Applcation/Appl_Task/Appl_Task.c **** void APPL_Task_1s(void)
- 224:../01_Applcation/Appl_Task/Appl_Task.c **** {
-  95              		.loc 1 224 1 is_stmt 1 view -0
+ 189:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 190:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 191:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 192:../01_Applcation/Appl_Task/Appl_Task.c ****     case 7:
+ 193:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 194:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 195:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 196:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 197:../01_Applcation/Appl_Task/Appl_Task.c ****     case 8:
+ 198:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 199:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 200:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 201:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 202:../01_Applcation/Appl_Task/Appl_Task.c ****     case 9:
+ 203:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 204:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 205:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 206:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 207:../01_Applcation/Appl_Task/Appl_Task.c ****     case 10:
+ 208:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 209:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 210:../01_Applcation/Appl_Task/Appl_Task.c ****         time_100ms=0;
+ 211:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
+ 212:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 213:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 214:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 215:../01_Applcation/Appl_Task/Appl_Task.c **** }
+ 216:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 217:../01_Applcation/Appl_Task/Appl_Task.c **** /*******************************************************************************
+ 218:../01_Applcation/Appl_Task/Appl_Task.c ****  * Function: APPL_Task_1s
+ 219:../01_Applcation/Appl_Task/Appl_Task.c ****  *
+ 220:../01_Applcation/Appl_Task/Appl_Task.c ****  * Parameters:      -
+ 221:../01_Applcation/Appl_Task/Appl_Task.c ****  * Returned value:  -
+ 222:../01_Applcation/Appl_Task/Appl_Task.c ****  *
+ 223:../01_Applcation/Appl_Task/Appl_Task.c ****  * Description:
+ 224:../01_Applcation/Appl_Task/Appl_Task.c ****  *
+ 225:../01_Applcation/Appl_Task/Appl_Task.c ****  * Calling:
+ 226:../01_Applcation/Appl_Task/Appl_Task.c ****  ******************************************************************************/
+ 227:../01_Applcation/Appl_Task/Appl_Task.c **** void APPL_Task_1s(void)
+ 228:../01_Applcation/Appl_Task/Appl_Task.c **** {
+  95              		.loc 1 228 1 is_stmt 1 view -0
   96              		.cfi_startproc
   97              		@ args = 0, pretend = 0, frame = 0
   98              		@ frame_needed = 0, uses_anonymous_args = 0
-  99              		@ link register save eliminated.
- 225:../01_Applcation/Appl_Task/Appl_Task.c ****     time_1s++;
- 100              		.loc 1 225 5 view .LVU10
- 101              		.loc 1 225 12 is_stmt 0 view .LVU11
- 102 0000 054A     		ldr	r2, .L8
- 103 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 104 0004 0133     		adds	r3, r3, #1
- 105 0006 DBB2     		uxtb	r3, r3
- 106 0008 1370     		strb	r3, [r2]
- 226:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_1s)
- 107              		.loc 1 226 5 is_stmt 1 view .LVU12
- 108 000a 0A2B     		cmp	r3, #10
- 109 000c 00D0     		beq	.L7
- 110              	.L5:
- 227:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 228:../01_Applcation/Appl_Task/Appl_Task.c ****     case 1:
- 229:../01_Applcation/Appl_Task/Appl_Task.c ****     {
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 7
+  99 0000 08B5     		push	{r3, lr}
+ 100              	.LCFI1:
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 3, -8
+ 103              		.cfi_offset 14, -4
+ 229:../01_Applcation/Appl_Task/Appl_Task.c ****     time_1s++;
+ 104              		.loc 1 229 5 view .LVU10
+ 105              		.loc 1 229 12 is_stmt 0 view .LVU11
+ 106 0002 074A     		ldr	r2, .L9
+ 107 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 108 0006 0133     		adds	r3, r3, #1
+ 109 0008 DBB2     		uxtb	r3, r3
+ 110 000a 1370     		strb	r3, [r2]
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 7
 
 
- 230:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 231:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 232:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 233:../01_Applcation/Appl_Task/Appl_Task.c ****     case 2:
- 234:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 235:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 236:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 237:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 238:../01_Applcation/Appl_Task/Appl_Task.c ****     case 3:
- 239:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 240:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 241:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 242:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 243:../01_Applcation/Appl_Task/Appl_Task.c ****     case 4:
- 244:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 245:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 246:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 247:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 248:../01_Applcation/Appl_Task/Appl_Task.c ****     case 5:
- 249:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 250:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 251:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 252:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 253:../01_Applcation/Appl_Task/Appl_Task.c ****     case 6:
- 254:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 255:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 256:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 257:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 258:../01_Applcation/Appl_Task/Appl_Task.c ****     case 7:
- 259:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 260:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 261:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 262:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 263:../01_Applcation/Appl_Task/Appl_Task.c ****     case 8:
- 264:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 265:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 266:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 267:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 268:../01_Applcation/Appl_Task/Appl_Task.c ****     case 9:
- 269:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 270:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 271:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 272:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 273:../01_Applcation/Appl_Task/Appl_Task.c ****     case 10:
- 274:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 275:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
- 276:../01_Applcation/Appl_Task/Appl_Task.c ****         time_1s = 0;
- 277:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 278:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 279:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 280:../01_Applcation/Appl_Task/Appl_Task.c **** }
- 111              		.loc 1 280 1 is_stmt 0 view .LVU13
- 112 000e 7047     		bx	lr
- 113              	.L7:
- 276:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 114              		.loc 1 276 9 is_stmt 1 view .LVU14
- 276:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 8
+ 230:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_1s)
+ 111              		.loc 1 230 5 is_stmt 1 view .LVU12
+ 112 000c 3C2B     		cmp	r3, #60
+ 113 000e 00D0     		beq	.L8
+ 114              	.L5:
+ 231:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 232:../01_Applcation/Appl_Task/Appl_Task.c ****     case 1:
+ 233:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 234:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 235:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 236:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 237:../01_Applcation/Appl_Task/Appl_Task.c ****     case 2:
+ 238:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 239:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 240:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 241:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 242:../01_Applcation/Appl_Task/Appl_Task.c ****     case 3:
+ 243:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 244:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 245:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 246:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 247:../01_Applcation/Appl_Task/Appl_Task.c ****     case 4:
+ 248:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 249:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 250:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 251:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 252:../01_Applcation/Appl_Task/Appl_Task.c ****     case 5:
+ 253:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 254:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 255:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 256:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 257:../01_Applcation/Appl_Task/Appl_Task.c ****     case 6:
+ 258:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 259:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 260:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 261:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 262:../01_Applcation/Appl_Task/Appl_Task.c ****     case 7:
+ 263:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 264:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 265:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 266:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 267:../01_Applcation/Appl_Task/Appl_Task.c ****     case 8:
+ 268:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 269:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 270:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 271:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 272:../01_Applcation/Appl_Task/Appl_Task.c ****     case 9:
+ 273:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 274:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 275:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 276:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 277:../01_Applcation/Appl_Task/Appl_Task.c ****     case 60:
+ 278:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 279:../01_Applcation/Appl_Task/Appl_Task.c ****         /* code */
+ 280:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Data_RS485_Send();
+ 281:../01_Applcation/Appl_Task/Appl_Task.c ****         time_1s = 0;
+ 282:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 8
 
 
- 115              		.loc 1 276 17 is_stmt 0 view .LVU15
- 116 0010 1346     		mov	r3, r2
- 117 0012 0022     		movs	r2, #0
- 118 0014 1A70     		strb	r2, [r3]
- 277:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 119              		.loc 1 277 9 is_stmt 1 view .LVU16
- 120              		.loc 1 280 1 is_stmt 0 view .LVU17
- 121 0016 FAE7     		b	.L5
- 122              	.L9:
- 123              		.align	2
- 124              	.L8:
- 125 0018 00000000 		.word	.LANCHOR0
- 126              		.cfi_endproc
- 127              	.LFE294:
- 129              		.section	.text.APPL_Task_100ms,"ax",%progbits
- 130              		.align	1
- 131              		.global	APPL_Task_100ms
- 132              		.syntax unified
- 133              		.thumb
- 134              		.thumb_func
- 136              	APPL_Task_100ms:
- 137              	.LFB293:
- 154:../01_Applcation/Appl_Task/Appl_Task.c ****     time_100ms++;
- 138              		.loc 1 154 1 is_stmt 1 view -0
- 139              		.cfi_startproc
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142 0000 08B5     		push	{r3, lr}
- 143              	.LCFI1:
- 144              		.cfi_def_cfa_offset 8
- 145              		.cfi_offset 3, -8
- 146              		.cfi_offset 14, -4
- 155:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
- 147              		.loc 1 155 5 view .LVU19
- 155:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
- 148              		.loc 1 155 15 is_stmt 0 view .LVU20
- 149 0002 074A     		ldr	r2, .L14
- 150 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 151 0006 0133     		adds	r3, r3, #1
- 152 0008 DBB2     		uxtb	r3, r3
- 153 000a 1370     		strb	r3, [r2]
- 156:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 154              		.loc 1 156 5 is_stmt 1 view .LVU21
- 155 000c 0A2B     		cmp	r3, #10
- 156 000e 00D0     		beq	.L13
- 157              	.L10:
- 211:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 158              		.loc 1 211 1 is_stmt 0 view .LVU22
- 159 0010 08BD     		pop	{r3, pc}
- 160              	.L13:
- 206:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
- 161              		.loc 1 206 9 is_stmt 1 view .LVU23
- 206:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
- 162              		.loc 1 206 19 is_stmt 0 view .LVU24
- 163 0012 1346     		mov	r3, r2
- 164 0014 0022     		movs	r2, #0
- 165 0016 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 9
+ 283:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 284:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 285:../01_Applcation/Appl_Task/Appl_Task.c **** }
+ 115              		.loc 1 285 1 is_stmt 0 view .LVU13
+ 116 0010 08BD     		pop	{r3, pc}
+ 117              	.L8:
+ 280:../01_Applcation/Appl_Task/Appl_Task.c ****         time_1s = 0;
+ 118              		.loc 1 280 9 is_stmt 1 view .LVU14
+ 119 0012 FFF7FEFF 		bl	APPL_Data_RS485_Send
+ 120              	.LVL7:
+ 281:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 121              		.loc 1 281 9 view .LVU15
+ 281:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 122              		.loc 1 281 17 is_stmt 0 view .LVU16
+ 123 0016 024B     		ldr	r3, .L9
+ 124 0018 0022     		movs	r2, #0
+ 125 001a 1A70     		strb	r2, [r3]
+ 282:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 126              		.loc 1 282 9 is_stmt 1 view .LVU17
+ 127              		.loc 1 285 1 is_stmt 0 view .LVU18
+ 128 001c F8E7     		b	.L5
+ 129              	.L10:
+ 130 001e 00BF     		.align	2
+ 131              	.L9:
+ 132 0020 00000000 		.word	.LANCHOR0
+ 133              		.cfi_endproc
+ 134              	.LFE294:
+ 136              		.section	.text.APPL_Task_100ms,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	APPL_Task_100ms
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 143              	APPL_Task_100ms:
+ 144              	.LFB293:
+ 157:../01_Applcation/Appl_Task/Appl_Task.c ****     time_100ms++;
+ 145              		.loc 1 157 1 is_stmt 1 view -0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149 0000 08B5     		push	{r3, lr}
+ 150              	.LCFI2:
+ 151              		.cfi_def_cfa_offset 8
+ 152              		.cfi_offset 3, -8
+ 153              		.cfi_offset 14, -4
+ 158:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
+ 154              		.loc 1 158 5 view .LVU20
+ 158:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_100ms)
+ 155              		.loc 1 158 15 is_stmt 0 view .LVU21
+ 156 0002 094A     		ldr	r2, .L16
+ 157 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 158 0006 0133     		adds	r3, r3, #1
+ 159 0008 DBB2     		uxtb	r3, r3
+ 160 000a 1370     		strb	r3, [r2]
+ 159:../01_Applcation/Appl_Task/Appl_Task.c ****     {
+ 161              		.loc 1 159 5 is_stmt 1 view .LVU22
+ 162 000c 012B     		cmp	r3, #1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 9
 
 
- 207:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 166              		.loc 1 207 9 is_stmt 1 view .LVU25
- 167 0018 FFF7FEFF 		bl	APPL_Task_1s
- 168              	.LVL7:
- 208:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 169              		.loc 1 208 9 view .LVU26
- 211:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 170              		.loc 1 211 1 is_stmt 0 view .LVU27
- 171 001c F8E7     		b	.L10
- 172              	.L15:
- 173 001e 00BF     		.align	2
- 174              	.L14:
- 175 0020 00000000 		.word	.LANCHOR1
- 176              		.cfi_endproc
- 177              	.LFE293:
- 179              		.section	.text.APPL_Task_10ms,"ax",%progbits
- 180              		.align	1
- 181              		.global	APPL_Task_10ms
- 182              		.syntax unified
- 183              		.thumb
- 184              		.thumb_func
- 186              	APPL_Task_10ms:
- 187              	.LFB292:
+ 163 000e 02D0     		beq	.L12
+ 164 0010 0A2B     		cmp	r3, #10
+ 165 0012 03D0     		beq	.L13
+ 166              	.L11:
+ 215:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 167              		.loc 1 215 1 is_stmt 0 view .LVU23
+ 168 0014 08BD     		pop	{r3, pc}
+ 169              	.L12:
+ 164:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 170              		.loc 1 164 9 is_stmt 1 view .LVU24
+ 171 0016 FFF7FEFF 		bl	APPL_DMA_LTE_SIM7000G_Init
+ 172              	.LVL8:
+ 165:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 173              		.loc 1 165 9 view .LVU25
+ 174 001a FBE7     		b	.L11
+ 175              	.L13:
+ 210:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
+ 176              		.loc 1 210 9 view .LVU26
+ 210:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_1s();
+ 177              		.loc 1 210 19 is_stmt 0 view .LVU27
+ 178 001c 024B     		ldr	r3, .L16
+ 179 001e 0022     		movs	r2, #0
+ 180 0020 1A70     		strb	r2, [r3]
+ 211:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
+ 181              		.loc 1 211 9 is_stmt 1 view .LVU28
+ 182 0022 FFF7FEFF 		bl	APPL_Task_1s
+ 183              	.LVL9:
+ 212:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 184              		.loc 1 212 9 view .LVU29
+ 215:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 185              		.loc 1 215 1 is_stmt 0 view .LVU30
+ 186 0026 F5E7     		b	.L11
+ 187              	.L17:
+ 188              		.align	2
+ 189              	.L16:
+ 190 0028 00000000 		.word	.LANCHOR1
+ 191              		.cfi_endproc
+ 192              	.LFE293:
+ 194              		.section	.text.APPL_Task_10ms,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	APPL_Task_10ms
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 201              	APPL_Task_10ms:
+ 202              	.LFB292:
   81:../01_Applcation/Appl_Task/Appl_Task.c ****     time_10ms++;
- 188              		.loc 1 81 1 is_stmt 1 view -0
- 189              		.cfi_startproc
- 190              		@ args = 0, pretend = 0, frame = 0
- 191              		@ frame_needed = 0, uses_anonymous_args = 0
- 192 0000 10B5     		push	{r4, lr}
- 193              	.LCFI2:
- 194              		.cfi_def_cfa_offset 8
- 195              		.cfi_offset 4, -8
- 196              		.cfi_offset 14, -4
+ 203              		.loc 1 81 1 is_stmt 1 view -0
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207 0000 10B5     		push	{r4, lr}
+ 208              	.LCFI3:
+ 209              		.cfi_def_cfa_offset 8
+ 210              		.cfi_offset 4, -8
+ 211              		.cfi_offset 14, -4
   82:../01_Applcation/Appl_Task/Appl_Task.c ****     APPL_USB_LineProcess();
- 197              		.loc 1 82 5 view .LVU29
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 10
+
+
+ 212              		.loc 1 82 5 view .LVU32
   82:../01_Applcation/Appl_Task/Appl_Task.c ****     APPL_USB_LineProcess();
- 198              		.loc 1 82 14 is_stmt 0 view .LVU30
- 199 0002 0E4C     		ldr	r4, .L22
- 200 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 201 0006 0133     		adds	r3, r3, #1
- 202 0008 2370     		strb	r3, [r4]
+ 213              		.loc 1 82 14 is_stmt 0 view .LVU33
+ 214 0002 0F4C     		ldr	r4, .L24
+ 215 0004 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 216 0006 0133     		adds	r3, r3, #1
+ 217 0008 2370     		strb	r3, [r4]
   83:../01_Applcation/Appl_Task/Appl_Task.c ****     switch (time_10ms)
- 203              		.loc 1 83 5 is_stmt 1 view .LVU31
- 204 000a FFF7FEFF 		bl	APPL_USB_LineProcess
- 205              	.LVL8:
+ 218              		.loc 1 83 5 is_stmt 1 view .LVU34
+ 219 000a FFF7FEFF 		bl	APPL_USB_LineProcess
+ 220              	.LVL10:
   84:../01_Applcation/Appl_Task/Appl_Task.c ****     {
- 206              		.loc 1 84 5 view .LVU32
- 207 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 208 0010 022B     		cmp	r3, #2
- 209 0012 09D0     		beq	.L17
- 210 0014 0A2B     		cmp	r3, #10
- 211 0016 0AD0     		beq	.L18
- 212 0018 012B     		cmp	r3, #1
- 213 001a 00D0     		beq	.L21
- 214              	.L16:
- 141:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 215              		.loc 1 141 1 is_stmt 0 view .LVU33
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 10
-
-
- 216 001c 10BD     		pop	{r4, pc}
- 217              	.L21:
+ 221              		.loc 1 84 5 view .LVU35
+ 222 000e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 223 0010 022B     		cmp	r3, #2
+ 224 0012 09D0     		beq	.L19
+ 225 0014 0A2B     		cmp	r3, #10
+ 226 0016 0AD0     		beq	.L20
+ 227 0018 012B     		cmp	r3, #1
+ 228 001a 00D0     		beq	.L23
+ 229              	.L18:
+ 144:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 230              		.loc 1 144 1 is_stmt 0 view .LVU36
+ 231 001c 10BD     		pop	{r4, pc}
+ 232              	.L23:
   89:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 218              		.loc 1 89 9 is_stmt 1 view .LVU34
- 219 001e 0221     		movs	r1, #2
- 220 0020 0748     		ldr	r0, .L22+4
- 221 0022 FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 222              	.LVL9:
+ 233              		.loc 1 89 9 is_stmt 1 view .LVU37
+ 234 001e 0221     		movs	r1, #2
+ 235 0020 0848     		ldr	r0, .L24+4
+ 236 0022 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 237              	.LVL11:
   90:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 223              		.loc 1 90 9 view .LVU35
- 224 0026 F9E7     		b	.L16
- 225              	.L17:
+ 238              		.loc 1 90 9 view .LVU38
+ 239 0026 F9E7     		b	.L18
+ 240              	.L19:
   95:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 226              		.loc 1 95 9 view .LVU36
- 227 0028 FFF7FEFF 		bl	APPL_Data_MODBUS_Task
- 228              	.LVL10:
+ 241              		.loc 1 95 9 view .LVU39
+ 242 0028 FFF7FEFF 		bl	APPL_Data_MODBUS_Task
+ 243              	.LVL12:
   96:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 229              		.loc 1 96 9 view .LVU37
- 230 002c F6E7     		b	.L16
- 231              	.L18:
- 136:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
- 232              		.loc 1 136 9 view .LVU38
- 136:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
- 233              		.loc 1 136 19 is_stmt 0 view .LVU39
- 234 002e 034B     		ldr	r3, .L22
- 235 0030 0022     		movs	r2, #0
- 236 0032 1A70     		strb	r2, [r3]
- 137:../01_Applcation/Appl_Task/Appl_Task.c ****         break;
- 237              		.loc 1 137 9 is_stmt 1 view .LVU40
- 238 0034 FFF7FEFF 		bl	APPL_Task_100ms
- 239              	.LVL11:
- 138:../01_Applcation/Appl_Task/Appl_Task.c ****     }
- 240              		.loc 1 138 9 view .LVU41
- 141:../01_Applcation/Appl_Task/Appl_Task.c **** 
- 241              		.loc 1 141 1 is_stmt 0 view .LVU42
- 242 0038 F0E7     		b	.L16
- 243              	.L23:
- 244 003a 00BF     		.align	2
- 245              	.L22:
- 246 003c 00000000 		.word	.LANCHOR2
- 247 0040 00040048 		.word	1207960576
- 248              		.cfi_endproc
- 249              	.LFE292:
- 251              		.global	time_1s
- 252              		.global	time_100ms
- 253              		.global	time_10ms
- 254              		.section	.bss.time_100ms,"aw",%nobits
- 255              		.set	.LANCHOR1,. + 0
- 258              	time_100ms:
- 259 0000 00       		.space	1
- 260              		.section	.bss.time_10ms,"aw",%nobits
- 261              		.set	.LANCHOR2,. + 0
- 264              	time_10ms:
- 265 0000 00       		.space	1
- 266              		.section	.bss.time_1s,"aw",%nobits
- 267              		.set	.LANCHOR0,. + 0
- 270              	time_1s:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 11
+ 244              		.loc 1 96 9 view .LVU40
+ 245 002c F6E7     		b	.L18
+ 246              	.L20:
+ 136:../01_Applcation/Appl_Task/Appl_Task.c ****         
+ 247              		.loc 1 136 9 view .LVU41
+ 248 002e FFF7FEFF 		bl	APPL_DMA_LTE_LineProcess
+ 249              	.LVL13:
+ 138:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
+ 250              		.loc 1 138 9 view .LVU42
+ 138:../01_Applcation/Appl_Task/Appl_Task.c ****         APPL_Task_100ms();
+ 251              		.loc 1 138 19 is_stmt 0 view .LVU43
+ 252 0032 034B     		ldr	r3, .L24
+ 253 0034 0022     		movs	r2, #0
+ 254 0036 1A70     		strb	r2, [r3]
+ 139:../01_Applcation/Appl_Task/Appl_Task.c ****         
+ 255              		.loc 1 139 9 is_stmt 1 view .LVU44
+ 256 0038 FFF7FEFF 		bl	APPL_Task_100ms
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 11
 
 
- 271 0000 00       		.space	1
- 272              		.text
- 273              	.Letext0:
- 274              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
- 275              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
- 276              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
- 277              		.file 5 "../01_Applcation/Appl_USBService/Appl_USBService.h"
- 278              		.file 6 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 279              		.file 7 "../01_Applcation/Appl_Data/Appl_Data.h"
- 280              		.file 8 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s 			page 12
+ 257              	.LVL14:
+ 141:../01_Applcation/Appl_Task/Appl_Task.c ****     }
+ 258              		.loc 1 141 9 view .LVU45
+ 144:../01_Applcation/Appl_Task/Appl_Task.c **** 
+ 259              		.loc 1 144 1 is_stmt 0 view .LVU46
+ 260 003c EEE7     		b	.L18
+ 261              	.L25:
+ 262 003e 00BF     		.align	2
+ 263              	.L24:
+ 264 0040 00000000 		.word	.LANCHOR2
+ 265 0044 00040048 		.word	1207960576
+ 266              		.cfi_endproc
+ 267              	.LFE292:
+ 269              		.global	time_1s
+ 270              		.global	time_100ms
+ 271              		.global	time_10ms
+ 272              		.section	.bss.time_100ms,"aw",%nobits
+ 273              		.set	.LANCHOR1,. + 0
+ 276              	time_100ms:
+ 277 0000 00       		.space	1
+ 278              		.section	.bss.time_10ms,"aw",%nobits
+ 279              		.set	.LANCHOR2,. + 0
+ 282              	time_10ms:
+ 283 0000 00       		.space	1
+ 284              		.section	.bss.time_1s,"aw",%nobits
+ 285              		.set	.LANCHOR0,. + 0
+ 288              	time_1s:
+ 289 0000 00       		.space	1
+ 290              		.text
+ 291              	.Letext0:
+ 292              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 293              		.file 3 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 294              		.file 4 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 295              		.file 5 "../01_Applcation/Appl_Data/Appl_Data.h"
+ 296              		.file 6 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h"
+ 297              		.file 7 "../01_Applcation/Appl_USBService/Appl_USBService.h"
+ 298              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccuaTphH.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 Appl_Task.c
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:20     .rodata.APPL_Task_Init.str1.4:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:30     .text.APPL_Task_Init:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:36     .text.APPL_Task_Init:00000000 APPL_Task_Init
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:80     .text.APPL_Task_Init:00000030 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:87     .text.APPL_Task_1s:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:93     .text.APPL_Task_1s:00000000 APPL_Task_1s
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:125    .text.APPL_Task_1s:00000018 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:130    .text.APPL_Task_100ms:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:136    .text.APPL_Task_100ms:00000000 APPL_Task_100ms
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:175    .text.APPL_Task_100ms:00000020 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:180    .text.APPL_Task_10ms:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:186    .text.APPL_Task_10ms:00000000 APPL_Task_10ms
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:246    .text.APPL_Task_10ms:0000003c $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:270    .bss.time_1s:00000000 time_1s
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:258    .bss.time_100ms:00000000 time_100ms
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:264    .bss.time_10ms:00000000 time_10ms
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:259    .bss.time_100ms:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:265    .bss.time_10ms:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccpMYiSS.s:271    .bss.time_1s:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:20     .rodata.APPL_Task_Init.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:30     .text.APPL_Task_Init:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:36     .text.APPL_Task_Init:00000000 APPL_Task_Init
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:80     .text.APPL_Task_Init:00000030 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:87     .text.APPL_Task_1s:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:93     .text.APPL_Task_1s:00000000 APPL_Task_1s
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:132    .text.APPL_Task_1s:00000020 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:137    .text.APPL_Task_100ms:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:143    .text.APPL_Task_100ms:00000000 APPL_Task_100ms
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:190    .text.APPL_Task_100ms:00000028 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:195    .text.APPL_Task_10ms:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:201    .text.APPL_Task_10ms:00000000 APPL_Task_10ms
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:264    .text.APPL_Task_10ms:00000040 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:288    .bss.time_1s:00000000 time_1s
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:276    .bss.time_100ms:00000000 time_100ms
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:282    .bss.time_10ms:00000000 time_10ms
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:277    .bss.time_100ms:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:283    .bss.time_10ms:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccuaTphH.s:289    .bss.time_1s:00000000 $d
 
 UNDEFINED SYMBOLS
 APPL_USB_Init
@@ -642,6 +669,9 @@ APPL_USB_printf
 APPL_Data_Init
 APPL_DMA_LTE_Init
 HAL_GPIO_WritePin
+APPL_Data_RS485_Send
+APPL_DMA_LTE_SIM7000G_Init
 APPL_USB_LineProcess
 HAL_GPIO_TogglePin
 APPL_Data_MODBUS_Task
+APPL_DMA_LTE_LineProcess

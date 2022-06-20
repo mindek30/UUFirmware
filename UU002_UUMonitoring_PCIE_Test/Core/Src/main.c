@@ -56,11 +56,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-EKM_Buffer_t APPL_USB_Rx;
-uint8_t APPL_USB_Rx_SerialBuffer[APPL_BUFFER_MAX];
-
-EKM_Buffer_t APPL_DMA_LTE_Buffer;
-uint8_t APPL_DMA_LTE_Buffer_d[APPL_BUFFER_MAX];
+uint8_t APPL_DMA_LTE_Buffer[APPL_BUFFER_MAX];
+uint16_t APPL_DMA_LTE_Buffer_Pointer;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,8 +81,8 @@ void SystemClock_Config(void);
 void APPL_DMA_LTE_printf(const char *format, ...)
 {
   // there was an error reading.
-  uint8_t SerialBuffer[100];
-  memset(SerialBuffer, 0, 100);
+  uint8_t SerialBuffer[APPL_BUFFER_MAX];
+  memset(SerialBuffer, 0, APPL_BUFFER_MAX);
   va_list args;
   va_start(args, format);
   vsprintf((char *)SerialBuffer, format, args);
@@ -107,8 +104,8 @@ void APPL_DMA_LTE_printf(const char *format, ...)
 void APPL_USB_printf(const char *format, ...)
 {
   // there was an error reading.
-  uint8_t SerialBuffer[100];
-  memset(SerialBuffer, 0, 100);
+  uint8_t SerialBuffer[APPL_BUFFER_MAX];
+  memset(SerialBuffer, 0, APPL_BUFFER_MAX);
   va_list args;
   va_start(args, format);
   vsprintf((char *)SerialBuffer, format, args);
@@ -153,11 +150,11 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  // APPL_DMA_LTE_Init();
-  HAL_GPIO_WritePin(USART1_EN_GPIO_Port, USART1_EN_Pin, GPIO_PIN_RESET);
-  EKM_Buffer_Setup(&APPL_USB_Rx, APPL_BUFFER_MAX, APPL_USB_Rx_SerialBuffer);
-  EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
+  HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
+  HAL_Delay(15000);
+  HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
   HAL_GPIO_WritePin(USART1_EN_GPIO_Port, USART1_EN_Pin, GPIO_PIN_SET);
+  APPL_USB_printf("Uart Setup\r\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -166,11 +163,12 @@ int main(void)
   {
     /* USER CODE END WHILE */
     HAL_GPIO_TogglePin(LED_STATUS_GPIO_Port, LED_STATUS_Pin);
-    HAL_Delay(50);
-    if (APPL_DMA_LTE_Buffer.write > 0)
+    HAL_Delay(100);
+    if (APPL_DMA_LTE_Buffer_Pointer > 0)
     {
-      APPL_USB_printf("%s", APPL_DMA_LTE_Buffer.buffer);
-      EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
+      APPL_USB_printf("%s", APPL_DMA_LTE_Buffer);
+      memset(APPL_DMA_LTE_Buffer, 0, APPL_DMA_LTE_Buffer_Pointer);
+      APPL_DMA_LTE_Buffer_Pointer = 0;
     }
     // APPL_USB_printf("Hello");
     /* USER CODE BEGIN 3 */

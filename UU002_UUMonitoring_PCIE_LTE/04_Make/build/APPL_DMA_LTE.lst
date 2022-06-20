@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.APPL_DMA_LTE_OK,"ax",%progbits
+  19              		.section	.text.APPL_DMA_LTE_PSUTTZ,"ax",%progbits
   20              		.align	1
-  21              		.global	APPL_DMA_LTE_OK
+  21              		.global	APPL_DMA_LTE_PSUTTZ
   22              		.syntax unified
   23              		.thumb
   24              		.thumb_func
-  26              	APPL_DMA_LTE_OK:
+  26              	APPL_DMA_LTE_PSUTTZ:
   27              	.LVL0:
-  28              	.LFB298:
+  28              	.LFB301:
   29              		.file 1 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c"
    1:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*
    2:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * APPL_DMA_LTE.c
@@ -48,1476 +48,1689 @@ ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 1
   17:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #include "EKM_Buffer.h"
   18:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #include "APPL_DMA_LTE.h"
   19:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #include "Appl_Data.h"
-  20:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  21:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
-  22:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  23:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * DEFINE
-  24:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  25:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
-  26:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  27:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #define APPL_DMA_LTE_BUFFER_MAX 128
-  28:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  29:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //! Structure for an entry in the command list table.
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 2
+  20:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #include "Appl_USBService.h"
+  21:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  22:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+  23:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  24:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * DEFINE
+  25:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  26:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+  27:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  28:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** #define APPL_DMA_LTE_BUFFER_MAX 128
+  29:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 2
 
 
-  30:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  31:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //*****************************************************************************
-  32:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  33:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** // Prototypes for the APIs.
-  34:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  35:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //*****************************************************************************
-  36:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  37:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
-  38:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  39:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * PRIVATE VARIABLE
-  40:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  41:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
-  42:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  43:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint16_t APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
-  44:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint16_t APPL_DMA_LTE_TimemerCount = 0;
-  45:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  46:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_MQTT_ONLINE = 0;
-  47:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  48:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint8_t APPL_DMA_LTE_Init_Stage = 0;
-  49:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** APPL_DMA_LTE_t APPL_DMA_LTE_Step_Init[15];
-  50:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  51:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint8_t APPL_DMA_LTE_Buffer_d[APPL_DMA_LTE_BUFFER_MAX];
-  52:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_Buffer_t APPL_DMA_LTE_Buffer;
-  53:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  54:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_Init(void);
-  55:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Init(void);
-  56:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_printf(const char *format, ...);
-  57:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH_Raw(const char *MQTT_Topic, uint8_t *data, uint8_t len);
-  58:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...);
-  59:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_LineProcess(void);
-  60:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Error_Handel(void);
-  61:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  62:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_OK;
-  63:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_Error;
-  64:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_APP;
-  65:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_PAPP;
-  66:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  67:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_OK(int argc, char *argv[]);
-  68:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_Error(int argc, char *argv[]);
-  69:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_APP(int argc, char *argv[]);
-  70:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  71:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
-  72:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_Init
-  73:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  74:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
-  75:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
-  76:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  77:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+  30:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //! Structure for an entry in the command list table.
+  31:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  32:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //*****************************************************************************
+  33:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  34:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** // Prototypes for the APIs.
+  35:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  36:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //*****************************************************************************
+  37:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  38:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+  39:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  40:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * PRIVATE VARIABLE
+  41:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  42:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+  43:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  44:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint16_t APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
+  45:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint16_t APPL_DMA_LTE_TimemerCount = 0;
+  46:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  47:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_MQTT_ONLINE = 0;
+  48:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  49:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint8_t APPL_DMA_LTE_Init_Stage = 0;
+  50:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** APPL_DMA_LTE_t APPL_DMA_LTE_Step_Init[15];
+  51:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  52:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** uint8_t APPL_DMA_LTE_Buffer_d[APPL_DMA_LTE_BUFFER_MAX];
+  53:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_Buffer_t APPL_DMA_LTE_Buffer;
+  54:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  55:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_Init(void);
+  56:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Init(void);
+  57:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_printf(const char *format, ...);
+  58:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH_Raw(const char *MQTT_Topic, uint8_t *data, uint8_t len);
+  59:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...);
+  60:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_LineProcess(void);
+  61:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Error_Handel(void);
+  62:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  63:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_OK;
+  64:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_PSUTTZ;
+  65:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_Error;
+  66:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** EKM_CMD_tCmdLineEntry APPL_DMA_LTE_CMD_APP;
+  67:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  68:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_OK(int argc, char *argv[]);
+  69:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_PSUTTZ(int argc, char *argv[]);
+  70:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_Error(int argc, char *argv[]);
+  71:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_APP(int argc, char *argv[]);
+  72:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  73:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+  74:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_Init
+  75:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  76:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+  77:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
   78:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-  79:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
-  80:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
-  81:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_Init(void)
-  82:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
-  83:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 0;
-  84:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
-  85:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
-  86:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 3
+  79:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+  80:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+  81:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+  82:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+  83:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_Init(void)
+  84:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+  85:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 0;
+  86:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 3
 
 
-  87:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  88:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "ok";
-  89:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
-  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
-  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = (void *)0;
-  92:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_data.deviceID = 0;
+  87:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
+  88:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
+  89:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "OK";
+  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
+  92:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
+  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = &APPL_DMA_LTE_CMD_PSUTTZ;
   94:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Command = "ATE0\r\n";
-  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
-  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
-  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
-  99:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
- 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
- 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
- 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
- 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
- 104:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
- 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
+  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcCmd = "*PSUTTZ:";
+  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcHelp = "Turn On Init";
+  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pfnCmd = &APPL_DMA_LTE_PSUTTZ;
+  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.next = &APPL_DMA_LTE_CMD_Error;
+  99:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcCmd = "ERROR";
+ 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcHelp = "ERROR";
+ 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pfnCmd = &APPL_DMA_LTE_Error;
+ 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.next = (void *)0;
+ 104:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	//*PSUTTZ:
+ 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_data.deviceID = 0;
  106:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 1;
- 108:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
- 110:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Step_Init[i].Return_Stage = 1;
- 112:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Return_Stage = 2;
- 114:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 115:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 116:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 117:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_printString
- 118:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 119:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 120:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 122:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 123:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 124:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 125:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 126:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*void APPL_DMA_LTE_printString(const uint8_t myString[]) {
- 127:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t i = 0;
- 128:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (myString[i]) {
- 129:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		while (!(REG_USART0_CSR & US_CSR_TXRDY));
- 130:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		while (!(REG_USART0_CSR & US_CSR_TXEMPTY));
- 131:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		REG_USART0_THR |=myString[i];
- 132:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		i++;
- 133:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 134:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 135:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** */
- 136:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 137:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_printf
- 138:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 139:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 140:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 141:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 142:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 143:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 4
+ 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Command = "ATE0\r\n";
+ 108:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
+ 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
+ 110:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
+ 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
+ 112:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
+ 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
+ 114:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
+ 115:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
+ 116:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
+ 117:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
+ 118:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 119:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 1;
+ 120:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 122:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 123:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Step_Init[i].Return_Stage = 1;
+ 124:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 125:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Return_Stage = 2;
+ 126:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 127:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 128:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 129:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_printString
+ 130:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 131:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 132:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 133:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 134:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 135:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 136:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 137:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 138:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*void APPL_DMA_LTE_printString(const uint8_t myString[]) {
+ 139:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t i = 0;
+ 140:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (myString[i]) {
+ 141:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		while (!(REG_USART0_CSR & US_CSR_TXRDY));
+ 142:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		while (!(REG_USART0_CSR & US_CSR_TXEMPTY));
+ 143:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		REG_USART0_THR |=myString[i];
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 4
 
 
- 144:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 145:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 146:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_printf(const char *format, ...)
- 147:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 148:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// there was an error reading.
- 149:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t SerialBuffer[255];
- 150:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	memset(SerialBuffer, 0, 255);
- 151:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_list args;
- 152:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_start(args, format);
- 153:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	vsprintf((char *)SerialBuffer, format, args);
- 154:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_end(args);
- 155:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
- 156:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printString(SerialBuffer);
- 157:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 158:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 159:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 160:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_MQTT_PUBLISH
- 161:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 162:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 163:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 164:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 165:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 166:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 167:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 168:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 169:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...)
- 170:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 171:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 172:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 173:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		// there was an error reading.
- 174:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		uint8_t SerialBuffer[255];
- 175:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		memset(SerialBuffer, 0, 255);
- 176:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_list args;
- 177:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_start(args, format);
- 178:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		vsprintf((char *)SerialBuffer, format, args);
- 179:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_end(args);
- 180:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
- 181:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
- 182:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 184:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 185:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 186:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_MQTT_PUBLISH_Raw
- 187:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 188:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 189:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 190:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 191:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 192:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 193:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 194:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 195:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH_Raw(const char *MQTT_Topic, uint8_t *data, uint8_t len)
- 196:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 197:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 198:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 199:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		// there was an error reading.
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 5
+ 144:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		i++;
+ 145:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 146:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 147:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** */
+ 148:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 149:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_printf
+ 150:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 151:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 152:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 153:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 154:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 155:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 156:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 157:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 158:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_printf(const char *format, ...)
+ 159:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 160:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// there was an error reading.
+ 161:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t SerialBuffer[255];
+ 162:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	memset(SerialBuffer, 0, 255);
+ 163:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_list args;
+ 164:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_start(args, format);
+ 165:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	vsprintf((char *)SerialBuffer, format, args);
+ 166:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_end(args);
+ 167:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
+ 168:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printString(SerialBuffer);
+ 169:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 170:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 171:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 172:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_MQTT_PUBLISH
+ 173:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 174:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 175:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 176:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 177:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 178:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 179:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 180:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 181:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...)
+ 182:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 184:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 185:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		// there was an error reading.
+ 186:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		uint8_t SerialBuffer[255];
+ 187:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		memset(SerialBuffer, 0, 255);
+ 188:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_list args;
+ 189:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_start(args, format);
+ 190:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		vsprintf((char *)SerialBuffer, format, args);
+ 191:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_end(args);
+ 192:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
+ 193:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
+ 194:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 195:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 196:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 197:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 198:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_MQTT_PUBLISH_Raw
+ 199:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 5
 
 
- 201:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 202:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							MQTT_Topic,
- 203:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							(3 * len) + 2);
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
- 205:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 206:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			APPL_DMA_LTE_printf("%02x ", data[i]);
- 207:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
- 208:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("\r\n");
- 209:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 210:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 211:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 213:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_SIM7000G_Init
- 214:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 215:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 217:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 218:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 219:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 220:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 221:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 222:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Init(void)
- 223:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 224:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
- 225:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 226:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Init_Stage++;
- 227:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 228:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Init_Stage < 15)
- 229:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 230:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
- 231:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 232:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 233:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 234:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 235:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_SIM7000G_Error_Handel
- 236:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 237:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 238:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 239:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 240:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 241:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 242:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 243:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 244:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Error_Handel(void)
- 245:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 246:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 247:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 248:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 249:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_LineProcess
- 250:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 251:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 252:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 253:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 254:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 255:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 256:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 257:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 6
+ 201:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 202:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 203:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 205:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 206:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 207:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_MQTT_PUBLISH_Raw(const char *MQTT_Topic, uint8_t *data, uint8_t len)
+ 208:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 209:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 210:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 211:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		// there was an error reading.
+ 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
+ 213:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
+ 214:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							MQTT_Topic,
+ 215:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							(3 * len));
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 217:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
+ 218:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			APPL_DMA_LTE_printf("%02x ", data[i]);
+ 219:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 220:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("\r\n");
+ 221:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 222:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 223:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 224:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 225:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_SIM7000G_Init
+ 226:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 227:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 228:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 229:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 230:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 231:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 232:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 233:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 234:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Init(void)
+ 235:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 236:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
+ 237:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 238:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Init_Stage++;
+ 239:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 240:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Init_Stage < 10)
+ 241:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 242:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
+ 243:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	//	APPL_USB_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
+ 244:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 245:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 246:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 247:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 248:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_SIM7000G_Error_Handel
+ 249:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 250:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 251:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 252:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 253:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 254:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 255:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 256:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 257:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_SIM7000G_Error_Handel(void)
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 6
 
 
- 258:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_LineProcess(void)
- 259:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 260:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printf("Command = %s", APPL_DMA_RS48_Rx.buffer);
- 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (EKM_CMD_RXPeek(APPL_DMA_LTE_Buffer.buffer, 0x0A, APPL_DMA_LTE_Buffer.write) > 0)
- 262:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 263:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		// APPL_DMA_RS485_printf("Command = %s", APPL_DMA_LTE_Buffer.buffer);
- 264:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (EKM_CMD_LineProcess((char *)APPL_DMA_LTE_Buffer.buffer, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD
- 265:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			// APPL_DMA_LTE_printf("Command not found");
- 266:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
- 267:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 268:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 269:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 270:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 271:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_OK
- 272:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 273:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 274:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 276:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 277:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 278:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 279:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 280:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_OK(int argc, char *argv[])
- 281:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
-  30              		.loc 1 281 1 view -0
+ 258:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 259:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 260:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 262:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_LineProcess
+ 263:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 264:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 265:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 266:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 267:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 268:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 269:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 270:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 271:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** void APPL_DMA_LTE_LineProcess(void)
+ 272:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 273:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t commandread[255];
+ 274:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printf("Command = %s", APPL_DMA_RS48_Rx.buffer);
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 276:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 277:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_USB_printf("Command = %s--", commandread);
+ 278:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (EKM_CMD_LineProcess((char *)commandread, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD_LINE_BAD_CMD){
+ 279:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			// APPL_DMA_LTE_printf("Command not found");
+ 280:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 281:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 282:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** //	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
+ 283:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 284:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 285:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 286:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_OK
+ 287:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 288:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 289:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 290:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 291:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 292:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 293:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 294:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 295:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_OK(int argc, char *argv[])
+ 296:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 297:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
+ 298:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_USB_printf("APPL_DMA_LTE_Init_Stage = %d", APPL_DMA_LTE_Init_Stage);
+ 299:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+ 300:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 301:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 302:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 303:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_Error
+ 304:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 305:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 306:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 307:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 308:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
+ 309:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 310:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 311:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 312:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_Error(int argc, char *argv[])
+ 313:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 314:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_printf("AT+CPOWD=0\r\n");
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 7
+
+
+ 315:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 316:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 317:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_SIM7000G_ErrorCount++;
+ 318:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 319:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+ 320:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 321:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 322:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 323:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_APP
+ 324:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 325:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 326:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 327:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 328:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description: APP PDP: DEACTIVE
+ 329:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 330:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 331:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 332:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_APP(int argc, char *argv[])
+ 333:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 334:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (argc > 2)
+ 335:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
+ 336:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (strstr(argv[2], "DEACTIVE") != NULL)
+ 337:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
+ 338:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 339:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 340:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		else if (strstr(argv[2], "ACTIVE") != NULL)
+ 341:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
+ 342:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			
+ 343:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 344:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
+ 345:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+ 346:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 347:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
+ 348:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
+ 349:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_PSUTTZ
+ 350:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 351:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
+ 352:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
+ 353:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 354:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description: *PSUTTZ: 22/06/12,14:45:24","+28"
+ 355:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
+ 356:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
+ 357:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
+ 358:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_PSUTTZ(int argc, char *argv[])
+ 359:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+  30              		.loc 1 359 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
- 282:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
-  35              		.loc 1 282 2 view .LVU1
-  36              		.loc 1 282 49 is_stmt 0 view .LVU2
-  37 0000 034B     		ldr	r3, .L2
-  38 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-  39              		.loc 1 282 63 view .LVU3
-  40 0004 034B     		ldr	r3, .L2+4
-  41 0006 03EBC203 		add	r3, r3, r2, lsl #3
-  42 000a 0020     		movs	r0, #0
-  43              	.LVL1:
-  44              		.loc 1 282 63 view .LVU4
-  45 000c 1871     		strb	r0, [r3, #4]
- 283:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
-  46              		.loc 1 283 2 is_stmt 1 view .LVU5
- 284:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
-  47              		.loc 1 284 1 is_stmt 0 view .LVU6
-  48 000e 7047     		bx	lr
-  49              	.L3:
-  50              		.align	2
-  51              	.L2:
-  52 0010 00000000 		.word	.LANCHOR0
-  53 0014 00000000 		.word	.LANCHOR1
-  54              		.cfi_endproc
-  55              	.LFE298:
-  57              		.section	.rodata.APPL_DMA_LTE_Init.str1.4,"aMS",%progbits,1
-  58              		.align	2
-  59              	.LC0:
-  60 0000 6F6B00   		.ascii	"ok\000"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 7
+ 360:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	
+ 361:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+  35              		.loc 1 361 2 view .LVU1
+ 362:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }...
+  36              		.loc 1 362 1 is_stmt 0 view .LVU2
+  37 0000 0020     		movs	r0, #0
+  38              	.LVL1:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 8
 
 
-  61 0003 00       		.align	2
-  62              	.LC1:
-  63 0004 6F6B2066 		.ascii	"ok function\000"
-  63      756E6374 
-  63      696F6E00 
-  64              		.align	2
-  65              	.LC2:
-  66 0010 41544530 		.ascii	"ATE0\015\012\000"
-  66      0D0A00
-  67 0017 00       		.align	2
-  68              	.LC3:
-  69 0018 41542B53 		.ascii	"AT+SMCONF=\"CLIENTID\",\"id\"\015\012\000"
-  69      4D434F4E 
-  69      463D2243 
-  69      4C49454E 
-  69      54494422 
-  70              		.align	2
-  71              	.LC4:
-  72 0034 41542B53 		.ascii	"AT+SMCONF=\"KEEPTIME\",60\015\012\000"
-  72      4D434F4E 
-  72      463D224B 
-  72      45455054 
-  72      494D4522 
-  73 004e 0000     		.align	2
-  74              	.LC5:
-  75 0050 41542B53 		.ascii	"AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\015\012"
-  75      4D434F4E 
-  75      463D2255 
-  75      524C222C 
-  75      22323033 
-  76 0079 00       		.ascii	"\000"
-  77 007a 0000     		.align	2
-  78              	.LC6:
-  79 007c 41542B53 		.ascii	"AT+SMCONF=\"USERNAME\",\"1111\"\015\012\000"
-  79      4D434F4E 
-  79      463D2255 
-  79      5345524E 
-  79      414D4522 
-  80 009a 0000     		.align	2
-  81              	.LC7:
-  82 009c 41542B53 		.ascii	"AT+SMCONF=\"PASSWORD\",\"1111\"\015\012\000"
-  82      4D434F4E 
-  82      463D2250 
-  82      41535357 
-  82      4F524422 
-  83 00ba 0000     		.align	2
-  84              	.LC8:
-  85 00bc 41542B53 		.ascii	"AT+SMCONF=\"CLEANSS\",1\015\012\000"
-  85      4D434F4E 
-  85      463D2243 
-  85      4C45414E 
-  85      5353222C 
-  86              		.align	2
-  87              	.LC9:
-  88 00d4 41542B53 		.ascii	"AT+SMCONF=\"QOS\",0\015\012\000"
-  88      4D434F4E 
-  88      463D2251 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 8
+  39              		.loc 1 362 1 view .LVU3
+  40 0002 7047     		bx	lr
+  41              		.cfi_endproc
+  42              	.LFE301:
+  44              		.section	.rodata.APPL_DMA_LTE_OK.str1.4,"aMS",%progbits,1
+  45              		.align	2
+  46              	.LC0:
+  47 0000 4150504C 		.ascii	"APPL_DMA_LTE_Init_Stage = %d\000"
+  47      5F444D41 
+  47      5F4C5445 
+  47      5F496E69 
+  47      745F5374 
+  48              		.section	.text.APPL_DMA_LTE_OK,"ax",%progbits
+  49              		.align	1
+  50              		.global	APPL_DMA_LTE_OK
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  55              	APPL_DMA_LTE_OK:
+  56              	.LVL2:
+  57              	.LFB298:
+ 296:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+  58              		.loc 1 296 1 is_stmt 1 view -0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+  62              		.loc 1 296 1 is_stmt 0 view .LVU5
+  63 0000 10B5     		push	{r4, lr}
+  64              	.LCFI0:
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 4, -8
+  67              		.cfi_offset 14, -4
+ 297:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
+  68              		.loc 1 297 2 is_stmt 1 view .LVU6
+ 297:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
+  69              		.loc 1 297 49 is_stmt 0 view .LVU7
+  70 0002 064B     		ldr	r3, .L4
+  71 0004 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+  72              	.LVL3:
+ 297:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage = 0;
+  73              		.loc 1 297 63 view .LVU8
+  74 0006 064B     		ldr	r3, .L4+4
+  75 0008 03EBC103 		add	r3, r3, r1, lsl #3
+  76 000c 0024     		movs	r4, #0
+  77 000e 1C71     		strb	r4, [r3, #4]
+ 298:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_USB_printf("APPL_DMA_LTE_Init_Stage = %d", APPL_DMA_LTE_Init_Stage);
+  78              		.loc 1 298 2 is_stmt 1 view .LVU9
+  79 0010 0448     		ldr	r0, .L4+8
+  80              	.LVL4:
+ 298:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_USB_printf("APPL_DMA_LTE_Init_Stage = %d", APPL_DMA_LTE_Init_Stage);
+  81              		.loc 1 298 2 is_stmt 0 view .LVU10
+  82 0012 FFF7FEFF 		bl	APPL_USB_printf
+  83              	.LVL5:
+ 299:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+  84              		.loc 1 299 2 is_stmt 1 view .LVU11
+ 300:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 9
 
 
-  88      4F53222C 
-  88      300D0A00 
-  89              		.align	2
-  90              	.LC10:
-  91 00e8 41542B53 		.ascii	"AT+SMCONF=\"RETAIN\",0\015\012\000"
-  91      4D434F4E 
-  91      463D2252 
-  91      45544149 
-  91      4E222C30 
-  92 00ff 00       		.align	2
-  93              	.LC11:
-  94 0100 41542B43 		.ascii	"AT+CMNB=3\015\012\000"
-  94      4D4E423D 
-  94      330D0A00 
-  95              		.align	2
-  96              	.LC12:
-  97 010c 41542B43 		.ascii	"AT+CNACT=1,\"cmnet\"\015\012\000"
-  97      4E414354 
-  97      3D312C22 
-  97      636D6E65 
-  97      74220D0A 
-  98              		.section	.text.APPL_DMA_LTE_Init,"ax",%progbits
-  99              		.align	1
- 100              		.global	APPL_DMA_LTE_Init
- 101              		.syntax unified
- 102              		.thumb
- 103              		.thumb_func
- 105              	APPL_DMA_LTE_Init:
- 106              	.LFB291:
-  82:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 0;
- 107              		.loc 1 82 1 is_stmt 1 view -0
- 108              		.cfi_startproc
- 109              		@ args = 0, pretend = 0, frame = 0
- 110              		@ frame_needed = 0, uses_anonymous_args = 0
- 111 0000 70B5     		push	{r4, r5, r6, lr}
- 112              	.LCFI0:
- 113              		.cfi_def_cfa_offset 16
- 114              		.cfi_offset 4, -16
- 115              		.cfi_offset 5, -12
- 116              		.cfi_offset 6, -8
- 117              		.cfi_offset 14, -4
-  83:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
- 118              		.loc 1 83 2 view .LVU8
-  83:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
- 119              		.loc 1 83 27 is_stmt 0 view .LVU9
- 120 0002 1F4D     		ldr	r5, .L8
- 121 0004 0024     		movs	r4, #0
- 122 0006 2C60     		str	r4, [r5]
-  84:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
- 123              		.loc 1 84 2 is_stmt 1 view .LVU10
-  84:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
- 124              		.loc 1 84 35 is_stmt 0 view .LVU11
- 125 0008 1E4B     		ldr	r3, .L8+4
- 126 000a 1C80     		strh	r4, [r3]	@ movhi
-  85:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
- 127              		.loc 1 85 2 is_stmt 1 view .LVU12
- 128 000c 1E4E     		ldr	r6, .L8+8
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 9
+  85              		.loc 1 300 1 is_stmt 0 view .LVU12
+  86 0016 2046     		mov	r0, r4
+  87 0018 10BD     		pop	{r4, pc}
+  88              	.L5:
+  89 001a 00BF     		.align	2
+  90              	.L4:
+  91 001c 00000000 		.word	.LANCHOR0
+  92 0020 00000000 		.word	.LANCHOR1
+  93 0024 00000000 		.word	.LC0
+  94              		.cfi_endproc
+  95              	.LFE298:
+  97              		.section	.rodata.APPL_DMA_LTE_Init.str1.4,"aMS",%progbits,1
+  98              		.align	2
+  99              	.LC1:
+ 100 0000 4F4B00   		.ascii	"OK\000"
+ 101 0003 00       		.align	2
+ 102              	.LC2:
+ 103 0004 6F6B2066 		.ascii	"ok function\000"
+ 103      756E6374 
+ 103      696F6E00 
+ 104              		.align	2
+ 105              	.LC3:
+ 106 0010 2A505355 		.ascii	"*PSUTTZ:\000"
+ 106      54545A3A 
+ 106      00
+ 107 0019 000000   		.align	2
+ 108              	.LC4:
+ 109 001c 5475726E 		.ascii	"Turn On Init\000"
+ 109      204F6E20 
+ 109      496E6974 
+ 109      00
+ 110 0029 000000   		.align	2
+ 111              	.LC5:
+ 112 002c 4552524F 		.ascii	"ERROR\000"
+ 112      5200
+ 113 0032 0000     		.align	2
+ 114              	.LC6:
+ 115 0034 41544530 		.ascii	"ATE0\015\012\000"
+ 115      0D0A00
+ 116 003b 00       		.align	2
+ 117              	.LC7:
+ 118 003c 41542B53 		.ascii	"AT+SMCONF=\"CLIENTID\",\"id\"\015\012\000"
+ 118      4D434F4E 
+ 118      463D2243 
+ 118      4C49454E 
+ 118      54494422 
+ 119              		.align	2
+ 120              	.LC8:
+ 121 0058 41542B53 		.ascii	"AT+SMCONF=\"KEEPTIME\",60\015\012\000"
+ 121      4D434F4E 
+ 121      463D224B 
+ 121      45455054 
+ 121      494D4522 
+ 122 0072 0000     		.align	2
+ 123              	.LC9:
+ 124 0074 41542B53 		.ascii	"AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\015\012"
+ 124      4D434F4E 
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 10
 
 
- 129 000e 1F4A     		ldr	r2, .L8+12
- 130 0010 8021     		movs	r1, #128
- 131 0012 3046     		mov	r0, r6
- 132 0014 FFF7FEFF 		bl	EKM_Buffer_Setup
- 133              	.LVL2:
-  86:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 134              		.loc 1 86 2 view .LVU13
- 135 0018 3046     		mov	r0, r6
- 136 001a FFF7FEFF 		bl	EKM_Buffer_Reset
- 137              	.LVL3:
-  88:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
- 138              		.loc 1 88 2 view .LVU14
-  88:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
- 139              		.loc 1 88 36 is_stmt 0 view .LVU15
- 140 001e 1C4B     		ldr	r3, .L8+16
- 141 0020 1C4A     		ldr	r2, .L8+20
- 142 0022 1A60     		str	r2, [r3]
-  89:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
- 143              		.loc 1 89 2 is_stmt 1 view .LVU16
-  89:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
- 144              		.loc 1 89 37 is_stmt 0 view .LVU17
- 145 0024 1C4A     		ldr	r2, .L8+24
- 146 0026 9A60     		str	r2, [r3, #8]
-  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = (void *)0;
- 147              		.loc 1 90 2 is_stmt 1 view .LVU18
-  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = (void *)0;
- 148              		.loc 1 90 37 is_stmt 0 view .LVU19
- 149 0028 1C4A     		ldr	r2, .L8+28
- 150 002a 5A60     		str	r2, [r3, #4]
-  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 151              		.loc 1 91 2 is_stmt 1 view .LVU20
-  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 152              		.loc 1 91 27 is_stmt 0 view .LVU21
- 153 002c DC60     		str	r4, [r3, #12]
-  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 154              		.loc 1 93 2 is_stmt 1 view .LVU22
-  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 155              		.loc 1 93 21 is_stmt 0 view .LVU23
- 156 002e 1C4B     		ldr	r3, .L8+32
- 157 0030 5C80     		strh	r4, [r3, #2]	@ movhi
-  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
- 158              		.loc 1 95 2 is_stmt 1 view .LVU24
-  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
- 159              		.loc 1 95 36 is_stmt 0 view .LVU25
- 160 0032 1C4B     		ldr	r3, .L8+36
- 161 0034 1C4A     		ldr	r2, .L8+40
- 162 0036 1A60     		str	r2, [r3]
-  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
- 163              		.loc 1 96 2 is_stmt 1 view .LVU26
-  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
- 164              		.loc 1 96 36 is_stmt 0 view .LVU27
- 165 0038 1C4A     		ldr	r2, .L8+44
- 166 003a 9A60     		str	r2, [r3, #8]
-  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
- 167              		.loc 1 97 2 is_stmt 1 view .LVU28
-  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
- 168              		.loc 1 97 36 is_stmt 0 view .LVU29
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 10
+ 124      463D2255 
+ 124      524C222C 
+ 124      22323033 
+ 125 009d 00       		.ascii	"\000"
+ 126 009e 0000     		.align	2
+ 127              	.LC10:
+ 128 00a0 41542B53 		.ascii	"AT+SMCONF=\"USERNAME\",\"1111\"\015\012\000"
+ 128      4D434F4E 
+ 128      463D2255 
+ 128      5345524E 
+ 128      414D4522 
+ 129 00be 0000     		.align	2
+ 130              	.LC11:
+ 131 00c0 41542B53 		.ascii	"AT+SMCONF=\"PASSWORD\",\"1111\"\015\012\000"
+ 131      4D434F4E 
+ 131      463D2250 
+ 131      41535357 
+ 131      4F524422 
+ 132 00de 0000     		.align	2
+ 133              	.LC12:
+ 134 00e0 41542B53 		.ascii	"AT+SMCONF=\"CLEANSS\",1\015\012\000"
+ 134      4D434F4E 
+ 134      463D2243 
+ 134      4C45414E 
+ 134      5353222C 
+ 135              		.align	2
+ 136              	.LC13:
+ 137 00f8 41542B53 		.ascii	"AT+SMCONF=\"QOS\",0\015\012\000"
+ 137      4D434F4E 
+ 137      463D2251 
+ 137      4F53222C 
+ 137      300D0A00 
+ 138              		.align	2
+ 139              	.LC14:
+ 140 010c 41542B53 		.ascii	"AT+SMCONF=\"RETAIN\",0\015\012\000"
+ 140      4D434F4E 
+ 140      463D2252 
+ 140      45544149 
+ 140      4E222C30 
+ 141 0123 00       		.align	2
+ 142              	.LC15:
+ 143 0124 41542B43 		.ascii	"AT+CMNB=3\015\012\000"
+ 143      4D4E423D 
+ 143      330D0A00 
+ 144              		.align	2
+ 145              	.LC16:
+ 146 0130 41542B43 		.ascii	"AT+CNACT=1,\"cmnet\"\015\012\000"
+ 146      4E414354 
+ 146      3D312C22 
+ 146      636D6E65 
+ 146      74220D0A 
+ 147              		.section	.text.APPL_DMA_LTE_Init,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	APPL_DMA_LTE_Init
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 11
 
 
- 169 003c 1C4A     		ldr	r2, .L8+48
- 170 003e 1A61     		str	r2, [r3, #16]
-  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
- 171              		.loc 1 98 2 is_stmt 1 view .LVU30
-  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
- 172              		.loc 1 98 36 is_stmt 0 view .LVU31
- 173 0040 1C4A     		ldr	r2, .L8+52
- 174 0042 9A61     		str	r2, [r3, #24]
-  99:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
- 175              		.loc 1 99 2 is_stmt 1 view .LVU32
-  99:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
- 176              		.loc 1 99 36 is_stmt 0 view .LVU33
- 177 0044 1C4A     		ldr	r2, .L8+56
- 178 0046 1A62     		str	r2, [r3, #32]
- 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
- 179              		.loc 1 100 2 is_stmt 1 view .LVU34
- 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
- 180              		.loc 1 100 36 is_stmt 0 view .LVU35
- 181 0048 1C4A     		ldr	r2, .L8+60
- 182 004a 9A62     		str	r2, [r3, #40]
- 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
- 183              		.loc 1 101 2 is_stmt 1 view .LVU36
- 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
- 184              		.loc 1 101 36 is_stmt 0 view .LVU37
- 185 004c 1C4A     		ldr	r2, .L8+64
- 186 004e 1A63     		str	r2, [r3, #48]
- 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
- 187              		.loc 1 102 2 is_stmt 1 view .LVU38
- 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
- 188              		.loc 1 102 36 is_stmt 0 view .LVU39
- 189 0050 1C4A     		ldr	r2, .L8+68
- 190 0052 9A63     		str	r2, [r3, #56]
- 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
- 191              		.loc 1 103 2 is_stmt 1 view .LVU40
- 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
- 192              		.loc 1 103 36 is_stmt 0 view .LVU41
- 193 0054 1C4A     		ldr	r2, .L8+72
- 194 0056 1A64     		str	r2, [r3, #64]
- 104:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
- 195              		.loc 1 104 2 is_stmt 1 view .LVU42
- 104:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
- 196              		.loc 1 104 36 is_stmt 0 view .LVU43
- 197 0058 1C4A     		ldr	r2, .L8+76
- 198 005a 9A64     		str	r2, [r3, #72]
- 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 199              		.loc 1 105 2 is_stmt 1 view .LVU44
- 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 200              		.loc 1 105 37 is_stmt 0 view .LVU45
- 201 005c 1C4A     		ldr	r2, .L8+80
- 202 005e 1A65     		str	r2, [r3, #80]
- 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 203              		.loc 1 107 2 is_stmt 1 view .LVU46
- 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 204              		.loc 1 107 27 is_stmt 0 view .LVU47
- 205 0060 0123     		movs	r3, #1
- 206 0062 2B60     		str	r3, [r5]
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 11
+ 154              	APPL_DMA_LTE_Init:
+ 155              	.LFB291:
+  84:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 156              		.loc 1 84 1 is_stmt 1 view -0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160 0000 70B5     		push	{r4, r5, r6, lr}
+ 161              	.LCFI1:
+ 162              		.cfi_def_cfa_offset 16
+ 163              		.cfi_offset 4, -16
+ 164              		.cfi_offset 5, -12
+ 165              		.cfi_offset 6, -8
+ 166              		.cfi_offset 14, -4
+  85:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 0;
+ 167              		.loc 1 85 2 view .LVU14
+  85:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 0;
+ 168              		.loc 1 85 27 is_stmt 0 view .LVU15
+ 169 0002 274D     		ldr	r5, .L10
+ 170 0004 0024     		movs	r4, #0
+ 171 0006 2C60     		str	r4, [r5]
+  86:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
+ 172              		.loc 1 86 2 is_stmt 1 view .LVU16
+  86:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_SIM7000G_ErrorCount = 0;
+ 173              		.loc 1 86 35 is_stmt 0 view .LVU17
+ 174 0008 264B     		ldr	r3, .L10+4
+ 175 000a 1C80     		strh	r4, [r3]	@ movhi
+  87:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Setup(&APPL_DMA_LTE_Buffer, APPL_DMA_LTE_BUFFER_MAX, APPL_DMA_LTE_Buffer_d);
+ 176              		.loc 1 87 2 is_stmt 1 view .LVU18
+ 177 000c 264E     		ldr	r6, .L10+8
+ 178 000e 274A     		ldr	r2, .L10+12
+ 179 0010 8021     		movs	r1, #128
+ 180 0012 3046     		mov	r0, r6
+ 181 0014 FFF7FEFF 		bl	EKM_Buffer_Setup
+ 182              	.LVL6:
+  88:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	EKM_Buffer_Reset(&APPL_DMA_LTE_Buffer);
+ 183              		.loc 1 88 2 view .LVU19
+ 184 0018 3046     		mov	r0, r6
+ 185 001a FFF7FEFF 		bl	EKM_Buffer_Reset
+ 186              	.LVL7:
+  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "OK";
+ 187              		.loc 1 90 2 view .LVU20
+  90:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcCmd = "OK";
+ 188              		.loc 1 90 36 is_stmt 0 view .LVU21
+ 189 001e 244B     		ldr	r3, .L10+16
+ 190 0020 244A     		ldr	r2, .L10+20
+ 191 0022 1A60     		str	r2, [r3]
+  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
+ 192              		.loc 1 91 2 is_stmt 1 view .LVU22
+  91:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pcHelp = "ok function";
+ 193              		.loc 1 91 37 is_stmt 0 view .LVU23
+ 194 0024 244A     		ldr	r2, .L10+24
+ 195 0026 9A60     		str	r2, [r3, #8]
+  92:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
+ 196              		.loc 1 92 2 is_stmt 1 view .LVU24
+  92:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.EKM_CMD_pfnCmd = &APPL_DMA_LTE_OK;
+ 197              		.loc 1 92 37 is_stmt 0 view .LVU25
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 12
 
 
- 207              		.loc 1 109 2 is_stmt 1 view .LVU48
- 208              	.LBB2:
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 209              		.loc 1 109 7 view .LVU49
- 210              	.LVL4:
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 211              		.loc 1 109 11 is_stmt 0 view .LVU50
- 212 0064 2346     		mov	r3, r4
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 213              		.loc 1 109 2 view .LVU51
- 214 0066 05E0     		b	.L5
- 215              	.LVL5:
- 216              	.L6:
- 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 217              		.loc 1 111 3 is_stmt 1 discriminator 3 view .LVU52
- 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 218              		.loc 1 111 42 is_stmt 0 discriminator 3 view .LVU53
- 219 0068 0E4A     		ldr	r2, .L8+36
- 220 006a 02EBC302 		add	r2, r2, r3, lsl #3
- 221 006e 0121     		movs	r1, #1
- 222 0070 1171     		strb	r1, [r2, #4]
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 223              		.loc 1 109 26 is_stmt 1 discriminator 3 view .LVU54
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 224              		.loc 1 109 27 is_stmt 0 discriminator 3 view .LVU55
- 225 0072 0B44     		add	r3, r3, r1
- 226              	.LVL6:
- 227              	.L5:
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 228              		.loc 1 109 18 is_stmt 1 discriminator 1 view .LVU56
- 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 229              		.loc 1 109 2 is_stmt 0 discriminator 1 view .LVU57
- 230 0074 092B     		cmp	r3, #9
- 231 0076 F7DD     		ble	.L6
- 232              	.LBE2:
- 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 233              		.loc 1 113 2 is_stmt 1 view .LVU58
- 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 234              		.loc 1 113 41 is_stmt 0 view .LVU59
- 235 0078 0A4B     		ldr	r3, .L8+36
- 236              	.LVL7:
- 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 237              		.loc 1 113 41 view .LVU60
- 238 007a 0222     		movs	r2, #2
- 239 007c 1A71     		strb	r2, [r3, #4]
- 114:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 240              		.loc 1 114 1 view .LVU61
- 241 007e 70BD     		pop	{r4, r5, r6, pc}
- 242              	.L9:
- 243              		.align	2
- 244              	.L8:
- 245 0080 00000000 		.word	.LANCHOR2
- 246 0084 00000000 		.word	.LANCHOR3
- 247 0088 00000000 		.word	.LANCHOR5
- 248 008c 00000000 		.word	.LANCHOR4
- 249 0090 00000000 		.word	.LANCHOR6
- 250 0094 00000000 		.word	.LC0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 12
+ 198 0028 244A     		ldr	r2, .L10+28
+ 199 002a 5A60     		str	r2, [r3, #4]
+  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = &APPL_DMA_LTE_CMD_PSUTTZ;
+ 200              		.loc 1 93 2 is_stmt 1 view .LVU26
+  93:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_OK.next = &APPL_DMA_LTE_CMD_PSUTTZ;
+ 201              		.loc 1 93 27 is_stmt 0 view .LVU27
+ 202 002c 244A     		ldr	r2, .L10+32
+ 203 002e DA60     		str	r2, [r3, #12]
+  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcCmd = "*PSUTTZ:";
+ 204              		.loc 1 95 2 is_stmt 1 view .LVU28
+  95:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcCmd = "*PSUTTZ:";
+ 205              		.loc 1 95 40 is_stmt 0 view .LVU29
+ 206 0030 244B     		ldr	r3, .L10+36
+ 207 0032 1360     		str	r3, [r2]
+  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcHelp = "Turn On Init";
+ 208              		.loc 1 96 2 is_stmt 1 view .LVU30
+  96:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pcHelp = "Turn On Init";
+ 209              		.loc 1 96 41 is_stmt 0 view .LVU31
+ 210 0034 244B     		ldr	r3, .L10+40
+ 211 0036 9360     		str	r3, [r2, #8]
+  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pfnCmd = &APPL_DMA_LTE_PSUTTZ;
+ 212              		.loc 1 97 2 is_stmt 1 view .LVU32
+  97:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.EKM_CMD_pfnCmd = &APPL_DMA_LTE_PSUTTZ;
+ 213              		.loc 1 97 41 is_stmt 0 view .LVU33
+ 214 0038 244B     		ldr	r3, .L10+44
+ 215 003a 5360     		str	r3, [r2, #4]
+  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.next = &APPL_DMA_LTE_CMD_Error;
+ 216              		.loc 1 98 2 is_stmt 1 view .LVU34
+  98:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_PSUTTZ.next = &APPL_DMA_LTE_CMD_Error;
+ 217              		.loc 1 98 31 is_stmt 0 view .LVU35
+ 218 003c 244B     		ldr	r3, .L10+48
+ 219 003e D360     		str	r3, [r2, #12]
+ 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcCmd = "ERROR";
+ 220              		.loc 1 100 2 is_stmt 1 view .LVU36
+ 100:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcCmd = "ERROR";
+ 221              		.loc 1 100 39 is_stmt 0 view .LVU37
+ 222 0040 244A     		ldr	r2, .L10+52
+ 223 0042 1A60     		str	r2, [r3]
+ 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcHelp = "ERROR";
+ 224              		.loc 1 101 2 is_stmt 1 view .LVU38
+ 101:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pcHelp = "ERROR";
+ 225              		.loc 1 101 40 is_stmt 0 view .LVU39
+ 226 0044 9A60     		str	r2, [r3, #8]
+ 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pfnCmd = &APPL_DMA_LTE_Error;
+ 227              		.loc 1 102 2 is_stmt 1 view .LVU40
+ 102:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.EKM_CMD_pfnCmd = &APPL_DMA_LTE_Error;
+ 228              		.loc 1 102 40 is_stmt 0 view .LVU41
+ 229 0046 244A     		ldr	r2, .L10+56
+ 230 0048 5A60     		str	r2, [r3, #4]
+ 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.next = (void *)0;
+ 231              		.loc 1 103 2 is_stmt 1 view .LVU42
+ 103:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_CMD_Error.next = (void *)0;
+ 232              		.loc 1 103 30 is_stmt 0 view .LVU43
+ 233 004a DC60     		str	r4, [r3, #12]
+ 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_data.deviceID = 0;
+ 234              		.loc 1 105 2 is_stmt 1 view .LVU44
+ 105:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_data.deviceID = 0;
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 13
 
 
- 251 0098 04000000 		.word	.LC1
- 252 009c 00000000 		.word	APPL_DMA_LTE_OK
- 253 00a0 00000000 		.word	APPL_data
- 254 00a4 00000000 		.word	.LANCHOR1
- 255 00a8 10000000 		.word	.LC2
- 256 00ac 18000000 		.word	.LC3
- 257 00b0 34000000 		.word	.LC4
- 258 00b4 50000000 		.word	.LC5
- 259 00b8 7C000000 		.word	.LC6
- 260 00bc 9C000000 		.word	.LC7
- 261 00c0 BC000000 		.word	.LC8
- 262 00c4 D4000000 		.word	.LC9
- 263 00c8 E8000000 		.word	.LC10
- 264 00cc 00010000 		.word	.LC11
- 265 00d0 0C010000 		.word	.LC12
- 266              		.cfi_endproc
- 267              	.LFE291:
- 269              		.section	.text.APPL_DMA_LTE_printf,"ax",%progbits
- 270              		.align	1
- 271              		.global	APPL_DMA_LTE_printf
- 272              		.syntax unified
- 273              		.thumb
- 274              		.thumb_func
- 276              	APPL_DMA_LTE_printf:
- 277              	.LVL8:
- 278              	.LFB292:
- 147:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// there was an error reading.
- 279              		.loc 1 147 1 is_stmt 1 view -0
- 280              		.cfi_startproc
- 281              		@ args = 4, pretend = 16, frame = 264
- 282              		@ frame_needed = 0, uses_anonymous_args = 1
- 147:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// there was an error reading.
- 283              		.loc 1 147 1 is_stmt 0 view .LVU63
- 284 0000 0FB4     		push	{r0, r1, r2, r3}
- 285              	.LCFI1:
- 286              		.cfi_def_cfa_offset 16
- 287              		.cfi_offset 0, -16
- 288              		.cfi_offset 1, -12
- 289              		.cfi_offset 2, -8
- 290              		.cfi_offset 3, -4
- 291 0002 30B5     		push	{r4, r5, lr}
- 292              	.LCFI2:
- 293              		.cfi_def_cfa_offset 28
- 294              		.cfi_offset 4, -28
- 295              		.cfi_offset 5, -24
- 296              		.cfi_offset 14, -20
- 297 0004 C3B0     		sub	sp, sp, #268
- 298              	.LCFI3:
- 299              		.cfi_def_cfa_offset 296
- 300 0006 46AC     		add	r4, sp, #280
- 301 0008 54F8045B 		ldr	r5, [r4], #4
- 149:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	memset(SerialBuffer, 0, 255);
- 302              		.loc 1 149 2 is_stmt 1 view .LVU64
- 150:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_list args;
- 303              		.loc 1 150 2 view .LVU65
- 304 000c FF22     		movs	r2, #255
- 305 000e 0021     		movs	r1, #0
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 13
+ 235              		.loc 1 105 21 is_stmt 0 view .LVU45
+ 236 004c 234B     		ldr	r3, .L10+60
+ 237 004e 5C80     		strh	r4, [r3, #2]	@ movhi
+ 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Command = "ATE0\r\n";
+ 238              		.loc 1 107 2 is_stmt 1 view .LVU46
+ 107:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Command = "ATE0\r\n";
+ 239              		.loc 1 107 36 is_stmt 0 view .LVU47
+ 240 0050 234B     		ldr	r3, .L10+64
+ 241 0052 244A     		ldr	r2, .L10+68
+ 242 0054 1A60     		str	r2, [r3]
+ 108:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
+ 243              		.loc 1 108 2 is_stmt 1 view .LVU48
+ 108:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[1].Command = "AT+SMCONF=\"CLIENTID\",\"id\"\r\n";
+ 244              		.loc 1 108 36 is_stmt 0 view .LVU49
+ 245 0056 244A     		ldr	r2, .L10+72
+ 246 0058 9A60     		str	r2, [r3, #8]
+ 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
+ 247              		.loc 1 109 2 is_stmt 1 view .LVU50
+ 109:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[2].Command = "AT+SMCONF=\"KEEPTIME\",60\r\n";
+ 248              		.loc 1 109 36 is_stmt 0 view .LVU51
+ 249 005a 244A     		ldr	r2, .L10+76
+ 250 005c 1A61     		str	r2, [r3, #16]
+ 110:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
+ 251              		.loc 1 110 2 is_stmt 1 view .LVU52
+ 110:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[3].Command = "AT+SMCONF=\"URL\",\"203.151.79.149\",\"1883\"\r\n";
+ 252              		.loc 1 110 36 is_stmt 0 view .LVU53
+ 253 005e 244A     		ldr	r2, .L10+80
+ 254 0060 9A61     		str	r2, [r3, #24]
+ 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
+ 255              		.loc 1 111 2 is_stmt 1 view .LVU54
+ 111:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[4].Command = "AT+SMCONF=\"USERNAME\",\"1111\"\r\n";
+ 256              		.loc 1 111 36 is_stmt 0 view .LVU55
+ 257 0062 244A     		ldr	r2, .L10+84
+ 258 0064 1A62     		str	r2, [r3, #32]
+ 112:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
+ 259              		.loc 1 112 2 is_stmt 1 view .LVU56
+ 112:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[5].Command = "AT+SMCONF=\"PASSWORD\",\"1111\"\r\n";
+ 260              		.loc 1 112 36 is_stmt 0 view .LVU57
+ 261 0066 244A     		ldr	r2, .L10+88
+ 262 0068 9A62     		str	r2, [r3, #40]
+ 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
+ 263              		.loc 1 113 2 is_stmt 1 view .LVU58
+ 113:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[6].Command = "AT+SMCONF=\"CLEANSS\",1\r\n";
+ 264              		.loc 1 113 36 is_stmt 0 view .LVU59
+ 265 006a 244A     		ldr	r2, .L10+92
+ 266 006c 1A63     		str	r2, [r3, #48]
+ 114:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
+ 267              		.loc 1 114 2 is_stmt 1 view .LVU60
+ 114:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[7].Command = "AT+SMCONF=\"QOS\",0\r\n";
+ 268              		.loc 1 114 36 is_stmt 0 view .LVU61
+ 269 006e 244A     		ldr	r2, .L10+96
+ 270 0070 9A63     		str	r2, [r3, #56]
+ 115:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
+ 271              		.loc 1 115 2 is_stmt 1 view .LVU62
+ 115:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[8].Command = "AT+SMCONF=\"RETAIN\",0\r\n";
+ 272              		.loc 1 115 36 is_stmt 0 view .LVU63
+ 273 0072 244A     		ldr	r2, .L10+100
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 14
 
 
- 306 0010 02A8     		add	r0, sp, #8
- 307 0012 FFF7FEFF 		bl	memset
- 308              	.LVL9:
- 151:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_start(args, format);
- 309              		.loc 1 151 2 view .LVU66
- 152:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	vsprintf((char *)SerialBuffer, format, args);
- 310              		.loc 1 152 2 view .LVU67
- 311 0016 0194     		str	r4, [sp, #4]
- 153:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_end(args);
- 312              		.loc 1 153 2 view .LVU68
- 313 0018 2246     		mov	r2, r4
- 314 001a 2946     		mov	r1, r5
- 315 001c 02A8     		add	r0, sp, #8
- 316 001e FFF7FEFF 		bl	vsprintf
- 317              	.LVL10:
- 154:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
- 318              		.loc 1 154 2 view .LVU69
- 155:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printString(SerialBuffer);
- 319              		.loc 1 155 2 view .LVU70
- 155:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printString(SerialBuffer);
- 320              		.loc 1 155 43 is_stmt 0 view .LVU71
- 321 0022 02A8     		add	r0, sp, #8
- 322 0024 FFF7FEFF 		bl	strlen
- 323              	.LVL11:
- 155:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printString(SerialBuffer);
- 324              		.loc 1 155 2 view .LVU72
- 325 0028 0A23     		movs	r3, #10
- 326 002a 82B2     		uxth	r2, r0
- 327 002c 02A9     		add	r1, sp, #8
- 328 002e 0448     		ldr	r0, .L12
- 329 0030 FFF7FEFF 		bl	HAL_UART_Transmit
- 330              	.LVL12:
- 157:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 331              		.loc 1 157 1 view .LVU73
- 332 0034 43B0     		add	sp, sp, #268
- 333              	.LCFI4:
- 334              		.cfi_def_cfa_offset 28
- 335              		@ sp needed
- 336 0036 BDE83040 		pop	{r4, r5, lr}
- 337              	.LCFI5:
- 338              		.cfi_restore 14
- 339              		.cfi_restore 5
- 340              		.cfi_restore 4
- 341              		.cfi_def_cfa_offset 16
- 342 003a 04B0     		add	sp, sp, #16
- 343              	.LCFI6:
- 344              		.cfi_restore 3
- 345              		.cfi_restore 2
- 346              		.cfi_restore 1
- 347              		.cfi_restore 0
- 348              		.cfi_def_cfa_offset 0
- 349 003c 7047     		bx	lr
- 350              	.L13:
- 351 003e 00BF     		.align	2
- 352              	.L12:
- 353 0040 00000000 		.word	huart1
- 354              		.cfi_endproc
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 14
+ 274 0074 1A64     		str	r2, [r3, #64]
+ 116:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
+ 275              		.loc 1 116 2 is_stmt 1 view .LVU64
+ 116:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[9].Command = "AT+CMNB=3\r\n";
+ 276              		.loc 1 116 36 is_stmt 0 view .LVU65
+ 277 0076 244A     		ldr	r2, .L10+104
+ 278 0078 9A64     		str	r2, [r3, #72]
+ 117:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
+ 279              		.loc 1 117 2 is_stmt 1 view .LVU66
+ 117:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[10].Command = "AT+CNACT=1,\"cmnet\"\r\n";
+ 280              		.loc 1 117 37 is_stmt 0 view .LVU67
+ 281 007a 244A     		ldr	r2, .L10+108
+ 282 007c 1A65     		str	r2, [r3, #80]
+ 119:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 1;
+ 283              		.loc 1 119 2 is_stmt 1 view .LVU68
+ 119:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_MQTT_ONLINE = 1;
+ 284              		.loc 1 119 27 is_stmt 0 view .LVU69
+ 285 007e 0123     		movs	r3, #1
+ 286 0080 2B60     		str	r3, [r5]
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 287              		.loc 1 121 2 is_stmt 1 view .LVU70
+ 288              	.LBB2:
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 289              		.loc 1 121 7 view .LVU71
+ 290              	.LVL8:
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 291              		.loc 1 121 11 is_stmt 0 view .LVU72
+ 292 0082 2346     		mov	r3, r4
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 293              		.loc 1 121 2 view .LVU73
+ 294 0084 05E0     		b	.L7
+ 295              	.LVL9:
+ 296              	.L8:
+ 123:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Step_Init[i].Return_Stage = 1;
+ 297              		.loc 1 123 3 is_stmt 1 discriminator 3 view .LVU74
+ 123:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Step_Init[i].Return_Stage = 1;
+ 298              		.loc 1 123 42 is_stmt 0 discriminator 3 view .LVU75
+ 299 0086 164A     		ldr	r2, .L10+64
+ 300 0088 02EBC302 		add	r2, r2, r3, lsl #3
+ 301 008c 0121     		movs	r1, #1
+ 302 008e 1171     		strb	r1, [r2, #4]
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 303              		.loc 1 121 26 is_stmt 1 discriminator 3 view .LVU76
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 304              		.loc 1 121 27 is_stmt 0 discriminator 3 view .LVU77
+ 305 0090 0B44     		add	r3, r3, r1
+ 306              	.LVL10:
+ 307              	.L7:
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 308              		.loc 1 121 18 is_stmt 1 discriminator 1 view .LVU78
+ 121:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	for (int i = 0; i < 10; i++)
+ 309              		.loc 1 121 2 is_stmt 0 discriminator 1 view .LVU79
+ 310 0092 092B     		cmp	r3, #9
+ 311 0094 F7DD     		ble	.L8
+ 312              	.LBE2:
+ 125:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Return_Stage = 2;
+ 313              		.loc 1 125 2 is_stmt 1 view .LVU80
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 15
 
 
- 355              	.LFE292:
- 357              		.section	.rodata.APPL_DMA_LTE_MQTT_PUBLISH.str1.4,"aMS",%progbits,1
- 358              		.align	2
- 359              	.LC13:
- 360 0000 41542B53 		.ascii	"AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\015\012\000"
- 360      4D505542 
- 360      3D225555 
- 360      4D4F4E2F 
- 360      25642F25 
- 361              		.align	2
- 362              	.LC14:
- 363 0020 25730D0A 		.ascii	"%s\015\012\000"
- 363      00
- 364              		.section	.text.APPL_DMA_LTE_MQTT_PUBLISH,"ax",%progbits
- 365              		.align	1
- 366              		.global	APPL_DMA_LTE_MQTT_PUBLISH
- 367              		.syntax unified
- 368              		.thumb
- 369              		.thumb_func
- 371              	APPL_DMA_LTE_MQTT_PUBLISH:
- 372              	.LVL13:
- 373              	.LFB293:
- 170:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 374              		.loc 1 170 1 is_stmt 1 view -0
- 375              		.cfi_startproc
- 376              		@ args = 4, pretend = 12, frame = 264
- 377              		@ frame_needed = 0, uses_anonymous_args = 1
- 170:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 378              		.loc 1 170 1 is_stmt 0 view .LVU75
- 379 0000 0EB4     		push	{r1, r2, r3}
- 380              	.LCFI7:
- 381              		.cfi_def_cfa_offset 12
- 382              		.cfi_offset 1, -12
- 383              		.cfi_offset 2, -8
- 384              		.cfi_offset 3, -4
- 385 0002 30B5     		push	{r4, r5, lr}
- 386              	.LCFI8:
- 387              		.cfi_def_cfa_offset 24
- 388              		.cfi_offset 4, -24
- 389              		.cfi_offset 5, -20
- 390              		.cfi_offset 14, -16
- 391 0004 C2B0     		sub	sp, sp, #264
- 392              	.LCFI9:
- 393              		.cfi_def_cfa_offset 288
- 171:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 394              		.loc 1 171 2 is_stmt 1 view .LVU76
- 171:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 395              		.loc 1 171 31 is_stmt 0 view .LVU77
- 396 0006 124B     		ldr	r3, .L18
- 397 0008 1B68     		ldr	r3, [r3]
- 171:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 398              		.loc 1 171 5 view .LVU78
- 399 000a 012B     		cmp	r3, #1
- 400 000c 04D0     		beq	.L17
- 401              	.LVL14:
- 402              	.L14:
- 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 15
+ 125:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Return_Stage = 2;
+ 314              		.loc 1 125 41 is_stmt 0 view .LVU81
+ 315 0096 124B     		ldr	r3, .L10+64
+ 316              	.LVL11:
+ 125:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_Step_Init[0].Return_Stage = 2;
+ 317              		.loc 1 125 41 view .LVU82
+ 318 0098 0222     		movs	r2, #2
+ 319 009a 1A71     		strb	r2, [r3, #4]
+ 126:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 320              		.loc 1 126 1 view .LVU83
+ 321 009c 70BD     		pop	{r4, r5, r6, pc}
+ 322              	.L11:
+ 323 009e 00BF     		.align	2
+ 324              	.L10:
+ 325 00a0 00000000 		.word	.LANCHOR2
+ 326 00a4 00000000 		.word	.LANCHOR3
+ 327 00a8 00000000 		.word	.LANCHOR5
+ 328 00ac 00000000 		.word	.LANCHOR4
+ 329 00b0 00000000 		.word	.LANCHOR6
+ 330 00b4 00000000 		.word	.LC1
+ 331 00b8 04000000 		.word	.LC2
+ 332 00bc 00000000 		.word	APPL_DMA_LTE_OK
+ 333 00c0 00000000 		.word	.LANCHOR7
+ 334 00c4 10000000 		.word	.LC3
+ 335 00c8 1C000000 		.word	.LC4
+ 336 00cc 00000000 		.word	APPL_DMA_LTE_PSUTTZ
+ 337 00d0 00000000 		.word	.LANCHOR8
+ 338 00d4 2C000000 		.word	.LC5
+ 339 00d8 00000000 		.word	APPL_DMA_LTE_Error
+ 340 00dc 00000000 		.word	APPL_data
+ 341 00e0 00000000 		.word	.LANCHOR1
+ 342 00e4 34000000 		.word	.LC6
+ 343 00e8 3C000000 		.word	.LC7
+ 344 00ec 58000000 		.word	.LC8
+ 345 00f0 74000000 		.word	.LC9
+ 346 00f4 A0000000 		.word	.LC10
+ 347 00f8 C0000000 		.word	.LC11
+ 348 00fc E0000000 		.word	.LC12
+ 349 0100 F8000000 		.word	.LC13
+ 350 0104 0C010000 		.word	.LC14
+ 351 0108 24010000 		.word	.LC15
+ 352 010c 30010000 		.word	.LC16
+ 353              		.cfi_endproc
+ 354              	.LFE291:
+ 356              		.section	.text.APPL_DMA_LTE_printf,"ax",%progbits
+ 357              		.align	1
+ 358              		.global	APPL_DMA_LTE_printf
+ 359              		.syntax unified
+ 360              		.thumb
+ 361              		.thumb_func
+ 363              	APPL_DMA_LTE_printf:
+ 364              	.LVL12:
+ 365              	.LFB292:
+ 159:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 366              		.loc 1 159 1 is_stmt 1 view -0
+ 367              		.cfi_startproc
+ 368              		@ args = 4, pretend = 16, frame = 264
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 16
 
 
- 403              		.loc 1 183 1 view .LVU79
- 404 000e 42B0     		add	sp, sp, #264
- 405              	.LCFI10:
- 406              		.cfi_remember_state
- 407              		.cfi_def_cfa_offset 24
- 408              		@ sp needed
- 409 0010 BDE83040 		pop	{r4, r5, lr}
- 410              	.LCFI11:
- 411              		.cfi_restore 14
- 412              		.cfi_restore 5
- 413              		.cfi_restore 4
- 414              		.cfi_def_cfa_offset 12
- 415 0014 03B0     		add	sp, sp, #12
- 416              	.LCFI12:
- 417              		.cfi_restore 3
- 418              		.cfi_restore 2
- 419              		.cfi_restore 1
- 420              		.cfi_def_cfa_offset 0
- 421 0016 7047     		bx	lr
- 422              	.LVL15:
- 423              	.L17:
- 424              	.LCFI13:
- 425              		.cfi_restore_state
- 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 426              		.loc 1 183 1 view .LVU80
- 427 0018 0446     		mov	r4, r0
- 428              	.LBB3:
- 174:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		memset(SerialBuffer, 0, 255);
- 429              		.loc 1 174 3 is_stmt 1 view .LVU81
- 175:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_list args;
- 430              		.loc 1 175 3 view .LVU82
- 431 001a FF22     		movs	r2, #255
- 432 001c 0021     		movs	r1, #0
- 433 001e 02A8     		add	r0, sp, #8
- 434 0020 FFF7FEFF 		bl	memset
- 435              	.LVL16:
- 176:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_start(args, format);
- 436              		.loc 1 176 3 view .LVU83
- 177:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		vsprintf((char *)SerialBuffer, format, args);
- 437              		.loc 1 177 3 view .LVU84
- 438 0024 46AA     		add	r2, sp, #280
- 439 0026 0192     		str	r2, [sp, #4]
- 178:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_end(args);
- 440              		.loc 1 178 3 view .LVU85
- 441 0028 4599     		ldr	r1, [sp, #276]
- 442 002a 02A8     		add	r0, sp, #8
- 443 002c FFF7FEFF 		bl	vsprintf
- 444              	.LVL17:
- 179:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
- 445              		.loc 1 179 3 view .LVU86
- 180:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
- 446              		.loc 1 180 3 view .LVU87
- 180:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
- 447              		.loc 1 180 71 is_stmt 0 view .LVU88
- 448 0030 084B     		ldr	r3, .L18+4
- 449 0032 5D88     		ldrh	r5, [r3, #2]
- 180:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 16
+ 369              		@ frame_needed = 0, uses_anonymous_args = 1
+ 159:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 370              		.loc 1 159 1 is_stmt 0 view .LVU85
+ 371 0000 0FB4     		push	{r0, r1, r2, r3}
+ 372              	.LCFI2:
+ 373              		.cfi_def_cfa_offset 16
+ 374              		.cfi_offset 0, -16
+ 375              		.cfi_offset 1, -12
+ 376              		.cfi_offset 2, -8
+ 377              		.cfi_offset 3, -4
+ 378 0002 30B5     		push	{r4, r5, lr}
+ 379              	.LCFI3:
+ 380              		.cfi_def_cfa_offset 28
+ 381              		.cfi_offset 4, -28
+ 382              		.cfi_offset 5, -24
+ 383              		.cfi_offset 14, -20
+ 384 0004 C3B0     		sub	sp, sp, #268
+ 385              	.LCFI4:
+ 386              		.cfi_def_cfa_offset 296
+ 387 0006 46AC     		add	r4, sp, #280
+ 388 0008 54F8045B 		ldr	r5, [r4], #4
+ 161:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t SerialBuffer[255];
+ 389              		.loc 1 161 2 is_stmt 1 view .LVU86
+ 162:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	memset(SerialBuffer, 0, 255);
+ 390              		.loc 1 162 2 view .LVU87
+ 391 000c FF22     		movs	r2, #255
+ 392 000e 0021     		movs	r1, #0
+ 393 0010 02A8     		add	r0, sp, #8
+ 394 0012 FFF7FEFF 		bl	memset
+ 395              	.LVL13:
+ 163:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_list args;
+ 396              		.loc 1 163 2 view .LVU88
+ 164:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_start(args, format);
+ 397              		.loc 1 164 2 view .LVU89
+ 398 0016 0194     		str	r4, [sp, #4]
+ 165:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	vsprintf((char *)SerialBuffer, format, args);
+ 399              		.loc 1 165 2 view .LVU90
+ 400 0018 2246     		mov	r2, r4
+ 401 001a 2946     		mov	r1, r5
+ 402 001c 02A8     		add	r0, sp, #8
+ 403 001e FFF7FEFF 		bl	vsprintf
+ 404              	.LVL14:
+ 166:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	va_end(args);
+ 405              		.loc 1 166 2 view .LVU91
+ 167:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
+ 406              		.loc 1 167 2 view .LVU92
+ 167:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
+ 407              		.loc 1 167 43 is_stmt 0 view .LVU93
+ 408 0022 02A8     		add	r0, sp, #8
+ 409 0024 FFF7FEFF 		bl	strlen
+ 410              	.LVL15:
+ 167:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	HAL_UART_Transmit(&huart1, SerialBuffer, strlen((char *)SerialBuffer), 10);
+ 411              		.loc 1 167 2 view .LVU94
+ 412 0028 0A23     		movs	r3, #10
+ 413 002a 82B2     		uxth	r2, r0
+ 414 002c 02A9     		add	r1, sp, #8
+ 415 002e 0448     		ldr	r0, .L14
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 17
 
 
- 450              		.loc 1 180 3 view .LVU89
- 451 0034 02A8     		add	r0, sp, #8
- 452 0036 FFF7FEFF 		bl	strlen
- 453              	.LVL18:
- 454 003a 0346     		mov	r3, r0
- 455 003c 2246     		mov	r2, r4
- 456 003e 2946     		mov	r1, r5
- 457 0040 0548     		ldr	r0, .L18+8
- 458 0042 FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 459              	.LVL19:
- 181:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 460              		.loc 1 181 3 is_stmt 1 view .LVU90
- 461 0046 02A9     		add	r1, sp, #8
- 462 0048 0448     		ldr	r0, .L18+12
- 463 004a FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 464              	.LVL20:
- 465              	.LBE3:
- 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 466              		.loc 1 183 1 is_stmt 0 view .LVU91
- 467 004e DEE7     		b	.L14
- 468              	.L19:
- 469              		.align	2
- 470              	.L18:
- 471 0050 00000000 		.word	.LANCHOR2
- 472 0054 00000000 		.word	APPL_data
- 473 0058 00000000 		.word	.LC13
- 474 005c 20000000 		.word	.LC14
- 475              		.cfi_endproc
- 476              	.LFE293:
- 478              		.section	.rodata.APPL_DMA_LTE_MQTT_PUBLISH_Raw.str1.4,"aMS",%progbits,1
- 479              		.align	2
- 480              	.LC15:
- 481 0000 25303278 		.ascii	"%02x \000"
- 481      2000
- 482 0006 0000     		.align	2
- 483              	.LC16:
- 484 0008 0D0A00   		.ascii	"\015\012\000"
- 485              		.section	.text.APPL_DMA_LTE_MQTT_PUBLISH_Raw,"ax",%progbits
- 486              		.align	1
- 487              		.global	APPL_DMA_LTE_MQTT_PUBLISH_Raw
- 488              		.syntax unified
- 489              		.thumb
- 490              		.thumb_func
- 492              	APPL_DMA_LTE_MQTT_PUBLISH_Raw:
- 493              	.LVL21:
- 494              	.LFB294:
- 196:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 495              		.loc 1 196 1 is_stmt 1 view -0
- 496              		.cfi_startproc
- 497              		@ args = 0, pretend = 0, frame = 0
- 498              		@ frame_needed = 0, uses_anonymous_args = 0
- 197:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 499              		.loc 1 197 2 view .LVU93
- 197:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 500              		.loc 1 197 31 is_stmt 0 view .LVU94
- 501 0000 0E4B     		ldr	r3, .L29
- 502 0002 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 17
+ 416 0030 FFF7FEFF 		bl	HAL_UART_Transmit
+ 417              	.LVL16:
+ 169:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 418              		.loc 1 169 1 view .LVU95
+ 419 0034 43B0     		add	sp, sp, #268
+ 420              	.LCFI5:
+ 421              		.cfi_def_cfa_offset 28
+ 422              		@ sp needed
+ 423 0036 BDE83040 		pop	{r4, r5, lr}
+ 424              	.LCFI6:
+ 425              		.cfi_restore 14
+ 426              		.cfi_restore 5
+ 427              		.cfi_restore 4
+ 428              		.cfi_def_cfa_offset 16
+ 429 003a 04B0     		add	sp, sp, #16
+ 430              	.LCFI7:
+ 431              		.cfi_restore 3
+ 432              		.cfi_restore 2
+ 433              		.cfi_restore 1
+ 434              		.cfi_restore 0
+ 435              		.cfi_def_cfa_offset 0
+ 436 003c 7047     		bx	lr
+ 437              	.L15:
+ 438 003e 00BF     		.align	2
+ 439              	.L14:
+ 440 0040 00000000 		.word	huart1
+ 441              		.cfi_endproc
+ 442              	.LFE292:
+ 444              		.section	.rodata.APPL_DMA_LTE_Error.str1.4,"aMS",%progbits,1
+ 445              		.align	2
+ 446              	.LC17:
+ 447 0000 41542B43 		.ascii	"AT+CPOWD=0\015\012\000"
+ 447      504F5744 
+ 447      3D300D0A 
+ 447      00
+ 448              		.section	.text.APPL_DMA_LTE_Error,"ax",%progbits
+ 449              		.align	1
+ 450              		.global	APPL_DMA_LTE_Error
+ 451              		.syntax unified
+ 452              		.thumb
+ 453              		.thumb_func
+ 455              	APPL_DMA_LTE_Error:
+ 456              	.LVL17:
+ 457              	.LFB299:
+ 313:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 458              		.loc 1 313 1 is_stmt 1 view -0
+ 459              		.cfi_startproc
+ 460              		@ args = 0, pretend = 0, frame = 0
+ 461              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 462              		.loc 1 313 1 is_stmt 0 view .LVU97
+ 463 0000 08B5     		push	{r3, lr}
+ 464              	.LCFI8:
+ 465              		.cfi_def_cfa_offset 8
+ 466              		.cfi_offset 3, -8
+ 467              		.cfi_offset 14, -4
+ 314:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_printf("AT+CPOWD=0\r\n");
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 18
 
 
- 197:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 503              		.loc 1 197 5 view .LVU95
- 504 0004 012B     		cmp	r3, #1
- 505 0006 00D0     		beq	.L28
- 506 0008 7047     		bx	lr
- 507              	.L28:
- 196:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 508              		.loc 1 196 1 view .LVU96
- 509 000a 70B5     		push	{r4, r5, r6, lr}
- 510              	.LCFI14:
- 511              		.cfi_def_cfa_offset 16
- 512              		.cfi_offset 4, -16
- 513              		.cfi_offset 5, -12
- 514              		.cfi_offset 6, -8
- 515              		.cfi_offset 14, -4
- 516 000c 0E46     		mov	r6, r1
- 517 000e 1546     		mov	r5, r2
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 518              		.loc 1 200 3 is_stmt 1 view .LVU97
- 203:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
- 519              		.loc 1 203 11 is_stmt 0 view .LVU98
- 520 0010 02EB4203 		add	r3, r2, r2, lsl #1
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 521              		.loc 1 200 3 view .LVU99
- 522 0014 0233     		adds	r3, r3, #2
- 523 0016 0246     		mov	r2, r0
- 524              	.LVL22:
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 525              		.loc 1 200 3 view .LVU100
- 526 0018 0949     		ldr	r1, .L29+4
- 527              	.LVL23:
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 528              		.loc 1 200 3 view .LVU101
- 529 001a 4988     		ldrh	r1, [r1, #2]
- 530 001c 0948     		ldr	r0, .L29+8
- 531              	.LVL24:
- 200:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 							APPL_data.deviceID,
- 532              		.loc 1 200 3 view .LVU102
- 533 001e FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 534              	.LVL25:
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 535              		.loc 1 204 3 is_stmt 1 view .LVU103
- 536              	.LBB4:
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 537              		.loc 1 204 8 view .LVU104
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 538              		.loc 1 204 12 is_stmt 0 view .LVU105
- 539 0022 0024     		movs	r4, #0
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 540              		.loc 1 204 3 view .LVU106
- 541 0024 04E0     		b	.L22
- 542              	.LVL26:
- 543              	.L23:
- 206:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
- 544              		.loc 1 206 4 is_stmt 1 discriminator 3 view .LVU107
- 545 0026 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
- 546 0028 0748     		ldr	r0, .L29+12
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 18
+ 468              		.loc 1 314 2 is_stmt 1 view .LVU98
+ 469 0002 0748     		ldr	r0, .L20
+ 470              	.LVL18:
+ 314:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	APPL_DMA_LTE_printf("AT+CPOWD=0\r\n");
+ 471              		.loc 1 314 2 is_stmt 0 view .LVU99
+ 472 0004 FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 473              	.LVL19:
+ 315:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 474              		.loc 1 315 2 is_stmt 1 view .LVU100
+ 315:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 475              		.loc 1 315 31 is_stmt 0 view .LVU101
+ 476 0008 064B     		ldr	r3, .L20+4
+ 477 000a 1B68     		ldr	r3, [r3]
+ 315:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 478              		.loc 1 315 5 view .LVU102
+ 479 000c 012B     		cmp	r3, #1
+ 480 000e 01D0     		beq	.L19
+ 481              	.L17:
+ 319:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+ 482              		.loc 1 319 2 is_stmt 1 view .LVU103
+ 320:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 483              		.loc 1 320 1 is_stmt 0 view .LVU104
+ 484 0010 0020     		movs	r0, #0
+ 485 0012 08BD     		pop	{r3, pc}
+ 486              	.L19:
+ 317:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_SIM7000G_ErrorCount++;
+ 487              		.loc 1 317 3 is_stmt 1 view .LVU105
+ 317:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_SIM7000G_ErrorCount++;
+ 488              		.loc 1 317 35 is_stmt 0 view .LVU106
+ 489 0014 044A     		ldr	r2, .L20+8
+ 490 0016 1388     		ldrh	r3, [r2]
+ 491 0018 0133     		adds	r3, r3, #1
+ 492 001a 1380     		strh	r3, [r2]	@ movhi
+ 493 001c F8E7     		b	.L17
+ 494              	.L21:
+ 495 001e 00BF     		.align	2
+ 496              	.L20:
+ 497 0020 00000000 		.word	.LC17
+ 498 0024 00000000 		.word	.LANCHOR2
+ 499 0028 00000000 		.word	.LANCHOR3
+ 500              		.cfi_endproc
+ 501              	.LFE299:
+ 503              		.section	.rodata.APPL_DMA_LTE_MQTT_PUBLISH.str1.4,"aMS",%progbits,1
+ 504              		.align	2
+ 505              	.LC18:
+ 506 0000 41542B53 		.ascii	"AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\015\012\000"
+ 506      4D505542 
+ 506      3D225555 
+ 506      4D4F4E2F 
+ 506      25642F25 
+ 507              		.align	2
+ 508              	.LC19:
+ 509 0020 25730D0A 		.ascii	"%s\015\012\000"
+ 509      00
+ 510              		.section	.text.APPL_DMA_LTE_MQTT_PUBLISH,"ax",%progbits
+ 511              		.align	1
+ 512              		.global	APPL_DMA_LTE_MQTT_PUBLISH
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 19
 
 
- 547 002a FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 548              	.LVL27:
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 549              		.loc 1 204 28 discriminator 3 view .LVU108
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 550              		.loc 1 204 29 is_stmt 0 discriminator 3 view .LVU109
- 551 002e 0134     		adds	r4, r4, #1
- 552              	.LVL28:
- 553              	.L22:
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 554              		.loc 1 204 19 is_stmt 1 discriminator 1 view .LVU110
- 204:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 555              		.loc 1 204 3 is_stmt 0 discriminator 1 view .LVU111
- 556 0030 A542     		cmp	r5, r4
- 557 0032 F8DC     		bgt	.L23
- 558              	.LBE4:
- 208:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 559              		.loc 1 208 3 is_stmt 1 view .LVU112
- 560 0034 0548     		ldr	r0, .L29+16
- 561 0036 FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 562              	.LVL29:
- 210:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 563              		.loc 1 210 1 is_stmt 0 view .LVU113
- 564 003a 70BD     		pop	{r4, r5, r6, pc}
- 565              	.LVL30:
- 566              	.L30:
- 210:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 567              		.loc 1 210 1 view .LVU114
- 568              		.align	2
- 569              	.L29:
- 570 003c 00000000 		.word	.LANCHOR2
- 571 0040 00000000 		.word	APPL_data
- 572 0044 00000000 		.word	.LC13
- 573 0048 00000000 		.word	.LC15
- 574 004c 08000000 		.word	.LC16
- 575              		.cfi_endproc
- 576              	.LFE294:
- 578              		.section	.rodata.APPL_DMA_LTE_SIM7000G_Init.str1.4,"aMS",%progbits,1
- 579              		.align	2
- 580              	.LC17:
- 581 0000 257300   		.ascii	"%s\000"
- 582              		.section	.text.APPL_DMA_LTE_SIM7000G_Init,"ax",%progbits
- 583              		.align	1
- 584              		.global	APPL_DMA_LTE_SIM7000G_Init
- 585              		.syntax unified
- 586              		.thumb
- 587              		.thumb_func
- 589              	APPL_DMA_LTE_SIM7000G_Init:
- 590              	.LFB295:
- 223:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
- 591              		.loc 1 223 1 is_stmt 1 view -0
- 592              		.cfi_startproc
- 593              		@ args = 0, pretend = 0, frame = 0
- 594              		@ frame_needed = 0, uses_anonymous_args = 0
- 595 0000 08B5     		push	{r3, lr}
- 596              	.LCFI15:
- 597              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 19
+ 513              		.syntax unified
+ 514              		.thumb
+ 515              		.thumb_func
+ 517              	APPL_DMA_LTE_MQTT_PUBLISH:
+ 518              	.LVL20:
+ 519              	.LFB293:
+ 182:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 520              		.loc 1 182 1 is_stmt 1 view -0
+ 521              		.cfi_startproc
+ 522              		@ args = 4, pretend = 12, frame = 264
+ 523              		@ frame_needed = 0, uses_anonymous_args = 1
+ 182:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 524              		.loc 1 182 1 is_stmt 0 view .LVU108
+ 525 0000 0EB4     		push	{r1, r2, r3}
+ 526              	.LCFI9:
+ 527              		.cfi_def_cfa_offset 12
+ 528              		.cfi_offset 1, -12
+ 529              		.cfi_offset 2, -8
+ 530              		.cfi_offset 3, -4
+ 531 0002 30B5     		push	{r4, r5, lr}
+ 532              	.LCFI10:
+ 533              		.cfi_def_cfa_offset 24
+ 534              		.cfi_offset 4, -24
+ 535              		.cfi_offset 5, -20
+ 536              		.cfi_offset 14, -16
+ 537 0004 C2B0     		sub	sp, sp, #264
+ 538              	.LCFI11:
+ 539              		.cfi_def_cfa_offset 288
+ 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 540              		.loc 1 183 2 is_stmt 1 view .LVU109
+ 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 541              		.loc 1 183 31 is_stmt 0 view .LVU110
+ 542 0006 124B     		ldr	r3, .L26
+ 543 0008 1B68     		ldr	r3, [r3]
+ 183:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 544              		.loc 1 183 5 view .LVU111
+ 545 000a 012B     		cmp	r3, #1
+ 546 000c 04D0     		beq	.L25
+ 547              	.LVL21:
+ 548              	.L22:
+ 195:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 549              		.loc 1 195 1 view .LVU112
+ 550 000e 42B0     		add	sp, sp, #264
+ 551              	.LCFI12:
+ 552              		.cfi_remember_state
+ 553              		.cfi_def_cfa_offset 24
+ 554              		@ sp needed
+ 555 0010 BDE83040 		pop	{r4, r5, lr}
+ 556              	.LCFI13:
+ 557              		.cfi_restore 14
+ 558              		.cfi_restore 5
+ 559              		.cfi_restore 4
+ 560              		.cfi_def_cfa_offset 12
+ 561 0014 03B0     		add	sp, sp, #12
+ 562              	.LCFI14:
+ 563              		.cfi_restore 3
+ 564              		.cfi_restore 2
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 20
 
 
- 598              		.cfi_offset 3, -8
- 599              		.cfi_offset 14, -4
- 224:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 600              		.loc 1 224 2 view .LVU116
- 224:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 601              		.loc 1 224 53 is_stmt 0 view .LVU117
- 602 0002 0B4B     		ldr	r3, .L36
- 603 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 604 0006 0B4B     		ldr	r3, .L36+4
- 605 0008 03EBC203 		add	r3, r3, r2, lsl #3
- 606 000c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
- 224:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 607              		.loc 1 224 5 view .LVU118
- 608 000e 13B9     		cbnz	r3, .L32
- 226:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 609              		.loc 1 226 3 is_stmt 1 view .LVU119
- 226:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 610              		.loc 1 226 26 is_stmt 0 view .LVU120
- 611 0010 0132     		adds	r2, r2, #1
- 612 0012 074B     		ldr	r3, .L36
- 613 0014 1A70     		strb	r2, [r3]
- 614              	.L32:
- 228:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 615              		.loc 1 228 2 is_stmt 1 view .LVU121
- 228:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 616              		.loc 1 228 30 is_stmt 0 view .LVU122
- 617 0016 064B     		ldr	r3, .L36
- 618 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 228:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 619              		.loc 1 228 5 view .LVU123
- 620 001a 0E2B     		cmp	r3, #14
- 621 001c 00D9     		bls	.L35
- 622              	.L31:
- 232:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 623              		.loc 1 232 1 view .LVU124
- 624 001e 08BD     		pop	{r3, pc}
- 625              	.L35:
- 230:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 626              		.loc 1 230 3 is_stmt 1 view .LVU125
- 627 0020 044A     		ldr	r2, .L36+4
- 628 0022 52F83310 		ldr	r1, [r2, r3, lsl #3]
- 629 0026 0448     		ldr	r0, .L36+8
- 630 0028 FFF7FEFF 		bl	APPL_DMA_LTE_printf
- 631              	.LVL31:
- 232:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 632              		.loc 1 232 1 is_stmt 0 view .LVU126
- 633 002c F7E7     		b	.L31
- 634              	.L37:
- 635 002e 00BF     		.align	2
- 636              	.L36:
- 637 0030 00000000 		.word	.LANCHOR0
- 638 0034 00000000 		.word	.LANCHOR1
- 639 0038 00000000 		.word	.LC17
- 640              		.cfi_endproc
- 641              	.LFE295:
- 643              		.section	.text.APPL_DMA_LTE_SIM7000G_Error_Handel,"ax",%progbits
- 644              		.align	1
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 20
+ 565              		.cfi_restore 1
+ 566              		.cfi_def_cfa_offset 0
+ 567 0016 7047     		bx	lr
+ 568              	.LVL22:
+ 569              	.L25:
+ 570              	.LCFI15:
+ 571              		.cfi_restore_state
+ 195:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 572              		.loc 1 195 1 view .LVU113
+ 573 0018 0446     		mov	r4, r0
+ 574              	.LBB3:
+ 186:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		uint8_t SerialBuffer[255];
+ 575              		.loc 1 186 3 is_stmt 1 view .LVU114
+ 187:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		memset(SerialBuffer, 0, 255);
+ 576              		.loc 1 187 3 view .LVU115
+ 577 001a FF22     		movs	r2, #255
+ 578 001c 0021     		movs	r1, #0
+ 579 001e 02A8     		add	r0, sp, #8
+ 580 0020 FFF7FEFF 		bl	memset
+ 581              	.LVL23:
+ 188:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_list args;
+ 582              		.loc 1 188 3 view .LVU116
+ 189:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_start(args, format);
+ 583              		.loc 1 189 3 view .LVU117
+ 584 0024 46AA     		add	r2, sp, #280
+ 585 0026 0192     		str	r2, [sp, #4]
+ 190:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		vsprintf((char *)SerialBuffer, format, args);
+ 586              		.loc 1 190 3 view .LVU118
+ 587 0028 4599     		ldr	r1, [sp, #276]
+ 588 002a 02A8     		add	r0, sp, #8
+ 589 002c FFF7FEFF 		bl	vsprintf
+ 590              	.LVL24:
+ 191:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		va_end(args);
+ 591              		.loc 1 191 3 view .LVU119
+ 192:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
+ 592              		.loc 1 192 3 view .LVU120
+ 192:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
+ 593              		.loc 1 192 71 is_stmt 0 view .LVU121
+ 594 0030 084B     		ldr	r3, .L26+4
+ 595 0032 5D88     		ldrh	r5, [r3, #2]
+ 192:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", APPL_data.deviceID, MQTT_Topic, strlen
+ 596              		.loc 1 192 3 view .LVU122
+ 597 0034 02A8     		add	r0, sp, #8
+ 598 0036 FFF7FEFF 		bl	strlen
+ 599              	.LVL25:
+ 600 003a 0346     		mov	r3, r0
+ 601 003c 2246     		mov	r2, r4
+ 602 003e 2946     		mov	r1, r5
+ 603 0040 0548     		ldr	r0, .L26+8
+ 604 0042 FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 605              	.LVL26:
+ 193:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s\r\n", SerialBuffer);
+ 606              		.loc 1 193 3 is_stmt 1 view .LVU123
+ 607 0046 02A9     		add	r1, sp, #8
+ 608 0048 0448     		ldr	r0, .L26+12
+ 609 004a FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 610              	.LVL27:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 21
 
 
- 645              		.global	APPL_DMA_LTE_SIM7000G_Error_Handel
- 646              		.syntax unified
- 647              		.thumb
- 648              		.thumb_func
- 650              	APPL_DMA_LTE_SIM7000G_Error_Handel:
- 651              	.LFB296:
- 245:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 652              		.loc 1 245 1 is_stmt 1 view -0
- 653              		.cfi_startproc
- 654              		@ args = 0, pretend = 0, frame = 0
- 655              		@ frame_needed = 0, uses_anonymous_args = 0
- 656              		@ link register save eliminated.
- 246:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 657              		.loc 1 246 1 view .LVU128
- 658 0000 7047     		bx	lr
- 659              		.cfi_endproc
- 660              	.LFE296:
- 662              		.section	.text.APPL_DMA_LTE_LineProcess,"ax",%progbits
- 663              		.align	1
- 664              		.global	APPL_DMA_LTE_LineProcess
- 665              		.syntax unified
- 666              		.thumb
- 667              		.thumb_func
- 669              	APPL_DMA_LTE_LineProcess:
- 670              	.LFB297:
- 259:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	// APPL_DMA_LTE_printf("Command = %s", APPL_DMA_RS48_Rx.buffer);
- 671              		.loc 1 259 1 view -0
- 672              		.cfi_startproc
- 673              		@ args = 0, pretend = 0, frame = 0
- 674              		@ frame_needed = 0, uses_anonymous_args = 0
- 675 0000 08B5     		push	{r3, lr}
- 676              	.LCFI16:
- 677              		.cfi_def_cfa_offset 8
- 678              		.cfi_offset 3, -8
- 679              		.cfi_offset 14, -4
- 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 680              		.loc 1 261 2 view .LVU130
- 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 681              		.loc 1 261 40 is_stmt 0 view .LVU131
- 682 0002 0B4B     		ldr	r3, .L43
- 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 683              		.loc 1 261 6 view .LVU132
- 684 0004 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
- 685 0006 0A21     		movs	r1, #10
- 686 0008 9868     		ldr	r0, [r3, #8]
- 687 000a FFF7FEFF 		bl	EKM_CMD_RXPeek
- 688              	.LVL32:
- 261:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 689              		.loc 1 261 5 view .LVU133
- 690 000e 0028     		cmp	r0, #0
- 691 0010 00DC     		bgt	.L42
- 692              	.L39:
- 268:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 693              		.loc 1 268 1 view .LVU134
- 694 0012 08BD     		pop	{r3, pc}
- 695              	.L42:
- 264:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			// APPL_DMA_LTE_printf("Command not found");
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 21
+ 611              	.LBE3:
+ 195:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 612              		.loc 1 195 1 is_stmt 0 view .LVU124
+ 613 004e DEE7     		b	.L22
+ 614              	.L27:
+ 615              		.align	2
+ 616              	.L26:
+ 617 0050 00000000 		.word	.LANCHOR2
+ 618 0054 00000000 		.word	APPL_data
+ 619 0058 00000000 		.word	.LC18
+ 620 005c 20000000 		.word	.LC19
+ 621              		.cfi_endproc
+ 622              	.LFE293:
+ 624              		.section	.rodata.APPL_DMA_LTE_MQTT_PUBLISH_Raw.str1.4,"aMS",%progbits,1
+ 625              		.align	2
+ 626              	.LC20:
+ 627 0000 25303278 		.ascii	"%02x \000"
+ 627      2000
+ 628 0006 0000     		.align	2
+ 629              	.LC21:
+ 630 0008 0D0A00   		.ascii	"\015\012\000"
+ 631              		.section	.text.APPL_DMA_LTE_MQTT_PUBLISH_Raw,"ax",%progbits
+ 632              		.align	1
+ 633              		.global	APPL_DMA_LTE_MQTT_PUBLISH_Raw
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 638              	APPL_DMA_LTE_MQTT_PUBLISH_Raw:
+ 639              	.LVL28:
+ 640              	.LFB294:
+ 208:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 641              		.loc 1 208 1 is_stmt 1 view -0
+ 642              		.cfi_startproc
+ 643              		@ args = 0, pretend = 0, frame = 0
+ 644              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 645              		.loc 1 209 2 view .LVU126
+ 209:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 646              		.loc 1 209 31 is_stmt 0 view .LVU127
+ 647 0000 0E4B     		ldr	r3, .L37
+ 648 0002 1B68     		ldr	r3, [r3]
+ 209:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
+ 649              		.loc 1 209 5 view .LVU128
+ 650 0004 012B     		cmp	r3, #1
+ 651 0006 00D0     		beq	.L36
+ 652 0008 7047     		bx	lr
+ 653              	.L36:
+ 208:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 654              		.loc 1 208 1 view .LVU129
+ 655 000a 70B5     		push	{r4, r5, r6, lr}
+ 656              	.LCFI16:
+ 657              		.cfi_def_cfa_offset 16
+ 658              		.cfi_offset 4, -16
+ 659              		.cfi_offset 5, -12
+ 660              		.cfi_offset 6, -8
+ 661              		.cfi_offset 14, -4
+ 662 000c 0E46     		mov	r6, r1
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 22
 
 
- 696              		.loc 1 264 3 is_stmt 1 view .LVU135
- 264:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			// APPL_DMA_LTE_printf("Command not found");
- 697              		.loc 1 264 7 is_stmt 0 view .LVU136
- 698 0014 2022     		movs	r2, #32
- 699 0016 0749     		ldr	r1, .L43+4
- 700 0018 054B     		ldr	r3, .L43
- 701 001a 9868     		ldr	r0, [r3, #8]
- 702 001c FFF7FEFF 		bl	EKM_CMD_LineProcess
- 703              	.LVL33:
- 264:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			// APPL_DMA_LTE_printf("Command not found");
- 704              		.loc 1 264 6 view .LVU137
- 705 0020 B0F1FF3F 		cmp	r0, #-1
- 706 0024 F5D1     		bne	.L39
- 266:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 707              		.loc 1 266 4 is_stmt 1 view .LVU138
- 708 0026 0248     		ldr	r0, .L43
- 709 0028 FFF7FEFF 		bl	EKM_Buffer_Reset
- 710              	.LVL34:
- 268:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 711              		.loc 1 268 1 is_stmt 0 view .LVU139
- 712 002c F1E7     		b	.L39
- 713              	.L44:
- 714 002e 00BF     		.align	2
- 715              	.L43:
- 716 0030 00000000 		.word	.LANCHOR5
- 717 0034 00000000 		.word	.LANCHOR6
+ 663 000e 1546     		mov	r5, r2
+ 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
+ 664              		.loc 1 212 3 is_stmt 1 view .LVU130
+ 665 0010 02EB4203 		add	r3, r2, r2, lsl #1
+ 666 0014 0246     		mov	r2, r0
+ 667              	.LVL29:
+ 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
+ 668              		.loc 1 212 3 is_stmt 0 view .LVU131
+ 669 0016 0A49     		ldr	r1, .L37+4
+ 670              	.LVL30:
+ 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
+ 671              		.loc 1 212 3 view .LVU132
+ 672 0018 4988     		ldrh	r1, [r1, #2]
+ 673 001a 0A48     		ldr	r0, .L37+8
+ 674              	.LVL31:
+ 212:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("AT+SMPUB=\"UUMON/%d/%s\",%d,0,0\r\n", 
+ 675              		.loc 1 212 3 view .LVU133
+ 676 001c FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 677              	.LVL32:
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 678              		.loc 1 216 3 is_stmt 1 view .LVU134
+ 679              	.LBB4:
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 680              		.loc 1 216 8 view .LVU135
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 681              		.loc 1 216 12 is_stmt 0 view .LVU136
+ 682 0020 0024     		movs	r4, #0
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 683              		.loc 1 216 3 view .LVU137
+ 684 0022 04E0     		b	.L30
+ 685              	.LVL33:
+ 686              	.L31:
+ 218:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 			APPL_DMA_LTE_printf("%02x ", data[i]);
+ 687              		.loc 1 218 4 is_stmt 1 discriminator 3 view .LVU138
+ 688 0024 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 689 0026 0848     		ldr	r0, .L37+12
+ 690 0028 FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 691              	.LVL34:
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 692              		.loc 1 216 28 discriminator 3 view .LVU139
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 693              		.loc 1 216 29 is_stmt 0 discriminator 3 view .LVU140
+ 694 002c 0134     		adds	r4, r4, #1
+ 695              	.LVL35:
+ 696              	.L30:
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 697              		.loc 1 216 19 is_stmt 1 discriminator 1 view .LVU141
+ 216:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		for (int i = 0; i < len; i++)
+ 698              		.loc 1 216 3 is_stmt 0 discriminator 1 view .LVU142
+ 699 002e A542     		cmp	r5, r4
+ 700 0030 F8DC     		bgt	.L31
+ 701              	.LBE4:
+ 220:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("\r\n");
+ 702              		.loc 1 220 3 is_stmt 1 view .LVU143
+ 703 0032 0648     		ldr	r0, .L37+16
+ 704 0034 FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 705              	.LVL36:
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 23
+
+
+ 222:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 706              		.loc 1 222 1 is_stmt 0 view .LVU144
+ 707 0038 70BD     		pop	{r4, r5, r6, pc}
+ 708              	.LVL37:
+ 709              	.L38:
+ 222:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 710              		.loc 1 222 1 view .LVU145
+ 711 003a 00BF     		.align	2
+ 712              	.L37:
+ 713 003c 00000000 		.word	.LANCHOR2
+ 714 0040 00000000 		.word	APPL_data
+ 715 0044 00000000 		.word	.LC18
+ 716 0048 00000000 		.word	.LC20
+ 717 004c 08000000 		.word	.LC21
  718              		.cfi_endproc
- 719              	.LFE297:
- 721              		.section	.text.APPL_DMA_LTE_Error,"ax",%progbits
- 722              		.align	1
- 723              		.global	APPL_DMA_LTE_Error
- 724              		.syntax unified
- 725              		.thumb
- 726              		.thumb_func
- 728              	APPL_DMA_LTE_Error:
- 729              	.LVL35:
- 730              	.LFB299:
- 285:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 286:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 287:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_Error
- 288:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 289:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 290:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 291:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 292:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description:
- 293:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 294:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 295:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 296:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_Error(int argc, char *argv[])
- 297:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 731              		.loc 1 297 1 is_stmt 1 view -0
- 732              		.cfi_startproc
- 733              		@ args = 0, pretend = 0, frame = 0
- 734              		@ frame_needed = 0, uses_anonymous_args = 0
- 735              		@ link register save eliminated.
- 298:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_MQTT_ONLINE == 1)
- 736              		.loc 1 298 2 view .LVU141
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 22
+ 719              	.LFE294:
+ 721              		.section	.rodata.APPL_DMA_LTE_SIM7000G_Init.str1.4,"aMS",%progbits,1
+ 722              		.align	2
+ 723              	.LC22:
+ 724 0000 257300   		.ascii	"%s\000"
+ 725              		.section	.text.APPL_DMA_LTE_SIM7000G_Init,"ax",%progbits
+ 726              		.align	1
+ 727              		.global	APPL_DMA_LTE_SIM7000G_Init
+ 728              		.syntax unified
+ 729              		.thumb
+ 730              		.thumb_func
+ 732              	APPL_DMA_LTE_SIM7000G_Init:
+ 733              	.LFB295:
+ 235:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 734              		.loc 1 235 1 is_stmt 1 view -0
+ 735              		.cfi_startproc
+ 736              		@ args = 0, pretend = 0, frame = 0
+ 737              		@ frame_needed = 0, uses_anonymous_args = 0
+ 738 0000 08B5     		push	{r3, lr}
+ 739              	.LCFI17:
+ 740              		.cfi_def_cfa_offset 8
+ 741              		.cfi_offset 3, -8
+ 742              		.cfi_offset 14, -4
+ 236:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
+ 743              		.loc 1 236 2 view .LVU147
+ 236:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
+ 744              		.loc 1 236 53 is_stmt 0 view .LVU148
+ 745 0002 0B4B     		ldr	r3, .L44
+ 746 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 747 0006 0B4B     		ldr	r3, .L44+4
+ 748 0008 03EBC203 		add	r3, r3, r2, lsl #3
+ 749 000c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 236:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Return_Stage == 0)
+ 750              		.loc 1 236 5 view .LVU149
+ 751 000e 13B9     		cbnz	r3, .L40
+ 238:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Init_Stage++;
+ 752              		.loc 1 238 3 is_stmt 1 view .LVU150
+ 238:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_Init_Stage++;
+ 753              		.loc 1 238 26 is_stmt 0 view .LVU151
+ 754 0010 0132     		adds	r2, r2, #1
+ 755 0012 074B     		ldr	r3, .L44
+ 756 0014 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 24
 
 
- 737              		.loc 1 298 31 is_stmt 0 view .LVU142
- 738 0000 054B     		ldr	r3, .L48
- 739 0002 1B68     		ldr	r3, [r3]
- 740              		.loc 1 298 5 view .LVU143
- 741 0004 012B     		cmp	r3, #1
- 742 0006 01D0     		beq	.L47
- 743              	.L46:
- 299:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 300:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_SIM7000G_ErrorCount++;
- 301:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 302:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
- 744              		.loc 1 302 2 is_stmt 1 view .LVU144
- 303:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
- 745              		.loc 1 303 1 is_stmt 0 view .LVU145
- 746 0008 0020     		movs	r0, #0
- 747              	.LVL36:
- 748              		.loc 1 303 1 view .LVU146
- 749 000a 7047     		bx	lr
- 750              	.LVL37:
- 751              	.L47:
- 300:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 752              		.loc 1 300 3 is_stmt 1 view .LVU147
- 300:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 753              		.loc 1 300 35 is_stmt 0 view .LVU148
- 754 000c 034A     		ldr	r2, .L48+4
- 755 000e 1388     		ldrh	r3, [r2]
- 756 0010 0133     		adds	r3, r3, #1
- 757 0012 1380     		strh	r3, [r2]	@ movhi
- 758 0014 F8E7     		b	.L46
- 759              	.L49:
- 760 0016 00BF     		.align	2
- 761              	.L48:
- 762 0018 00000000 		.word	.LANCHOR2
- 763 001c 00000000 		.word	.LANCHOR3
- 764              		.cfi_endproc
- 765              	.LFE299:
- 767              		.section	.text.APPL_DMA_LTE_APP,"ax",%progbits
- 768              		.align	1
- 769              		.global	APPL_DMA_LTE_APP
- 770              		.syntax unified
- 771              		.thumb
- 772              		.thumb_func
- 774              	APPL_DMA_LTE_APP:
- 775              	.LVL38:
- 776              	.LFB300:
- 304:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 
- 305:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** /*******************************************************************************
- 306:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Function: APPL_DMA_LTE_APP
- 307:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 308:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Parameters:      -
- 309:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Returned value:  -
- 310:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 311:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Description: APP PDP: DEACTIVE
- 312:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  *
- 313:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  * Calling:
- 314:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c ****  ******************************************************************************/
- 315:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** int APPL_DMA_LTE_APP(int argc, char *argv[])
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 23
+ 757              	.L40:
+ 240:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Init_Stage < 10)
+ 758              		.loc 1 240 2 is_stmt 1 view .LVU152
+ 240:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Init_Stage < 10)
+ 759              		.loc 1 240 30 is_stmt 0 view .LVU153
+ 760 0016 064B     		ldr	r3, .L44
+ 761 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 240:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (APPL_DMA_LTE_Init_Stage < 10)
+ 762              		.loc 1 240 5 view .LVU154
+ 763 001a 092B     		cmp	r3, #9
+ 764 001c 00D9     		bls	.L43
+ 765              	.L39:
+ 245:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 766              		.loc 1 245 1 view .LVU155
+ 767 001e 08BD     		pop	{r3, pc}
+ 768              	.L43:
+ 242:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_DMA_LTE_printf("%s", APPL_DMA_LTE_Step_Init[APPL_DMA_LTE_Init_Stage].Command);
+ 769              		.loc 1 242 3 is_stmt 1 view .LVU156
+ 770 0020 044A     		ldr	r2, .L44+4
+ 771 0022 52F83310 		ldr	r1, [r2, r3, lsl #3]
+ 772 0026 0448     		ldr	r0, .L44+8
+ 773 0028 FFF7FEFF 		bl	APPL_DMA_LTE_printf
+ 774              	.LVL38:
+ 245:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 775              		.loc 1 245 1 is_stmt 0 view .LVU157
+ 776 002c F7E7     		b	.L39
+ 777              	.L45:
+ 778 002e 00BF     		.align	2
+ 779              	.L44:
+ 780 0030 00000000 		.word	.LANCHOR0
+ 781 0034 00000000 		.word	.LANCHOR1
+ 782 0038 00000000 		.word	.LC22
+ 783              		.cfi_endproc
+ 784              	.LFE295:
+ 786              		.section	.text.APPL_DMA_LTE_SIM7000G_Error_Handel,"ax",%progbits
+ 787              		.align	1
+ 788              		.global	APPL_DMA_LTE_SIM7000G_Error_Handel
+ 789              		.syntax unified
+ 790              		.thumb
+ 791              		.thumb_func
+ 793              	APPL_DMA_LTE_SIM7000G_Error_Handel:
+ 794              	.LFB296:
+ 258:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 795              		.loc 1 258 1 is_stmt 1 view -0
+ 796              		.cfi_startproc
+ 797              		@ args = 0, pretend = 0, frame = 0
+ 798              		@ frame_needed = 0, uses_anonymous_args = 0
+ 799              		@ link register save eliminated.
+ 259:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 800              		.loc 1 259 1 view .LVU159
+ 801 0000 7047     		bx	lr
+ 802              		.cfi_endproc
+ 803              	.LFE296:
+ 805              		.section	.rodata.APPL_DMA_LTE_LineProcess.str1.4,"aMS",%progbits,1
+ 806              		.align	2
+ 807              	.LC23:
+ 808 0000 436F6D6D 		.ascii	"Command = %s--\000"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 25
 
 
- 316:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
- 777              		.loc 1 316 1 is_stmt 1 view -0
- 778              		.cfi_startproc
- 779              		@ args = 0, pretend = 0, frame = 0
- 780              		@ frame_needed = 0, uses_anonymous_args = 0
- 781              		@ link register save eliminated.
- 317:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (argc > 2)
- 782              		.loc 1 317 2 view .LVU150
- 318:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	{
- 319:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (strstr(argv[2], "DEACTIVE") != NULL)
- 320:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 321:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
- 322:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		else if (strstr(argv[2], "ACTIVE") != NULL)
- 323:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		{
- 324:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
- 783              		.loc 1 324 3 view .LVU151
- 325:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	}
- 326:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
- 784              		.loc 1 326 2 view .LVU152
- 327:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }...
- 785              		.loc 1 327 1 is_stmt 0 view .LVU153
- 786 0000 0020     		movs	r0, #0
- 787              	.LVL39:
- 788              		.loc 1 327 1 view .LVU154
- 789 0002 7047     		bx	lr
- 790              		.cfi_endproc
- 791              	.LFE300:
- 793              		.global	APPL_DMA_LTE_CMD_PAPP
- 794              		.global	APPL_DMA_LTE_CMD_APP
- 795              		.global	APPL_DMA_LTE_CMD_Error
- 796              		.global	APPL_DMA_LTE_CMD_OK
- 797              		.global	APPL_DMA_LTE_Buffer
- 798              		.global	APPL_DMA_LTE_Buffer_d
- 799              		.global	APPL_DMA_LTE_Step_Init
- 800              		.global	APPL_DMA_LTE_Init_Stage
- 801              		.global	APPL_DMA_LTE_MQTT_ONLINE
- 802              		.global	APPL_DMA_LTE_TimemerCount
- 803              		.global	APPL_DMA_LTE_SIM7000G_ErrorCount
- 804              		.section	.bss.APPL_DMA_LTE_Buffer,"aw",%nobits
- 805              		.align	2
- 806              		.set	.LANCHOR5,. + 0
- 809              	APPL_DMA_LTE_Buffer:
- 810 0000 00000000 		.space	12
- 810      00000000 
- 810      00000000 
- 811              		.section	.bss.APPL_DMA_LTE_Buffer_d,"aw",%nobits
- 812              		.align	2
- 813              		.set	.LANCHOR4,. + 0
- 816              	APPL_DMA_LTE_Buffer_d:
- 817 0000 00000000 		.space	128
- 817      00000000 
- 817      00000000 
- 817      00000000 
- 817      00000000 
- 818              		.section	.bss.APPL_DMA_LTE_CMD_APP,"aw",%nobits
- 819              		.align	2
- 822              	APPL_DMA_LTE_CMD_APP:
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 24
+ 808      616E6420 
+ 808      3D202573 
+ 808      2D2D00
+ 809              		.section	.text.APPL_DMA_LTE_LineProcess,"ax",%progbits
+ 810              		.align	1
+ 811              		.global	APPL_DMA_LTE_LineProcess
+ 812              		.syntax unified
+ 813              		.thumb
+ 814              		.thumb_func
+ 816              	APPL_DMA_LTE_LineProcess:
+ 817              	.LFB297:
+ 272:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 818              		.loc 1 272 1 view -0
+ 819              		.cfi_startproc
+ 820              		@ args = 0, pretend = 0, frame = 256
+ 821              		@ frame_needed = 0, uses_anonymous_args = 0
+ 822 0000 00B5     		push	{lr}
+ 823              	.LCFI18:
+ 824              		.cfi_def_cfa_offset 4
+ 825              		.cfi_offset 14, -4
+ 826 0002 C1B0     		sub	sp, sp, #260
+ 827              	.LCFI19:
+ 828              		.cfi_def_cfa_offset 264
+ 273:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	uint8_t commandread[255];
+ 829              		.loc 1 273 2 view .LVU161
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 830              		.loc 1 275 2 view .LVU162
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 831              		.loc 1 275 8 is_stmt 0 view .LVU163
+ 832 0004 08E0     		b	.L48
+ 833              	.L49:
+ 277:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		APPL_USB_printf("Command = %s--", commandread);
+ 834              		.loc 1 277 3 is_stmt 1 view .LVU164
+ 835 0006 6946     		mov	r1, sp
+ 836 0008 0848     		ldr	r0, .L51
+ 837 000a FFF7FEFF 		bl	APPL_USB_printf
+ 838              	.LVL39:
+ 278:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (EKM_CMD_LineProcess((char *)commandread, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD_LINE_BAD_CMD){
+ 839              		.loc 1 278 3 view .LVU165
+ 278:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		if (EKM_CMD_LineProcess((char *)commandread, &APPL_DMA_LTE_CMD_OK, ' ') == EKM_CMD_LINE_BAD_CMD){
+ 840              		.loc 1 278 7 is_stmt 0 view .LVU166
+ 841 000e 2022     		movs	r2, #32
+ 842 0010 0749     		ldr	r1, .L51+4
+ 843 0012 6846     		mov	r0, sp
+ 844 0014 FFF7FEFF 		bl	EKM_CMD_LineProcess
+ 845              	.LVL40:
+ 846              	.L48:
+ 280:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 847              		.loc 1 280 3 is_stmt 1 view .LVU167
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 848              		.loc 1 275 8 view .LVU168
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 849              		.loc 1 275 9 is_stmt 0 view .LVU169
+ 850 0018 064A     		ldr	r2, .L51+8
+ 851 001a 6946     		mov	r1, sp
+ 852 001c 0648     		ldr	r0, .L51+12
+ 853 001e FFF7FEFF 		bl	EKM_Buffer_readline
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 26
 
 
- 823 0000 00000000 		.space	16
- 823      00000000 
- 823      00000000 
- 823      00000000 
- 824              		.section	.bss.APPL_DMA_LTE_CMD_Error,"aw",%nobits
- 825              		.align	2
- 828              	APPL_DMA_LTE_CMD_Error:
- 829 0000 00000000 		.space	16
- 829      00000000 
- 829      00000000 
- 829      00000000 
- 830              		.section	.bss.APPL_DMA_LTE_CMD_OK,"aw",%nobits
- 831              		.align	2
- 832              		.set	.LANCHOR6,. + 0
- 835              	APPL_DMA_LTE_CMD_OK:
- 836 0000 00000000 		.space	16
- 836      00000000 
- 836      00000000 
- 836      00000000 
- 837              		.section	.bss.APPL_DMA_LTE_CMD_PAPP,"aw",%nobits
- 838              		.align	2
- 841              	APPL_DMA_LTE_CMD_PAPP:
- 842 0000 00000000 		.space	16
- 842      00000000 
- 842      00000000 
- 842      00000000 
- 843              		.section	.bss.APPL_DMA_LTE_Init_Stage,"aw",%nobits
- 844              		.set	.LANCHOR0,. + 0
- 847              	APPL_DMA_LTE_Init_Stage:
- 848 0000 00       		.space	1
- 849              		.section	.bss.APPL_DMA_LTE_MQTT_ONLINE,"aw",%nobits
- 850              		.align	2
- 851              		.set	.LANCHOR2,. + 0
- 854              	APPL_DMA_LTE_MQTT_ONLINE:
- 855 0000 00000000 		.space	4
- 856              		.section	.bss.APPL_DMA_LTE_SIM7000G_ErrorCount,"aw",%nobits
- 857              		.align	1
- 858              		.set	.LANCHOR3,. + 0
- 861              	APPL_DMA_LTE_SIM7000G_ErrorCount:
- 862 0000 0000     		.space	2
- 863              		.section	.bss.APPL_DMA_LTE_Step_Init,"aw",%nobits
- 864              		.align	2
- 865              		.set	.LANCHOR1,. + 0
- 868              	APPL_DMA_LTE_Step_Init:
- 869 0000 00000000 		.space	120
- 869      00000000 
- 869      00000000 
- 869      00000000 
- 869      00000000 
- 870              		.section	.bss.APPL_DMA_LTE_TimemerCount,"aw",%nobits
- 871              		.align	1
- 874              	APPL_DMA_LTE_TimemerCount:
- 875 0000 0000     		.space	2
- 876              		.text
- 877              	.Letext0:
- 878              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
- 879              		.file 3 "c:\\gnuarm\\lib\\gcc\\arm-none-eabi\\10.3.1\\include\\stdarg.h"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 25
+ 854              	.LVL41:
+ 275:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	while (EKM_Buffer_readline(&APPL_DMA_LTE_Buffer, commandread, "\r\n"))
+ 855              		.loc 1 275 8 view .LVU170
+ 856 0022 0028     		cmp	r0, #0
+ 857 0024 EFD1     		bne	.L49
+ 283:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 858              		.loc 1 283 1 view .LVU171
+ 859 0026 41B0     		add	sp, sp, #260
+ 860              	.LCFI20:
+ 861              		.cfi_def_cfa_offset 4
+ 862              		@ sp needed
+ 863 0028 5DF804FB 		ldr	pc, [sp], #4
+ 864              	.L52:
+ 865              		.align	2
+ 866              	.L51:
+ 867 002c 00000000 		.word	.LC23
+ 868 0030 00000000 		.word	.LANCHOR6
+ 869 0034 08000000 		.word	.LC21
+ 870 0038 00000000 		.word	.LANCHOR5
+ 871              		.cfi_endproc
+ 872              	.LFE297:
+ 874              		.section	.text.APPL_DMA_LTE_APP,"ax",%progbits
+ 875              		.align	1
+ 876              		.global	APPL_DMA_LTE_APP
+ 877              		.syntax unified
+ 878              		.thumb
+ 879              		.thumb_func
+ 881              	APPL_DMA_LTE_APP:
+ 882              	.LVL42:
+ 883              	.LFB300:
+ 333:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** {
+ 884              		.loc 1 333 1 is_stmt 1 view -0
+ 885              		.cfi_startproc
+ 886              		@ args = 0, pretend = 0, frame = 0
+ 887              		@ frame_needed = 0, uses_anonymous_args = 0
+ 888              		@ link register save eliminated.
+ 334:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	if (argc > 2)
+ 889              		.loc 1 334 2 view .LVU173
+ 343:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 		}
+ 890              		.loc 1 343 3 view .LVU174
+ 345:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** 	return 0;
+ 891              		.loc 1 345 2 view .LVU175
+ 346:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 892              		.loc 1 346 1 is_stmt 0 view .LVU176
+ 893 0000 0020     		movs	r0, #0
+ 894              	.LVL43:
+ 346:../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.c **** }
+ 895              		.loc 1 346 1 view .LVU177
+ 896 0002 7047     		bx	lr
+ 897              		.cfi_endproc
+ 898              	.LFE300:
+ 900              		.global	APPL_DMA_LTE_CMD_APP
+ 901              		.global	APPL_DMA_LTE_CMD_Error
+ 902              		.global	APPL_DMA_LTE_CMD_PSUTTZ
+ 903              		.global	APPL_DMA_LTE_CMD_OK
+ 904              		.global	APPL_DMA_LTE_Buffer
+ 905              		.global	APPL_DMA_LTE_Buffer_d
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 27
 
 
- 880              		.file 4 "c:\\gnuarm\\arm-none-eabi\\include\\stdio.h"
- 881              		.file 5 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
- 882              		.file 6 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
- 883              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 884              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 885              		.file 9 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 886              		.file 10 "../02_OS/EKM_CMD/EKM_CMD.h"
- 887              		.file 11 "../02_OS/EKM_Buffer/EKM_Buffer.h"
- 888              		.file 12 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h"
- 889              		.file 13 "../02_OS/Core_UART/usart.h"
- 890              		.file 14 "../01_Applcation/Appl_Data/Appl_Data.h"
- 891              		.file 15 "c:\\gnuarm\\arm-none-eabi\\include\\string.h"
- 892              		.file 16 "<built-in>"
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 26
+ 906              		.global	APPL_DMA_LTE_Step_Init
+ 907              		.global	APPL_DMA_LTE_Init_Stage
+ 908              		.global	APPL_DMA_LTE_MQTT_ONLINE
+ 909              		.global	APPL_DMA_LTE_TimemerCount
+ 910              		.global	APPL_DMA_LTE_SIM7000G_ErrorCount
+ 911              		.section	.bss.APPL_DMA_LTE_Buffer,"aw",%nobits
+ 912              		.align	2
+ 913              		.set	.LANCHOR5,. + 0
+ 916              	APPL_DMA_LTE_Buffer:
+ 917 0000 00000000 		.space	12
+ 917      00000000 
+ 917      00000000 
+ 918              		.section	.bss.APPL_DMA_LTE_Buffer_d,"aw",%nobits
+ 919              		.align	2
+ 920              		.set	.LANCHOR4,. + 0
+ 923              	APPL_DMA_LTE_Buffer_d:
+ 924 0000 00000000 		.space	128
+ 924      00000000 
+ 924      00000000 
+ 924      00000000 
+ 924      00000000 
+ 925              		.section	.bss.APPL_DMA_LTE_CMD_APP,"aw",%nobits
+ 926              		.align	2
+ 929              	APPL_DMA_LTE_CMD_APP:
+ 930 0000 00000000 		.space	16
+ 930      00000000 
+ 930      00000000 
+ 930      00000000 
+ 931              		.section	.bss.APPL_DMA_LTE_CMD_Error,"aw",%nobits
+ 932              		.align	2
+ 933              		.set	.LANCHOR8,. + 0
+ 936              	APPL_DMA_LTE_CMD_Error:
+ 937 0000 00000000 		.space	16
+ 937      00000000 
+ 937      00000000 
+ 937      00000000 
+ 938              		.section	.bss.APPL_DMA_LTE_CMD_OK,"aw",%nobits
+ 939              		.align	2
+ 940              		.set	.LANCHOR6,. + 0
+ 943              	APPL_DMA_LTE_CMD_OK:
+ 944 0000 00000000 		.space	16
+ 944      00000000 
+ 944      00000000 
+ 944      00000000 
+ 945              		.section	.bss.APPL_DMA_LTE_CMD_PSUTTZ,"aw",%nobits
+ 946              		.align	2
+ 947              		.set	.LANCHOR7,. + 0
+ 950              	APPL_DMA_LTE_CMD_PSUTTZ:
+ 951 0000 00000000 		.space	16
+ 951      00000000 
+ 951      00000000 
+ 951      00000000 
+ 952              		.section	.bss.APPL_DMA_LTE_Init_Stage,"aw",%nobits
+ 953              		.set	.LANCHOR0,. + 0
+ 956              	APPL_DMA_LTE_Init_Stage:
+ 957 0000 00       		.space	1
+ 958              		.section	.bss.APPL_DMA_LTE_MQTT_ONLINE,"aw",%nobits
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 28
+
+
+ 959              		.align	2
+ 960              		.set	.LANCHOR2,. + 0
+ 963              	APPL_DMA_LTE_MQTT_ONLINE:
+ 964 0000 00000000 		.space	4
+ 965              		.section	.bss.APPL_DMA_LTE_SIM7000G_ErrorCount,"aw",%nobits
+ 966              		.align	1
+ 967              		.set	.LANCHOR3,. + 0
+ 970              	APPL_DMA_LTE_SIM7000G_ErrorCount:
+ 971 0000 0000     		.space	2
+ 972              		.section	.bss.APPL_DMA_LTE_Step_Init,"aw",%nobits
+ 973              		.align	2
+ 974              		.set	.LANCHOR1,. + 0
+ 977              	APPL_DMA_LTE_Step_Init:
+ 978 0000 00000000 		.space	120
+ 978      00000000 
+ 978      00000000 
+ 978      00000000 
+ 978      00000000 
+ 979              		.section	.bss.APPL_DMA_LTE_TimemerCount,"aw",%nobits
+ 980              		.align	1
+ 983              	APPL_DMA_LTE_TimemerCount:
+ 984 0000 0000     		.space	2
+ 985              		.text
+ 986              	.Letext0:
+ 987              		.file 2 "c:\\gnuarm\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 988              		.file 3 "c:\\gnuarm\\lib\\gcc\\arm-none-eabi\\10.3.1\\include\\stdarg.h"
+ 989              		.file 4 "c:\\gnuarm\\arm-none-eabi\\include\\stdio.h"
+ 990              		.file 5 "c:\\gnuarm\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 991              		.file 6 "../03_Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l432xx.h"
+ 992              		.file 7 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 993              		.file 8 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 994              		.file 9 "../03_Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 995              		.file 10 "../02_OS/EKM_CMD/EKM_CMD.h"
+ 996              		.file 11 "../02_OS/EKM_Buffer/EKM_Buffer.h"
+ 997              		.file 12 "../01_Applcation/APPL_DMA_LTE/APPL_DMA_LTE.h"
+ 998              		.file 13 "../02_OS/Core_UART/usart.h"
+ 999              		.file 14 "../01_Applcation/Appl_Data/Appl_Data.h"
+ 1000              		.file 15 "../01_Applcation/Appl_USBService/Appl_USBService.h"
+ 1001              		.file 16 "c:\\gnuarm\\arm-none-eabi\\include\\string.h"
+ 1002              		.file 17 "<built-in>"
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 APPL_DMA_LTE.c
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:20     .text.APPL_DMA_LTE_OK:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:26     .text.APPL_DMA_LTE_OK:00000000 APPL_DMA_LTE_OK
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:52     .text.APPL_DMA_LTE_OK:00000010 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:58     .rodata.APPL_DMA_LTE_Init.str1.4:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:99     .text.APPL_DMA_LTE_Init:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:105    .text.APPL_DMA_LTE_Init:00000000 APPL_DMA_LTE_Init
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:245    .text.APPL_DMA_LTE_Init:00000080 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:270    .text.APPL_DMA_LTE_printf:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:276    .text.APPL_DMA_LTE_printf:00000000 APPL_DMA_LTE_printf
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:353    .text.APPL_DMA_LTE_printf:00000040 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:358    .rodata.APPL_DMA_LTE_MQTT_PUBLISH.str1.4:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:365    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:371    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000000 APPL_DMA_LTE_MQTT_PUBLISH
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:471    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000050 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:479    .rodata.APPL_DMA_LTE_MQTT_PUBLISH_Raw.str1.4:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:486    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:492    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:00000000 APPL_DMA_LTE_MQTT_PUBLISH_Raw
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:570    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:0000003c $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:579    .rodata.APPL_DMA_LTE_SIM7000G_Init.str1.4:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:583    .text.APPL_DMA_LTE_SIM7000G_Init:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:589    .text.APPL_DMA_LTE_SIM7000G_Init:00000000 APPL_DMA_LTE_SIM7000G_Init
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:637    .text.APPL_DMA_LTE_SIM7000G_Init:00000030 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:644    .text.APPL_DMA_LTE_SIM7000G_Error_Handel:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:650    .text.APPL_DMA_LTE_SIM7000G_Error_Handel:00000000 APPL_DMA_LTE_SIM7000G_Error_Handel
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:663    .text.APPL_DMA_LTE_LineProcess:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:669    .text.APPL_DMA_LTE_LineProcess:00000000 APPL_DMA_LTE_LineProcess
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:716    .text.APPL_DMA_LTE_LineProcess:00000030 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:722    .text.APPL_DMA_LTE_Error:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:728    .text.APPL_DMA_LTE_Error:00000000 APPL_DMA_LTE_Error
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:762    .text.APPL_DMA_LTE_Error:00000018 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:768    .text.APPL_DMA_LTE_APP:00000000 $t
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:774    .text.APPL_DMA_LTE_APP:00000000 APPL_DMA_LTE_APP
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:841    .bss.APPL_DMA_LTE_CMD_PAPP:00000000 APPL_DMA_LTE_CMD_PAPP
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:822    .bss.APPL_DMA_LTE_CMD_APP:00000000 APPL_DMA_LTE_CMD_APP
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:828    .bss.APPL_DMA_LTE_CMD_Error:00000000 APPL_DMA_LTE_CMD_Error
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:835    .bss.APPL_DMA_LTE_CMD_OK:00000000 APPL_DMA_LTE_CMD_OK
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:809    .bss.APPL_DMA_LTE_Buffer:00000000 APPL_DMA_LTE_Buffer
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:816    .bss.APPL_DMA_LTE_Buffer_d:00000000 APPL_DMA_LTE_Buffer_d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:868    .bss.APPL_DMA_LTE_Step_Init:00000000 APPL_DMA_LTE_Step_Init
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:847    .bss.APPL_DMA_LTE_Init_Stage:00000000 APPL_DMA_LTE_Init_Stage
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:854    .bss.APPL_DMA_LTE_MQTT_ONLINE:00000000 APPL_DMA_LTE_MQTT_ONLINE
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:874    .bss.APPL_DMA_LTE_TimemerCount:00000000 APPL_DMA_LTE_TimemerCount
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:861    .bss.APPL_DMA_LTE_SIM7000G_ErrorCount:00000000 APPL_DMA_LTE_SIM7000G_ErrorCount
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:805    .bss.APPL_DMA_LTE_Buffer:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:812    .bss.APPL_DMA_LTE_Buffer_d:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:819    .bss.APPL_DMA_LTE_CMD_APP:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:825    .bss.APPL_DMA_LTE_CMD_Error:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:831    .bss.APPL_DMA_LTE_CMD_OK:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:838    .bss.APPL_DMA_LTE_CMD_PAPP:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:848    .bss.APPL_DMA_LTE_Init_Stage:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:850    .bss.APPL_DMA_LTE_MQTT_ONLINE:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:857    .bss.APPL_DMA_LTE_SIM7000G_ErrorCount:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:864    .bss.APPL_DMA_LTE_Step_Init:00000000 $d
-C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s:871    .bss.APPL_DMA_LTE_TimemerCount:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:20     .text.APPL_DMA_LTE_PSUTTZ:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:26     .text.APPL_DMA_LTE_PSUTTZ:00000000 APPL_DMA_LTE_PSUTTZ
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:45     .rodata.APPL_DMA_LTE_OK.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:49     .text.APPL_DMA_LTE_OK:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:55     .text.APPL_DMA_LTE_OK:00000000 APPL_DMA_LTE_OK
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:91     .text.APPL_DMA_LTE_OK:0000001c $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:98     .rodata.APPL_DMA_LTE_Init.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:148    .text.APPL_DMA_LTE_Init:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:154    .text.APPL_DMA_LTE_Init:00000000 APPL_DMA_LTE_Init
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:325    .text.APPL_DMA_LTE_Init:000000a0 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:455    .text.APPL_DMA_LTE_Error:00000000 APPL_DMA_LTE_Error
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:357    .text.APPL_DMA_LTE_printf:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:363    .text.APPL_DMA_LTE_printf:00000000 APPL_DMA_LTE_printf
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:440    .text.APPL_DMA_LTE_printf:00000040 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:445    .rodata.APPL_DMA_LTE_Error.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:449    .text.APPL_DMA_LTE_Error:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:497    .text.APPL_DMA_LTE_Error:00000020 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:504    .rodata.APPL_DMA_LTE_MQTT_PUBLISH.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:511    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:517    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000000 APPL_DMA_LTE_MQTT_PUBLISH
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:617    .text.APPL_DMA_LTE_MQTT_PUBLISH:00000050 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:625    .rodata.APPL_DMA_LTE_MQTT_PUBLISH_Raw.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:632    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:638    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:00000000 APPL_DMA_LTE_MQTT_PUBLISH_Raw
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:713    .text.APPL_DMA_LTE_MQTT_PUBLISH_Raw:0000003c $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:722    .rodata.APPL_DMA_LTE_SIM7000G_Init.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:726    .text.APPL_DMA_LTE_SIM7000G_Init:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:732    .text.APPL_DMA_LTE_SIM7000G_Init:00000000 APPL_DMA_LTE_SIM7000G_Init
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:780    .text.APPL_DMA_LTE_SIM7000G_Init:00000030 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:787    .text.APPL_DMA_LTE_SIM7000G_Error_Handel:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:793    .text.APPL_DMA_LTE_SIM7000G_Error_Handel:00000000 APPL_DMA_LTE_SIM7000G_Error_Handel
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:806    .rodata.APPL_DMA_LTE_LineProcess.str1.4:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:810    .text.APPL_DMA_LTE_LineProcess:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:816    .text.APPL_DMA_LTE_LineProcess:00000000 APPL_DMA_LTE_LineProcess
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:867    .text.APPL_DMA_LTE_LineProcess:0000002c $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:875    .text.APPL_DMA_LTE_APP:00000000 $t
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:881    .text.APPL_DMA_LTE_APP:00000000 APPL_DMA_LTE_APP
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:929    .bss.APPL_DMA_LTE_CMD_APP:00000000 APPL_DMA_LTE_CMD_APP
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:936    .bss.APPL_DMA_LTE_CMD_Error:00000000 APPL_DMA_LTE_CMD_Error
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:950    .bss.APPL_DMA_LTE_CMD_PSUTTZ:00000000 APPL_DMA_LTE_CMD_PSUTTZ
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:943    .bss.APPL_DMA_LTE_CMD_OK:00000000 APPL_DMA_LTE_CMD_OK
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:916    .bss.APPL_DMA_LTE_Buffer:00000000 APPL_DMA_LTE_Buffer
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:923    .bss.APPL_DMA_LTE_Buffer_d:00000000 APPL_DMA_LTE_Buffer_d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:977    .bss.APPL_DMA_LTE_Step_Init:00000000 APPL_DMA_LTE_Step_Init
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:956    .bss.APPL_DMA_LTE_Init_Stage:00000000 APPL_DMA_LTE_Init_Stage
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:963    .bss.APPL_DMA_LTE_MQTT_ONLINE:00000000 APPL_DMA_LTE_MQTT_ONLINE
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:983    .bss.APPL_DMA_LTE_TimemerCount:00000000 APPL_DMA_LTE_TimemerCount
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:970    .bss.APPL_DMA_LTE_SIM7000G_ErrorCount:00000000 APPL_DMA_LTE_SIM7000G_ErrorCount
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:912    .bss.APPL_DMA_LTE_Buffer:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:919    .bss.APPL_DMA_LTE_Buffer_d:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:926    .bss.APPL_DMA_LTE_CMD_APP:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:932    .bss.APPL_DMA_LTE_CMD_Error:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:939    .bss.APPL_DMA_LTE_CMD_OK:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:946    .bss.APPL_DMA_LTE_CMD_PSUTTZ:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:957    .bss.APPL_DMA_LTE_Init_Stage:00000000 $d
+ARM GAS  C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s 			page 30
 
-ARM GAS  C:\Users\minde\AppData\Local\Temp\ccIwWLY5.s 			page 27
 
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:959    .bss.APPL_DMA_LTE_MQTT_ONLINE:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:966    .bss.APPL_DMA_LTE_SIM7000G_ErrorCount:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:973    .bss.APPL_DMA_LTE_Step_Init:00000000 $d
+C:\Users\minde\AppData\Local\Temp\ccFRyS8g.s:980    .bss.APPL_DMA_LTE_TimemerCount:00000000 $d
 
 UNDEFINED SYMBOLS
+APPL_USB_printf
 EKM_Buffer_Setup
 EKM_Buffer_Reset
 APPL_data
@@ -1526,5 +1739,5 @@ vsprintf
 strlen
 HAL_UART_Transmit
 huart1
-EKM_CMD_RXPeek
 EKM_CMD_LineProcess
+EKM_Buffer_readline

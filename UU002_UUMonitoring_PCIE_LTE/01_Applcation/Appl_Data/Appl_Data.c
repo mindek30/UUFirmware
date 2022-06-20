@@ -67,17 +67,16 @@ void APPL_Data_Init(void)
 {
     HAL_GPIO_WritePin(USART2_EN_GPIO_Port, USART2_EN_Pin, GPIO_PIN_RESET);
     memset(APPL_Data_RS485_Buffer, 0, APPL_Data_RS485_Buffer_Size);
-    APPL_data.modbus_size = 10;
-    APPL_data.modsend[0] = 0xF0;
-    APPL_data.modsend[1] = 0xF1;
-    APPL_data.modsend[2] = 0xF2;
-    APPL_data.modsend[3] = 0xF3;
-    APPL_data.modsend[4] = 0xF4;
-    APPL_data.modsend[5] = 0xF5;
-    APPL_data.modsend[6] = 0xF6;
-    APPL_data.modsend[7] = 0xF7;
-    APPL_data.modsend[8] = 0xF8;
-    APPL_data.modsend[9] = 0xF9;
+    // 59 03 00 00 00 0C 48 D7
+    APPL_data.modbus_size = 8;
+    APPL_data.modsend[0] = 0x59;
+    APPL_data.modsend[1] = 0x03;
+    APPL_data.modsend[2] = 0x00;
+    APPL_data.modsend[3] = 0x00;
+    APPL_data.modsend[4] = 0x00;
+    APPL_data.modsend[5] = 0x0C;
+    APPL_data.modsend[6] = 0x48;
+    APPL_data.modsend[7] = 0xD7;
 }
 
 /*******************************************************************************
@@ -277,7 +276,7 @@ uint8_t APPL_Data_RS485_CRC_Decode(uint8_t *data, uint8_t len)
     }
     for (pos = 0; pos < (len - 2); pos++)
     {
-        // APPL_USB_printf("%02x ",data[pos]);
+        //APPL_USB_printf("%02x ",data[pos]);
         tmp.REG ^= (uint16_t)data[pos]; // XOR byte into least sig. byte of crc
 
         for (int i = 8; i != 0; i--)
@@ -293,7 +292,7 @@ uint8_t APPL_Data_RS485_CRC_Decode(uint8_t *data, uint8_t len)
     }
     if ((data[len - 2] == tmp.HREG) && (data[len - 1] == tmp.LREG))
     {
-        // APPL_USB_printf("REG %04x, %02x, %02x\r\n",tmp.REG,tmp.HREG,tmp.LREG);
+        //APPL_USB_printf("REG %04x, %02x, %02x\r\n",tmp.REG,tmp.HREG,tmp.LREG);
         return 1;
     }
     // Note, this number has low and high bytes swapped, so use it accordingly (or swap bytes)

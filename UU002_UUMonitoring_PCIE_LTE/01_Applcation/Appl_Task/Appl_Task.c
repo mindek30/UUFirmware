@@ -133,8 +133,11 @@ void APPL_Task_10ms(void)
     case 10:
     {
         /* code */
+        APPL_DMA_LTE_LineProcess();
+        
         time_10ms = 0;
         APPL_Task_100ms();
+        
         break;
     }
     }
@@ -158,6 +161,7 @@ void APPL_Task_100ms(void)
     case 1:
     {
         /* code */
+        APPL_DMA_LTE_SIM7000G_Init();
         break;
     }
     case 2:
@@ -270,9 +274,10 @@ void APPL_Task_1s(void)
         /* code */
         break;
     }
-    case 10:
+    case 60:
     {
         /* code */
+        APPL_Data_RS485_Send();
         time_1s = 0;
         break;
     }
