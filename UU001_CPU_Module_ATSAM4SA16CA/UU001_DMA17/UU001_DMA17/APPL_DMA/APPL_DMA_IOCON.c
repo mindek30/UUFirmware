@@ -38,11 +38,12 @@ uint16_t APPL_DMA_IOCON_TempAndHumi(APPL_DMA_IOCON_t *pdata);
 ******************************************************************************/
 void APPL_DMA_IOCON_Init(void){
 	// Information for Device 
-	APPL_DMA_IOCON_d.IOT_ID = 2;
-	APPL_DMA_IOCON_d.MQTT_IP0 = 203;
-	APPL_DMA_IOCON_d.MQTT_IP1 = 151;
-	APPL_DMA_IOCON_d.MQTT_IP2 = 79;
-	APPL_DMA_IOCON_d.MQTT_IP3 = 149;
+	APPL_DMA_IOCON_d.IOT_ID = 19;
+	// ip MQTT Broker 27.254.115.123
+	APPL_DMA_IOCON_d.MQTT_IP0 = 27;
+	APPL_DMA_IOCON_d.MQTT_IP1 = 254;
+	APPL_DMA_IOCON_d.MQTT_IP2 = 115;
+	APPL_DMA_IOCON_d.MQTT_IP3 = 123;
 	APPL_DMA_IOCON_d.MQTT_PORT = 1883;
 	strcpy(APPL_DMA_IOCON_d.MQTT_USER, "1111");
 	strcpy(APPL_DMA_IOCON_d.MQTT_PASS, "1111");

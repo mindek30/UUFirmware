@@ -13,6 +13,8 @@
 #include <string.h>
 #include "sam.h"
 #include "APPL_DMA_OS.h"
+#include "APPL_DMA_IOCON.h"
+#include "APPL_DMA_LTE.h"
 
 /*******************************************************************************
 *
@@ -24,6 +26,7 @@ void APPL_DMA_OS_LEDTask(uint8_t onff);
 void APPL_DMA_OS_10ms(void);
 void APPL_DMA_OS_100ms(void);
 void APPL_DMA_OS_1s(void);
+void APPL_DMA_OS_1m(void);
 /*******************************************************************************
 *
 * PRIVATE VARIABLE
@@ -32,6 +35,7 @@ void APPL_DMA_OS_1s(void);
 uint8_t APPL_DMA_OS_Time_10ms = 0;
 uint8_t APPL_DMA_OS_Time_100ms = 0;
 uint8_t APPL_DMA_OS_Time_1s = 0;
+uint8_t APPL_DMA_OS_Time_1m = 0;
 
 /*******************************************************************************
 * Function: APPL_DMA_OS_Init
@@ -51,7 +55,7 @@ void APPL_DMA_OS_Init(void)
 	APPL_DMA_RS485_printf("RS485 Init\r\n");
 	APPL_DMA_IOCON_Init();
 	APPL_DMA_RS485_printf("IOControl Init\r\n");
-	APPL_LTE_Init();
+	APPL_DMA_LTE_Init();
 	APPL_DMA_RS485_printf("LTE Init\r\n");
 }
 
@@ -86,8 +90,8 @@ void APPL_DMA_OS_LEDTask(uint8_t onff){
 ******************************************************************************/
 void APPL_DMA_OS_10ms(void)
 {
-
-	switch (APPL_DMA_OS_Time_10ms++)
+	APPL_DMA_OS_Time_10ms++;
+	switch (APPL_DMA_OS_Time_10ms)
 	{
 		case 10:
 		{	
@@ -172,9 +176,49 @@ void APPL_DMA_OS_1s(void)
 	APPL_DMA_OS_Time_1s++;
 	switch (APPL_DMA_OS_Time_1s)
 	{	
-		case 15:
-		{
+		case 60:
+		{	
+			APPL_DMA_OS_1m();
 			APPL_DMA_OS_Time_1s = 0;
+			break;
+		}
+		case 2:
+		{
+			break;
+		}
+	}
+}
+
+/*******************************************************************************
+* Function: APPL_Task_1m
+*
+* Parameters:      -
+* Returned value:  -
+*
+* Description:
+*
+* Calling:
+******************************************************************************/
+void APPL_DMA_OS_1m(void)
+{
+	APPL_DMA_OS_Time_1m++;
+	switch (APPL_DMA_OS_Time_1m)
+	{
+		case 5:
+		{
+			APPL_DMA_RS485_printf("Data 5m send %02x:%04X:%04X:%04X:%04X\r\n", 
+				APPL_DMA_IOCON_d.DIO,
+				APPL_DMA_IOCON_d.ANIN0,
+				APPL_DMA_IOCON_d.ANIN1,
+				APPL_DMA_IOCON_d.ANIN2,
+				APPL_DMA_IOCON_d.ANIN3);
+			APPL_DMA_LTE_MQTT_PUBLISH("IO", "%02x:%04X:%04X:%04X:%04X", APPL_DMA_IOCON_d.DIO,
+			APPL_DMA_IOCON_d.ANIN0,
+			APPL_DMA_IOCON_d.ANIN1,
+			APPL_DMA_IOCON_d.ANIN2,
+			APPL_DMA_IOCON_d.ANIN3);
+			
+			APPL_DMA_OS_Time_1m = 0;
 			break;
 		}
 		case 2:

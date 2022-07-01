@@ -199,7 +199,7 @@ int main(void)
 	APPL_DMA_OS_Init();
 	APPL_DMA_RS485_printf("Waiting for input\r\n");
 	while (1)
-	{
+	{ 
 		if(flag == 1){
 			APPL_DMA_OS_10ms();
 			flag = 0;
@@ -218,8 +218,11 @@ void USART0_Handler(void) {
 		//read receive holding register
 		uint8_t readByte = REG_USART0_RHR;
 		//transmit that byte back
-		if(readByte!=0x0d){
+		if ((readByte != 0x0d) && (readByte != 0x0a)){
 			EKM_Buffer_Set(&APPL_DMA_LTE_Buffer,readByte);
+		}
+		if (readByte == 0x0a){
+			APPL_DMA_LTE_RES_RUN = 1;
 		}
 	}
 }

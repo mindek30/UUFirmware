@@ -4,6 +4,19 @@
  *  Created on: Jan 14, 2020
  *      Author: Eakawit
  *      Email: mindek30@gmail.com
+ *
+ *  Update on: 03 Jun, 2022
+ *      Update :
+ *          1. Clear bug increment from EKM_Buffer_Index_Increment function.
+ *          2. Clear bug increment from EKM_Buffer_Set_Muti, EKM_Buffer_Get_Muti.
+ *          3. Clear bug form EKM_Buffer_Index_Decrement.
+ *      Remove :
+ *          1. Comment
+ *      Add :
+ *          1. EKM_Buffer_readline
+ *          2. EKM_Buffer_Raw_Reset
+ *          3. EKM_Buffer_Raw_set
+ *  
  */
 
 #ifndef EKM_BUFFER_H_
@@ -19,9 +32,21 @@ typedef struct ring_t{
     uint8_t read;
     uint8_t write;
     uint8_t Size;
+    uint8_t SizeMax;
     uint8_t full;
-    uint8_t * buffer;
+    int8_t LineCount;
+    uint8_t *buffer;
 }EKM_Buffer_t;
+
+typedef union EKM_16Bto8B
+{
+  struct
+  {
+    uint16_t HREG : 8;
+    uint16_t LREG : 8;
+  };
+  uint16_t REG;
+} EKM_16Bto8B_t;
 
 //*****************************************************************************
 // Prototypes for the APIs.
@@ -35,6 +60,9 @@ extern uint8_t EKM_Buffer_Get(EKM_Buffer_t *tmp, uint8_t *c);
 extern uint8_t EKM_Buffer_Set_Muti(EKM_Buffer_t *tmp, uint8_t *buffer, uint8_t N);
 extern uint8_t EKM_Buffer_Get_Muti(EKM_Buffer_t *tmp, uint8_t *buffer, uint8_t N);
 extern uint8_t EKM_Buffer_Element(EKM_Buffer_t * tmp);
+extern uint8_t EKM_Buffer_Raw_Reset(uint8_t *c, uint8_t *Raw_pointer, uint8_t Size);
+extern uint8_t EKM_Buffer_Raw_set(uint8_t *c, uint8_t Size, uint8_t *Raw_pointer, uint8_t buf);
+extern uint8_t EKM_Buffer_readline(EKM_Buffer_t *tmp, uint8_t *readline, const char *varsplit);
 
 #ifdef __cplusplus
 }

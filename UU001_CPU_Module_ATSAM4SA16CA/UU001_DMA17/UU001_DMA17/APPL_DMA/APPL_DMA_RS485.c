@@ -14,6 +14,7 @@
 #include "sam.h"
 #include "APPL_DMA_RS485.h"
 #include "APPL_DMA_IOCON.h"
+#include "APPL_DMA_LTE.h"
 
 #define APPL_DMA_RS48_BUF_Size 50
 
@@ -28,6 +29,7 @@ EKM_CMD_tCmdLineEntry APPL_DMA_RS485_CMD_ANALOG;
 EKM_CMD_tCmdLineEntry APPL_DMA_RS485_CMD_SystemReset;
 EKM_CMD_tCmdLineEntry APPL_DMA_RS485_CMD_CTMB;
 EKM_CMD_tCmdLineEntry APPL_DMA_RS485_CMD_Test;
+EKM_CMD_tCmdLineEntry APPL_DMA_RS485_CMD_LTE_Test;
 
 void APPL_DMA_RS485_Init(void);
 void APPL_DMA_RS485_printByte(uint8_t data);
@@ -35,6 +37,7 @@ void APPL_DMA_RS485_printString(const uint8_t myString[]);
 void APPL_DMA_RS485_printf(const char *format, ...);
 void APPL_DMA_RS485_LTE_EN(uint8_t onff);
 void APPL_DMA_RS485_LineProcess(void);
+
 int APPL_DMA_RS485_IDN(int argc, char *argv[]);
 int APPL_DMA_RS485_HELP(int argc, char *argv[]);
 int APPL_DMA_RS485_Status(int argc, char *argv[]);
@@ -43,6 +46,7 @@ int APPL_DMA_RS485_ANALOG(int argc, char *argv[]);
 int APPL_DMA_RS485_SystemReset(int argc, char *argv[]);
 int APPL_DMA_RS485_Test(int argc, char *argv[]);
 int APPL_DMA_RS485_CTMB(int argc, char *argv[]);
+int APPL_DMA_RS485_LTE_TEST(int argc, char *argv[]);
 
 /*******************************************************************************
 * Function: APPL_DMA_RS485_Init
@@ -97,7 +101,12 @@ void APPL_DMA_RS485_Init(void)
 	    APPL_DMA_RS485_CMD_Test.EKM_CMD_pcCmd = "test";
 	    APPL_DMA_RS485_CMD_Test.EKM_CMD_pcHelp = "Test function";
 	    APPL_DMA_RS485_CMD_Test.EKM_CMD_pfnCmd = &APPL_DMA_RS485_Test;
-	    APPL_DMA_RS485_CMD_Test.next = (void *)0;
+	    APPL_DMA_RS485_CMD_Test.next = &APPL_DMA_RS485_CMD_LTE_Test;
+
+	    APPL_DMA_RS485_CMD_LTE_Test.EKM_CMD_pcCmd = "lte";
+	    APPL_DMA_RS485_CMD_LTE_Test.EKM_CMD_pcHelp = "LTE Test function";
+	    APPL_DMA_RS485_CMD_LTE_Test.EKM_CMD_pfnCmd = &APPL_DMA_RS485_LTE_TEST;
+	    APPL_DMA_RS485_CMD_LTE_Test.next =(void *)0;
 }
 
 /*******************************************************************************
@@ -131,6 +140,7 @@ void APPL_DMA_RS485_printString(const uint8_t myString[]) {
 	uint8_t i = 0;
 	while (myString[i]) {
 		APPL_DMA_RS485_printByte(myString[i]);
+		asm("nop");
 		i++;
 	}
 }
@@ -429,6 +439,35 @@ int APPL_DMA_RS485_Test(int argc, char *argv[])
 	APPL_DMA_IOCON_TempAndHumi(&APPL_DMA_IOCON_d);
 	APPL_DMA_RS485_printf("Temperature = %d C\r\n", APPL_DMA_IOCON_d.Temperature);
 	APPL_DMA_RS485_printf("Humidity = %d C\r\n", APPL_DMA_IOCON_d.Humidity);
+	APPL_DMA_RS485_printf("-----------Test Function-----------\r\n");
+	return 0;
+}
+
+/*******************************************************************************
+* Function: APPL_DMA_RS485_LTE_TEST
+*
+* Parameters:      -
+* Returned value:  -
+*
+* Description:
+*
+* Calling:
+******************************************************************************/
+int APPL_DMA_RS485_LTE_TEST(int argc, char *argv[])
+{
+	APPL_DMA_RS485_printf("-----------Test Function-----------\r\n");
+	APPL_DMA_RS485_printf("Data send %02x:%04X:%04X:%04X:%04X\r\n", 
+		APPL_DMA_IOCON_d.DIO,
+		APPL_DMA_IOCON_d.ANIN0,
+		APPL_DMA_IOCON_d.ANIN1,
+		APPL_DMA_IOCON_d.ANIN2,
+		APPL_DMA_IOCON_d.ANIN3);
+	APPL_DMA_LTE_MQTT_PUBLISH("IO", "%02x:%04X:%04X:%04X:%04X", 
+		APPL_DMA_IOCON_d.DIO,
+		APPL_DMA_IOCON_d.ANIN0,
+		APPL_DMA_IOCON_d.ANIN1,
+		APPL_DMA_IOCON_d.ANIN2,
+		APPL_DMA_IOCON_d.ANIN3);
 	APPL_DMA_RS485_printf("-----------Test Function-----------\r\n");
 	return 0;
 }

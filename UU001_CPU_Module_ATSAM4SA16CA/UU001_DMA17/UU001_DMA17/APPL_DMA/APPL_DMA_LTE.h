@@ -17,6 +17,7 @@
 // Prototypes for the APIs.
 //*****************************************************************************
 extern EKM_Buffer_t APPL_DMA_LTE_Buffer;
+extern int APPL_DMA_LTE_RES_RUN;
 extern void APPL_DMA_LTE_Init(void);
 extern void APPL_DMA_LTE_SIM7000G_Init(void);
 extern void APPL_DMA_LTE_MQTT_PUBLISH(const char *MQTT_Topic, const char *format, ...);

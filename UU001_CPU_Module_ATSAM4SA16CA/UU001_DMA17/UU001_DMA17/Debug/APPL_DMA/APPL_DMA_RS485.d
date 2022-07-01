@@ -108,7 +108,7 @@ APPL_DMA/APPL_DMA_RS485.d APPL_DMA/APPL_DMA_RS485.o: \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM4S_DFP\1.0.56\sam4s\include/pio/sam4sa16c.h \
  ../APPL_DMA/APPL_DMA_RS485.h ../APPL_DMA/EKM_Buffer.h \
  ../APPL_DMA/EKM_CMD.h ../APPL_DMA/EKM_Modbus.h \
- ../APPL_DMA/APPL_DMA_IOCON.h
+ ../APPL_DMA/APPL_DMA_IOCON.h ../APPL_DMA/APPL_DMA_LTE.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\stdio.h:
 
@@ -331,3 +331,5 @@ C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\SAM4S_DFP\1.0.56\sam4s\inc
 ../APPL_DMA/EKM_Modbus.h:
 
 ../APPL_DMA/APPL_DMA_IOCON.h:
+
+../APPL_DMA/APPL_DMA_LTE.h:
